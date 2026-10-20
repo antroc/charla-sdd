@@ -108,7 +108,7 @@ Lleva preparadas las fechas del próximo taller para la diapositiva de cierre: s
 
 - **Grupo que empieza de cero:** cambia el ejercicio 05 por el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) (Solicitud de vacaciones, 30 minutos): escribir una especificación propia, completa y sin código prepara mejor que revisar una ajena cuando todavía no se ha escrito ninguna.
 - **Grupo técnico con el entorno instalado de antemano** (la vía B del [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md), con GitHub Spec Kit, la herramienta de GitHub para seguir SDD con un asistente de IA): sustituye los ejercicios 02 y 05 por la primera sesión del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), los pasos 0 a 7, hasta analizar. La implementación queda para una segunda sesión, como propone el propio ejercicio.
-- **En línea:** usa la variante en línea de la [dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes), con salas pequeñas y un documento compartido por grupo, y cuenta 25 minutos para ella en vez de 20; quítalos de la apertura.
+- **En línea:** usa la variante en línea de la [dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes), con salas pequeñas y un documento compartido por grupo, y cuenta 25 minutos para ella en vez de 20: los cinco que faltan, quítalos de la apertura.
 
 ### Formato 3: itinerario de autoformación de 2 semanas
 
@@ -248,7 +248,7 @@ El material mejora con cada sesión. Lo que te pregunten y no esté respondido, 
 
 - **Durante la sesión,** apunta las preguntas sin respuesta, los ejemplos que no se entendieron, las erratas y los enlaces rotos.
 - **Al terminar,** junta esas notas con los comentarios de la encuesta, agregados y sin nombres.
-- **Para proponer el cambio,** sigue [CONTRIBUIR.md](../CONTRIBUIR.md): puedes abrir una *issue* (una incidencia o propuesta registrada en el repositorio), enviar un *pull request* (una propuesta de cambio sobre los propios ficheros) o escribir al equipo que mantiene el material.
+- **Para proponer el cambio,** sigue [CONTRIBUIR.md](../CONTRIBUIR.md): puedes abrir una incidencia (*issue*, una petición o aviso que queda registrado en el repositorio), editar el fichero y proponerlo con una *pull request* (una propuesta de cambio que otra persona revisa antes de incorporarla) o, si no tienes cuenta de GitHub, escribir a quien mantiene el material.
 
 Cada propuesta se entiende mejor con estos cuatro datos:
 
