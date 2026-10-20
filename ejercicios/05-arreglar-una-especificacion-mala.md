@@ -58,10 +58,10 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    05
    06  ## Resumen
    07
-   08  Vamos a hacer una app web para reservar las salas de reuniones. Se hará con React en la
-   09  parte visual, una API REST en Node.js y una base de datos PostgreSQL, todo desplegado en
-   10  la nube. Así sustituimos la hoja de cálculo, que da muchos problemas. Más adelante la app
-   11  servirá también para reservar plazas de parking y pedir catering.
+   08  Vamos a hacer una app web para reservar las 12 salas de reuniones de las tres plantas
+   09  (Mediterráneo, Cantábrico, Atlántico y las demás). Se hará con React en la parte visual,
+   10  una API REST en Node.js y PostgreSQL, todo en la nube. Así sustituimos la hoja de cálculo,
+   11  que da muchos problemas. Más adelante servirá también para reservar parking y catering.
    12
    13  ## Historias de usuario y escenarios
    14
@@ -156,7 +156,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    | Línea(s) | Qué falla | Tipo | Cómo lo arreglarías |
    |---|---|---|---|
-   | 08-10 | Se decide la tecnología (React, Node.js, PostgreSQL, nube) en la especificación. | Tecnología | Quitarlo de aquí. Si hay preferencias, van al plan técnico, justificadas contra la constitución. |
+   | 09-10 | Se decide la tecnología (React, Node.js, PostgreSQL, nube) en la especificación. | Tecnología | Quitarlo de aquí. Si hay preferencias, van al plan técnico, justificadas contra la constitución. |
    | … | … | … | … |
    | … | … | … | … |
    | … | … | … | … |
@@ -168,15 +168,15 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    | … | … | … | … |
    | … | … | … | … |
 
-   Pistas. Para cada requisito, pregúntate «¿cómo demostraría que se cumple?»; si no sabes, es vago o no es comprobable. Para cada afirmación, pregúntate si choca con otra línea (horarios, duraciones) o con alguno de los cinco principios de la constitución (sencillez, accesible y en castellano, pruebas, datos mínimos, transparencia). Y mira lo que falta, no solo lo que sobra: prioridades, criterios de aceptación, casos límite, responsable de cada reserva.
+   Pistas. Para cada requisito, pregúntate «¿cómo demostraría que se cumple?»; si no sabes, es vago o no es comprobable. Si una palabra solo la entendería quien programa (React, Node.js, API REST, PostgreSQL, SendGrid), es tecnología y sobra: no hace falta saber qué es cada cosa para marcarla. Para cada afirmación, pregúntate si choca con otra línea (horarios, duraciones) o con alguno de los cinco principios de la constitución (sencillez, accesible y en castellano, pruebas, datos mínimos, transparencia). Y mira lo que falta, no solo lo que sobra: prioridades P1/P2/P3, criterios de aceptación (los ejemplos Dado/Cuando/Entonces de cada historia), casos límite, responsable de cada reserva.
 
    Qué deberías ver: una tabla con al menos diez filas y al menos seis tipos distintos. Si todas tus filas son «tecnología» y «vago», relee las entidades, los criterios de éxito y las notas finales.
 
    - [ ] Tengo al menos diez problemas apuntados, de al menos seis tipos.
 
-3. **Reescribe los requisitos funcionales.** Deja la especificación mala a un lado y escribe la sección «Requisitos funcionales» como debería ser: entre 8 y 12 requisitos en EARS, numerados RF-001, RF-002… sin huecos ni repetidos, cada uno con un solo patrón, sin tecnología y sin adjetivos sin cifra. Tienen que cubrir, como mínimo: listar las salas, ver disponibilidad, confirmar una reserva, rechazar solapamientos, rechazar franjas fuera de horario o demasiado largas, salas en mantenimiento, cancelar o modificar, permisos, aviso por correo y responsable visible.
+3. **Reescribe los requisitos funcionales.** Deja la especificación mala a un lado y escribe la sección «Requisitos funcionales» como debería ser: entre 10 y 12 requisitos en EARS, numerados RF-001, RF-002… sin huecos ni repetidos, cada uno con un solo patrón, sin tecnología y sin adjetivos sin cifra. Tienen que cubrir, como mínimo, estos diez puntos: listar las salas, ver disponibilidad, confirmar una reserva, rechazar solapamientos, rechazar franjas fuera de horario o demasiado largas, salas en mantenimiento, cancelar o modificar, permisos (quién marca una sala en mantenimiento y quién cancela reservas ajenas), aviso por correo y responsable visible.
 
-   Para que la aclaración pendiente de la línea 61 no te bloquee, estas son las respuestas que dio Ana cuando por fin se le preguntó: una sala la marca en mantenimiento solo administración; una reserva ajena solo la puede cancelar administración; el correo de confirmación es obligatorio; se puede reservar con 30 días de antelación como máximo; no hay reservas recurrentes ni control de asistencia en la primera versión.
+   Para que la aclaración pendiente de la línea 61 y las contradicciones de las líneas 49-50 y 54-55 no te bloqueen, estas son las respuestas que dio Ana cuando por fin se le preguntó: una sala la marca en mantenimiento solo administración; una reserva ajena solo la puede cancelar administración; el horario de reservas es de 08:00 a 20:00 y el máximo son 4 horas, sin excepciones (ni «eventos» hasta las 22:00 ni reuniones de todo el día); el correo de confirmación es obligatorio; se puede reservar con 30 días de antelación como máximo; no hay reservas recurrentes ni control de asistencia en la primera versión.
 
    Plantilla a medio rellenar (la numeración es tuya; no tiene por qué coincidir con la del ejemplo canónico):
 
@@ -193,11 +193,11 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    - **RF-008**: …
    ```
 
-   Qué hacer con lo que no era un requisito: RF-1 (rápido, intuitivo) se convierte en criterios de éxito en el paso 4; la gestión de contraseñas de RF-2 desaparece (la constitución dice que se usa el acceso corporativo existente); RF-7 (anónimas) se convierte en su contrario, porque la constitución exige un responsable visible; RF-4 y RF-10 se funden en uno sin tecnología.
+   Qué hacer con lo que no era un requisito: RF-1 (rápido, intuitivo) se convierte en criterios de éxito en el paso 4; la gestión de contraseñas de RF-2 desaparece (la constitución dice que se usa el acceso corporativo existente); RF-7 (anónimas) se convierte en su contrario, porque la constitución exige un responsable visible; RF-4, RF-6 y RF-10 se convierten en dos requisitos sin tecnología, uno para guardar la reserva y confirmarla en pantalla y otro para el correo, porque pueden fallar por separado (compara después con RF-003 y RF-011 del ejemplo).
 
    Qué deberías ver: una lista limpia en la que cada requisito empieza por «El sistema deberá», «CUANDO», «MIENTRAS», «SI» o «DONDE», y en la que ya no aparecen PostgreSQL, SendGrid, «rápido», «podría» ni «el usuario deberá».
 
-   - [ ] Tengo entre 8 y 12 requisitos en EARS, numerados sin huecos y sin tecnología.
+   - [ ] Tengo entre 10 y 12 requisitos en EARS, numerados sin huecos y sin tecnología.
 
 4. **Reescribe los criterios de éxito.** Sustituye CE-1 a CE-4 por al menos tres criterios con un número (tiempo, porcentaje o cantidad), que hablen de lo que ve o consigue una persona y no de cómo está construido el sistema. Un buen truco: coge cada criterio malo y pregúntate «¿cómo sabría dentro de tres meses si esto se ha cumplido?».
 
@@ -210,11 +210,11 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    - **CE-004**: […] se muestra en menos de […] segundos.
    ```
 
-   Qué deberías ver: ningún criterio con «contenta», «éxito» o «menos que ahora» sin cifra, y ninguno que mencione la base de datos. Fíjate en que CE-3 no era del todo inútil: tenía una cifra, pero medía algo que la persona no ve; la cifra se mantiene y cambia lo que se mide.
+   Qué deberías ver: ningún criterio con «contenta», «éxito» o «menos que ahora» sin cifra, y ninguno que mencione la base de datos. Fíjate en que CE-3 no era del todo inútil: tenía una cifra, pero medía algo que la persona no ve (una consulta interna). Se mantiene la idea de medir un tiempo, pero cambia lo que se mide (el listado que aparece en pantalla) y, con ello, la cifra: segundos de espera de una persona, no milisegundos de una consulta.
 
    - [ ] Tengo al menos tres criterios de éxito con cifra y sin tecnología.
 
-5. **Pasa la lista de verificación.** Copia la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md) y responde las preguntas CHK001 a CHK019 sobre tu versión: los requisitos y criterios de éxito nuevos más la tabla de problemas del paso 2 (para las secciones que no has reescrito, como historias y casos límite, vale con que tu tabla diga cómo las arreglarías). Marca `[x]` solo lo que cumpla de verdad; cada «no» te manda de vuelta al paso 2 o al 3.
+5. **Pasa la lista de verificación.** Copia la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md) y responde las preguntas CHK001 a CHK019 sobre tu versión (las CHK020 a CHK022 de la plantilla son ejemplos de una categoría propia; puedes dejarlas en blanco): los requisitos y criterios de éxito nuevos más la tabla de problemas del paso 2 (para las secciones que no has reescrito, como historias y casos límite, vale con que tu tabla diga cómo las arreglarías). Marca `[x]` solo lo que cumpla de verdad; cada «no» te manda de vuelta al paso 2 o al 3.
 
    Qué deberías ver: marcadas, como mínimo, CHK001 (sin tecnología), CHK005 (sin marcadores de aclaración pendientes), CHK006 a CHK009 (requisitos en EARS, una sola cosa, sin adjetivos, numerados), CHK017 (criterios de éxito medibles) y CHK019 (compatibles con la constitución). Es normal que CHK013 a CHK015 (historias con prioridad y criterios Dado/Cuando/Entonces) queden sin marcar si no has reescrito las historias: anótalo en «Notas» como trabajo pendiente.
 
@@ -234,7 +234,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    [pega aquí las líneas 01 a 93 del paso 1]
    ```
 
-   Qué deberías ver: una tabla de entre 10 y 25 filas. Es habitual que el asistente detecte a la primera la tecnología y los adjetivos vagos, y que se le escapen las contradicciones con la constitución si no se la has pegado; también puede «arreglar» cosas inventando cifras. Compara su tabla con la tuya: lo que él ha visto y tú no, apúntalo; lo que tú has visto y él no, también, porque es la prueba de que la revisión humana sigue haciendo falta. Cada asistente responde distinto; si el tuyo se pone a proponer tecnología o a reescribirlo todo, recuérdale las reglas del *prompt*.
+   Qué deberías ver: una tabla de entre 10 y 25 filas. Es habitual que el asistente detecte a la primera la tecnología y los adjetivos vagos, y que se le escapen las contradicciones con la constitución si no se la has pegado; también puede «arreglar» cosas inventando cifras. Compara su tabla con la tuya: lo que el asistente ha visto y tú no, apúntalo; lo que tú has visto y el asistente no, también, porque es la prueba de que la revisión humana sigue haciendo falta. Cada asistente responde distinto; si el tuyo se pone a proponer tecnología o a reescribirlo todo, recuérdale las reglas del *prompt*.
 
    - [ ] He comparado la tabla del asistente con la mía y he añadido lo que me faltaba.
 

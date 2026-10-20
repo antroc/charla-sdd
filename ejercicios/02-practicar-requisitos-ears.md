@@ -2,7 +2,7 @@
 
 > **Para quién:** RRHH, perfiles de negocio, managers y programadores junior · **Tiempo de lectura:** ~5 min (hacerlo: 20 min) · **Nivel:** 🟢 básico
 
-Doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro para cazar el error. Es el entrenamiento práctico de [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md): si no lo has leído, échale un vistazo antes (10 minutos) o apóyate en la tabla del paso 1. No hace falta saber programar ni instalar nada.
+Doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro para cazar el error. Es el entrenamiento práctico de [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md): si no lo has leído, échale un vistazo antes (unos 12 minutos) o apóyate en la tabla del paso 1. No hace falta saber programar ni instalar nada.
 
 **Qué vas a encontrar**
 
@@ -22,14 +22,14 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 ## Qué necesitas
 
 - Haber leído [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md), o al menos tener a mano la tabla de patrones del paso 1.
-- Tiempo: unos 20 minutos (5 por cada bloque de frases, 5 para clasificar y cazar errores).
+- Tiempo: unos 20 minutos (5 por cada bloque de frases, 5 para clasificar y cazar errores), más unos 10 al final para comparar con la solución.
 - Dónde escribir. Elige una vía:
   - **Vía A, sin instalar nada:** papel y bolígrafo, o un documento compartido. Es la vía recomendada para quien no programa y perfectamente válida para quien sí.
-  - **Vía B, con un asistente de IA:** cualquier chat de IA genérico autorizado por la empresa. Lo usarás solo al final, para que revise lo que tú has escrito (paso 7). No hace falta Spec Kit: aquí se entrena tu criterio, y en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) verás cómo la herramienta genera estos requisitos y cómo los revisas tú.
-- Opcional: la [especificación canónica de ReservaSalas](soluciones/03-reserva-salas/spec.md), para comparar tus frases de ReservaSalas con las del ejemplo. Las pistas citan sus requisitos (RF-001, RF-005…).
+  - **Vía B, con un asistente de IA:** cualquier chat de IA genérico autorizado por la empresa. Lo usarás solo al final, para que revise lo que tú has escrito (paso 7). No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu criterio, y en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) verás cómo la herramienta genera estos requisitos y cómo los revisas tú.
+- Opcional, para el paso 7: la [especificación canónica de ReservaSalas](soluciones/03-reserva-salas/spec.md), para comparar al final tus frases de ReservaSalas con las del ejemplo. Las pistas citan sus requisitos funcionales (RF-001, RF-005…; «RF» quiere decir requisito funcional) y sus criterios de éxito (CE-003, CE-004) para que sepas con qué comparar después, no para que los mires antes.
 
 > [!IMPORTANT]
-> No mires la solución hasta el paso 7. Escribir un requisito regular y arreglarlo enseña más que leer uno bueno.
+> No mires la solución ni la especificación canónica hasta el paso 7: las dos contienen las respuestas de las frases de ReservaSalas. Escribir un requisito regular y arreglarlo enseña más que leer uno bueno.
 
 ## Pasos
 
@@ -44,9 +44,9 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
    | Opcional | «DONDE <característica o perfil>, el sistema deberá <respuesta>.» | Solo en algunas instalaciones o para algunos perfiles. |
    | Complejo | «MIENTRAS <estado>, CUANDO <disparador>, el sistema deberá <respuesta>.» | Hacen falta dos condiciones a la vez. |
 
-   Tres reglas que no cambian: un requisito es **una** frase que dice **una** cosa comprobable; el sujeto es siempre el sistema (la aplicación, la cafetera, el torno), nunca la persona; y no aparece ninguna tecnología. Si te atascas eligiendo patrón, el [diagrama de decisión](../diagramas/05-anatomia-de-un-requisito-ears.md) te lleva al correcto con tres preguntas.
+   Tres reglas que no cambian: un requisito es **una** frase que dice **una** cosa comprobable; el sujeto es siempre el sistema (la aplicación, la cafetera, el torno), nunca la persona; y no aparece ninguna tecnología. Si te atascas eligiendo patrón, el [diagrama de decisión](../diagramas/05-anatomia-de-un-requisito-ears.md) te lleva al correcto con cuatro preguntas.
 
-   Qué deberías tener: la tabla a la vista y una hoja (o documento) con tres apartados vacíos: «Bloque A», «Bloque B» y «Bloque C».
+   Qué deberías tener: la tabla a la vista y una hoja (o documento) con cinco apartados vacíos: «Bloque A», «Bloque B», «Bloque C», «Clasificar» y «Caza el error».
 
    - [ ] Tengo la tabla a mano y sé que el sujeto siempre es el sistema.
 
@@ -66,7 +66,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
    RF: …
    ```
 
-   Pistas. F01: ¿qué datos de cada sala hacen falta para elegir una? Mira cómo lo resuelve RF-001 del ejemplo canónico. F02: «que se entere» no es comprobable; di qué recibe el manager y con qué datos. F03: es una situación que queremos evitar. F04: ¿con cualquier tarjeta? ¿Cuánto tiempo queda desbloqueado? Si no lo sabes, pon una cifra razonable y anótala como supuesto, o deja un marcador `[NECESITA ACLARACIÓN: …]`, que es justo lo que hace el asistente de IA cuando le falta un dato.
+   Pistas. F01: ¿qué datos de cada sala hacen falta para elegir una (dónde está, cuánta gente cabe)? Compara después con RF-001 del ejemplo canónico. F02: «que se entere» no es comprobable; di qué recibe el manager y con qué datos. F03: es una situación que queremos evitar. F04: ¿con cualquier tarjeta? ¿Cuánto tiempo queda desbloqueado? Si no lo sabes, pon una cifra razonable y anótala como supuesto, o deja un marcador `[NECESITA ACLARACIÓN: …]`, que es justo lo que hace el asistente de IA cuando le falta un dato.
 
    Qué deberías ver: cuatro frases que empiezan por «El sistema deberá», «CUANDO» o «SI», cuyo sujeto es el sistema, la cafetera o el torno, y que alguien podría comprobar con un sí o un no.
 
@@ -113,7 +113,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 
    Pistas. F09: «razonable» no se puede comprobar; las cifras de ReservaSalas son 4 horas como máximo y horario de 08:00 a 20:00 (el ejemplo canónico junta los límites en RF-006 porque la respuesta es la misma; dos requisitos separados también valen). F10: parece dos cosas, pero «rechazar e indicar cuántos días quedan» es una sola respuesta a una sola condición. F11: hay un estado (fuera de horario) y un evento (alguien pasa la tarjeta), así que toca el patrón complejo; además tienes que decir qué horario es «fuera de horario». F12: una de las dos partes no es un requisito funcional (nadie puede comprobar «fácil de limpiar» con un sí o un no); la otra necesita saber cuándo «toca».
 
-   Qué deberías ver: entre cinco y siete requisitos para cuatro frases, al menos un marcador de aclaración o una cifra inventada y anotada como supuesto, y una nota del estilo «"fácil de limpiar" no es un requisito: pedir una cifra o pasarlo a criterios de éxito».
+   Qué deberías ver: entre cinco y siete requisitos para cuatro frases (cuatro si has juntado los dos límites de F09 en un solo SI, como hace RF-006), al menos un marcador de aclaración o una cifra inventada y anotada como supuesto, y una nota del estilo «"fácil de limpiar" no es un requisito: pedir una cifra o pasarlo a criterios de éxito».
 
    - [ ] He reescrito F09 a F12 y he separado lo que eran dos cosas.
 
@@ -142,7 +142,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 6. **Caza el error.** Estos cuatro requisitos tienen forma de requisito, pero cada uno tiene un fallo distinto: uno mezcla tecnología, uno dice dos cosas, uno es vago y a uno le falta el disparador. Averigua cuál es cuál, explica en una línea por qué está mal y reescríbelo (si hace falta, en dos requisitos o como criterio de éxito).
 
    ```text
-   E1  «CUANDO una persona confirma una reserva, el sistema deberá guardarla en la tabla reservas de PostgreSQL y enviar el correo mediante la API de SendGrid.»
+   E1  «CUANDO una persona confirma una reserva, el sistema deberá guardarla en la tabla reservas de PostgreSQL y mostrar un mensaje de confirmación con sala, fecha y hora.»
    Fallo: …
    Arreglo: …
 
@@ -159,9 +159,9 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
    Arreglo: …
    ```
 
-   Pistas. Pregúntate, para cada uno: ¿nombra una herramienta, un lenguaje o un «dónde se guarda»? ¿Podría cumplirse la mitad y la otra mitad no? ¿Lleva un adjetivo sin cifra? ¿Se sabe en qué momento o bajo qué condición actúa el sistema? Para E3, mira los criterios de éxito CE-003 y CE-004 del ejemplo canónico: los adjetivos no desaparecen, se convierten en cifras y cambian de sitio. Para E2, piensa quién puede hacer cada una de las dos cosas (RF-003 y RF-009 del ejemplo).
+   Pistas. Pregúntate, para cada uno: ¿nombra una herramienta, un lenguaje o un «dónde se guarda»? ¿Podría cumplirse la mitad y la otra mitad no? ¿Lleva un adjetivo sin cifra? ¿Se sabe en qué momento o bajo qué condición actúa el sistema? Para E3, piensa en los criterios de éxito (la sección de la especificación que dice, con cifras, cómo sabremos que el sistema ha funcionado): los adjetivos no desaparecen, se convierten en cifras y cambian de sitio; compara después con CE-003 y CE-004 del ejemplo canónico. Para E2, piensa quién puede hacer cada una de las dos cosas (compara después con RF-003 y RF-009 del ejemplo).
 
-   Qué deberías ver: cuatro diagnósticos distintos y, como mínimo, cinco requisitos corregidos (E2 se parte en dos).
+   Qué deberías ver: cuatro diagnósticos distintos; al menos cuatro requisitos corregidos (E2 se parte en dos) y, para E3, uno o dos criterios de éxito con cifra, con o sin un requisito que diga qué muestra el sistema.
 
    - [ ] He identificado los cuatro fallos y he reescrito E1 a E4.
 
@@ -178,7 +178,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
    5. «DONDE <característica o perfil>, el sistema deberá <respuesta>.»
    y la combinación «MIENTRAS…, CUANDO…, el sistema deberá…».
 
-   Para cada requisito dime: (a) qué patrón usa; (b) si cumple las reglas: una sola frase, una sola cosa comprobable, el sujeto es el sistema, verbo «deberá», sin tecnología y sin adjetivos sin cifra; (c) si no las cumple, una versión corregida. No cambies el significado y no añadas requisitos nuevos. Si falta un dato, señálalo como [NECESITA ACLARACIÓN: …] en vez de inventarlo.
+   Para cada requisito dime: (a) qué patrón usa; (b) si cumple las reglas: una sola frase, una sola cosa comprobable, el sujeto es el sistema (que puede llamarse «la cafetera» o «el torno» cuando el requisito es de esos aparatos), verbo «deberá», sin tecnología y sin adjetivos sin cifra; (c) si no las cumple, una versión corregida. No cambies el significado y no añadas requisitos nuevos. Si falta un dato, señálalo como [NECESITA ACLARACIÓN: …] en vez de inventarlo.
 
    Requisitos:
    F01: …
