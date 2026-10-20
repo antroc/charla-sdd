@@ -41,14 +41,15 @@ specify init reserva-salas --integration claude   # crea .specify/ y los comando
 /speckit.plan ...            # Python 3.12 + FastAPI + SQLite + Jinja2, pytest → plan.md, research.md,
                              #                                      data-model.md, contracts/, quickstart.md
 /speckit.tasks               # → tasks.md
-/speckit.analyze             # informe de coherencia (no crea ficheros): 0 incidencias críticas
+/speckit.analyze             # informe de coherencia (no crea ficheros): sin incidencias CRITICAL ni HIGH
+                             #   y con cobertura del 100 % (cada requisito tiene al menos una tarea)
 /speckit.implement           # genera el código y ejecuta las pruebas
 /speckit.converge            # comprueba que el código cubre spec, plan y tareas; añade tareas si falta algo
 ```
 
 Según el asistente, los comandos aparecen con punto (`/speckit.specify`) o con guion (`/speckit-specify`, como en Claude Code, la integración del ejemplo); hacen lo mismo. Si usas otro asistente, cambia `claude` por su clave (la lista está en [Herramientas](../../../docs/07-herramientas.md)). Los textos exactos de cada *prompt* (la instrucción que le escribes al asistente) están en los pasos del [ejercicio 03](../../03-reserva-salas-paso-a-paso.md).
 
-Lo que hemos cambiado respecto a la salida en bruto de Spec Kit: títulos de sección en castellano (con el original en inglés entre paréntesis), los ficheros de apoyo del plan resumidos dentro de `plan.md`, las aclaraciones también en un fichero aparte para que se vea el proceso, y la lista de verificación automática (`checklists/requirements.md`, que en Spec Kit tiene tres categorías y 16 comprobaciones sin numerar) ampliada con dos categorías y numeración CHK al estilo de `/speckit.checklist`, para que coincida con la plantilla. Además, cada fichero empieza con un aviso que explica qué es y termina con una línea de navegación; no llevan la cabecera ni las secciones finales («En tres frases», «Siguiente paso») del resto del repositorio porque imitan los ficheros reales de un proyecto.
+Lo que hemos cambiado respecto a la salida en bruto de Spec Kit: títulos de sección en castellano (con el original en inglés entre paréntesis), los ficheros de apoyo del plan resumidos dentro de `plan.md`, las aclaraciones también en un fichero aparte para que se vea el proceso, y la lista de verificación automática (`checklists/requirements.md`, que en Spec Kit tiene tres categorías y 16 comprobaciones sin numerar) ampliada con dos categorías y numerada al estilo de `/speckit.checklist`: 23 comprobaciones en cinco categorías, con una numeración propia que no coincide con la de la [plantilla](../../plantillas/lista-de-verificacion.md) (19 comprobaciones en tres categorías). Además, cada fichero empieza con un aviso que explica qué es y termina con una línea de navegación; no llevan la cabecera ni las secciones finales («En tres frases», «Siguiente paso») del resto del repositorio porque imitan los ficheros reales de un proyecto.
 
 ## En tres frases
 

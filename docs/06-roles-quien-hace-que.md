@@ -82,7 +82,8 @@ Es la persona que tiene el problema y decide qué se construye. En ReservaSalas,
 - **Lidera** la constitución (`constitution.md`: dicta los cinco principios), la especificación (describe qué quiere y por qué, en castellano y sin tecnología) y las aclaraciones (responde a las preguntas del asistente; en ReservaSalas fue una reunión de 15 minutos).
 - **Consulta** en el plan técnico (`plan.md`): no tiene que leerlo entero; le basta el resumen y la tabla «Comprobación contra la constitución».
 - **Revisa** en analizar (¿los criterios de éxito siguen siendo los míos?) y en implementar (prueba la aplicación en cada punto de control: primero la historia 1, luego la 2, luego la 3).
-- **Lo que no tiene que hacer:** leer código, entender el plan técnico entero, instalar nada.
+- **Cómo pide un cambio sin saber editar ficheros:** lo decide y lo pide por escrito a quien construye. Luis lo escribe en la especificación y Ana relee el texto nuevo y lo aprueba, en la vista de GitHub o en el documento que le pase Luis. Después Luis actualiza el plan y deja que el asistente añada las tareas que faltan y las ejecute (con Spec Kit, `/speckit.converge` y `/speckit.implement`).
+- **Lo que no tiene que hacer:** leer código, entender el plan técnico entero, instalar nada ni editar ficheros.
 
 ### Managers de equipos que la usarán (Marta)
 
@@ -114,7 +115,7 @@ Luis construye la aplicación, pero no la teclea: dirige al asistente de IA y re
 
 Es la red de seguridad técnica. No lidera ningún paso en ReservaSalas; revisa los que más daño hacen si salen mal.
 
-- **Revisa** la constitución (¿los principios prohíben algo de verdad?), el plan (¿la tecnología es proporcionada? ¿cada desviación está justificada en el registro de complejidad?), las tareas (¿son pequeñas? ¿dos tareas marcadas `[P]`, las que pueden hacerse en paralelo, tocan el mismo fichero?), el análisis y el código final.
+- **Revisa** la constitución (¿los principios prohíben algo de verdad?), el plan (¿la tecnología es proporcionada? ¿cada desviación está justificada en el registro de complejidad, la tabla del plan donde se apunta, con su porqué, todo lo que se sale de la regla de sencillez?), las tareas (¿son pequeñas? ¿dos tareas marcadas `[P]`, las que pueden hacerse en paralelo, tocan el mismo fichero?), el análisis y el código final.
 - **Consulta** al especificar: puede avisar de que algo es inviable o desproporcionado, sin decidir tecnología todavía.
 - **Lo que cambia para esta persona:** menos tiempo escribiendo código y más tiempo revisando planes y enseñando a leerlos. Las revisiones del plan técnico son la mejor clase que puede dar a un junior.
 
@@ -137,7 +138,7 @@ Lo que nunca hace es aprobar. No marca las casillas de las listas de verificaci�
 Cuatro cosas, y ninguna exige instalar nada ni ver una línea de código.
 
 1. **Escribir o revisar una especificación.** Con la [plantilla](../ejercicios/plantillas/especificacion.md) y los requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos) del [documento anterior](05-escribir-requisitos-claros-ears.md). Si no la escribes tú, revísala con tres preguntas: ¿se entiende sin ayuda? ¿hay alguna palabra de tecnología? ¿cada requisito se puede comprobar con un sí o un no?
-2. **Responder a las aclaraciones.** Son pocas (Spec Kit hace como máximo 5 por sesión), concretas y con opciones. En ReservaSalas, Ana respondió a cinco en un cuarto de hora: reservas recurrentes (no en la primera versión), quién cancela reservas ajenas (solo administración), avisos por correo (sí, un correo de confirmación), antelación máxima (30 días) y qué pasa si nadie aparece (fuera de alcance). Cada respuesta cambió algo en la especificación; una respuesta que no cambia nada no era una duda.
+2. **Responder a las aclaraciones.** Son pocas (Spec Kit hace como máximo 5 por sesión), concretas y con opciones. En ReservaSalas, Ana respondió a cinco en un cuarto de hora: reservas recurrentes (no en la primera versión), quién cancela reservas ajenas (solo administración), avisos por correo (sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante), antelación máxima (30 días) y qué pasa si nadie aparece (fuera de alcance). Cada respuesta cambió algo en la especificación; una respuesta que no cambia nada no era una duda.
 3. **Validar los criterios de éxito.** Son tuyos, no del equipo técnico: «reservar en menos de 1 minuto», «cero reservas solapadas», «el 90 % reserva sin ayuda la primera vez», «el listado se muestra en menos de 2 segundos». Tu trabajo es decir si siguen siendo los correctos al analizar y comprobarlos al final (la tarea T044 de ReservaSalas es una sesión de prueba con 10 personas de distintos equipos).
 4. **Participar en la revisión final.** Probar la aplicación en cada punto de control, con tus propios casos («¿y si reservo Mediterráneo de 10:00 a 11:00 cuando ya está cogida de 10:30?»), y comparar lo que ves con lo que dice la especificación. Si no coinciden, el que está mal es el código o la especificación, nunca tú.
 
@@ -205,7 +206,13 @@ Cómo evitarlo:
 
 ## Siguiente paso
 
-Continúa con [Herramientas](07-herramientas.md), que explica qué necesita cada perfil para trabajar así (quien no programa, nada; quien programa, un asistente de IA y GitHub Spec Kit o unas plantillas). Para ver los roles dibujados paso a paso, está el [diagrama 04](../diagramas/04-roles-y-participacion.md).
+Depende de tu ruta de lectura:
+
+- **Si sigues la ruta de manager**, continúa con [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md).
+- **Si eres de RRHH o negocio**, continúa con el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y escribe tu primera especificación.
+- **Si lees los documentos en orden o programas**, continúa con [Herramientas](07-herramientas.md), que explica qué necesita cada perfil para trabajar así (quien no programa, nada; quien programa, un asistente de IA y GitHub Spec Kit o unas plantillas).
+
+Para ver los roles dibujados paso a paso, está el [diagrama 04](../diagramas/04-roles-y-participacion.md).
 
 ---
 

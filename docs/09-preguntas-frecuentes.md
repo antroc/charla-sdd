@@ -8,11 +8,11 @@ Las respuestas son cortas a propósito. Cada una termina con un enlace al docume
 
 **Qué vas a encontrar**
 
-- [Para managers](#para-managers): si es más lento, quién responde cuando algo falla y cómo encaja con lo que ya hace tu equipo.
+- [Para managers](#para-managers): si es más lento, quién responde cuando algo falla, cómo encaja con lo que ya hace tu equipo y cómo justificarlo ante dirección.
 - [Para negocio y RRHH](#para-negocio-y-rrhh): si hace falta saber programar, qué te va a tocar hacer y si sirve para procesos sin código.
 - [Para quien programa](#para-quien-programa): proyectos que ya existen, qué cambia en tu trabajo y qué hacer cuando el asistente se equivoca.
 - [Sobre herramientas](#sobre-herramientas): si Spec Kit es obligatorio, qué asistente necesitas, cuánto cuesta y qué hacer si un comando no funciona.
-- [Sobre cómo empezar en la empresa](#sobre-cómo-empezar-en-la-empresa): por dónde empezar mañana, qué datos no meter en un asistente y cómo llevarlo a tu equipo.
+- [Sobre cómo empezar en la empresa](#sobre-cómo-empezar-en-la-empresa): por dónde empezar mañana, qué datos no meter en un asistente, cómo montar un piloto y cómo llevarlo a tu equipo.
 
 ## Para managers
 
@@ -56,6 +56,14 @@ Tres cosas, y ninguna exige saber programar. Proteger el tiempo de los pasos poc
 
 *Para saber más:* [dos riesgos que conviene conocer](06-roles-quien-hace-que.md#dos-riesgos-que-conviene-conocer) · [señales de que lo estás haciendo bien](08-buenas-practicas-y-errores-comunes.md#señales-de-que-lo-estás-haciendo-bien)
 
+### ¿Cómo se lo justifico a dirección?
+
+Con datos de tu piloto, no con promesas. Lleva tres: cuánto tiempo de más costó escribir y aclarar la especificación, cuántos malentendidos se detectaron antes de programar y cuántos cambios posteriores empezaron por un cambio en la especificación, sin tocar el código a ciegas.
+
+Añade los riesgos que reduce (depender de una sola persona, rehacer trabajo, guardar datos que nadie decidió guardar) y di también lo que no promete: SDD reduce riesgos; no los elimina. El método y Spec Kit son gratuitos; el asistente de IA es el que ya pague la empresa.
+
+*Para saber más:* [cómo montar un piloto](#cómo-monto-un-piloto-en-mi-equipo) · [lo que le cuesta a la empresa no tener especificación](01-el-problema-del-vibe-coding.md#lo-que-le-cuesta-a-la-empresa) · [cuánto cuesta](#cuánto-cuesta)
+
 ## Para negocio y RRHH
 
 ### ¿Tengo que saber programar para escribir una especificación?
@@ -94,9 +102,9 @@ En un proceso sin código, el «plan» es el procedimiento, las «tareas» son q
 
 Dilo y averigua quién lo decide. El asistente suele proponer una respuesta recomendada, pero decidir es cosa de quien encarga el proyecto; si responde otra persona «para no molestar», el paso pierde su sentido.
 
-Mientras tanto, mejor una duda abierta que un dato inventado: un requisito con un límite que nadie ha decidido parece cerrado, y es peor que una frase vaga. Déjala marcada en la especificación como `[NECESITA ACLARACIÓN: …]` y resuélvela antes de pasar al plan.
+Mientras tanto, no inventes el dato: un requisito con un límite que nadie ha decidido parece cerrado, y es peor que una frase vaga. Deja el marcador `[NECESITA ACLARACIÓN: …]` en la especificación y pregúntalo a quien decide. Si necesitas una cifra provisional para seguir trabajando, escríbela a la vista como supuesto («se asume 5 segundos; confirmar con Seguridad») y no des la especificación por aprobada hasta que quien encarga la confirme.
 
-*Para saber más:* [paso 2: aclarar](03-el-flujo-paso-a-paso.md#paso-2-aclarar) · [el aviso sobre los límites inventados](05-escribir-requisitos-claros-ears.md#para-seguir-practicando)
+*Para saber más:* [paso 2: aclarar](03-el-flujo-paso-a-paso.md#paso-2-aclarar) · [si te falta un dato](05-escribir-requisitos-claros-ears.md#si-te-falta-un-dato)
 
 ### Me pasan una especificación para revisar: ¿en qué me fijo?
 
@@ -178,7 +186,7 @@ Lo que sí cuesta es tiempo al principio: escribir y aclarar la especificación 
 
 Primero, mira cómo lo escribe tu asistente: `/speckit.specify`, `/speckit-specify` y `$speckit-specify` son la misma orden, y se escriben en el chat del asistente. En la terminal (la ventana donde se escriben órdenes al ordenador) solo van los comandos que empiezan por `specify`.
 
-Si aun así falla, sospecha de la versión: Spec Kit cambia deprisa, y un error como «No such option: --integration» indica que la tuya es antigua. Compruébala con `specify version` y actualízala con `specify self upgrade`. Ante la duda, vale lo que diga [la documentación oficial](https://github.github.io/spec-kit/); y avisa para que corrijamos el material.
+Si aun así falla, sospecha de la versión: Spec Kit cambia deprisa, y un error como «No such option: --integration» indica que la tuya es muy antigua. Compruébala con `specify version` y reinstala la versión actual con `uv tool install --force specify-cli`: en una versión tan antigua, `specify self upgrade` todavía no existe (úsalo a partir de ahora para las siguientes actualizaciones). Ante la duda, vale lo que diga [la documentación oficial](https://github.github.io/spec-kit/); y avisa para que corrijamos el material.
 
 *Para saber más:* [cómo se escriben según el asistente](07-herramientas.md#cómo-se-escriben-según-el-asistente) · [las herramientas cambian; el método no](07-herramientas.md#las-herramientas-cambian-el-método-no) · [errores frecuentes al instalar](../ejercicios/00-preparacion-del-entorno.md#errores-frecuentes)
 
@@ -218,6 +226,14 @@ Con uno pequeño, real y que no sea crítico: un problema que se explique en cin
 Y si gusta y alguien quiere usarlo de verdad, habla antes con IT y con seguridad: un ejercicio de formación no está listo, sin más, para que lo use toda la empresa.
 
 *Para saber más:* [ocho ideas de proyecto](../ejercicios/06-reto-final-tu-propio-proyecto.md#ocho-ideas-de-proyecto) · [empieza pequeño](08-buenas-practicas-y-errores-comunes.md#al-especificar-pasos-0-a-2)
+
+### ¿Cómo monto un piloto en mi equipo?
+
+Elige una funcionalidad pequeña cuya historia P1 quepa en uno o dos días de trabajo. Nombra a tres personas: quien encarga y decide; quien construye con un asistente autorizado (si en tu equipo nadie programa, pídeselo al equipo técnico que os da servicio), y quien revisa sin haber escrito la especificación.
+
+Antes de empezar, pregunta a IT qué asistente está autorizado y pide un repositorio donde negocio pueda leer los documentos. Dale un plazo corto (en nuestra experiencia, de dos a cuatro semanas bastan para recorrer el flujo y hacer algún cambio) y, al final, repasa las señales de que lo estás haciendo bien (¿negocio corrigió la especificación?, ¿el último cambio empezó por ella?) y decide: seguir, ajustar o parar.
+
+*Para saber más:* [quién hace qué en cada paso](06-roles-quien-hace-que.md#quién-hace-qué-en-cada-paso) · [señales de que lo estás haciendo bien](08-buenas-practicas-y-errores-comunes.md#señales-de-que-lo-estás-haciendo-bien) · [cómo justificarlo ante dirección](#cómo-se-lo-justifico-a-dirección)
 
 ### ¿Cómo lo presento a mi equipo?
 

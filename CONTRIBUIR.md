@@ -76,7 +76,9 @@ El nombre de la imagen es el del fichero de origen con el número del diagrama d
 
 ## Si cambias el ejemplo ReservaSalas
 
-ReservaSalas es el hilo conductor: sus principios, requisitos (RF-001 a RF-012) y criterios de éxito (CE-001 a CE-004) se citan en muchos documentos, diagramas y ejercicios. La versión de referencia está en [ejercicios/soluciones/03-reserva-salas/](ejercicios/soluciones/03-reserva-salas/README.md). Si cambias algo de ella, busca el identificador en todo el repositorio (con el buscador de GitHub o, en tu ordenador, con `grep -rn "RF-006" .`) y actualiza todos los sitios donde aparece. Lo mismo vale para el ejemplo de solicitud de vacaciones.
+ReservaSalas es el hilo conductor: sus principios, requisitos (RF-001 a RF-012), criterios de éxito (CE-001 a CE-004), tareas (T001 a T047) y comprobaciones de la lista de verificación (CHK001 a CHK023) se citan en muchos documentos, diagramas y ejercicios. La versión de referencia está en [ejercicios/soluciones/03-reserva-salas/](ejercicios/soluciones/03-reserva-salas/README.md). Si cambias algo de ella, busca el identificador en todo el repositorio (con el buscador de GitHub o, en tu ordenador, con `grep -rn "RF-006" .` o `grep -rn "T013" .`) y actualiza todos los sitios donde aparece. Lo mismo vale para el ejemplo de solicitud de vacaciones.
+
+Ojo con los CHK: la [plantilla de la lista de verificación](ejercicios/plantillas/lista-de-verificacion.md) tiene su propia numeración (CHK001 a CHK019, en otro orden), que usan los ejercicios 01 y 05 y sus soluciones. Antes de cambiar una cita, mira si habla de los números de la solución o de los de la plantilla.
 
 ## Antes de enviar
 

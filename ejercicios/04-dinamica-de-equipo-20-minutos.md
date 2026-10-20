@@ -24,7 +24,7 @@ Al terminar, cada participante habrá vivido en pequeño dos pasos del flujo SDD
 
 ## Qué necesitas
 
-- Entre 6 y 24 personas, en grupos de 3 o 4: de 2 a 6 grupos (hay seis tarjetas, y en el paso 5 caben cinco o seis lecturas). Mezcla perfiles: en cada grupo, si puedes, alguien de negocio y alguien técnico. Con más de 24 personas, monta dos dinámicas en paralelo, cada una con quien la facilite.
+- Entre 6 y 24 personas, en 2 a 6 grupos (hay seis tarjetas, y en el paso 5 caben cinco o seis lecturas): de 3 personas hasta 18 participantes y de 4 a partir de ahí; si no salen exactos, algún grupo tendrá una persona más o una menos. Mezcla perfiles: en cada grupo, si puedes, alguien de negocio y alguien técnico. Con más de 24 personas, monta dos dinámicas en paralelo, cada una con quien la facilite.
 - Una persona que facilita. Puedes ser tú: no hace falta saber programar, solo seguir el [guion minuto a minuto](#guion-minuto-a-minuto-para-quien-facilita).
 - Una sala con mesas separadas, o una reunión en línea con salas pequeñas (ver [Variantes](#variantes)).
 - Impreso, de la sección [Materiales imprimibles](#materiales-imprimibles): una tarjeta de petición por grupo (recortada) y una plantilla de una página por grupo. Bolígrafos. Un cronómetro visible (el móvil vale).
@@ -47,7 +47,7 @@ De izquierda a derecha: antes de arrancar el reloj se reparten tarjetas y se exp
 
 ## Materiales imprimibles
 
-Para imprimir desde GitHub, abre el fichero con el botón «Raw» (texto sin formato), copia los bloques de abajo en un documento e imprímelos. Usa una letra de ancho fijo (Courier New o parecida) a 10 puntos, con interlineado 1,5 y sin espacio entre párrafos: con otra letra, los huecos y las flechas se descolocan, y así cada bloque cabe en una cara de A4 con los márgenes normales y deja sitio para escribir a mano. Si tu editor pasa alguno a una segunda página, baja la letra a 9 puntos. Una tarjeta por grupo, recortada por las líneas; una plantilla por grupo.
+Para imprimir desde GitHub, copia cada bloque de abajo con el botón de copiar que aparece en su esquina superior derecha, pégalo en un documento e imprímelo. Usa una letra de ancho fijo (Courier New o parecida) a 10 puntos, con interlineado 1,5 y sin espacio entre párrafos: con otra letra, los huecos y las flechas se descolocan, y así cada bloque cabe en una cara de A4 con los márgenes normales y deja sitio para escribir a mano. Si tu editor pasa alguno a una segunda página, baja la letra a 9 puntos. Una tarjeta por grupo, recortada por las líneas; una plantilla por grupo.
 
 ### Tarjetas de peticiones vagas
 
@@ -140,12 +140,12 @@ ______________________________________________________________________
 
 ## Pasos
 
-1. **Prepara el material y forma los grupos (10 minutos antes).** Imprime y recorta una tarjeta por grupo y una plantilla por grupo; si tienes menos de seis grupos, elige las tarjetas que más se parezcan a los problemas de tu equipo. Forma grupos de 3 o 4 personas mezclando perfiles. En cada grupo, pide que elijan quién escribe y quién será portavoz. Reparte a cada grupo una tarjeta boca abajo y una plantilla. Explica las reglas en un minuto, con estas palabras o parecidas:
+1. **Prepara el material y forma los grupos (10 minutos antes).** Imprime y recorta una tarjeta por grupo y una plantilla por grupo; si tienes menos de seis grupos, elige las tarjetas que más se parezcan a los problemas de tu equipo. Forma grupos de 3 o 4 personas mezclando perfiles, sin pasar de seis grupos (con más de 18 participantes, de 4). En cada grupo, pide que elijan quién escribe y quién será portavoz. Reparte a cada grupo una tarjeta boca abajo y una plantilla. Explica las reglas en un minuto, con estas palabras o parecidas:
 
    ```text
    La tarjeta es todo lo que sabéis del encargo. No podéis preguntarme nada: lo que no sepáis
-   lo apuntáis como pregunta en el apartado 3. Escribís sobre QUÉ tiene que hacer el sistema y
-   POR QUÉ, nunca CÓMO: nada de pantallas, botones, bases de datos ni tecnología. Cuando suene
+   lo apuntáis como pregunta en el apartado 3. Escribís sobre qué tiene que hacer el sistema y
+   por qué, nunca cómo: nada de pantallas, botones, bases de datos ni tecnología. Cuando suene
    el tiempo, se cambia de apartado aunque no hayáis terminado.
    ```
 
@@ -166,7 +166,7 @@ ______________________________________________________________________
 
    - [ ] Cada grupo tiene una P1 que resolvería el problema por sí sola y, si ha dado tiempo, la P2 y la P3.
 
-3. **Minutos 5-10: cinco requisitos EARS.** Apartado 2. Cada requisito es una sola frase cuyo sujeto es el sistema (nunca «el usuario»), con el verbo «deberá» y una de las cinco plantillas que vienen en la hoja. Reto para el grupo: usar al menos tres plantillas distintas. Si falta una cifra (¿cuántos días? ¿hasta qué hora?), se inventa una razonable y se apunta como pregunta en el apartado 3. Ejemplo a medio rellenar con la tarjeta 1:
+3. **Minutos 5-10: cinco requisitos EARS.** Apartado 2. Cada requisito es una sola frase cuyo sujeto es el sistema (nunca «el usuario»), con el verbo «deberá» y una de las cinco plantillas que vienen en la hoja. Reto para el grupo: usar al menos tres plantillas distintas. Si falta una cifra (¿cuántos días? ¿hasta qué hora?), no se inventa: se escribe una provisional entre corchetes ([2 días?]) y se apunta como pregunta en el apartado 3. Ejemplo a medio rellenar con la tarjeta 1:
 
    ```text
    RF-1 El sistema deberá mostrar las plazas libres de cada día con su número y su planta.
@@ -180,7 +180,7 @@ ______________________________________________________________________
 
    - [ ] Cada grupo tiene cinco requisitos y al menos tres plantillas distintas.
 
-4. **Minutos 10-13: preguntas de aclaración.** Apartado 3. Cada grupo escribe las tres preguntas que haría a quien pide el sistema antes de construir nada, y a qué parte de la hoja afecta cada respuesta. Son las dudas que han ido apareciendo en los pasos 2 y 3: cifras que han tenido que inventar, perfiles que no estaban claros, cosas que no saben si entran o no. Si una duda se resuelve sola con un «eso no, en la primera versión», no es una pregunta: va a «Fuera de alcance». Ejemplo con la tarjeta 1:
+4. **Minutos 10-13: preguntas de aclaración.** Apartado 3. Cada grupo escribe las tres preguntas que haría a quien pide el sistema antes de construir nada, y a qué parte de la hoja afecta cada respuesta. Son las dudas que han ido apareciendo en los pasos 2 y 3: cifras que han dejado provisionales entre corchetes, perfiles que no estaban claros, cosas que no saben si entran o no. Si una duda se resuelve sola con un «eso no, en la primera versión», no es una pregunta: va a «Fuera de alcance». Ejemplo con la tarjeta 1:
 
    ```text
    A1: ¿Se puede reservar con más de una semana de antelación?        → afecta a: RF-2, casos límite
@@ -192,7 +192,7 @@ ______________________________________________________________________
 
    - [ ] Cada grupo tiene al menos tres preguntas, cada una con la parte a la que afecta.
 
-5. **Minutos 13-18: lectura en voz alta y caza de vaguedades.** Por turnos, el portavoz de cada grupo lee en voz alta la petición de su tarjeta y **un** requisito (el que más les guste). El resto de la sala tiene 30 segundos para encontrarle una vaguedad: un adjetivo sin cifra, dos cosas en una frase, un requisito sin disparador, una tecnología colada o un sujeto que no es el sistema. Quien la encuentra la dice en voz alta; el grupo que lee la apunta en su apartado 4 (y el que la ha cazado, también). Con cinco grupos sale a un minuto por grupo; con seis, acorta la caza a 20 segundos. Si tienes más de seis grupos, sortea qué seis leen: los demás cazan.
+5. **Minutos 13-18: lectura en voz alta y caza de vaguedades.** Por turnos, el portavoz de cada grupo lee en voz alta la petición de su tarjeta y **un** requisito (el que más les guste). El resto de la sala tiene 30 segundos para encontrarle una vaguedad: un adjetivo sin cifra, dos cosas en una frase, un requisito sin disparador, una tecnología colada o un sujeto que no es el sistema. Quien la encuentra la dice en voz alta; el grupo que lee la apunta en su apartado 4 (y el que la ha cazado, también). Con cinco grupos sale a un minuto por grupo; con seis, acorta la caza a 20 segundos.
 
    Qué deberías ver: casi todos los requisitos tienen algo que cazar, y eso es bueno: no es un examen, es la demostración de que un requisito que parece claro a quien lo escribe no lo es para quien lo lee. Si a un requisito nadie le encuentra nada, felicita al grupo y pregunta «¿con qué cifra lo comprobaríais?».
 
@@ -225,7 +225,7 @@ ______________________________________________________________________
 | 4:00 | «Un minuto. Si no tenéis P3, dejadla en blanco; la P1 es la que importa.» | Cierran las historias. | |
 | 5:00 | «Apartado 2: cinco requisitos. El sujeto es siempre el sistema. Al menos tres plantillas distintas.» | Escriben RF-1 a RF-5. | Cronómetro en 5:00 |
 | 7:30 | Pasa por las mesas. Si ves «el usuario deberá» o un adjetivo suelto, dilo sin corregirlo. | Siguen escribiendo. | |
-| 9:00 | «Un minuto. Lo que no sepáis, cifra inventada y pregunta al apartado 3.» | Cierran los requisitos. | |
+| 9:00 | «Un minuto. Lo que no sepáis, cifra provisional entre corchetes y pregunta al apartado 3.» | Cierran los requisitos. | |
 | 10:00 | «Apartado 3: tres preguntas que haríais a quien lo pide. Y a qué afecta cada una. Lo que dejéis fuera, al pie de la hoja.» | Escriben A1 a A3. | Cronómetro en 3:00 |
 | 13:00 | «Portavoces: leed la petición y un requisito. El resto, 30 segundos para cazar una vaguedad.» | Grupo 1 lee; los demás buscan. | Lista de tipos de vaguedad a la vista (es la del apartado 4 de la hoja; proyéctala si puedes) |
 | 14:00 a 17:00 | Un grupo por minuto. Corta las discusiones: «apuntadlo y seguimos». | Leen y cazan por turnos. | Cronómetro: 30 s por caza (20 s si hay seis grupos) |

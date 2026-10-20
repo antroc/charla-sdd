@@ -3,7 +3,7 @@
 > [!NOTE]
 > Este fichero es la **lista de verificación** (*checklist*) de calidad de la especificación: un control de calidad del texto de `spec.md`, no del código (en Spec Kit lo llaman «las pruebas unitarias de la especificación»). Spec Kit la crea automáticamente al ejecutar `/speckit.specify` (como `checklists/requirements.md`) y la vuelve a evaluar tras `/speckit.clarify`; con `/speckit.checklist` se generan otras centradas en un tema (accesibilidad, seguridad…). Forma parte del paso 5 del flujo SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), el paso de analizar, aunque se usa desde el paso 1.
 >
-> La lista automática de Spec Kit tiene tres categorías y 16 comprobaciones sin numerar. Aquí la hemos ampliado con dos categorías («Claridad y medibilidad» y «Coherencia») y con la numeración CHK que usan las listas de `/speckit.checklist`, para que coincida con la [plantilla](../../plantillas/lista-de-verificacion.md) de este repositorio.
+> La lista automática de Spec Kit tiene tres categorías y 16 comprobaciones sin numerar. Aquí la hemos ampliado con dos categorías («Claridad y medibilidad» y «Coherencia») y la hemos numerado al estilo de `/speckit.checklist` (CHK001, CHK002…). Esa numeración es propia de esta solución, 23 comprobaciones en cinco categorías, y no coincide con la de la [plantilla](../../plantillas/lista-de-verificacion.md) de este repositorio, que tiene 19 en tres categorías: si comparas las dos, compara las preguntas, no los números.
 
 **Propósito:** comprobar que la especificación está completa, es clara y se puede planificar sin ambigüedades · **Creada:** 2026-10-06 (reevaluada el 2026-10-07 tras aclarar) · **Funcionalidad:** [spec.md](spec.md)
 
@@ -38,7 +38,7 @@ Una casilla marcada (`[x]`) significa que ese criterio de calidad se ha comproba
 - [x] CHK016 Los requisitos no se contradicen entre sí ni con los casos límite. — RF-005 y el caso «dos personas a la vez» describen el mismo resultado.
 - [x] CHK017 Las entidades que usan los requisitos (Sala, Reserva, Persona) están definidas en «Entidades clave» con los atributos que los requisitos necesitan (estado de la sala, rol de la persona).
 - [x] CHK018 La terminología es la misma en todo el documento: «franja», «reserva», «responsable», «administración». — Se cambió «usuario» por «persona» en dos escenarios.
-- [x] CHK019 La especificación respeta la constitución: solo nombre y correo de cada persona (principio 4); toda reserva tiene responsable visible (principio 5).
+- [x] CHK019 La especificación respeta la constitución: solo nombre y correo de cada persona (principio 4); toda reserva tiene responsable visible y guarda quién la canceló o la modificó por última vez (principio 5).
 
 ## Preparación de la funcionalidad (Feature Readiness)
 

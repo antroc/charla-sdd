@@ -36,13 +36,13 @@ Tres reglas que valen para cualquier formato:
 
 Los artefactos que enseñarás están resueltos en la [solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md): la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`) y la lista de tareas (`tasks.md`) de ReservaSalas.
 
-Antes de facilitar por primera vez, recorre el [itinerario de quien facilita](../diagramas/06-mapa-del-repositorio.md#facilitador-de-la-charla-o-del-taller): esta carpeta, la [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) y los seis diagramas. Y haz tú los ejercicios que vayas a dirigir: es la única forma de saber dónde se atasca la gente.
+Antes de facilitar por primera vez, recorre el [itinerario de quien facilita](../diagramas/06-mapa-del-repositorio.md#facilitador-de-la-charla-o-del-taller), unas 2 horas la primera vez: esta carpeta, la [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) y los seis diagramas. Para la charla, la lista paso a paso está en [Prepara la charla](README.md#prepara-la-charla). Y haz tú los ejercicios que vayas a dirigir: es la única forma de saber dónde se atasca la gente.
 
 ## Tres formatos
 
 | | Charla | Taller | Itinerario |
 |---|---|---|---|
-| **Duración** | 20 minutos | 2 horas | 2 semanas, de 30 a 60 minutos al día |
+| **Duración** | 20 minutos | 2 horas | 2 semanas, de 30 a 90 minutos al día |
 | **Para quién** | Toda la empresa a la vez | Un equipo de 6 a 24 personas | Quien quiera profundizar, a su ritmo |
 | **Objetivo** | Entender qué es SDD y por qué importa | Practicar especificar, aclarar y revisar | Recorrer todo el material y aplicarlo a algo propio |
 | **Ordenador** | Solo quien presenta | No hace falta (salvo en la variante técnica) | Sí; quien programa, con herramientas instaladas |
@@ -65,7 +65,7 @@ De izquierda a derecha: el tiempo disponible decide el formato. La charla despie
 
 ### Formato 1: charla de 20 minutos
 
-Es la puerta de entrada: la charla «Pizza Day», abierta a toda la empresa. Todo lo que tienes que decir y enseñar está en el [guion](guion-20-minutos.md), bloque a bloque; esta es la agenda con los ficheros de cada tramo.
+Es la puerta de entrada: la charla de 20 minutos, abierta a toda la empresa. Todo lo que tienes que decir y enseñar está en el [guion](guion-20-minutos.md), bloque a bloque; esta es la agenda con los ficheros de cada tramo.
 
 | Minuto | Tramo | Ficheros |
 |---|---|---|
@@ -88,18 +88,19 @@ Lleva preparadas las fechas del próximo taller para la diapositiva de cierre: s
 **Preparación (la víspera):**
 
 - Imprime una tarjeta y una plantilla por grupo de los [materiales de la dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#materiales-imprimibles).
+- Asigna los grupos y deja en cada mesa su tarjeta boca abajo y su plantilla (en línea, el documento compartido de cada grupo, con su tarjeta pegada arriba): así, en el último minuto de la apertura solo explicas las reglas, y en el minuto 0:12 arrancas el reloj.
 - Copia, una por pareja, la especificación mala del paso 1 del [ejercicio 05](../ejercicios/05-arreglar-una-especificacion-mala.md) y la [constitución de ReservaSalas](../ejercicios/soluciones/03-reserva-salas/constitution.md), en papel o en un documento compartido.
 - Ten lista para proyectar la [tabla de patrones EARS](../docs/05-escribir-requisitos-claros-ears.md#los-cinco-patrones-y-el-sexto).
 
 | Hora | Tramo | Qué pasa | Ficheros |
 |---|---|---|---|
-| 0:00-0:12 | Apertura | Objetivo del taller y bloques 0-9 del guion, resumidos: gancho, *vibe coding*, SDD y sus siete pasos | [Guion](guion-20-minutos.md), [diagrama 01](../diagramas/01-vibe-coding-vs-sdd.md), [diagrama 02](../diagramas/02-flujo-completo-sdd.md) |
+| 0:00-0:12 | Apertura | Objetivo del taller y bloques 0-9 del guion, resumidos: gancho, *vibe coding*, SDD y sus siete pasos; en el último minuto, las reglas de la dinámica | [Guion](guion-20-minutos.md), [diagrama 01](../diagramas/01-vibe-coding-vs-sdd.md), [diagrama 02](../diagramas/02-flujo-completo-sdd.md) |
 | 0:12-0:32 | Especificar en grupo | Dinámica completa: historias, requisitos, preguntas de aclaración y caza de vaguedades | [Ejercicio 04](../ejercicios/04-dinamica-de-equipo-20-minutos.md) |
 | 0:32-1:02 | Requisitos claros | Ejercicio 02 por parejas, en papel (20 minutos), y comparación en común con la solución (10) | [Ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md), [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md) |
 | 1:02-1:12 | Pausa | — | — |
 | 1:12-1:47 | Revisar una especificación | Ejercicio 05 por parejas mixtas, en papel y con la constitución al lado | [Ejercicio 05](../ejercicios/05-arreglar-una-especificacion-mala.md) |
 | 1:47-1:55 | Los artefactos de verdad | De la petición de Ana a la tarea T013: especificación, lista de tareas y matriz de roles | [Solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md), [diagrama 04](../diagramas/04-roles-y-participacion.md#matriz-de-roles-y-pasos) |
-| 1:55-2:00 | Cierre | Un compromiso por persona, rutas de lectura y encuesta | [Encuesta](#encuesta-de-cierre-5-preguntas) |
+| 1:55-2:00 | Cierre | Rutas de lectura y encuesta, con un compromiso por persona escrito en ella | [Encuesta](#encuesta-de-cierre-5-preguntas) |
 
 > [!WARNING]
 > No enseñes la especificación de la solución antes de los ejercicios 02 y 05: contiene sus respuestas. Por eso, a diferencia de la charla, el recorrido por los artefactos de verdad va al final.
@@ -112,16 +113,16 @@ Lleva preparadas las fechas del próximo taller para la diapositiva de cierre: s
 
 ### Formato 3: itinerario de autoformación de 2 semanas
 
-Diez días laborables, de 30 a 60 minutos al día, cada persona a su ritmo. Funciona mejor con dos encuentros cortos del grupo (días 5 y 10) y un canal de chat del equipo para las dudas. La columna «Leer» es para todos; la tarea práctica cambia según programes o no.
+Diez días laborables, de 30 a 90 minutos al día, cada persona a su ritmo. Funciona mejor con dos encuentros cortos del grupo (días 5 y 10) y un canal de chat del equipo para las dudas. La columna «Leer» es para todos; la tarea práctica cambia según programes o no.
 
 | Día | Tema | Leer | Si no programas | Si programas | Tiempo (aprox.) |
 |---|---|---|---|---|---|
 | 1 | El problema | [Docs 01](../docs/01-el-problema-del-vibe-coding.md), [diagrama 01](../diagramas/01-vibe-coding-vs-sdd.md) | Aplica las [tres preguntas](../docs/01-el-problema-del-vibe-coding.md#tres-preguntas-antes-de-aceptar-una-demo) a una herramienta que uses | Lo mismo | 25 min |
 | 2 | Qué es SDD | [Docs 02](../docs/02-que-es-sdd.md), [diagrama 06](../diagramas/06-mapa-del-repositorio.md) | [Ejercicio 00](../ejercicios/00-preparacion-del-entorno.md), vía A | Ejercicio 00, vía B | 30-60 min |
-| 3 | Primera especificación | — | [Ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) | Ejercicio 01 | 30 min |
+| 3 | Primera especificación | — | [Ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) | Ejercicio 01 | 60-90 min (se puede partir en dos ratos) |
 | 4 | El flujo | [Docs 03](../docs/03-el-flujo-paso-a-paso.md), [diagrama 02](../diagramas/02-flujo-completo-sdd.md) | Sigue la [historia de ReservaSalas](../diagramas/02-flujo-completo-sdd.md#una-historia-de-reservasalas-paso-a-paso) y apunta quién hace qué | Lo mismo | 30-40 min |
-| 5 | Requisitos claros | [Docs 05](../docs/05-escribir-requisitos-claros-ears.md), [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md) | [Ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md) | Ejercicio 02 | 45 min y encuentro |
-| 6 | Los artefactos | [Docs 04](../docs/04-los-artefactos.md), [diagrama 03](../diagramas/03-artefactos-y-relaciones.md) | [Ejercicio 05](../ejercicios/05-arreglar-una-especificacion-mala.md), vía A | Ejercicio 05, vía B | 50-60 min |
+| 5 | Requisitos claros | [Docs 05](../docs/05-escribir-requisitos-claros-ears.md), [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md) | [Ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md) | Ejercicio 02 | 50 min y encuentro |
+| 6 | Los artefactos | [Docs 04](../docs/04-los-artefactos.md), [diagrama 03](../diagramas/03-artefactos-y-relaciones.md) | [Ejercicio 05](../ejercicios/05-arreglar-una-especificacion-mala.md) (y su segunda revisión por chat, la opción 2, si la empresa lo autoriza) | Lo mismo | 50-60 min |
 | 7 | Roles | [Docs 06](../docs/06-roles-quien-hace-que.md), [diagrama 04](../diagramas/04-roles-y-participacion.md) | Lee la [solución de ReservaSalas](../ejercicios/soluciones/03-reserva-salas/README.md) como lo haría Ana: constitución, especificación y aclaraciones | [Ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), primera sesión (pasos 0 a 7) | 40-75 min |
 | 8 | Herramientas | [Docs 07](../docs/07-herramientas.md) | La [variante con asistente de IA](../ejercicios/01-tu-primera-especificacion-sin-codigo.md#variante-con-asistente-de-ia-opcional-entre-los-pasos-7-y-8) del ejercicio 01, si la empresa tiene un chat de IA autorizado | Ejercicio 03, segunda sesión (pasos 8 a 10) | 30-75 min |
 | 9 | Buenas prácticas | [Docs 08](../docs/08-buenas-practicas-y-errores-comunes.md) | Elige un problema real y pequeño de tu equipo y escribe su historia P1 con la [plantilla de especificación](../ejercicios/plantillas/especificacion.md) | Empieza el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md) | 45 min |
@@ -199,6 +200,9 @@ Escala: 1 = nada de acuerdo · 2 = poco · 3 = a medias · 4 = bastante ·
 4. Sé qué me toca hacer a mí, en mi rol, en un proyecto con SDD.      1 2 3 4 5
 5. Voy a probar algo de lo visto en las próximas dos semanas.         1 2 3 4 5
 
+Tu compromiso: ¿qué vas a probar y cuándo?
+____________________________________________________________________________
+
 Opcional: ¿qué cambiarías de la sesión o del material?
 ____________________________________________________________________________
 ```
@@ -213,7 +217,7 @@ Calcula la media de cada pregunta. Como referencia orientativa, una media por de
 | 2. La especificación, antes que el código | El gancho no conectó con el público | Prueba la otra versión del gancho: la reforma o la demo que se rompe |
 | 3. Requisito EARS | El ejercicio fue corto o participó poca gente | Protege sus minutos; en el taller, no recortes el ejercicio 02 |
 | 4. Mi papel | El bloque de roles fue genérico | Pon ejemplos del rol mayoritario y enseña la [matriz de roles](../diagramas/04-roles-y-participacion.md#matriz-de-roles-y-pasos) |
-| 5. Voy a probar algo | La llamada a la acción no fue concreta | Da un primer paso por perfil, con su enlace y su tiempo («30 minutos, sin instalar nada») |
+| 5. Voy a probar algo | La llamada a la acción no fue concreta | Da un primer paso por perfil, con su enlace y su tiempo («una hora larga, sin instalar nada») |
 
 ### Dos a cuatro semanas después
 
@@ -224,7 +228,7 @@ La encuesta mide intenciones; lo que cuenta es lo que pasa después. No hace fal
 - ¿Hay alguna especificación nueva en un repositorio del equipo, revisada por alguien de negocio?
 - ¿El último cambio de comportamiento de alguna aplicación empezó por un cambio en su especificación?
 
-Para los equipos que ya trabajan con SDD, la lista de [señales de que lo estás haciendo bien](../docs/08-buenas-practicas-y-errores-comunes.md#señales-de-que-lo-estás-haciendo-bien) es el siguiente nivel.
+Para los equipos que ya trabajan con SDD, la lista de [señales de que lo estás haciendo bien](../docs/08-buenas-practicas-y-errores-comunes.md#señales-de-que-lo-estás-haciendo-bien) es el siguiente nivel. Y si un equipo quiere pasar de la formación a un proyecto real, lo que se mide es su piloto: cómo montarlo y qué mirar al final está en [¿Cómo monto un piloto en mi equipo?](../docs/09-preguntas-frecuentes.md#cómo-monto-un-piloto-en-mi-equipo).
 
 ## Errores de facilitación habituales
 
@@ -248,7 +252,7 @@ El material mejora con cada sesión. Lo que te pregunten y no esté respondido, 
 
 - **Durante la sesión,** apunta las preguntas sin respuesta, los ejemplos que no se entendieron, las erratas y los enlaces rotos.
 - **Al terminar,** junta esas notas con los comentarios de la encuesta, agregados y sin nombres.
-- **Para proponer el cambio,** sigue [CONTRIBUIR.md](../CONTRIBUIR.md): puedes abrir una incidencia (*issue*, una petición o aviso que queda registrado en el repositorio), editar el fichero y proponerlo con una *pull request* (una propuesta de cambio que otra persona revisa antes de incorporarla) o, si no tienes cuenta de GitHub, escribir a quien mantiene el material.
+- **Para proponer el cambio,** sigue [CONTRIBUIR.md](../CONTRIBUIR.md): puedes abrir una incidencia (*issue*, una petición o aviso que queda registrado en el repositorio), editar el fichero y proponerlo con una *pull request* (una propuesta de cambio que otra persona revisa antes de incorporarla) o, si no tienes cuenta de GitHub, escribir al contacto que figura en la [portada](../README.md#sobre-este-material).
 
 Cada propuesta se entiende mejor con estos cuatro datos:
 

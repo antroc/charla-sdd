@@ -74,7 +74,7 @@ Haz primero el ejercicio y compara después con la solución. Las soluciones son
 ## Plantillas y soluciones
 
 - [Plantillas](plantillas/README.md): la constitución, la especificación, la lista de aclaraciones, el plan técnico, la lista de tareas y la lista de verificación, en castellano y listas para copiar. Los ejercicios 01, 05 y 06 las usan.
-- [Soluciones](soluciones/README.md): las respuestas de los ejercicios 01, 02 y 05, y el ejemplo completo de ReservaSalas del ejercicio 03, con los siete ficheros que produce el flujo.
+- [Soluciones](soluciones/README.md): las respuestas de los ejercicios 01, 02 y 05, y el ejemplo completo de ReservaSalas del ejercicio 03, con los seis ficheros que produce el flujo y un README que explica cómo se generaron.
 
 ## Siguiente paso
 

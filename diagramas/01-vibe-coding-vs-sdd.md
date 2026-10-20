@@ -85,7 +85,7 @@ Aquí también hay un bucle, pero con dos diferencias: tiene una salida clara (�
 
 ## Siguiente paso
 
-Continúa con [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y, si ya lo has leído, con [Qué es SDD](../docs/02-que-es-sdd.md).
+Si vienes de los documentos 01 y 02, sigue con el [Flujo completo de SDD](02-flujo-completo-sdd.md) (ruta de managers) o con [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) (ruta de RRHH y negocio). Si empiezas aquí, lee antes [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md).
 
 ---
 

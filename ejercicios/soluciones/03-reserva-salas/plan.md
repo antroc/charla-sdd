@@ -37,7 +37,7 @@ El recorrido de una petición es siempre el mismo: el navegador la envía, el ac
 | **Plataforma** | Servidor Linux interno; acceso desde el navegador de la empresa (escritorio y móvil) |
 | **Tipo de proyecto** | Aplicación web de un solo proyecto (sin frontend separado) |
 | **Objetivos de rendimiento** | Listado de disponibilidad en menos de 2 s (CE-004); el resto de pantallas por debajo de 1 s |
-| **Restricciones** | Sin servicios externos salvo el correo corporativo; sin JavaScript de terceros; textos en castellano. La aplicación solo escucha en la red interna, detrás del acceso corporativo, que es quien pone la identidad de la persona en cada petición (ver «Decisiones y alternativas») |
+| **Restricciones** | Sin integración con el calendario corporativo. Solo dos sistemas que ya existen en la empresa: el acceso corporativo, que pone la identidad de la persona en cada petición, y el servidor de correo, para los avisos. Sin servicios ni JavaScript de terceros; textos en castellano. La aplicación solo escucha en la red interna, detrás del acceso corporativo (ver «Decisiones y alternativas») |
 | **Escala** | 12 salas, unas 200 personas, decenas de reservas al día, un año de histórico (unas 10 000 filas) |
 
 ## Comprobación contra la constitución (Constitution Check)
@@ -47,10 +47,10 @@ Puerta de entrada: se comprueba antes de investigar y se vuelve a comprobar al t
 | Principio | Cómo lo cumple este plan | Estado |
 |---|---|---|
 | 1. Sencillez primero | Un solo proceso, una sola base de datos en fichero, sin frontend separado ni cola de mensajes. Cuatro páginas y seis rutas de API; la API es la única pieza que no pide la especificación y se justifica en el «Registro de complejidad». | Cumple (con una desviación justificada) |
-| 2. Accesible y en castellano | HTML generado en el servidor con formularios estándar (funcionan sin JavaScript y con lector de pantalla). Todos los textos y mensajes de error en castellano, definidos en un único módulo. | Cumple |
+| 2. Accesible y en castellano | HTML generado en el servidor con formularios estándar (funcionan sin JavaScript y con lector de pantalla). Todos los textos y mensajes de error en castellano, definidos en un único módulo; cada error dice qué ha pasado y qué puede hacer la persona. | Cumple |
 | 3. Pruebas antes de dar algo por hecho | Cada historia tiene pruebas de contrato e integración escritas antes que el código; las reglas de negocio tienen pruebas unitarias. `pytest` en cada entrega. | Cumple |
 | 4. Datos mínimos | La tabla `persona` tiene solo nombre, correo y rol. No hay registro de actividad por persona ni campos «por si acaso». | Cumple |
-| 5. Transparencia | `reserva.persona_id` es obligatorio; el nombre del responsable se muestra en todas las vistas; las cancelaciones guardan quién las hizo. | Cumple |
+| 5. Transparencia | `reserva.persona_id` es obligatorio; el nombre del responsable se muestra en todas las vistas; las cancelaciones y las modificaciones guardan quién las hizo (`cancelada_por`, `modificada_por`). | Cumple |
 
 ## Decisiones y alternativas (research.md)
 
@@ -60,7 +60,7 @@ Puerta de entrada: se comprueba antes de investigar y se vuelve a comprobar al t
 | SQLite en un fichero | Volumen pequeño (decenas de reservas al día). Sin servidor de base de datos que instalar ni mantener. Copia de seguridad = copiar un fichero. | PostgreSQL: más robusto para cargas grandes, pero añade un servicio que mantener. Se podrá migrar si crece el uso. |
 | Identificación por correo corporativo | El acceso único de la empresa añade a cada petición la cabecera `X-Usuario` con el correo de la persona; la aplicación lo lee y busca (o crea) la persona. La aplicación solo escucha en la interfaz interna, detrás del acceso corporativo, que elimina cualquier `X-Usuario` que envíe el navegador y la sustituye por la identidad autenticada; en producción `RESERVASALAS_USUARIO_DEV` está vacía y se rechazan las peticiones sin identidad. En desarrollo esa variable simula el acceso. Quién tiene permisos de administración se fija en la variable `RESERVASALAS_ADMINISTRACION` (lista de correos); al resolver la persona se le asigna el rol que le toca. | Gestionar usuarios y contraseñas propias: choca con el principio 4 y con la restricción de no gestionar contraseñas. Guardar el rol a mano en la base de datos: nadie sabría cómo dar de alta a la segunda persona administradora. |
 | Solapamiento comprobado en una sola transacción | La comprobación «¿hay otra reserva activa de esta sala con inicio anterior a mi fin y fin posterior a mi inicio?» y la inserción se ejecutan dentro de una transacción abierta con `BEGIN IMMEDIATE` (el servicio controla las transacciones: conexión con `isolation_level=None` y `BEGIN IMMEDIATE` explícito antes de la consulta). Así la transacción toma el bloqueo de escritura antes de comprobar: si dos personas confirman a la vez, la segunda espera, después ve la reserva ya guardada y recibe el rechazo por solapamiento. Garantiza CE-002 incluso con dos personas a la vez. | Transacción normal (`BEGIN DEFERRED`, la que abre `sqlite3` por defecto): las dos peticiones leerían «libre» a la vez y la segunda fallaría con un error de bloqueo en vez de con el rechazo limpio que pide RF-005. Bloqueo optimista con reintentos: más complejo e innecesario con este volumen. |
-| Correo por el servidor corporativo (`smtplib`) | Cumple RF-011 sin servicios externos. En pruebas se sustituye por un envío simulado que guarda los correos en memoria. | Servicio de correo en la nube: dependencia externa y datos personales fuera de la empresa. |
+| Correo por el servidor corporativo (`smtplib`) | Cumple RF-011 con un sistema que ya existe en la empresa y que la constitución permite usar, sin servicios de terceros. En pruebas se sustituye por un envío simulado que guarda los correos en memoria. | Servicio de correo en la nube: dependencia externa y datos personales fuera de la empresa. |
 | Fechas y horas en hora local, guardadas como texto ISO 8601 | Una sola sede y una sola zona horaria (supuesto de la especificación). Comparar textos ISO es suficiente para detectar solapamientos. | Guardar en UTC: correcto en general, pero añade conversiones que aquí no aportan nada. |
 
 ## Modelo de datos (data-model.md)
@@ -75,7 +75,7 @@ flowchart LR
   end
   subgraph reserva ["Reserva"]
     R1["inicio, fin, motivo (opcional)"]
-    R2["estado: activa o cancelada, quién canceló"]
+    R2["estado: activa o cancelada, quién canceló o modificó"]
   end
   subgraph persona ["Persona"]
     P1["nombre, correo corporativo"]
@@ -119,12 +119,13 @@ De izquierda a derecha: una sala tiene muchas reservas y una persona es responsa
 | `motivo` | texto | opcional, máximo 120 caracteres |
 | `estado` | texto | `activa` o `cancelada` |
 | `cancelada_por` | entero | opcional; referencia a `persona`; se rellena al cancelar (principio 5) |
+| `modificada_por` | entero | opcional; referencia a `persona`; se rellena al modificar, con quien hizo el último cambio (principio 5) |
 
 Regla de integridad principal (CE-002): no pueden existir dos reservas con `estado = activa`, la misma `sala_id` y franjas que se crucen (`inicio_a < fin_b` y `fin_a > inicio_b`). Se comprueba en el servicio dentro de la misma transacción que la escritura, abierta con `BEGIN IMMEDIATE` para que dos peticiones simultáneas no lean «libre» a la vez (RF-005). Índice en `(sala_id, inicio)` para que el listado cumpla CE-004.
 
 ### Estados
 
-- **Reserva:** `activa` → `cancelada` (RF-008, RF-010). No se borran filas: así «Mis reservas» y el histórico siguen siendo coherentes. Modificar una reserva cambia `inicio` y `fin` sin cambiar de estado.
+- **Reserva:** `activa` → `cancelada` (RF-008, RF-010). No se borran filas: así «Mis reservas» y el histórico siguen siendo coherentes. Modificar una reserva cambia `inicio` y `fin` sin cambiar de estado y guarda en `modificada_por` quién hizo el cambio.
 - **Sala:** `disponible` ↔ `mantenimiento` (RF-009). Al pasar a mantenimiento no se tocan las reservas existentes.
 
 ## Contratos (contracts/)
@@ -153,7 +154,7 @@ Respuesta `200`:
   "franja": {"fecha": "2026-10-22", "inicio": "10:00", "fin": "11:00"},
   "salas": [
     {"id": 1, "nombre": "Mediterráneo", "planta": 1, "aforo": 8, "estado": "disponible", "libre": true},
-    {"id": 4, "nombre": "Báltico", "planta": 2, "aforo": 12, "estado": "disponible", "libre": false,
+    {"id": 5, "nombre": "Báltico", "planta": 2, "aforo": 12, "estado": "disponible", "libre": false,
      "ocupadas": [{"inicio": "10:30", "fin": "11:30", "responsable": "Marta"}]},
     {"id": 11, "nombre": "Ártico", "planta": 3, "aforo": 4, "estado": "mantenimiento", "libre": false}
   ]
@@ -178,7 +179,7 @@ Respuesta `201` (RF-003, RF-004):
 }
 ```
 
-Errores: `409` si se solapa (RF-005), con `{"error": "solapamiento", "mensaje": "Mediterráneo ya está reservada de 10:30 a 11:30", "ocupadas": [{"inicio": "10:30", "fin": "11:30"}]}`; `400` si incumple un límite de RF-006, con `{"error": "limite", "mensaje": "La duración máxima es de 4 horas"}` (se reserva el `422` para lo que FastAPI rechaza por su cuenta: cuerpos mal formados, con otra estructura de error); `409` con `{"error": "mantenimiento"}` si la sala está en mantenimiento (RF-007).
+Errores (cada mensaje dice qué ha pasado y qué puede hacer la persona, como pide el principio 2): `409` si se solapa (RF-005), con `{"error": "solapamiento", "mensaje": "Mediterráneo ya está reservada de 10:30 a 11:30. Prueba otra franja o elige otra sala.", "ocupadas": [{"inicio": "10:30", "fin": "11:30"}]}`; `400` si incumple un límite de RF-006, con `{"error": "limite", "mensaje": "La duración máxima es de 4 horas. Elige una franja más corta."}` (se reserva el `422` para lo que FastAPI rechaza por su cuenta: cuerpos mal formados, con otra estructura de error); `409` si la sala está en mantenimiento (RF-007), con `{"error": "mantenimiento", "mensaje": "Ártico está en mantenimiento y no admite reservas. Elige otra sala."}`.
 
 ### 3. Cancelar una reserva: `DELETE /api/reservas/{id}`
 
@@ -186,9 +187,9 @@ Petición: `DELETE /api/reservas/57` con cabecera `X-Usuario`.
 
 Respuesta `200` (RF-008): `{"id": 57, "estado": "cancelada", "mensaje": "Reserva cancelada: Mediterráneo, jueves 22 de octubre, de 10:00 a 11:00"}`. Si quien cancela es administración, la respuesta incluye `"cancelada_por": "Ana (administración)"`.
 
-Error `403` si la persona no es la responsable ni administración (RF-010): `{"error": "sin_permiso", "mensaje": "Solo Marta o administración pueden cancelar esta reserva"}`.
+Error `403` si la persona no es la responsable ni administración (RF-010): `{"error": "sin_permiso", "mensaje": "Solo Marta o administración pueden cancelar esta reserva. Si la necesitas, habla con Marta."}`.
 
-Modificar usa `PUT /api/reservas/{id}` con el cuerpo `{"inicio": "…", "fin": "…", "motivo": "…"}` (no se cambia de sala: para eso se cancela y se reserva otra) y las mismas respuestas que crear (`200`, `409`, `400`, `403`); si falla, la reserva original no cambia.
+Modificar usa `PUT /api/reservas/{id}` con el cuerpo `{"inicio": "…", "fin": "…", "motivo": "…"}` (no se cambia de sala: para eso se cancela y se reserva otra) y las mismas respuestas que crear (`200`, `409`, `400`, `403`); si falla, la reserva original no cambia. Al modificar se guarda en `modificada_por` quién hizo el cambio (principio 5); si es administración, la respuesta incluye `"modificada_por": "Ana (administración)"`.
 
 ### 4. Mis reservas: `GET /api/mis-reservas`
 
@@ -257,7 +258,7 @@ reserva-salas/
 
 ## Arranque rápido (quickstart.md)
 
-Requisitos: Python 3.12 y `uv` (o `pip`).
+Requisitos: Python 3.12 (si tienes otra versión, instala esta con `uv python install 3.12`) y `uv` (o `pip`).
 
 En Linux o macOS:
 
@@ -281,6 +282,13 @@ $env:RESERVASALAS_USUARIO_DEV = "luis@empresa.example"   # simula el acceso corp
 uvicorn reservasalas.app:app --reload
 ```
 
+Si PowerShell no te deja activar el entorno («la ejecución de scripts está deshabilitada en este sistema»), no hace falta activarlo: sáltate `.venv\Scripts\activate` (`uv pip install` encuentra la carpeta `.venv` por su cuenta) y llama al Python del entorno directamente:
+
+```powershell
+.venv\Scripts\python -m uvicorn reservasalas.app:app --reload
+.venv\Scripts\python -m pytest
+```
+
 Abre <http://localhost:8000>. Deberías ver las 12 salas con su planta y su aforo.
 
 Escenario de validación de extremo a extremo (historia 1):
@@ -299,7 +307,7 @@ pytest tests/unitarias -q # solo las reglas de negocio, en pocos segundos
 
 ## Registro de complejidad (Complexity Tracking)
 
-La comprobación contra la constitución, repetida tras diseñar el modelo de datos y los contratos, ha detectado una sola desviación del principio 1, que se justifica aquí:
+La comprobación contra la constitución, repetida tras diseñar el modelo de datos y los contratos, ha detectado una sola desviación del principio 1, que se justifica en la tabla. El acceso corporativo y el servidor de correo no son desviaciones: son los dos sistemas de la empresa que la constitución permite usar.
 
 | Desviación | Por qué es necesaria | Alternativa más simple descartada porque |
 |---|---|---|

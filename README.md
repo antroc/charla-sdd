@@ -95,8 +95,8 @@ El [mapa del repositorio](diagramas/06-mapa-del-repositorio.md) dibuja todas las
 6. [Roles: quién hace qué](docs/06-roles-quien-hace-que.md): qué hace cada perfil en cada paso.
 7. [Herramientas](docs/07-herramientas.md): Spec Kit, Kiro o sin herramientas.
 8. [Buenas prácticas y errores comunes](docs/08-buenas-practicas-y-errores-comunes.md): lo que funciona y lo que suele salir mal.
-9. [Preguntas frecuentes](docs/09-preguntas-frecuentes.md): 25 preguntas agrupadas por perfil.
-10. [Glosario](docs/10-glosario.md): 60 términos en lenguaje llano.
+9. [Preguntas frecuentes](docs/09-preguntas-frecuentes.md): 27 preguntas agrupadas por perfil.
+10. [Glosario](docs/10-glosario.md): 62 términos en lenguaje llano.
 
 ### Diagramas ([diagramas/](diagramas/README.md))
 

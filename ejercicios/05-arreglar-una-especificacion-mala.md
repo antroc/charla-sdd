@@ -25,9 +25,9 @@ Al terminar sabrás leer una especificación con ojo crítico: detectar tecnolog
 - La [constitución de ReservaSalas](soluciones/03-reserva-salas/constitution.md) abierta al lado: varios problemas solo se ven comparándola con ella.
 - Las plantillas de [especificación](plantillas/especificacion.md) (para consultar qué secciones debería tener una buena) y de [lista de verificación](plantillas/lista-de-verificacion.md) (la pasarás en el paso 5).
 - Tiempo: entre 30 y 40 minutos (unos 5 para leer, 10 para marcar problemas, 10 para reescribir, 5 para la lista de verificación y 5-10 para comparar). La segunda revisión con un asistente de IA, si la haces, va aparte.
-- Dónde trabajar. Elige una vía:
-  - **Vía A, sin instalar nada:** imprime o copia la especificación del paso 1 a un documento compartido y trabaja sobre ella con bolígrafo o con comentarios. Vale para todos los perfiles.
-  - **Vía B, con un asistente de IA:** además de lo anterior, un chat de IA genérico autorizado por la empresa para pedir una segunda revisión en el paso 6. No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu ojo, no la herramienta.
+- Dónde trabajar. Elige una opción:
+  - **Opción 1: solo papel o documento.** Imprime o copia la especificación del paso 1 a un documento compartido y trabaja sobre ella con bolígrafo o con comentarios. Vale para todos los perfiles.
+  - **Opción 2: con un chat de IA autorizado.** Lo mismo que en la opción 1 y, además, el chat de IA genérico que tenga autorizado la empresa, para pedir una segunda revisión en el paso 6. No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu ojo, no la herramienta.
 
 > [!IMPORTANT]
 > No abras todavía [soluciones/03-reserva-salas/spec.md](soluciones/03-reserva-salas/spec.md): es la versión buena de esta misma especificación y te chafaría el ejercicio. Úsala solo en el paso 7. La constitución sí puedes (y debes) tenerla abierta.
@@ -186,7 +186,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    - Para cada requisito, pregúntate «¿cómo demostraría que se cumple?»; si no lo sabes, es vago o no es comprobable.
    - Si una palabra solo la entendería quien programa (React, Node.js, API REST, PostgreSQL, «tabla»), es tecnología y sobra: no hace falta saber qué es cada cosa para marcarla.
-   - Para cada afirmación, pregúntate si choca con otra línea (horarios, duraciones, lo que queda fuera de alcance) o con la constitución: sus cinco principios (sencillez, accesible y en castellano, pruebas, datos mínimos, transparencia) y sus «Restricciones adicionales» (acceso corporativo existente, un único servidor, sin sistemas externos).
+   - Para cada afirmación, pregúntate si choca con otra línea (horarios, duraciones, lo que queda fuera de alcance) o con la constitución: sus cinco principios (sencillez, accesible y en castellano, pruebas, datos mínimos, transparencia) y sus «Restricciones adicionales» (un único servidor, sin calendario corporativo ni más sistemas que el acceso y el correo corporativos que ya existen).
    - Mira lo que falta, no solo lo que sobra: prioridades P1/P2/P3, criterios de aceptación (los ejemplos Dado/Cuando/Entonces de cada historia), casos límite, responsable de cada reserva, la pregunta pendiente de la línea 61.
    - No te saltes la cabecera (línea 03) ni las notas del final (líneas 89-93): también cuentan.
 
@@ -201,7 +201,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    - una sala la marca en mantenimiento solo administración;
    - una reserva ajena solo la puede cancelar o modificar administración;
    - el horario de reservas es de 08:00 a 20:00 y el máximo son 4 horas, sin excepciones (ni «eventos» hasta las 22:00 ni reuniones de todo el día);
-   - el correo de confirmación es obligatorio;
+   - el correo es obligatorio: uno al confirmar, al modificar y al cancelar, para que sirva de comprobante;
    - se puede reservar con 30 días de antelación como máximo;
    - no hay reservas recurrentes ni control de asistencia en la primera versión;
    - y, aunque no hizo falta preguntarlo porque lo dice la constitución, toda reserva lleva el nombre de quien la hace.
@@ -227,7 +227,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    - [ ] Tengo entre 10 y 12 requisitos en EARS, numerados sin huecos y sin tecnología.
 
-4. **Reescribe los criterios de éxito.** Sustituye CE-1 a CE-4 por al menos tres criterios con un número (tiempo, porcentaje o cantidad), que hablen de lo que ve o consigue una persona y no de cómo está construido el sistema. Un buen truco: coge cada criterio malo y pregúntate «¿cómo sabría dentro de tres meses si esto se ha cumplido?». Las cifras las fija quien encarga el sistema, no quien revisa: como aquí no puedes preguntar a Ana, pon las que te parezcan razonables y anótalas como supuesto («cifra provisional, confirmar con Ana»); en el paso 7 verás las que fijó ella.
+4. **Reescribe los criterios de éxito.** Sustituye CE-1 a CE-4 por al menos tres criterios con un número (tiempo, porcentaje o cantidad), que hablen de lo que ve o consigue una persona y no de cómo está construido el sistema. Un buen truco: coge cada criterio malo y pregúntate «¿cómo sabría dentro de tres meses si esto se ha cumplido?». Las cifras las fija quien encarga el sistema, no quien revisa: como aquí no puedes preguntar a Ana y necesitas una cifra para seguir, escribe una provisional a la vista como supuesto («cifra provisional, confirmar con Ana») y no des la especificación por aprobada hasta que Ana la confirme; en el paso 7 verás las que fijó ella.
 
    ```markdown
    ### Resultados medibles
@@ -248,12 +248,12 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    - [ ] He pasado la lista y cada casilla sin marcar tiene una nota que dice qué falta.
 
-6. **Vía B: pide una segunda revisión a un asistente de IA.** Si sigues la vía A, pasa directamente al paso 7. Solo después de tener tu tabla, pega en el chat de IA autorizado este *prompt* (la instrucción que le escribes al asistente), con la constitución y la especificación mala en los huecos indicados:
+6. **Opción 2: pide una segunda revisión a un asistente de IA.** Si sigues la opción 1, pasa directamente al paso 7. Solo después de tener tu tabla, pega en el chat de IA autorizado este *prompt* (la instrucción que le escribes al asistente), con la constitución y la especificación mala en los huecos indicados:
 
    ```text
    Actúa como revisor de especificaciones en un proceso de desarrollo guiado por especificaciones. Te paso (1) la constitución de un proyecto, con sus principios innegociables, y (2) una especificación escrita con prisas. Revisa la especificación y devuélveme una tabla con una fila por problema: número de línea, qué falla, tipo de problema (tecnología, vago, dos cosas en una, sin disparador o sin sujeto, verbo blando, contradicción, laguna, prioridad, no medible, contra la constitución, alcance, terminología, interfaz, duplicado) y cómo lo arreglarías en una frase.
 
-   Reglas: la especificación solo puede decir QUÉ hace el sistema y POR QUÉ, nunca con qué tecnología. Cada requisito funcional debe ser una sola frase en formato EARS en castellano («El sistema deberá…», «CUANDO…, el sistema deberá…», «MIENTRAS…, el sistema deberá…», «SI…, ENTONCES el sistema deberá…», «DONDE…, el sistema deberá…»), con una sola cosa comprobable y sin adjetivos sin cifra. Los criterios de éxito deben tener un número (tiempo, porcentaje o cantidad) y no mencionar tecnología. Las historias de usuario deben tener prioridad P1/P2/P3 y criterios de aceptación Dado/Cuando/Entonces. No reescribas la especificación entera y no inventes cifras: si falta un dato, dilo como [NECESITA ACLARACIÓN: …].
+   Reglas: la especificación solo puede decir qué hace el sistema y por qué, nunca con qué tecnología. Cada requisito funcional debe ser una sola frase en formato EARS en castellano («El sistema deberá…», «CUANDO…, el sistema deberá…», «MIENTRAS…, el sistema deberá…», «SI…, ENTONCES el sistema deberá…», «DONDE…, el sistema deberá…»), con una sola cosa comprobable y sin adjetivos sin cifra. Los criterios de éxito deben tener un número (tiempo, porcentaje o cantidad) y no mencionar tecnología. Las historias de usuario deben tener prioridad P1/P2/P3 y criterios de aceptación Dado/Cuando/Entonces. No reescribas la especificación entera y no inventes cifras: si falta un dato, dilo como [NECESITA ACLARACIÓN: …].
 
    (1) Constitución:
    [pega aquí el contenido de soluciones/03-reserva-salas/constitution.md]
@@ -280,7 +280,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 | Al corregir has añadido más tecnología («mejor SQLite que PostgreSQL»). | Confundes arreglar la especificación con tomar decisiones técnicas. | Toda tecnología sale de la especificación y va al plan técnico; en la especificación solo queda qué hace el sistema. |
 | Has reescrito el documento entero y has tardado dos horas. | El ejercicio pide reescribir solo requisitos y criterios de éxito. | Las historias y los casos límite se anotan en la tabla como «cómo lo arreglaría»; reescribirlos es opcional. |
 | Tus requisitos corregidos no coinciden con la solución. | Es lo normal: hay varias formas buenas de decir lo mismo. | Compara patrón, disparador y respuesta, y pasa la lista de verificación; si la pasa, está bien. |
-| Tus criterios de éxito llevan cifras que te has inventado sin más. | Las cifras las fija quien encarga el sistema, no quien revisa. | Déjalas anotadas como supuesto («provisional, confirmar con Ana») o como `[NECESITA ACLARACIÓN: …]`; lo que no se hace es quitar la cifra y volver a «rápido». |
+| Tus criterios de éxito llevan cifras que te has inventado sin más. | Las cifras las fija quien encarga el sistema, no quien revisa. | Déjalas a la vista como supuesto («provisional, confirmar con Ana») o cámbialas por `[NECESITA ACLARACIÓN: …]`, y no des la especificación por aprobada hasta que Ana las confirme; lo que no se hace es quitar la cifra y volver a «rápido». |
 | No sabes si «exportar a Excel» o «botón verde» son tecnología. | Mezclan qué quiere la persona con cómo se le da. | Quédate con el qué («descargar el listado», «confirmar la reserva») y deja el cómo para el plan y el diseño. |
 | El chat de IA te dice que la especificación «está bastante bien». | El *prompt* no llevaba reglas ni constitución. | Usa el *prompt* del paso 6 completo, con la constitución pegada, y pídele una tabla, no una opinión. |
 

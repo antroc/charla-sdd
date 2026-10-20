@@ -23,9 +23,9 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 
 - Haber leído [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md), o al menos tener a mano la tabla de patrones del paso 1.
 - Tiempo: unos 30 minutos: 20 para hacerlo (5 por cada bloque de frases y 5 para clasificar y cazar errores) y 10 para comparar con la solución.
-- Dónde escribir. Elige una vía:
-  - **Vía A, sin instalar nada:** papel y bolígrafo, o un documento compartido. Es la vía recomendada para quien no programa y perfectamente válida para quien sí.
-  - **Vía B, con un asistente de IA:** cualquier chat de IA genérico autorizado por la empresa. Lo usarás solo al final, para que revise lo que tú has escrito (paso 7). No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu criterio, y en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) verás cómo la herramienta genera estos requisitos y cómo los revisas tú.
+- Dónde escribir. Elige una opción:
+  - **Opción 1: solo papel o documento.** Papel y bolígrafo, o un documento compartido. Es la opción recomendada para quien no programa y perfectamente válida para quien sí.
+  - **Opción 2: con un chat de IA autorizado.** Lo mismo que en la opción 1 y, además, el chat de IA genérico que tenga autorizado la empresa. Lo usarás solo al final, para que revise lo que tú has escrito (paso 7). No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu criterio, y en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) verás cómo la herramienta genera estos requisitos y cómo los revisas tú.
 - Opcional, para el paso 7: la [especificación canónica de ReservaSalas](soluciones/03-reserva-salas/spec.md), para comparar al final tus frases de ReservaSalas con las del ejemplo. Las pistas citan sus requisitos funcionales (RF-001, RF-005…; «RF» quiere decir requisito funcional) y sus criterios de éxito (CE-003, CE-004) para que sepas con qué comparar después, no para que los mires antes.
 
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
    RF: …
    ```
 
-   Pistas. F01: ¿qué datos de cada sala hacen falta para elegir una (dónde está, cuánta gente cabe)? Compara después con RF-001 del ejemplo canónico. F02: «que se entere» no es comprobable; di qué recibe el manager y con qué datos. F03: es una situación que queremos evitar. F04: ¿con cualquier tarjeta? ¿Cuánto tiempo queda desbloqueado? Si no lo sabes, pon una cifra razonable y anótala como supuesto, o deja un marcador `[NECESITA ACLARACIÓN: …]`, que es justo lo que hace el asistente de IA cuando le falta un dato.
+   Pistas. F01: ¿qué datos de cada sala hacen falta para elegir una (dónde está, cuánta gente cabe)? Compara después con RF-001 del ejemplo canónico. F02: «que se entere» no es comprobable; di qué recibe el manager y con qué datos. F03: es una situación que queremos evitar. F04: ¿con cualquier tarjeta? ¿Cuánto tiempo queda desbloqueado? Si no lo sabes, no lo inventes: deja un marcador `[NECESITA ACLARACIÓN: …]`, que es justo lo que hace el asistente de IA cuando le falta un dato. Si necesitas una cifra provisional para seguir, escríbela a la vista como supuesto («se asume 5 segundos; confirmar con Seguridad») y no des el requisito por cerrado hasta que quien decide la confirme.
 
    Qué deberías ver: cuatro frases que empiezan por «El sistema deberá», «CUANDO» o «SI», cuyo sujeto es el sistema, la cafetera o el torno, y que alguien podría comprobar con un sí o un no.
 
@@ -94,7 +94,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 
    - [ ] He reescrito F05 a F08 y sé explicar por qué ese patrón y no otro.
 
-4. **Bloque C: frases que esconden más de un requisito.** Estas cuatro frases son las que llegan de verdad en un correo o en una reunión. Cada una esconde dos requisitos, una cifra que falta o una parte que no es un requisito. Puedes escribir dos requisitos para una misma frase (numéralos a y b), inventar una cifra razonable y anotarla como supuesto, o dejar un marcador `[NECESITA ACLARACIÓN: …]`.
+4. **Bloque C: frases que esconden más de un requisito.** Estas cuatro frases son las que llegan de verdad en un correo o en una reunión. Cada una esconde dos requisitos, una cifra que falta o una parte que no es un requisito. Puedes escribir dos requisitos para una misma frase (numéralos a y b) y, donde falte un dato, dejar un marcador `[NECESITA ACLARACIÓN: …]` o, si necesitas seguir, una cifra provisional escrita a la vista como supuesto.
 
    ```text
    F09 [ReservaSalas]  «Las reservas deben ser razonables: ni muy largas ni a deshoras.»
@@ -113,7 +113,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 
    Pistas. F09: «razonable» no se puede comprobar; las cifras de ReservaSalas son 4 horas como máximo y horario de 08:00 a 20:00 (el ejemplo canónico junta los límites en RF-006 porque la respuesta es la misma; dos requisitos separados también valen). F10: parece dos cosas, pero «rechazar e indicar cuántos días quedan» es una sola respuesta a una sola condición. F11: hay un estado (fuera de horario) y un evento (alguien pasa la tarjeta), así que toca el patrón complejo; además tienes que decir qué horario es «fuera de horario». F12: una de las dos partes no es un requisito funcional (nadie puede comprobar «fácil de limpiar» con un sí o un no); la otra necesita saber cuándo «toca».
 
-   Qué deberías ver: entre cinco y siete requisitos para cuatro frases (cuatro si has juntado los dos límites de F09 en un solo SI, como hace RF-006), al menos un marcador de aclaración o una cifra inventada y anotada como supuesto, y una nota del estilo «"fácil de limpiar" no es un requisito: pedir una cifra o pasarlo a criterios de éxito».
+   Qué deberías ver: entre cinco y siete requisitos para cuatro frases (cuatro si has juntado los dos límites de F09 en un solo SI, como hace RF-006), al menos un marcador de aclaración o una cifra provisional anotada como supuesto, y una nota del estilo «"fácil de limpiar" no es un requisito: pedir una cifra o pasarlo a criterios de éxito».
 
    - [ ] He reescrito F09 a F12 y he separado lo que eran dos cosas.
 
@@ -167,7 +167,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 
 7. **Compara y, si quieres, pide una segunda opinión.** Abre la [solución comentada](soluciones/02-requisitos-ears-resueltos.md) y compara frase por frase. No busques coincidencia literal: busca que tu requisito tenga el mismo patrón, el mismo disparador o condición y una respuesta igual de comprobable. Anota en qué te has desviado y por qué.
 
-   Si has elegido la vía B, pega en tu chat de IA autorizado el siguiente *prompt* (la instrucción que le escribes al asistente), sustituyendo el bloque final por tus requisitos:
+   Si has elegido la opción 2, pega en tu chat de IA autorizado el siguiente *prompt* (la instrucción que le escribes al asistente), sustituyendo el bloque final por tus requisitos:
 
    ```text
    Actúa como revisor de requisitos. Te paso una lista de requisitos escritos en EARS (Easy Approach to Requirements Syntax) en castellano. Las únicas plantillas válidas son:
@@ -196,7 +196,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 | Todos tus requisitos empiezan por CUANDO. | Tratas como evento cosas que son estados o reglas permanentes. | Pregunta: ¿dura un tiempo? MIENTRAS. ¿Se cumple siempre? Ubicuo. ¿Es un error? SI… ENTONCES. |
 | Has escrito «el usuario deberá…» o «la persona deberá…». | El sujeto es quien usa el sistema, no el sistema. | Da la vuelta a la frase: qué hace el sistema cuando la persona hace algo. |
 | La frase ocupa tres líneas y tiene varias «y». | Hay dos o más requisitos mezclados. | Pártela: si una mitad podría cumplirse y la otra no, son dos requisitos. |
-| No sabes qué cifra poner (segundos, días, horas). | Falta un dato que solo conoce quien encarga el sistema. | Deja `[NECESITA ACLARACIÓN: …]` o pon una cifra razonable y anótala en «Supuestos». |
+| No sabes qué cifra poner (segundos, días, horas). | Falta un dato que solo conoce quien encarga el sistema. | No la inventes: deja `[NECESITA ACLARACIÓN: …]` y pregúntalo a quien decide. Si necesitas una cifra provisional para seguir, escríbela a la vista en «Supuestos» («se asume…; confirmar con…») y no des la especificación por aprobada hasta que la confirme quien encarga. |
 | Usas «debería», «podría», «tiene que» o «se espera que». | Los verbos blandos convierten el requisito en un deseo. | Siempre «deberá». Si algo es opcional de verdad, va con DONDE. |
 | Dudas entre SI y CUANDO. | Los dos describen algo que pasa. | SI para lo que queremos evitar o rechazar; CUANDO para el funcionamiento normal. |
 | Te ha salido «rápido», «intuitivo» o «correctamente». | Adjetivo sin medida. | Ponle cifra (menos de 2 segundos) o conviértelo en un criterio de éxito. |
@@ -213,7 +213,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 
 1. CUANDO describe algo que ocurre en un instante (se pulsa un botón, llega una solicitud); MIENTRAS describe un estado que dura (la cafetera está calentando, la sala está en mantenimiento). «CUANDO la persona pulsa el botón de café, la cafetera deberá empezar a preparar un café» frente a «MIENTRAS la cafetera esté calentando el agua, la cafetera deberá mantener encendido el indicador de "calentando"».
 2. Porque no se puede comprobar con un sí o un no: ¿rápido para quién, haciendo qué? Se convierte en una cifra («el listado de disponibilidad se muestra en menos de 2 segundos») y, como habla del resultado global y no de un comportamiento concreto, suele ir en los criterios de éxito (CE-004 del ejemplo).
-3. O bien una cifra razonable anotada como supuesto («se asume 5 segundos; confirmar con Seguridad»), o bien el marcador `[NECESITA ACLARACIÓN: ¿cuántos segundos permanece desbloqueado el torno?]`. Lo que no se hace es dejar la frase sin cifra.
+3. El marcador `[NECESITA ACLARACIÓN: ¿cuántos segundos permanece desbloqueado el torno?]`, y preguntarlo a quien decide (aquí, Seguridad). Si necesitas una cifra provisional para seguir trabajando, la escribes a la vista como supuesto («se asume 5 segundos; confirmar con Seguridad») y no das el requisito por cerrado hasta que Seguridad la confirme. Lo que no se hace es inventarla a escondidas ni dejar la frase sin cifra.
 4. DONDE: «DONDE la persona tenga permisos de administración, el sistema deberá permitir marcar una sala en mantenimiento» (RF-009 del ejemplo).
 5. Sí, está mal. La especificación dice qué hace el sistema; dónde se guarda es una decisión del plan técnico. Si mañana se cambia la base de datos, el requisito «guardar la reserva» sigue siendo válido; el otro no.
 

@@ -72,7 +72,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Quién participa.** Lidera quien pide el software (negocio), con ayuda de quien lo construye. El asistente de IA convierte la descripción en una especificación completa. La revisan quien la va a construir y QA; las personas que la usarán (como Marta o Jorge) la consultan y aportan.
 
-**Qué entra y qué sale.** Entra la petición en lenguaje natural. Sale la especificación (`spec.md`); en Spec Kit, `specs/001-reserva-salas/spec.md`, junto con una lista de verificación automática (`checklists/requirements.md`). Si al asistente le falta información, deja marcadores `[NECESITA ACLARACIÓN: …]` (tres como máximo) para el paso siguiente.
+**Qué entra y qué sale.** Entra la petición en lenguaje natural. Sale la especificación (`spec.md`); en Spec Kit, `specs/001-reserva-salas/spec.md`, junto con una lista de verificación automática (`checklists/requirements.md`). Si al asistente le falta un dato importante, lo marca con `[NECESITA ACLARACIÓN: …]` (tres como máximo); en Spec Kit, `/speckit.specify` te pregunta esas dudas antes de terminar, con opciones, y sustituye cada marcador por tu respuesta. Los demás huecos los busca el paso siguiente.
 
 **Cuánto suele durar.** Una o dos horas: describir, generar y, sobre todo, leer con calma lo generado.
 
@@ -90,7 +90,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Cuánto suele durar.** Una reunión de 15 a 30 minutos con la persona que decide.
 
-**ReservaSalas.** El asistente hace cinco preguntas y Ana responde: ¿reservas recurrentes? No en la primera versión. ¿Quién puede cancelar una reserva ajena? Solo administración. ¿Hay que avisar por correo? Sí, un correo de confirmación. ¿Antelación máxima? 30 días. ¿Qué pasa si nadie aparece? Fuera de alcance. Resultado: dos requisitos nuevos (RF-010 permisos y RF-011 correo), el límite de 30 días en RF-006 y dos puntos más en «Fuera de alcance». Está contado paso a paso en [aclaraciones.md](../ejercicios/soluciones/03-reserva-salas/aclaraciones.md).
+**ReservaSalas.** El asistente hace cinco preguntas y Ana responde: ¿reservas recurrentes? No en la primera versión. ¿Quién puede cancelar una reserva ajena? Solo administración. ¿Hay que avisar por correo? Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante. ¿Antelación máxima? 30 días. ¿Qué pasa si nadie aparece? Fuera de alcance. Resultado: dos requisitos nuevos (RF-010 permisos y RF-011 correo), el límite de 30 días en RF-006 y dos puntos más en «Fuera de alcance». Está contado paso a paso en [aclaraciones.md](../ejercicios/soluciones/03-reserva-salas/aclaraciones.md).
 
 **Qué puede salir mal.** Responder por correo o de palabra y no reflejarlo en la especificación: para el asistente, lo que no está en `spec.md` no existe. Saltarse el paso por prisa y descubrir la duda cuando el código ya está hecho. Y dejar que se cuelen preguntas de tecnología, que pertenecen al plan.
 
@@ -131,11 +131,11 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Quién participa.** El asistente de IA produce el informe; quien construye y quien encarga deciden qué corregir. Las listas de verificación las pasa alguien que no escribió la especificación (la automática la evalúa el propio asistente).
 
-**Qué entra y qué sale.** Entran la especificación, el plan, las tareas y la constitución. En Spec Kit, `/speckit.analyze` devuelve un informe en el chat y no modifica ningún fichero: propone remedios para que los apruebes. `/speckit.checklist` genera listas por tema en `checklists/<dominio>.md` (por ejemplo, `ux.md`) y nunca marca casillas: eso lo hace quien revisa.
+**Qué entra y qué sale.** Entran la especificación, el plan, las tareas y la constitución. En Spec Kit, `/speckit.analyze` devuelve un informe en el chat y no modifica ningún fichero: propone remedios para que los apruebes. `/speckit.checklist` genera listas por tema en `checklists/[dominio].md` (por ejemplo, `ux.md`) y nunca marca casillas: eso lo hace quien revisa.
 
 **Cuánto suele durar.** De 15 a 30 minutos.
 
-**ReservaSalas.** La lista de verificación de la especificación pasa de 20 a 23 comprobaciones superadas después de aclarar (el alcance, la antelación máxima y los permisos eran los tres huecos). El informe de `/speckit.analyze` no encuentra incidencias críticas: cada RF aparece en alguna tarea y las pruebas van antes que el código, como exige el principio 3. Está en [checklist.md](../ejercicios/soluciones/03-reserva-salas/checklist.md).
+**ReservaSalas.** La lista de verificación de la especificación pasa de 20 a 23 comprobaciones superadas después de aclarar (el alcance, la antelación máxima y los permisos eran los tres huecos). El informe de `/speckit.analyze` no encuentra incidencias CRITICAL ni HIGH y la cobertura es del 100 %: cada RF aparece en alguna tarea, y las pruebas van antes que el código, como exige el principio 3. La lista de verificación está en [checklist.md](../ejercicios/soluciones/03-reserva-salas/checklist.md); el informe de `/speckit.analyze` no deja fichero.
 
 **Qué puede salir mal.** Saltárselo porque «ya está todo claro». Aceptar los remedios del informe sin leerlos. Marcar casillas sin comprobar nada. Y confundir la lista de verificación con pruebas del código: comprueba el texto, no el programa.
 
@@ -152,7 +152,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Cuánto suele durar.** Es el paso más largo: varias horas, repartidas por fases, con paradas para probar.
 
-**ReservaSalas.** Tras las fases de preparación y base compartida, el asistente escribe las pruebas de la historia 1 (fallan), implementa los servicios de disponibilidad y reserva, las rutas y la página principal, y las pruebas pasan. Luis arranca la aplicación, abre `http://localhost:8000` (la dirección de la aplicación en su propio ordenador) y reserva la sala Mediterráneo; se la enseña a Ana antes de seguir con las historias 2 y 3. Semanas después Ana quiere ampliar la antelación máxima de 30 a 60 días: Luis no busca el número en el código, cambia RF-006 en la especificación, regenera el plan y las tareas afectadas y vuelve a implementar esa parte.
+**ReservaSalas.** Tras las fases de preparación y base compartida, el asistente escribe las pruebas de la historia 1 (fallan), implementa los servicios de disponibilidad y reserva, las rutas y la página principal, y las pruebas pasan. Luis arranca la aplicación, abre `http://localhost:8000` (la dirección de la aplicación en su propio ordenador) y reserva la sala Mediterráneo; se la enseña a Ana antes de seguir con las historias 2 y 3. Semanas después Ana decide ampliar la antelación máxima de 30 a 60 días y se lo pide a Luis. Luis no busca el número en el código: cambia RF-006 en la especificación y Ana relee el texto nuevo y lo aprueba. Después Luis actualiza el plan, deja que `/speckit.converge` añada a `tasks.md` las tareas que faltan y las ejecuta con `/speckit.implement` (es el paso 9 del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md)). No relanza `/speckit.tasks`, que rehace la lista entera.
 
 **Qué puede salir mal.** Aceptar código sin leerlo. Corregir el código a mano en vez de la especificación, con lo que el documento deja de ser la fuente de verdad. Tener una demo bonita sin pruebas que la respalden. Y dar por terminada una fase con tareas sin marcar.
 
@@ -184,7 +184,7 @@ Los siete pasos son el método. Las herramientas que lo automatizan les ponen su
 | 2. Aclarar | `/speckit.clarify` | `spec.md` (añade la sección de aclaraciones) | Opcional, muy recomendado |
 | 3. Planificar | `/speckit.plan` | `plan.md`, `research.md`, `data-model.md`, `contracts/`, `quickstart.md` | Sí |
 | 4. Trocear en tareas | `/speckit.tasks` | `tasks.md` | Sí |
-| 5. Analizar | `/speckit.checklist` y `/speckit.analyze` | `checklists/<dominio>.md`; el análisis no crea ficheros | Opcional, muy recomendado |
+| 5. Analizar | `/speckit.checklist` y `/speckit.analyze` | `checklists/[dominio].md`; el análisis no crea ficheros | Opcional, muy recomendado |
 | 6. Implementar | `/speckit.implement` y después `/speckit.converge` | Código del proyecto; `tasks.md` con marcas `[X]` y, si hace falta, tareas nuevas | Sí (`converge` es recomendado) |
 
 El orden oficial completo de Spec Kit es `constitution → specify → clarify → plan → checklist → tasks → analyze → implement → converge`; para funcionalidades muy pequeñas admite el camino corto `specify → plan → tasks → implement → converge`. La ortografía de los comandos cambia según el asistente (`/speckit.specify` en unos, `/speckit-specify` en otros), pero hacen lo mismo.

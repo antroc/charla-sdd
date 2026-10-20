@@ -86,7 +86,7 @@ Los comandos de terminal que vas a usar son pocos. Todos empiezan por `specify`:
 | `specify version` | Muestra la versión de Spec Kit, de Python y la plataforma |
 | `specify self check` | Consulta si hay una versión más nueva, sin tocar nada |
 | `specify self upgrade` | Actualiza Spec Kit en el sitio (detecta si lo instalaste con `uv tool` o con `pipx`) |
-| `specify integration upgrade <clave>` y `specify extension update` | Refrescan los ficheros de Spec Kit en un proyecto ya creado sin tocar `specs/` ni la constitución |
+| `specify integration upgrade [clave]` y `specify extension update` | Refrescan los ficheros de Spec Kit en un proyecto ya creado sin tocar `specs/` ni la constitución |
 
 Si instalaste desde PyPI (el almacén público de paquetes de Python), repetir `uv tool install specify-cli` **no** actualiza: usa `uv tool install --force specify-cli`, `pipx install --force specify-cli` o `pip install --upgrade specify-cli`. En redes corporativas con índice privado de paquetes, añade `--default-index https://tu-indice/simple/` al comando de `uv` (vale en cualquier terminal, PowerShell incluida; en Linux y macOS también puedes anteponer `UV_DEFAULT_INDEX=https://tu-indice/simple/`). No pongas credenciales en la dirección; te la da IT.
 
@@ -105,7 +105,7 @@ Las banderas que de verdad se usan:
 
 | Bandera | Qué hace |
 |---|---|
-| `--integration <clave>` | Qué asistente de IA configurar. Sustituye a la antigua `--ai`, que ya no existe |
+| `--integration [clave]` | Qué asistente de IA configurar. Sustituye a la antigua `--ai`, que ya no existe |
 | `--here` | Inicializa en la carpeta actual (igual que `specify init .`) |
 | `--script sh\|ps\|py` | Tipo de scripts auxiliares: Bash, PowerShell o Python |
 | `--ignore-agent-tools` | No comprueba si el ejecutable del asistente está instalado (útil si todavía no lo tienes en ese ordenador; a los asistentes que son editores no los comprueba de todos modos) |
@@ -134,7 +134,7 @@ Se escriben en el chat del asistente de IA, no en la terminal. Cada uno lee la c
 | `/speckit.specify` | Convierte una descripción en una especificación con historias priorizadas, requisitos, criterios de éxito y supuestos. Deja como máximo 3 marcadores de aclaración; si quedan, te pregunta con opciones | Qué quieres y por qué, sin tecnología | `specs/NNN-nombre/spec.md`, `specs/NNN-nombre/checklists/requirements.md`, `.specify/feature.json` | Sí |
 | `/speckit.clarify` | Hace hasta 5 preguntas, de una en una, con una opción recomendada, e integra las respuestas en la especificación | Nada, o un área en la que centrarse | `spec.md` (sección de aclaraciones y secciones afectadas); reevalúa `checklists/requirements.md` | Opcional, muy recomendado |
 | `/speckit.plan` | Genera el diseño técnico a partir de la especificación y la constitución | Tecnología, arquitectura y restricciones | `plan.md`, `research.md`, `data-model.md`, `contracts/`, `quickstart.md`. No crea `tasks.md` | Sí |
-| `/speckit.checklist` | Genera una lista de verificación de calidad de los requisitos centrada en un tema. Antes pregunta hasta 3 cosas. Nunca marca casillas: eso lo hace quien revisa | Nada, o el tema (experiencia de uso, seguridad, la API o conexión para otros programas…) | `specs/NNN-nombre/checklists/<dominio>.md` con ítems `CHK001…`. Requiere `plan.md` | Opcional |
+| `/speckit.checklist` | Genera una lista de verificación de calidad de los requisitos centrada en un tema. Antes pregunta hasta 3 cosas. Nunca marca casillas: eso lo hace quien revisa | Nada, o el tema (experiencia de uso, seguridad, la API o conexión para otros programas…) | `specs/NNN-nombre/checklists/[dominio].md` con ítems `CHK001…`. Requiere `plan.md` | Opcional |
 | `/speckit.tasks` | Crea la lista de tareas ordenada por dependencias y agrupada por historia de usuario | Nada, o restricciones | `tasks.md`. Requiere `plan.md` y `spec.md` | Sí |
 | `/speckit.analyze` | Informe de coherencia entre `spec.md`, `plan.md`, `tasks.md` y la constitución. Solo lectura: propone remedios para que los apruebes | Nada, o áreas de interés | Ninguno (el informe sale en el chat). Requiere los tres ficheros | Opcional, muy recomendado |
 | `/speckit.implement` | Ejecuta las tareas fase a fase respetando las marcas `[P]` (tareas que pueden hacerse en paralelo). Antes comprueba las listas de verificación: si hay ítems sin marcar, pregunta si seguir | Nada, o un alcance («solo la fase de preparación») | Código del proyecto; marca cada tarea hecha como `[X]` en `tasks.md`. Requiere `plan.md` y `tasks.md` | Sí |
@@ -151,12 +151,12 @@ Así quedó la sesión de ReservaSalas, resumida (los textos exactos que escribi
 | 2 | `/speckit.clarify` | Nada. Ana respondió a las cinco preguntas en una reunión de 15 minutos | La sección de aclaraciones en `spec.md`; de ahí salieron dos requisitos nuevos, RF-010 (permisos) y RF-011 (correo), y el límite de 30 días en RF-006. Con ellos la especificación queda en RF-001 a RF-012 |
 | 3 | `/speckit.plan` | «Aplicación web sencilla con Python 3.12 y FastAPI, base de datos SQLite y páginas HTML con plantillas Jinja2. Pruebas con pytest. Sin frontend complejo […]» (el *frontend* es la parte de la aplicación que se ve en el navegador) | `plan.md` con la tabla de comprobación contra la constitución, más `research.md`, `data-model.md`, `contracts/` y `quickstart.md` |
 | 4 | `/speckit.tasks` | Nada | `tasks.md`: 47 tareas en seis fases, 20 de ellas marcadas `[P]` |
-| 5 | `/speckit.analyze` | Nada | Un informe en el chat sin incidencias críticas; no se creó ningún fichero |
+| 5 | `/speckit.analyze` | Nada | Un informe en el chat sin incidencias CRITICAL ni HIGH y con cobertura del 100 % (cada requisito tiene al menos una tarea); no se creó ningún fichero |
 | 6 | `/speckit.implement` y después `/speckit.converge` | Nada | El código con sus pruebas, las tareas marcadas `[X]` y la confirmación de que el código cubre la especificación |
 
 ### Cómo se escriben según el asistente
 
-La documentación de Spec Kit escribe los comandos como `/speckit.<nombre>`, pero cada asistente los muestra a su manera. Es la misma orden en todos los casos.
+La documentación de Spec Kit escribe los comandos como `/speckit.[nombre]`, pero cada asistente los muestra a su manera. Es la misma orden en todos los casos.
 
 | Cómo se escribe | Asistentes |
 |---|---|
@@ -173,15 +173,15 @@ En la fecha de este material, Spec Kit reconoce 41 asistentes más una integraci
 
 | Asistente | Clave para `--integration` | Dónde deja los comandos | ¿Necesita el ejecutable? |
 |---|---|---|---|
-| Claude Code | `claude` | `.claude/skills/speckit-<comando>/SKILL.md` | Sí |
-| GitHub Copilot | `copilot` | `.github/skills/speckit-<comando>/SKILL.md` | No |
-| Cursor | `cursor-agent` | `.cursor/skills/speckit-<comando>/SKILL.md` | No (es un editor) |
-| Gemini CLI | `gemini` | `.gemini/commands/speckit.<comando>.toml` | Sí |
-| Codex CLI | `codex` | `.agents/skills/speckit-<comando>/SKILL.md` | Sí |
-| Qwen Code | `qwen` | `.qwen/commands/speckit.<comando>.md` | Sí |
-| opencode | `opencode` | `.opencode/commands/speckit.<comando>.md` | Sí |
-| Kiro CLI | `kiro-cli` | `.kiro/prompts/speckit.<comando>.md` | Sí |
-| Cualquier otro | `generic` | La carpeta que indiques con `--integration-options="--commands-dir <ruta>"` | No |
+| Claude Code | `claude` | `.claude/skills/speckit-[comando]/SKILL.md` | Sí |
+| GitHub Copilot | `copilot` | `.github/skills/speckit-[comando]/SKILL.md` | No |
+| Cursor | `cursor-agent` | `.cursor/skills/speckit-[comando]/SKILL.md` | No (es un editor) |
+| Gemini CLI | `gemini` | `.gemini/commands/speckit.[comando].toml` | Sí |
+| Codex CLI | `codex` | `.agents/skills/speckit-[comando]/SKILL.md` | Sí |
+| Qwen Code | `qwen` | `.qwen/commands/speckit.[comando].md` | Sí |
+| opencode | `opencode` | `.opencode/commands/speckit.[comando].md` | Sí |
+| Kiro CLI | `kiro-cli` | `.kiro/prompts/speckit.[comando].md` | Sí |
+| Cualquier otro | `generic` | La carpeta que indiques con `--integration-options="--commands-dir [ruta]"` | No |
 
 Lista completa de claves, por si el tuyo no está arriba: `alquimia` (Alquimia AI), `amp` (Amp), `agy` (Antigravity), `auggie` (Auggie CLI), `claude` (Claude Code), `cline` (Cline), `codebuddy` (CodeBuddy CLI), `codex` (Codex CLI), `command-code` (Command Code), `cursor-agent` (Cursor), `dsh` (DeepSeek Harness), `devin` (Devin for Terminal), `docker-agent` (Docker Agent), `droid` (Factory Droid), `firebender` (Firebender), `forge` (Forge), `gemini` (Gemini CLI), `copilot` (GitHub Copilot), `goose` (Goose), `grok` (Grok Build), `hermes` (Hermes), `bob` (IBM Bob), `junie` (Junie), `kilocode` (Kilo Code), `kimi` (Kimi Code), `kiro-cli` (Kiro CLI), `lingma` (Lingma), `mcode` (MiniMax Code), `vibe` (Mistral Vibe), `muse` (Muse Code), `omp` (Oh My Pi), `opencode` (opencode), `pi` (Pi Coding Agent), `qodercli` (Qoder CLI), `qwen` (Qwen Code), `rovodev` (RovoDev), `shai` (SHAI), `tabnine` (Tabnine CLI), `trae` (Trae), `zcode` (ZCode), `zed` (Zed) y `generic`.
 
@@ -250,7 +250,7 @@ Spec Kit ha cambiado mucho en pocos meses. Solo entre abril y octubre de 2026, s
 Tres consecuencias prácticas:
 
 - **Ante la duda, la documentación oficial manda.** Si un comando de aquí no coincide con lo que ves en tu terminal, consulta <https://github.github.io/spec-kit/>, comprueba tu versión con `specify version` y avisa para que corrijamos el material (ver [cómo contribuir](../CONTRIBUIR.md)).
-- **Actualiza antes de culpar al proyecto.** Un error como «No such option: --integration» significa que tu Spec Kit es antiguo: `specify self upgrade` o `uv tool install --force specify-cli`. Si trabajas en equipo, fijad una versión concreta (`specify self upgrade --tag vX.Y.Z`) para que todos tengáis la misma.
+- **Actualiza antes de culpar al proyecto.** Un error como «No such option: --integration» significa que tu Spec Kit es muy antiguo. Reinstala la versión actual con `uv tool install --force specify-cli` (o `pipx install --force specify-cli`) y vuelve a probar. En una versión tan antigua `specify self upgrade` todavía no existe; úsalo a partir de ahora para las siguientes actualizaciones. Si trabajas en equipo, fijad una versión concreta (`specify self upgrade --tag vX.Y.Z`) para que todos tengáis la misma.
 - **Lo que no caduca es lo que enseña este repositorio.** Escribir qué y por qué antes de cómo, en lenguaje natural; aclarar por escrito; planificar contra unos principios; trocear en tareas pequeñas con pruebas; y corregir la especificación, no el código, cuando algo falla. Eso vale con Spec Kit, con Kiro, con la herramienta que salga el año que viene y con papel y bolígrafo.
 
 > [!IMPORTANT]

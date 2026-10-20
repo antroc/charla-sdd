@@ -25,8 +25,8 @@ No hace falta leerlos todos. Más abajo tienes la ruta que te corresponde según
 | 06 | [Roles: quién hace qué](06-roles-quien-hace-que.md) | Qué hacen negocio, quien programa y el asistente de IA en cada paso, con la matriz de responsabilidades | Todos | ~10 min · 🟢 |
 | 07 | [Herramientas](07-herramientas.md) | Spec Kit, Kiro o sin herramientas: qué hace falta instalar (o nada) y qué hace cada comando | Quien programa y quien decide qué se instala | ~12 min · 🟡 |
 | 08 | [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md) | Lo que funciona, lo que suele salir mal y cómo darte cuenta a tiempo | Todos, sobre todo quien encarga o lidera un proyecto | ~12 min · 🟡 |
-| 09 | [Preguntas frecuentes](09-preguntas-frecuentes.md) | 25 preguntas reales agrupadas por perfil, con respuesta corta y enlace a donde se amplía | Todos | ~10 min · 🟢 |
-| 10 | [Glosario](10-glosario.md) | 60 términos en lenguaje llano, de la A a la V | Todos, para consultar | Consulta · 🟢 |
+| 09 | [Preguntas frecuentes](09-preguntas-frecuentes.md) | 27 preguntas reales agrupadas por perfil, con respuesta corta y enlace a donde se amplía | Todos | ~10 min · 🟢 |
+| 10 | [Glosario](10-glosario.md) | 62 términos en lenguaje llano, de la A a la V | Todos, para consultar | Consulta · 🟢 |
 
 🟢 básico: no hace falta ningún conocimiento técnico. 🟡 intermedio: ayuda saber qué es un repositorio y haber visto código, pero las partes técnicas están explicadas.
 

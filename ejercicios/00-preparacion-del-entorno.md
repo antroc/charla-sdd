@@ -31,9 +31,9 @@ Al terminar sabrás qué vía necesitas según los ejercicios que vayas a hacer 
 | **Requisitos previos** | Ninguno | Saber abrir una terminal y escribir comandos; permisos para instalar programas en tu equipo (si no los tienes, pide ayuda a IT) |
 | **Materiales** | Un editor de texto o un documento compartido; las [plantillas](plantillas/README.md); opcionalmente, un chat de IA autorizado por la empresa | Todo lo de la vía A, más: Git (recomendado), Python 3.11 o superior, `uv`, Spec Kit y un asistente de programación con IA compatible |
 
-Ejemplos de asistentes compatibles con Spec Kit (hay más de cuarenta; el panorama completo está en [Herramientas](../docs/07-herramientas.md)). Antes de instalar ninguno, pregunta en tu empresa cuál está autorizado.
+Ejemplos de asistentes compatibles con Spec Kit (hay más de cuarenta; el panorama completo está en [Herramientas](../docs/07-herramientas.md)). Usa el que autorice la empresa (pregúntalo antes de instalar ninguno) y, si IT tiene su propia guía de instalación, sigue esa; si no, la guía oficial que enlaza la tabla.
 
-| Asistente | Clave para `--integration` | Dónde se instala | ¿Spec Kit busca su ejecutable? |
+| Asistente | Clave para `--integration` | Guía oficial de instalación | ¿Spec Kit busca su ejecutable? |
 |---|---|---|---|
 | Claude Code | `claude` | <https://docs.anthropic.com/en/docs/claude-code/setup> | Sí |
 | GitHub Copilot | `copilot` | <https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli> | No |
@@ -68,9 +68,9 @@ De arriba abajo: si no vas a hacer el 03 ni el 06, sigue la vía A (pasos 1 a 3)
 
    - [ ] Tengo un documento o un cuaderno para escribir las plantillas.
 
-2. **Consigue las plantillas.** Están en la carpeta [plantillas](plantillas/README.md) de este repositorio. Abre [especificacion.md](plantillas/especificacion.md) en GitHub y pulsa el botón «Raw» (o «Code») que hay encima del texto: así ves también los comentarios entre `<!-- … -->`, que explican cada sección y que la vista normal oculta. Selecciona todo, copia y pega en tu documento. Haz lo mismo con [lista-de-verificacion.md](plantillas/lista-de-verificacion.md). Si prefieres tenerlo todo en tu equipo, descarga el repositorio completo (botón «Code» → «Download ZIP») y abre los ficheros con cualquier editor.
+2. **Consigue las plantillas.** Están en la carpeta [plantillas](plantillas/README.md) de este repositorio. Abre [especificacion.md](plantillas/especificacion.md) en GitHub (la vista normal, sin pulsar «Raw»), selecciona desde el primer título hasta el final, copia y pégalo en tu documento (Word, Google Docs…): se pega con formato. Las ayudas de cada sección aparecen en cursiva bajo su título; bórralas cuando termines. Haz lo mismo con [lista-de-verificacion.md](plantillas/lista-de-verificacion.md). Si prefieres tenerlo todo en tu equipo, descarga el repositorio completo (botón «Code» → «Download ZIP») y abre los ficheros con cualquier editor.
 
-   Qué deberías ver: el texto de la plantilla con sus secciones («Resumen», «Historias de usuario y escenarios», «Requisitos»…), los ejemplos de ReservaSalas entre corchetes `[…]` y los comentarios de ayuda. Si los corchetes y los comentarios han llegado, lo tienes todo.
+   Qué deberías ver: la plantilla en tu documento, con sus secciones como títulos («Resumen», «Historias de usuario y escenarios», «Requisitos»…), los ejemplos de ReservaSalas entre corchetes `[…]` y, bajo cada título, su ayuda en cursiva. Si los corchetes y las ayudas han llegado, lo tienes todo.
 
    - [ ] Tengo copiadas las plantillas de especificación y de lista de verificación.
 
@@ -98,7 +98,7 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
    uv --version
    ```
 
-   Si alguna falta: Git se descarga de <https://git-scm.com> (Spec Kit no lo necesita, pero el ejercicio 06 termina con una *pull request*, la propuesta de cambios que se revisa antes de incorporarla, y en el 03 conviene guardar cada paso). Python tiene que ser 3.11 o superior; si no lo tienes, instálalo desde <https://www.python.org> o pide a IT la versión corporativa. `uv` es el gestor que instala Spec Kit:
+   Si alguna falta: Git se descarga de <https://git-scm.com> (Spec Kit no lo necesita, pero el ejercicio 06 termina con una *pull request*, la propuesta de cambios que se revisa antes de incorporarla, y en el 03 conviene guardar cada paso). Python tiene que ser 3.11 o superior (el ejercicio 03 usa la 3.12 y allí te dice cómo instalarla); si no lo tienes, instálalo desde <https://www.python.org> o pide a IT la versión corporativa. `uv` es el gestor que instala Spec Kit:
 
    ```bash
    # macOS y Linux
@@ -112,7 +112,7 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
 
    - [ ] `git --version`, `python3 --version` (3.11 o superior) y `uv --version` responden.
 
-5. **Instala un asistente de programación con IA.** Elige uno de la tabla de [Qué necesitas](#qué-necesitas) (el que tu empresa tenga autorizado) y sigue las instrucciones de instalación de su web oficial; cada uno tiene las suyas y cambian a menudo, por eso no las copiamos aquí. Al terminar, ábrelo en una carpeta cualquiera y escríbele un saludo.
+5. **Instala un asistente de programación con IA.** Elige uno de la tabla de [Qué necesitas](#qué-necesitas) (el que tu empresa tenga autorizado) e instálalo con la guía de IT, si la hay, o con la guía oficial que enlaza la tabla; cada uno tiene la suya y cambian a menudo, por eso no las copiamos aquí. Al terminar, ábrelo en una carpeta cualquiera y escríbele un saludo.
 
    Qué deberías ver: el asistente arranca (en la terminal o dentro del editor), normalmente te pide iniciar sesión la primera vez (usa la cuenta corporativa) y responde al saludo. Apunta la **clave** de la tabla (`claude`, `copilot`, `gemini`…): la necesitas en el paso 8.
 
@@ -168,7 +168,7 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
 
    - [ ] Existe la carpeta `prueba-sdd` con `.specify/` dentro y he visto el panel «Next Steps».
 
-9. **Comprueba que los comandos aparecen en el asistente.** Los comandos `/speckit.*` se ejecutan en el chat del asistente, no en la terminal. Abre el asistente **dentro de la carpeta** `prueba-sdd` (en una herramienta de terminal, ejecuta su comando desde esa carpeta; en un editor, abre la carpeta como proyecto). Escribe `/speckit` y mira las sugerencias. Según el asistente, los comandos se escriben con guion, con punto o con el símbolo de dólar; es la misma orden en todos los casos:
+9. **Comprueba que los comandos aparecen en el asistente.** Los comandos `/speckit.*` se ejecutan en el chat del asistente, no en la terminal. Abre el asistente **dentro de la carpeta** `prueba-sdd`. Si es de terminal, escribe su comando estando en esa carpeta (tras el paso 8 ya lo estás): `claude` para Claude Code, `gemini` para Gemini CLI, `codex` para Codex CLI o `kiro-cli` para Kiro CLI. Si es un editor, abre la carpeta como proyecto. Escribe `/speckit` y mira las sugerencias. Según el asistente, los comandos se escriben con guion, con punto o con el símbolo de dólar; es la misma orden en todos los casos:
 
    | Asistente | Cómo se escribe el comando de especificar |
    |---|---|
@@ -195,14 +195,15 @@ Dos hábitos más que conviene adquirir desde el primer día: usa siempre la cue
 
 | Síntoma | Causa | Cómo arreglarlo |
 |---|---|---|
-| `specify: command not found` (o «no se reconoce como un comando» en Windows) justo después de instalar | La carpeta donde `uv` deja las herramientas todavía no está en el `PATH` de esta terminal | Cierra la terminal y ábrela de nuevo. Si sigue igual, `uv` indicó al instalarse qué carpeta añadir al `PATH`; si no lo encuentras, pide ayuda a IT |
-| `No such option: --integration` | Tienes una versión antigua de Spec Kit (la bandera antigua `--ai` ya no existe) | Actualiza: `specify self upgrade` o `uv tool install --force specify-cli`, y vuelve a probar |
+| `specify: command not found` (o «no se reconoce como un comando» en Windows) justo después de instalar | La carpeta donde `uv` deja las herramientas todavía no está en el `PATH` de esta terminal | Cierra la terminal y ábrela de nuevo. Si sigue igual, ejecuta `uv tool update-shell` (añade al `PATH` la carpeta de las herramientas de `uv`), cierra la terminal y ábrela otra vez; si aun así no aparece, pide ayuda a IT |
+| `No such option: --integration` | Tienes una versión antigua de Spec Kit (la bandera antigua `--ai` ya no existe) | Reinstala la versión actual con `uv tool install --force specify-cli` (o `pipx install --force specify-cli`) y vuelve a probar. En una versión tan antigua `specify self upgrade` todavía no existe; úsalo a partir de ahora para las siguientes actualizaciones |
 | `Unknown integration` al hacer `specify init` | La clave del asistente no es la correcta | Usa la clave exacta de la tabla de [Qué necesitas](#qué-necesitas); por ejemplo `kiro-cli`, `cursor-agent` o `copilot` |
 | `specify init` falla diciendo que no encuentra el ejecutable del asistente y muestra una dirección de instalación | El asistente no está instalado o no está en el `PATH` | Instálalo (paso 5) o, si todavía no lo tienes en este ordenador, añade `--ignore-agent-tools` |
 | «Permission denied» o «Acceso denegado» al instalar | Intentas instalar en una carpeta del sistema | No uses `sudo` ni la cuenta de administrador: `uv tool install` instala en tu carpeta de usuario. Si tu equipo está bloqueado, habla con IT |
 | La instalación se queda colgada, da «timeout» o error de certificado | Proxy o cortafuegos corporativo | Pregunta a IT por el índice privado de paquetes y pásalo con `--default-index` o con la variable `UV_DEFAULT_INDEX` (paso 6). Para equipos sin salida a internet, la documentación oficial de Spec Kit (<https://github.github.io/spec-kit/>) tiene una guía de instalación sin conexión |
 | «Template files will be merged with existing content…» | Has ejecutado `specify init` en una carpeta que no está vacía | Responde `n`, crea una carpeta nueva y repite. Solo usa `--force` si sabes qué ficheros va a sobrescribir |
 | Los scripts fallan en Windows | Se instalaron scripts Bash en vez de PowerShell | Repite el `init` en una carpeta nueva con `--script ps` (o acepta el valor por defecto, que en Windows ya es `ps`) |
+| En PowerShell: «…no se puede cargar porque la ejecución de scripts está deshabilitada en este sistema» | La política de ejecución de PowerShell de tu equipo bloquea los scripts `.ps1`: los de `.specify/scripts/powershell/`, que lanza el asistente, o el que activa un entorno virtual de Python (`Activate.ps1`) | Si IT lo permite, ejecuta `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` y abre otra ventana de PowerShell; si no, pide ayuda a IT. Para el entorno virtual de los ejercicios 03 y 06 hay otra salida, sin activarlo: mira los [errores frecuentes del ejercicio 03](03-reserva-salas-paso-a-paso.md#errores-frecuentes) |
 | Al escribir `/speckit` el asistente no sugiere nada | El asistente no está abierto en la carpeta del proyecto, o se abrió antes de ejecutar `specify init` | Cierra el asistente, sitúate dentro de `prueba-sdd` y ábrelo de nuevo |
 
 ## Comprueba lo que has aprendido
@@ -235,7 +236,7 @@ Este ejercicio no tiene fichero de solución: el resultado es tu entorno. Para c
 
 ## Siguiente paso
 
-Continúa con [Ejercicio 01: tu primera especificación sin código](01-tu-primera-especificacion-sin-codigo.md). Si programas y tienes prisa por ver el flujo completo, puedes saltar al [Ejercicio 03: ReservaSalas paso a paso](03-reserva-salas-paso-a-paso.md), pero el 01 se hace en media hora y te ahorrará errores en el 03.
+Continúa con [Ejercicio 01: tu primera especificación sin código](01-tu-primera-especificacion-sin-codigo.md). Si programas y tienes prisa por ver el flujo completo, puedes saltar al [Ejercicio 03: ReservaSalas paso a paso](03-reserva-salas-paso-a-paso.md), pero haz antes al menos el [02](02-practicar-requisitos-ears.md): se hace en media hora y te ahorrará errores en el 03.
 
 ---
 

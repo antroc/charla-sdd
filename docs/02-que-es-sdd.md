@@ -42,7 +42,7 @@ Volvamos a ReservaSalas, la aplicación para reservar las 12 salas de reuniones 
 
 5. **Se comprueba que todo cuadra**: el asistente compara especificación, plan y tareas y avisa de huecos y contradicciones (un requisito sin tarea, una tarea que nadie pidió). Es el paso de analizar.
 
-6. **El asistente ejecuta las tareas** una a una y escribe el código. Luis revisa, prueba y, si algo no cuadra, corrige la especificación y vuelve a generar. Es el paso de implementar.
+6. **El asistente ejecuta las tareas** una a una y escribe el código. Luis revisa, prueba y, si algo no cuadra, corrige la especificación (Ana aprueba el texto nuevo) y vuelve a generar. Es el paso de implementar.
 
 Antes de todo eso hay un paso cero: la **constitución** (`constitution.md`), los principios innegociables del proyecto (sencillez, pruebas, datos mínimos...) que todo lo demás tiene que respetar.
 
@@ -117,13 +117,13 @@ SDD le da la vuelta a eso. En programación, el *código fuente* es el texto a p
 Un ejemplo. Ana decide ampliar la antelación máxima de 30 a 60 días: a partir de ahora se podrá reservar una sala hasta dos meses antes.
 
 - **En ReservaSalas v0** (la versión sin SDD del documento anterior), Luis le pediría al asistente «cambia la antelación», el asistente buscaría dónde está escondido el «30» en el código, lo cambiaría y, con suerte, no rompería nada más. Nadie sabría después por qué la antelación es la que es.
-- **Con SDD**, Ana cambia la especificación: el requisito RF-006, que rechaza las reservas que empiezan «más de 30 días después de hoy», pasa a decir «más de 60 días», y con él el caso límite que lo acompaña. Luis vuelve a generar el plan y las tareas afectadas, el asistente actualiza el código y las pruebas, y la nueva antelación queda escrita donde cualquiera puede verla.
+- **Con SDD**, Ana pide el cambio y Luis lo escribe en la especificación: el requisito RF-006, que rechaza las reservas que empiezan «más de 30 días después de hoy», pasa a decir «más de 60 días», y con él el caso límite que lo acompaña. Ana relee el texto nuevo y lo aprueba. Después Luis actualiza el plan, el asistente añade las tareas que faltan y actualiza el código y las pruebas (con Spec Kit, `/speckit.converge` añade esas tareas a `tasks.md` y `/speckit.implement` las ejecuta; la lista no se rehace entera), y la nueva antelación queda escrita donde cualquiera puede verla.
 
 No es casualidad: la [constitución de ReservaSalas](../ejercicios/soluciones/03-reserva-salas/constitution.md) lo deja fijado como regla. Los límites de uso se fijan en la especificación, no en el código; cambiarlos es cambiar la especificación y regenerar.
 
 Es el mensaje central de todo el repositorio: **la especificación es la fuente de verdad; el código es su consecuencia.** Si algo está mal, se corrige la especificación y se regenera; no se parchea el código a ciegas.
 
-Para quien no programa, esto tiene una consecuencia práctica: lo que revisas y apruebas es un texto, no código. Y cuando algo falla, la primera pregunta deja de ser «¿quién tocó el código?» y pasa a ser «¿qué dice la especificación?». Quien programe lo vivirá en primera persona en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md): su momento clave es pedir un cambio tocando la especificación y no el código.
+Para quien no programa, esto tiene una consecuencia práctica: lo que revisas y apruebas es un texto, no código. Ni siquiera hace falta saber editar ficheros: basta con pedir el cambio por escrito y revisar y aprobar el texto nuevo, en la vista de GitHub o en el documento que te pase quien construye. Y cuando algo falla, la primera pregunta deja de ser «¿quién tocó el código?» y pasa a ser «¿qué dice la especificación?». Quien programe lo vivirá en primera persona en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md): su momento clave es pedir un cambio tocando la especificación y no el código.
 
 > [!IMPORTANT]
 > SDD no es magia. El asistente puede entender mal una frase, y una especificación puede ser ambigua o estar equivocada. Por eso el método incluye pasos para aclarar dudas, analizar la coherencia entre documentos y comprobar con pruebas automáticas, y por eso una persona revisa cada resultado. SDD reduce los riesgos del *vibe coding*; no los elimina.

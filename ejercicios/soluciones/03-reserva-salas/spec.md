@@ -95,7 +95,7 @@ Jorge quiere saber qué tiene reservado esta semana sin buscar entre correos. En
 
 - P: ¿Se pueden hacer reservas recurrentes (por ejemplo, todos los lunes)? → R: No en la primera versión.
 - P: ¿Quién puede cancelar una reserva ajena? → R: Solo administración.
-- P: ¿Hay que avisar por correo? → R: Sí, un correo de confirmación.
+- P: ¿Hay que avisar por correo? → R: Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante.
 - P: ¿Con cuánta antelación máxima se puede reservar? → R: 30 días.
 - P: ¿Qué pasa si nadie aparece a la reserva? → R: Fuera de alcance: no se controla la asistencia.
 
@@ -144,7 +144,7 @@ Qué requisitos necesita cada historia de usuario (HU); sirve para comprobar des
 Las «cosas» de las que la aplicación guarda información y qué datos tiene cada una:
 
 - **Sala**: una de las 12 salas de reuniones. Tiene nombre único (Mediterráneo, Cantábrico, Atlántico, Báltico, Egeo, Adriático, Jónico, Tirreno, Caribe, Índico, Ártico, Mar del Norte), planta (1, 2 o 3), aforo (número de personas) y estado (disponible o en mantenimiento).
-- **Reserva**: el uso de una sala por una persona en una franja. Tiene sala, persona responsable, inicio, fin, motivo (opcional, texto corto), estado (activa o cancelada) y, si se canceló, quién lo hizo. Una reserva pertenece exactamente a una sala y a una persona.
+- **Reserva**: el uso de una sala por una persona en una franja. Tiene sala, persona responsable, inicio, fin, motivo (opcional, texto corto), estado (activa o cancelada) y quién la canceló o la modificó por última vez. Una reserva pertenece exactamente a una sala y a una persona.
 - **Persona**: cualquier empleado. Tiene nombre, correo corporativo (que la identifica) y rol (empleado o administración). No se guarda ningún otro dato.
 
 ## Criterios de éxito (Success Criteria)
@@ -162,7 +162,7 @@ Cómo se medirán: CE-001 y CE-003 con una prueba con 10 personas de distintos e
 
 - Todas las personas usuarias tienen correo corporativo y entran con el acceso corporativo existente; la aplicación no gestiona contraseñas.
 - No hace falta integrarse con el calendario corporativo en la primera versión.
-- Las 12 salas y sus datos (planta, aforo) los proporciona Ana y cambian muy pocas veces al año.
+- Las 12 salas y sus datos los proporciona Ana y cambian muy pocas veces al año. Planta 1: Mediterráneo, Cantábrico, Atlántico y Egeo; planta 2: Báltico, Adriático, Jónico y Tirreno; planta 3: Caribe, Índico, Ártico y Mar del Norte. Aforo: 8 personas en Mediterráneo, 12 en Báltico, 4 en Ártico y 6 en las demás.
 - Las reservas se hacen en la hora local de la oficina; no hay sedes en otras zonas horarias.
 - El volumen es pequeño: unas 200 personas y unas decenas de reservas al día.
 - Hay un servidor de correo corporativo disponible para enviar los avisos.

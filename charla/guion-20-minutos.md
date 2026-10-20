@@ -2,7 +2,7 @@
 
 > **Para quién:** quien presenta la charla (no hace falta programar) y, como público, toda la empresa · **Tiempo de lectura:** ~15 min (la charla dura 20) · **Nivel:** 🟢 básico
 
-Este es el guion de la charla «Pizza Day»: veinte minutos para presentar a toda la empresa SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) y explicar qué problema resuelve frente al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). Cada bloque trae lo que dirías en voz alta, qué enseñar en pantalla y cómo pasar al siguiente; los textos son sugerencias, así que dilos con tus palabras.
+Este es el guion de una charla pensada para un *Pizza Day*, un formato informal: una charla corta durante una comida o un desayuno de equipo. Son veinte minutos para presentar a toda la empresa SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) y explicar qué problema resuelve frente al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). Cada bloque trae lo que dirías en voz alta, qué enseñar en pantalla y cómo pasar al siguiente; los textos son sugerencias, así que dilos con tus palabras.
 
 **Qué vas a encontrar**
 
@@ -25,7 +25,7 @@ Este es el guion de la charla «Pizza Day»: veinte minutos para presentar a tod
 
 **Público.** Toda la empresa a la vez, en una sala o en línea: managers, RRHH, perfiles de negocio y quien programa. La charla está pensada para quien no ha escrito nunca una línea de código; quien programa encontrará los detalles en el repositorio.
 
-**Quién presenta.** Una persona que haya leído [El problema del *vibe coding*](../docs/01-el-problema-del-vibe-coding.md), [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), y que haya hecho al menos una vez la [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md). No hace falta que programe. Si puedes, busca una segunda persona que lleve el tiempo y escriba en la pizarra durante el mini-ejercicio.
+**Quién presenta.** Una persona que haya leído [El problema del *vibe coding*](../docs/01-el-problema-del-vibe-coding.md), [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), y que haya ensayado el mini-ejercicio con alguien (la lista completa está en [Prepara la charla](README.md#prepara-la-charla)). No hace falta que programe. Si puedes, busca una segunda persona que lleve el tiempo y escriba en la pizarra durante el mini-ejercicio.
 
 **Materiales.** No hace falta preparar una presentación completa: la charla se da desde el propio repositorio, abierto en el navegador, con dos diapositivas sencillas cuyo texto está en este guion. Solo necesitas:
 
@@ -52,7 +52,7 @@ Abre estas pestañas, en este orden, antes de empezar:
 | 0-2 | El gancho | Sin plano, cada arreglo crea el problema siguiente. | Nada: mira a la sala |
 | 2-5 | El problema del *vibe coding* | La demo de una tarde no aguanta al lunes siguiente. | Pestaña 1 |
 | 5-9 | Qué es SDD y los siete pasos | Primero el qué y el porqué, por escrito; el código, lo último. | Pestaña 2 |
-| 9-12 | Los artefactos de ReservaSalas | Son textos que cualquiera puede leer y corregir. | Pestañas 3 y 4 |
+| 9-12 | Los artefactos de ReservaSalas | La especificación la puede leer y corregir cualquiera; las tareas enseñan de qué requisito sale cada prueba. | Pestañas 3 y 4 |
 | 12-16 | Mini-ejercicio | Una frase vaga se convierte en un requisito comprobable. | Pestaña 5 y pizarra |
 | 16-18 | Qué cambia para cada rol | Negocio entra desde el principio; el asistente no aprueba nada. | Pestaña 6 |
 | 18-20 | Cierre y preguntas | Cada persona sabe por dónde empezar mañana. | Pestaña 7 |
@@ -109,7 +109,7 @@ Aquí presentas el método y sus cuatro documentos principales: la constitución
 >
 > Del 3 al 5 viene la parte técnica: planificar, que es decidir la tecnología y justificarla; trocear el plan en tareas pequeñas, y analizar, que es comprobar que todo cuadra con todo. El código solo aparece en el paso 6, implementar, y llega con cuatro documentos que explican qué debe hacer y por qué.
 >
-> Lo más importante son las flechas que vuelven hacia arriba. Si algo está mal, no se parchea el código: se corrige la especificación y se regenera lo afectado. Si mañana Ana decide que se puede reservar con 60 días de antelación en vez de 30, se cambia una frase del texto; nadie rebusca en el código.
+> Lo más importante son las flechas que vuelven hacia arriba. Si algo está mal, no se parchea el código: se corrige la especificación y se regenera lo afectado. Si mañana Ana decide que se puede reservar con 60 días de antelación en vez de 30, lo pide, se cambia una frase del texto y ella la aprueba; nadie rebusca en el código.
 >
 > ¿Y es muy lento? Menos de lo que parece: en nuestra experiencia, una funcionalidad pequeña como esta recorre los siete pasos en uno o dos días.
 
@@ -119,7 +119,7 @@ Aquí presentas el método y sus cuatro documentos principales: la constitución
 
 ## Minutos 9-12: los artefactos de ReservaSalas
 
-Aquí enseñas dos ficheros reales del ejemplo resuelto: la especificación (`spec.md`) y la lista de tareas (`tasks.md`). No se trata de leerlos, sino de que la sala vea que son textos normales y que hay un hilo del choque del lunes a una prueba concreta.
+Aquí enseñas dos ficheros reales del ejemplo resuelto: la especificación (`spec.md`) y la lista de tareas (`tasks.md`). No se trata de leerlos, sino de que la sala vea que la especificación es un texto normal y que hay un hilo del choque del lunes a una prueba concreta.
 
 **Qué dices:**
 
@@ -316,7 +316,7 @@ Si te sobra tiempo, haz la frase 3 con calma, separando sus dos requisitos en la
 
 ## En tres frases
 
-1. La charla «Pizza Day» presenta SDD a toda la empresa en veinte minutos y siete bloques: gancho, problema, método, artefactos reales, mini-ejercicio, roles y cierre.
+1. La charla presenta SDD a toda la empresa en veinte minutos y siete bloques: gancho, problema, método, artefactos reales, mini-ejercicio, roles y cierre.
 2. Su centro es el mini-ejercicio: la sala convierte tres frases vagas en requisitos EARS y caza vaguedades, y así entiende sin ver código por qué la especificación va primero.
 3. Cada bloque trae qué decir, qué enseñar y cómo pasar al siguiente; si vas tarde, recorta explicaciones, nunca el ejercicio ni la llamada a la acción.
 

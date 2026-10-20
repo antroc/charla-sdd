@@ -45,13 +45,13 @@ Están agrupadas por el momento del flujo en que más importan. Las seis primera
 
 ### Al planificar y trocear (pasos 3 a 5)
 
-**7. Revisa el plan contra la constitución, principio a principio.** El plan técnico tiene una tabla para eso. No la rellenes con «cumple» en todas las filas: explica cómo. Cada desviación va al registro de complejidad con su justificación y la alternativa más simple que se descartó.
+**7. Revisa el plan contra la constitución, principio a principio.** El plan técnico tiene una tabla para eso. No la rellenes con «cumple» en todas las filas: explica cómo. Cada desviación va al registro de complejidad (la tabla del plan donde se apunta, con su porqué, todo lo que se sale de la regla de sencillez) con su justificación y la alternativa más simple que se descartó.
 
-*En ReservaSalas:* el plan cumple los cinco principios y declara una sola desviación de «sencillez primero»: una pequeña API (una conexión para que otros programas usen la aplicación), que la especificación no pide, para que las pruebas automáticas (las «pruebas de contrato» del plan) no dependan de las pantallas HTML. Está escrita, justificada y acotada.
+*En ReservaSalas:* el plan cumple los cinco principios y declara una sola desviación de «sencillez primero»: una pequeña API (una conexión para que otros programas usen la aplicación), que la especificación no pide, para que las pruebas automáticas (las pruebas de contrato del plan, las que comprueban que cada operación de la API responde lo acordado) no dependan de las pantallas (las páginas web que ve la persona). Está escrita, justificada y acotada.
 
 **8. Tareas pequeñas, con fichero y con un sí o un no al final.** Una tarea cabe en una línea, nombra el fichero que toca y se da por terminada sin discusión. Si una tarea dice «hacer la parte del servidor», no es una tarea; es un plan disfrazado. Comprueba además que cada requisito de la especificación aparece en alguna tarea.
 
-*En ReservaSalas:* 47 tareas, cada una con su ruta (`src/reservasalas/servicios/reservas.py`, `tests/unitarias/test_limites.py`…) y una tabla en la especificación que dice qué requisitos necesita cada historia, para cruzarla con la lista.
+*En ReservaSalas:* 47 tareas, cada una con la ruta del fichero que toca, es decir, dónde está dentro del proyecto (`src/reservasalas/servicios/reservas.py`, `tests/unitarias/test_limites.py`…), y una tabla en la especificación que dice qué requisitos necesita cada historia, para cruzarla con la lista.
 
 **9. Pruebas primero.** En cada historia, las tareas de pruebas van antes que las de implementación, y las pruebas tienen que fallar hasta que la funcionalidad existe. Es la forma más fiable de distinguir «funciona» de «parece que funciona» cuando el código lo ha escrito un asistente de IA.
 
@@ -61,7 +61,7 @@ Están agrupadas por el momento del flujo en que más importan. Las seis primera
 
 **10. Si el código no hace lo que querías, corrige la especificación y regenera.** Es la regla central del método. Si tocas el código a mano para salir del paso, la especificación deja de contar la verdad y la próxima regeneración puede borrar tu parche. Reserva la edición a mano para detalles que no cambian el comportamiento.
 
-*En ReservaSalas:* cuando Ana quiso ampliar la antelación máxima de 30 a 60 días, Luis no buscó el número en el código: cambió RF-006 en la especificación, regeneró el plan y las tareas afectadas y volvió a implementar esa parte.
+*En ReservaSalas:* cuando Ana quiso ampliar la antelación máxima de 30 a 60 días, lo pidió por escrito y Luis no buscó el número en el código: cambió RF-006 en la especificación y Ana aprobó el texto nuevo. Después Luis actualizó el plan y dejó que `/speckit.converge` añadiera a `tasks.md` las tareas que faltaban, que ejecutó con `/speckit.implement`. No relanzó `/speckit.tasks`, que rehace la lista entera.
 
 **11. Guarda todo en el repositorio, junto al código.** Constitución, especificación, aclaraciones, plan, tareas y listas de verificación viven en el repositorio (la carpeta compartida donde se guarda el código con su historial de versiones), junto al programa, y se versionan con él. Un cambio en la especificación es un cambio en el repositorio, revisable como cualquier otro. Haz *commit* (guarda una versión) antes de regenerar nada, para poder comparar.
 

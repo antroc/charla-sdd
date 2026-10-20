@@ -15,6 +15,7 @@ Este documento enseña a escribir requisitos que no admiten dos lecturas con EAR
 - [Reglas de oro](#reglas-de-oro)
 - [De una frase vaga a un requisito EARS](#de-una-frase-vaga-a-un-requisito-ears)
 - [De requisito a criterio de aceptación](#de-requisito-a-criterio-de-aceptación)
+- [Si te falta un dato](#si-te-falta-un-dato)
 - [Ejercicio rápido](#ejercicio-rápido)
 - [Para seguir practicando](#para-seguir-practicando)
 
@@ -174,7 +175,7 @@ La pregunta sobre la media hora no cabe en el requisito: va a la sección «Caso
 - **RF-011**: CUANDO una reserva se confirma, se modifica o se cancela, el sistema deberá enviar un correo a la persona responsable con la sala, la fecha, la franja y el tipo de cambio.
 ```
 
-«Base de datos» y «servidor de correo» no han desaparecido: han ido al sitio que les corresponde, el [plan técnico](../ejercicios/soluciones/03-reserva-salas/plan.md). Y la última pregunta (¿hay que avisar por correo?) fue una de las [aclaraciones](../ejercicios/soluciones/03-reserva-salas/aclaraciones.md) que Ana respondió.
+«Base de datos» y «servidor de correo» no han desaparecido: han ido al sitio que les corresponde, el [plan técnico](../ejercicios/soluciones/03-reserva-salas/plan.md). Y la última pregunta (¿solo al reservar, o también al cambiar y al cancelar?) la resolvió Ana en las [aclaraciones](../ejercicios/soluciones/03-reserva-salas/aclaraciones.md): «Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante».
 
 ### 3. La frase que no es un requisito
 
@@ -215,6 +216,26 @@ Un requisito suele dar lugar a más de un criterio: el caso que sale bien y el q
 
 Y cada criterio se convierte después, casi palabra por palabra, en una prueba automática: la tarea T013 de ReservaSalas escribe las pruebas de solapamiento a partir de RF-005 y de sus criterios. Por eso un requisito bien escrito ahorra trabajo tres veces: al aclarar, al probar y al corregir.
 
+## Si te falta un dato
+
+EARS no sustituye a pensar: te obliga a hacerte las preguntas, pero las respuestas las tiene que dar quien conoce el problema. Un requisito con la plantilla perfecta y un límite inventado («máximo tres reservas por persona y día», cuando Ana nunca ha dicho tal cosa) es peor que una frase vaga, porque parece cerrado y nadie vuelve a preguntar por él.
+
+> [!IMPORTANT]
+> Si no sabes un dato, no lo inventes: deja el marcador `[NECESITA ACLARACIÓN: …]` y pregúntalo a quien decide. Si necesitas una cifra provisional para seguir trabajando, escríbela a la vista como supuesto («se asume 5 segundos; confirmar con Seguridad») y no des la especificación por aprobada hasta que quien encarga la confirme.
+
+Así se ven las dos opciones con la antelación máxima de ReservaSalas, un dato que la petición de Ana no daba:
+
+```markdown
+Con el marcador en el requisito:
+- SI la reserva empieza más de [NECESITA ACLARACIÓN: ¿cuántos días de antelación como máximo?] días después de hoy, ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
+
+Con una cifra provisional en el requisito y el supuesto a la vista:
+- SI la reserva empieza más de 30 días después de hoy, ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
+- (En «Supuestos») Se asume una antelación máxima de 30 días; confirmar con Ana antes de aprobar la especificación.
+```
+
+En la solución de ReservaSalas nadie inventó la cifra: la lista de verificación dejó la antelación como pendiente, el asistente la preguntó en el paso de aclarar y Ana respondió «30 días». Con Spec Kit, `/speckit.specify` te pregunta los marcadores que deja (tres como máximo) antes de terminar, y `/speckit.clarify` busca los huecos que queden.
+
 ## Ejercicio rápido
 
 Convierte estas tres frases en requisitos EARS. Escribe tu versión antes de abrir las respuestas; no hay una única redacción correcta, pero sí patrones que encajan mejor que otros.
@@ -238,9 +259,6 @@ Convierte estas tres frases en requisitos EARS. Escribe tu versión antes de abr
 - [Ejercicio 01: tu primera especificación sin código](../ejercicios/01-tu-primera-especificacion-sin-codigo.md): escribe los requisitos de Solicitud de vacaciones dentro de una especificación completa.
 - [Ejercicio 05: arreglar una especificación mala](../ejercicios/05-arreglar-una-especificacion-mala.md): una especificación de ReservaSalas escrita con prisa, para detectar requisitos vagos, con tecnología o con dos cosas.
 - Los doce requisitos de ReservaSalas, con la tabla de qué patrón usa cada uno, están en [spec.md](../ejercicios/soluciones/03-reserva-salas/spec.md).
-
-> [!IMPORTANT]
-> EARS no sustituye a pensar: te obliga a hacerte las preguntas, pero las respuestas las tiene que dar quien conoce el problema. Un requisito con la plantilla perfecta y un límite inventado («máximo tres reservas por persona y día», cuando Ana nunca ha dicho tal cosa) es peor que una frase vaga, porque parece cerrado. Si no sabes el dato, deja el marcador `[NECESITA ACLARACIÓN: …]` y pregunta.
 
 ## En tres frases
 

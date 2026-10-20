@@ -63,7 +63,7 @@ Van en el orden del documento, agrupados por sección. Los tipos son los de la l
 | 14 | 43 | RF-1, «rápido, intuitivo y fácil de usar»: adjetivos sin cifra; ni siquiera es un requisito funcional. | Vago | Convertirlo en criterios de éxito con cifra: CE-001, CE-003 y CE-004. |
 | 15 | 44-45 | RF-2, «reservar salas y gestionar los usuarios (alta, baja y cambio de contraseña)»: dos cosas en una, y la constitución dice que se entra con el acceso corporativo existente y que la aplicación «no gestiona contraseñas propias». | Dos cosas en una, contra la constitución | La gestión de usuarios desaparece y el acceso corporativo se anota como supuesto. Reservar queda en RF-002 y RF-003. |
 | 16 | 46 | Otro «RF-2» (y no hay RF-3): «Avisar si hay choque de reservas.» No tiene sujeto ni patrón EARS, y «avisar» no dice si la reserva se rechaza ni qué se le dice a la persona. | Duplicado, sin disparador o sin sujeto, vago | RF-005: «SI la franja solicitada se solapa con otra reserva de la misma sala, ENTONCES el sistema deberá rechazar la reserva e indicar qué franja está ocupada». |
-| 17 | 47-48 | RF-4, «guardarla en la tabla `reservas` de PostgreSQL y enviar el correo por la API de un proveedor externo»: tecnología; dos cosas que pueden fallar por separado; y un sistema externo, que la constitución no permite en la primera versión. | Tecnología, dos cosas en una, contra la constitución | Dos requisitos sin tecnología: RF-003 (guardar y mostrar la confirmación) y RF-011 (el correo). |
+| 17 | 47-48 | RF-4, «guardarla en la tabla `reservas` de PostgreSQL y enviar el correo por la API de un proveedor externo»: tecnología; dos cosas que pueden fallar por separado; y un proveedor externo, cuando la constitución solo permite usar dos sistemas que ya existen en la empresa: el acceso y el correo corporativos. | Tecnología, dos cosas en una, contra la constitución | Dos requisitos sin tecnología: RF-003 (guardar y mostrar la confirmación) y RF-011 (el correo). |
 | 18 | 49-50 | RF-5, «El usuario deberá hacer las reservas dentro del horario de oficina»: el sujeto es la persona, no el sistema; es una norma, no un requisito. | Sin disparador o sin sujeto | Darle la vuelta: SI la franja queda fuera de 08:00-20:00, ENTONCES el sistema deberá rechazar la reserva e indicar qué límite se incumple (parte de RF-006). |
 | 19 | 50 | «(o hasta las 22:00 si es un evento)»: «evento» no está definido en ningún sitio, y estira el horario que la misma frase acaba de fijar. | Contradicción, vago | Quitar la excepción: Ana fijó 08:00-20:00 sin excepciones. |
 | 20 | 51 | RF-6, «podría enviar un correo de confirmación, si da tiempo a hacerlo»: «podría» no obliga a nada y «si da tiempo» es una condición del proyecto, no del sistema. Además repite el correo de RF-4. | Verbo blando, duplicado | RF-011, con «deberá»: Ana dijo que el correo es obligatorio. |
@@ -79,7 +79,7 @@ Van en el orden del documento, agrupados por sección. Los tipos son los de la l
 | N.º | Línea(s) | Qué falla | Tipo | Cómo se arregla |
 |---|---|---|---|---|
 | 27 | 66 | «Sala: nombre, planta, aforo.»: falta el estado (disponible o en mantenimiento), que RF-11 necesita. | Laguna | Añadir el estado. |
-| 28 | 67 | «Reserva: sala, inicio, fin.»: falta la persona responsable, que exige el principio 5, y faltan el estado (activa o cancelada) y quién la canceló. | Laguna, contra la constitución | Reserva: sala, persona responsable, inicio, fin, estado y, si se canceló, quién lo hizo. |
+| 28 | 67 | «Reserva: sala, inicio, fin.»: falta la persona responsable, que exige el principio 5, y faltan el estado (activa o cancelada) y quién la canceló o la modificó, que también pide el principio 5. | Laguna, contra la constitución | Reserva: sala, persona responsable, inicio, fin, estado y quién la canceló o la modificó por última vez. |
 | 29 | 68-69 | «Usuario: nombre, correo, teléfono móvil, foto, DNI, departamento, cargo y fecha de nacimiento (por si hace falta más adelante)»: el principio 4 prohíbe guardar teléfonos, fotos, cargos, departamentos o cualquier dato que no haga falta para reservar, y «por si hace falta» es justo lo que el principio 1 no permite. Y falta el único dato nuevo que sí hace falta: el rol. | Contra la constitución, laguna | Persona: nombre, correo corporativo y rol (empleado o administración). Sin rol no hay permisos. |
 
 ### Criterios de éxito (líneas 71-78)
@@ -174,7 +174,7 @@ Cómo se medirán: CE-001 y CE-003 con una prueba con 10 personas de distintos e
 De qué criterio de Luis sale cada uno lo tienes en las filas 30 a 33 de la tabla; el RF-1 de Luis («rápido, intuitivo y fácil de usar») queda repartido entre CE-001, CE-003 y CE-004.
 
 > [!IMPORTANT]
-> Estas cifras las fijó Ana. Tú no podías preguntarle, así que lo correcto era poner las tuyas y anotarlas como supuesto («cifra provisional, confirmar con Ana»). Un CE-001 que diga «menos de 2 minutos, provisional» está bien; uno que diga «rápido», no.
+> Estas cifras las fijó Ana. Tú no podías preguntarle, así que lo correcto era escribir las tuyas a la vista como supuesto («cifra provisional, confirmar con Ana») y no dar la especificación por aprobada hasta que Ana las confirmara. Un CE-001 que diga «menos de 2 minutos, provisional» está bien; uno que diga «rápido», no.
 
 ### El resto de la especificación
 
@@ -187,7 +187,7 @@ El ejercicio no pide reescribir estas secciones, pero sí saber qué les pasa. C
 | Historias (líneas 13-33) | Tres, con prioridad, «por qué» y prueba independiente: reservar una sala (P1), cancelar o modificar mi reserva (P2) y ver mis reservas y las de hoy (P3), cada una con criterios Dado/Cuando/Entonces. Las estadísticas, el proyector y el café salen. |
 | Casos límite (línea 37) | Los ocho de la fila 13, cada uno con lo que hace el sistema. |
 | Aclaraciones (no existe) | Sección nueva con las respuestas de Ana (bloque de abajo). |
-| Entidades (líneas 66-69) | Sala con estado; Reserva con persona responsable, estado y quién la canceló; Persona con nombre, correo corporativo y rol. Nada más. |
+| Entidades (líneas 66-69) | Sala con estado; Reserva con persona responsable, estado y quién la canceló o la modificó por última vez; Persona con nombre, correo corporativo y rol. Nada más. |
 | Supuestos (líneas 82-83) | Fuera Chrome y la carga a mano; dentro los cuatro de la nota 45. |
 | Fuera de alcance (línea 87) | La lista de la fila 36. |
 | Notas de Luis (líneas 89-93) | Desaparecen. |
@@ -202,7 +202,7 @@ Así quedaría la sección «Aclaraciones» con las respuestas del paso 3. Tiene
 - P: ¿Quién marca una sala en mantenimiento? → R: Solo administración.
 - P: ¿Quién puede cancelar o modificar una reserva ajena? → R: Solo administración.
 - P: ¿Hay excepciones al horario de 08:00 a 20:00 o al máximo de 4 horas (eventos, reuniones de todo el día)? → R: No, ninguna.
-- P: ¿Hay que avisar por correo? → R: Sí, un correo de confirmación, obligatorio.
+- P: ¿Hay que avisar por correo? → R: Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante.
 - P: ¿Con cuánta antelación máxima se puede reservar? → R: 30 días.
 - P: ¿Se pueden hacer reservas recurrentes (por ejemplo, todos los lunes)? → R: No en la primera versión.
 - P: ¿Qué pasa si nadie aparece a la reserva? → R: Fuera de alcance: no se controla la asistencia.
@@ -232,7 +232,7 @@ Esta es la [lista de verificación](../plantillas/lista-de-verificacion.md) de l
 | CHK016 | Cada requisito aparece en algún criterio de aceptación | `[ ]` | Depende de rehacer las historias; en el canon lo muestra su tabla de historias y requisitos. |
 | CHK017 | Criterios de éxito con número y sin tecnología | `[x]` | CE-001 a CE-004; ninguno habla de la base de datos. |
 | CHK018 | Historias para empleado y administración | `[ ]` | Administración no tiene recorrido; en el canon lo cubren RF-009, el criterio 5 de la historia 2 y un caso límite. |
-| CHK019 | Compatibles entre sí y con la constitución | `[x]` | Sin reservas anónimas, contraseñas ni sistemas externos. Las entidades de Luis siguen chocando con «Datos mínimos» hasta que se corrijan (fila 29). |
+| CHK019 | Compatibles entre sí y con la constitución | `[x]` | Sin reservas anónimas, contraseñas ni más sistemas que el acceso y el correo corporativos. Las entidades de Luis siguen chocando con «Datos mínimos» hasta que se corrijan (fila 29). |
 
 Con nueve casillas sin marcar, esta especificación todavía no está lista para planificar. Se termina de arreglar rehaciendo las historias, los casos límite, los supuestos y el alcance como en la especificación canónica; con eso se marcan las que faltan.
 

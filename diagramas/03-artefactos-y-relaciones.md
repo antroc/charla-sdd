@@ -61,7 +61,7 @@ flowchart LR
   P3["Constitución · principio 3: pruebas antes de dar algo por hecho"]
   RF["Especificación · RF-005: SI la franja se solapa con otra reserva de la misma sala, ENTONCES el sistema deberá rechazarla e indicar qué franja está ocupada"]
   CE["Especificación · CE-002: cero reservas solapadas"]
-  CHK["Lista de verificación · CHK016: los requisitos no se contradicen entre sí"]
+  CHK["Lista de verificación de la solución · CHK016: los requisitos no se contradicen entre sí"]
   D["Plan técnico · decisión: comprobar el solapamiento y guardar en una sola operación (transacción)"]
   T13["Tareas · T013: pruebas de solapamiento, se escriben primero y tienen que fallar"]
   T20["Tareas · T020: crear la reserva comprobando el solapamiento"]
@@ -81,7 +81,7 @@ flowchart LR
   class COD codigo;
 ```
 
-De izquierda a derecha: el requisito RF-005 y el criterio de éxito CE-002 («cero reservas solapadas») viven en la especificación, y la lista de verificación comprueba que no se contradicen con el resto. El plan técnico los convierte en una decisión concreta: comprobar y guardar en una sola operación, para que dos personas no puedan colarse a la vez.
+De izquierda a derecha: el requisito RF-005 y el criterio de éxito CE-002 («cero reservas solapadas») viven en la especificación, y la lista de verificación comprueba que no se contradicen con el resto (CHK016 es el número de esa comprobación en la lista de la solución; la [plantilla](../ejercicios/plantillas/lista-de-verificacion.md) numera sus preguntas de otra forma). El plan técnico los convierte en una decisión concreta: comprobar y guardar en una sola operación, para que dos personas no puedan colarse a la vez.
 
 De esa decisión salen dos tareas: T013, las pruebas, que por el principio 3 de la constitución se escriben antes; y T020, la implementación. Las dos acaban en ficheros de código concretos. Si mañana Ana cambiara la regla, el cambio empezaría en RF-005 y bajaría por las mismas flechas.
 
@@ -125,7 +125,7 @@ La tabla resume, para cada artefacto, el fichero real, quién lo escribe y quié
 | Constitución | `.specify/memory/constitution.md` | Quien encarga y quien construye, juntos (Ana y Luis); el asistente de IA redacta | Ana; revisa alguien con experiencia técnica |
 | Especificación | `spec.md` | Ana describe qué quiere y por qué; el asistente de IA la redacta con historias, requisitos y criterios de éxito | Ana; Luis y QA (control de calidad: quien prueba que la aplicación hace lo que debe) revisan que no haya tecnología ni vaguedades |
 | Aclaraciones | Sección «Aclaraciones» dentro de `spec.md` | El asistente de IA pregunta; Ana responde; Luis ejecuta el comando | Ana: sus respuestas son la decisión |
-| Lista de verificación | `checklists/requirements.md` (automática) y `checklists/<tema>.md` (por tema) | La automática la evalúa el asistente de IA; las de tema las marca quien revisa | Alguien que no escribió la especificación (QA u otra persona del equipo) |
+| Lista de verificación | `checklists/requirements.md` (automática) y `checklists/[tema].md` (por tema) | La automática la evalúa el asistente de IA; las de tema las marca quien revisa | Alguien que no escribió la especificación (QA u otra persona del equipo) |
 | Plan técnico | `plan.md` (+ `research.md`, `data-model.md`, `contracts/`, `quickstart.md`) | Luis, con el asistente de IA, a partir de la especificación y la constitución | Programador senior, punto por punto contra la constitución |
 | Lista de tareas | `tasks.md` | El asistente de IA la genera; Luis la lee entera | Luis, senior y QA: tareas pequeñas, en orden y con las pruebas antes que el código |
 | Análisis | Ningún fichero: informe en el chat | El asistente de IA | Luis decide qué remedios aplicar; el senior revisa los que tocan el plan y Ana los que tocan la especificación |

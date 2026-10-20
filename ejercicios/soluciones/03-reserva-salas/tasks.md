@@ -27,6 +27,7 @@
 - **[P]**: se puede hacer en paralelo con otras tareas [P] de la misma fase (ficheros distintos, sin dependencias pendientes).
 - **[HU1] / [HU2] / [HU3]**: historia de usuario a la que pertenece la tarea (solo en las fases de historia).
 - **🎯 MVP** (producto mínimo viable): marca la fase que, por sí sola, ya resuelve el problema principal y se puede enseñar.
+- **(tarea manual…)**: la tarea solo la puede hacer una persona (una prueba con usuarios, una revisión con lector de pantalla). El asistente de IA no la da por hecha: la deja sin marcar y la marca quien la haga.
 - Todas las rutas son relativas a la raíz del proyecto `reserva-salas/`.
 
 ## Fase 1: Preparación, infraestructura compartida (Setup)
@@ -44,9 +45,9 @@
 **Objetivo:** lo que necesitan todas las historias. Ninguna historia puede empezar hasta terminar esta fase.
 
 - [ ] T006 Crear `src/reservasalas/db.py` con la conexión a SQLite (control manual de transacciones, `isolation_level=None`), la creación de las tablas `sala`, `persona` y `reserva` según el modelo de datos del plan, el índice `(sala_id, inicio)` y la carga de `datos/salas.sql` al arrancar si la tabla `sala` está vacía
-- [ ] T007 [P] Crear `datos/salas.sql` con las 12 salas (Mediterráneo, Cantábrico, Atlántico, Báltico, Egeo, Adriático, Jónico, Tirreno, Caribe, Índico, Ártico, Mar del Norte), su planta y su aforo
+- [ ] T007 [P] Crear `datos/salas.sql` con las 12 salas, su planta y su aforo, según los supuestos de la especificación: planta 1, Mediterráneo, Cantábrico, Atlántico y Egeo; planta 2, Báltico, Adriático, Jónico y Tirreno; planta 3, Caribe, Índico, Ártico y Mar del Norte; aforo de 8 personas en Mediterráneo, 12 en Báltico, 4 en Ártico y 6 en las demás
 - [ ] T008 [P] Crear `src/reservasalas/modelos.py` con las dataclasses `Sala`, `Persona` y `Reserva` y sus estados (`disponible`/`mantenimiento`, `empleado`/`administracion`, `activa`/`cancelada`)
-- [ ] T009 [P] Crear `src/reservasalas/textos.py` con todos los mensajes de confirmación y de error en castellano (principio 2)
+- [ ] T009 [P] Crear `src/reservasalas/textos.py` con todos los mensajes de confirmación y de error en castellano; cada error dice qué ha pasado y qué puede hacer la persona (principio 2)
 - [ ] T010 Crear `src/reservasalas/repositorio.py` con las consultas básicas: listar salas, buscar o crear persona por correo, insertar y leer reservas (depende de T006 y T008)
 - [ ] T011 Crear `src/reservasalas/identidad.py`, que lee la cabecera `X-Usuario` (o `RESERVASALAS_USUARIO_DEV` en desarrollo) y devuelve la `Persona`, creándola si no existe, con rol `administracion` si su correo está en `RESERVASALAS_ADMINISTRACION` y `empleado` en caso contrario; sin cabecera ni variable de desarrollo, rechaza la petición (depende de T010)
 - [ ] T012 Crear `src/reservasalas/app.py` con la aplicación FastAPI, el montaje de `estatico/` con `src/reservasalas/estatico/estilo.css`, la configuración de Jinja2 y la plantilla `src/reservasalas/plantillas/base.html` (cabecera, navegación y zona de mensajes, con etiquetas y contraste accesibles); añadir a `tests/conftest.py` el cliente de pruebas de FastAPI (depende de T004)
@@ -88,13 +89,13 @@
 ### Pruebas de la historia 2 (se escriben primero y tienen que fallar)
 
 - [ ] T025 [P] [HU2] Pruebas unitarias de permisos en `tests/unitarias/test_permisos.py`: la responsable puede, otra persona no puede, administración puede (RF-010)
-- [ ] T026 [P] [HU2] Pruebas de contrato de `DELETE` y `PUT /api/reservas/{id}` en `tests/contrato/test_api_reservas.py`: `200` al cancelar, `200` al modificar a una franja libre, `409` al modificar a una franja ocupada sin tocar la original, `403` sin permiso, `cancelada_por` cuando cancela administración (RF-008, RF-010)
+- [ ] T026 [P] [HU2] Pruebas de contrato de `DELETE` y `PUT /api/reservas/{id}` en `tests/contrato/test_api_reservas.py`: `200` al cancelar, `200` al modificar a una franja libre, `409` al modificar a una franja ocupada sin tocar la original, `403` sin permiso, `cancelada_por` cuando cancela administración y `modificada_por` cuando modifica administración (RF-008, RF-010, principio 5)
 - [ ] T027 [P] [HU2] Prueba de integración en `tests/integracion/test_hu2_cancelar_modificar.py`: reservar, modificar, cancelar y comprobar la disponibilidad y los correos en cada paso (escenarios 1-5 de la historia, RF-011)
 
 ### Implementación de la historia 2
 
 - [ ] T028 [HU2] Implementar en `src/reservasalas/servicios/reservas.py` la comprobación de permisos: persona responsable o rol `administracion` (RF-010)
-- [ ] T029 [HU2] Implementar en `src/reservasalas/servicios/reservas.py` cancelar (estado `cancelada` y `cancelada_por`) y modificar (validar límites y solapamiento excluyendo la propia reserva; si falla, no cambiar nada), con envío del correo correspondiente (RF-008, RF-011)
+- [ ] T029 [HU2] Implementar en `src/reservasalas/servicios/reservas.py` cancelar (estado `cancelada` y `cancelada_por`) y modificar (validar límites y solapamiento excluyendo la propia reserva y guardar `modificada_por`; si falla, no cambiar nada), con envío del correo correspondiente (RF-008, RF-011, principio 5)
 - [ ] T030 [HU2] Implementar las rutas `PUT` y `DELETE /api/reservas/{id}` en `src/reservasalas/rutas/api.py`
 - [ ] T031 [HU2] Crear la página `/reservas/{id}` en `src/reservasalas/rutas/paginas.py` con la plantilla `src/reservasalas/plantillas/reserva.html`: detalle de la reserva con responsable, formulario para cambiar la franja y botón «Cancelar reserva» con confirmación
 - [ ] T032 [HU2] Ejecutar `pytest` y comprobar que las pruebas T025-T027 pasan sin romper las de la historia 1
@@ -130,8 +131,8 @@
 - [ ] T041 Implementar la ruta `PUT /api/salas/{id}/mantenimiento` en `src/reservasalas/rutas/api.py` y el botón correspondiente en `src/reservasalas/plantillas/disponibilidad.html`, visible solo para administración (RF-009)
 - [ ] T042 [P] Verificar CE-002 añadiendo en `tests/integracion/test_hu1_reservar.py` una prueba con dos peticiones simultáneas a la misma sala y franja: solo una se guarda y la otra recibe el `409` por solapamiento, no un error de bloqueo de la base de datos
 - [ ] T043 Verificar CE-004 añadiendo en `tests/contrato/test_api_salas.py` (mismo fichero que T040: después de ella) una prueba que carga un mes de reservas en las 12 salas y comprueba que `GET /api/salas` responde en menos de 2 segundos
-- [ ] T044 [P] Verificar CE-001 y CE-003 con una sesión de prueba con 10 personas de distintos equipos siguiendo `specs/001-reserva-salas/quickstart.md`; anotar tiempos y resultado en `docs/prueba-con-usuarios.md`
-- [ ] T045 [P] Revisar todas las plantillas de `src/reservasalas/plantillas/` con teclado y lector de pantalla: etiquetas en todos los campos, botones con texto, mensajes de error junto al campo (principio 2)
+- [ ] T044 [P] Verificar CE-001 y CE-003 con una sesión de prueba con 10 personas de distintos equipos siguiendo `specs/001-reserva-salas/quickstart.md`; anotar tiempos y resultado en `docs/prueba-con-usuarios.md` (tarea manual: la hace una persona; el asistente la deja sin marcar)
+- [ ] T045 [P] Revisar todas las plantillas de `src/reservasalas/plantillas/` con teclado y lector de pantalla, como pide el principio 2: etiquetas en todos los campos, botones con texto, mensajes de error junto al campo (tarea manual: la hace una persona; el asistente la deja sin marcar)
 - [ ] T046 Revisar el código contra los cinco principios de `.specify/memory/constitution.md` y anotar el resultado en `docs/revision-constitucion.md`; corregir cualquier desviación antes de entregar
 - [ ] T047 Completar `README.md` con la configuración del despliegue interno: servidor de correo, acceso corporativo (la aplicación solo escucha detrás de él), `RESERVASALAS_USUARIO_DEV` vacía y la lista `RESERVASALAS_ADMINISTRACION`
 
@@ -160,7 +161,7 @@ Después, T018 y T021 también pueden ir en paralelo; T019 y T020 tocan el mismo
 
 1. **Primero el producto mínimo viable:** fases 1, 2 y 3. Parar, ejecutar `pytest`, enseñárselo a Ana y recoger cambios en la especificación.
 2. **Entrega incremental:** añadir HU2, probar y enseñar; añadir HU3, probar y enseñar. Cada historia suma valor sin romper las anteriores.
-3. **Si algo no cuadra:** no se parchea el código; se corrige `spec.md`, se regeneran plan y tareas, y se vuelve a implementar la parte afectada.
+3. **Si algo no cuadra:** no se parchea el código. Ana decide el cambio y lo pide; Luis lo escribe en `spec.md`, y Ana relee el texto nuevo y lo aprueba. Después Luis actualiza el plan, deja que `/speckit.converge` añada a este fichero las tareas que faltan y las ejecuta con `/speckit.implement` (es el paso 9 del [ejercicio 03](../../03-reserva-salas-paso-a-paso.md)). No se relanza `/speckit.tasks`, que rehace la lista entera.
 
 Resumen: 47 tareas (5 de preparación, 7 de base compartida, 12 de HU1, 8 de HU2, 7 de HU3 y 8 de remate), 20 de ellas paralelizables. Cada RF de la especificación aparece en al menos una tarea; los cuatro criterios de éxito se comprueban en la fase de remate (T042 a T044) o en las pruebas de HU1 (CE-002).
 

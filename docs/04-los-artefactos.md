@@ -179,12 +179,12 @@ Los requisitos siguen EARS (*Easy Approach to Requirements Syntax*), una forma s
 
 - P: ¿Se pueden hacer reservas recurrentes (por ejemplo, todos los lunes)? → R: No en la primera versión.
 - P: ¿Quién puede cancelar una reserva ajena? → R: Solo administración.
-- P: ¿Hay que avisar por correo? → R: Sí, un correo de confirmación.
+- P: ¿Hay que avisar por correo? → R: Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante.
 - P: ¿Con cuánta antelación máxima se puede reservar? → R: 30 días.
 - P: ¿Qué pasa si nadie aparece a la reserva? → R: Fuera de alcance: no se controla la asistencia.
 ```
 
-La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una reserva ajena); la tercera, a RF-011 (el correo de confirmación); la cuarta añadió el límite de 30 días a RF-006. Eso es lo que significa «las respuestas se incorporan a la especificación».
+La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una reserva ajena); la tercera, a RF-011 (el correo al confirmar, al modificar y al cancelar); la cuarta añadió el límite de 30 días a RF-006. Eso es lo que significa «las respuestas se incorporan a la especificación».
 
 **Errores típicos.** Responder de palabra y no escribirlo. Dejar que responda quien no decide. Pasar al plan con dudas abiertas. Y meter preguntas de tecnología («¿qué base de datos?»), que pertenecen al plan.
 
@@ -268,8 +268,8 @@ Para quien no programa, lo que importa de este extracto es la forma: cada tarea 
 **Qué secciones tiene:**
 
 - Cabecera: propósito, fecha, funcionalidad, responsable de la revisión y significado de las marcas (*Purpose, Created, Feature, Review Ownership, Marker Semantics*).
-- La lista automática tiene tres categorías: Calidad del contenido (*Content Quality*), Completitud de los requisitos (*Requirement Completeness*) y Preparación de la funcionalidad (*Feature Readiness*). Las listas por tema tienen las categorías que pida el tema.
-- Cada ítem lleva la pregunta y, entre corchetes, qué aspecto revisa (Completitud, Claridad, Coherencia, Medibilidad, Cobertura), el tipo de fallo que busca (Laguna, Ambigüedad, Conflicto, Supuesto) y dónde mirar (`Spec §RF-005`). En las listas por tema cada ítem lleva además un identificador `CHK001…`; la automática no los numera (nuestra solución sí, para que coincida con la plantilla).
+- La lista automática tiene tres categorías: Calidad del contenido (*Content Quality*), Completitud de los requisitos (*Requirement Completeness*) y Preparación de la funcionalidad (*Feature Readiness*). Las listas por tema tienen las categorías que pida el tema. Nuestra solución amplía la automática a cinco categorías: añade Claridad y medibilidad, y Coherencia.
+- En las listas por tema, cada ítem lleva un identificador `CHK001…`, la pregunta y, entre corchetes, qué aspecto revisa (Completitud, Claridad, Coherencia, Medibilidad, Cobertura), el tipo de fallo que busca (Laguna, Ambigüedad, Conflicto, Supuesto) y dónde mirar (`Spec §RF-005`). La lista automática solo lleva la frase, sin corchetes ni números; nuestra solución le añade una numeración propia (CHK001 a CHK023), que no coincide con la de la [plantilla](../ejercicios/plantillas/lista-de-verificacion.md): si comparas las dos, compara las preguntas, no los números.
 - Notas: hallazgos, resultado de cada pasada y qué cambió a raíz de la revisión.
 
 **Extracto de ReservaSalas** ([checklist.md](../ejercicios/soluciones/03-reserva-salas/checklist.md)):
@@ -297,7 +297,7 @@ Para quien no programa, lo que importa de este extracto es la forma: cada tarea 
 
 ## Plantillas y ejemplo completo
 
-Para escribir estos artefactos sin herramientas, o para revisar los que genere tu asistente, tienes una plantilla en castellano por artefacto en [ejercicios/plantillas](../ejercicios/plantillas/README.md): `constitucion.md`, `especificacion.md`, `lista-de-aclaraciones.md`, `plan-tecnico.md`, `tareas.md` y `lista-de-verificacion.md`, con comentarios que explican cada sección y un ejemplo a medio rellenar.
+Para escribir estos artefactos sin herramientas, o para revisar los que genere tu asistente, tienes una plantilla en castellano por artefacto en [ejercicios/plantillas](../ejercicios/plantillas/README.md): `constitucion.md`, `especificacion.md`, `lista-de-aclaraciones.md`, `plan-tecnico.md`, `tareas.md` y `lista-de-verificacion.md`, con una ayuda visible en cursiva bajo cada título (qué se escribe, para quién y un consejo) y un ejemplo a medio rellenar.
 
 Los seis ficheros de ReservaSalas (los cinco artefactos más el registro de aclaraciones), completos y coherentes entre sí, están en [la solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md). Es un ejemplo, no la única respuesta correcta: cada asistente redacta distinto y cada equipo decide distinto. La lista completa de buenas prácticas y errores está en [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md).
 

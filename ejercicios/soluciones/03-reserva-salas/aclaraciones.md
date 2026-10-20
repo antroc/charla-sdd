@@ -13,7 +13,7 @@ Luis ejecutó `/speckit.clarify` el 2026-10-07 con la especificación recién ge
 |---|---|---|---|
 | 1 | ¿Se pueden hacer reservas recurrentes (por ejemplo, todos los lunes de 09:00 a 10:00)? | No en la primera versión. | Añadido a «Fuera de alcance». No hace falta guardar en cada reserva ningún dato sobre repeticiones. |
 | 2 | ¿Quién puede cancelar una reserva ajena? | Solo administración. | Nuevo RF-010 y criterios 4 y 5 de la historia 2. Se precisa qué puede hacer el rol de administración, que ya existía por RF-009. |
-| 3 | ¿Hay que avisar por correo cuando se hace una reserva? | Sí, un correo de confirmación. | Nuevo RF-011 (también al modificar y al cancelar, para que el correo sirva de comprobante) y criterio de aceptación 7 de la historia 1. Nuevo supuesto: existe un servidor de correo corporativo. |
+| 3 | ¿Hay que avisar por correo cuando se hace una reserva? | Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante. | Nuevo RF-011 (correo a la persona responsable al confirmar, modificar o cancelar, con el tipo de cambio) y criterio de aceptación 7 de la historia 1. Nuevo supuesto: existe un servidor de correo corporativo. |
 | 4 | ¿Con cuánta antelación máxima se puede reservar? | 30 días. | Límite añadido a RF-006 y nuevo caso límite «Antelación excesiva». |
 | 5 | ¿Qué pasa si nadie aparece a la reserva? ¿Se libera la sala? | Fuera de alcance: no se controla la asistencia. | Añadido a «Fuera de alcance». Evita construir confirmaciones de llegada, sensores o liberación automática. |
 
@@ -34,7 +34,7 @@ El asistente añadió esta sección justo después de los escenarios de usuario 
 
 - P: ¿Se pueden hacer reservas recurrentes (por ejemplo, todos los lunes)? → R: No en la primera versión.
 - P: ¿Quién puede cancelar una reserva ajena? → R: Solo administración.
-- P: ¿Hay que avisar por correo? → R: Sí, un correo de confirmación.
+- P: ¿Hay que avisar por correo? → R: Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante.
 - P: ¿Con cuánta antelación máxima se puede reservar? → R: 30 días.
 - P: ¿Qué pasa si nadie aparece a la reserva? → R: Fuera de alcance: no se controla la asistencia.
 ```
@@ -44,7 +44,7 @@ Después de incorporar las respuestas, el asistente volvió a pasar la lista de 
 Sobre la numeración: los dos requisitos nuevos (RF-010, permisos, y RF-011, correo) se colocaron junto a los de las historias 1 y 2, y el requisito de la historia 3, que hasta entonces era el RF-010, pasó a ser el RF-012. Se renumeró antes de aprobar la especificación, cuando todavía no lo citaba ningún plan ni ninguna tarea. Una vez aprobada, los identificadores ya no cambian: si algo desaparece se marca como retirado y lo nuevo toma el siguiente número libre.
 
 > [!TIP]
-> Si al responder descubres algo que cambia el alcance, no lo apuntes en un correo: vuelve a ejecutar `/speckit.clarify` o edita la especificación. La especificación es la fuente de verdad; el plan y las tareas se regeneran a partir de ella.
+> Si al responder descubres algo que cambia el alcance, no lo apuntes en un correo: vuelve a ejecutar `/speckit.clarify` o edita la especificación. La especificación es la fuente de verdad; el plan y las tareas salen de ella.
 
 ---
 

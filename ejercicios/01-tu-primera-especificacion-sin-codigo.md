@@ -24,11 +24,11 @@ Al terminar sabrás rellenar las secciones de una especificación (historias de 
 
 - **Tiempo:** entre 60 y 90 minutos la primera vez (algo más con la variante con asistente de IA). Puedes hacerlo en dos sesiones: los pasos 1 a 4 en la primera y los pasos 5 a 8 en la segunda.
 - **Requisitos previos:** ninguno. Ayuda haber leído [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), pero el ejercicio recuerda lo imprescindible.
-- **Materiales:** la plantilla [especificacion.md](plantillas/especificacion.md) y la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md), copiadas en un documento como se explica en la vía A del [ejercicio 00](00-preparacion-del-entorno.md). Si no has hecho el 00, basta con abrir las dos plantillas en GitHub con el botón «Raw», copiarlas y pegarlas en un documento o escribirlas en papel.
+- **Materiales:** la plantilla [especificacion.md](plantillas/especificacion.md) y la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md), copiadas en un documento como se explica en la vía A del [ejercicio 00](00-preparacion-del-entorno.md). Si no has hecho el 00: abre cada plantilla en GitHub (la vista normal, sin pulsar «Raw»), selecciona desde el primer título hasta el final, copia y pégalo en tu documento (Word, Google Docs…): se pega con formato. Las ayudas de cada sección aparecen en cursiva bajo su título; bórralas cuando termines. Si prefieres trabajar en papel, imprime el documento.
 - **Opcional:** un chat de IA autorizado por tu empresa, para la variante con asistente.
 
 > [!NOTE]
-> La plantilla trae ejemplos de ReservaSalas entre corchetes `[…]`: son una guía de cómo suena cada sección. Sustitúyelos por lo tuyo y borra los que no apliquen. Los comentarios `<!-- … -->` explican qué va en cada sitio; bórralos cuando el documento esté listo.
+> La plantilla trae ejemplos de ReservaSalas entre corchetes `[…]`: son una guía de cómo suena cada sección. Sustitúyelos por lo tuyo y borra los que no apliquen. Las ayudas en cursiva que hay bajo cada título explican qué va en cada sitio; bórralas cuando el documento esté listo.
 
 ## El caso: Solicitud de vacaciones
 
@@ -53,7 +53,15 @@ De izquierda a derecha: empiezas por el problema y las personas, sigues con las 
 
 Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué deberías tener al acabar. Trabaja directamente sobre tu copia de la plantilla.
 
-1. **Describe el problema de hoy en tres frases.** Empieza por el título: cambia «Plantilla: especificación» por «Especificación: Solicitud de vacaciones» y borra el aviso que hay justo debajo (habla de Spec Kit y aquí no hace falta). Después rellena la cabecera y la sección «Resumen». La cabecera es la línea que empieza por «Carpeta/rama» (un simple identificador): cambia `[001-reserva-salas]` por `001-solicitud-vacaciones`, pon la fecha de hoy en «Creada», deja «Estado: Borrador» y escribe en «Petición original» la frase con la que alguien te encargaría esto («Queremos dejar de pedir las vacaciones por correo y saber siempre cuántos días nos quedan»). En «Resumen», tres frases (hasta cinco si lo necesitas), sin tecnología, con esta estructura:
+1. **Describe el problema de hoy en tres frases.** Antes, prepara el principio de tu copia de la plantilla:
+
+   - Cambia el título «Plantilla: especificación» por «Especificación: Solicitud de vacaciones».
+   - Borra el aviso marcado como «Tip» que hay bajo el título (habla de Spec Kit y aquí no hace falta). La ayuda en cursiva déjala hasta el final, como las demás.
+   - Busca la cabecera, la línea que empieza por «Carpeta/rama» (un simple identificador), y cambia `[001-reserva-salas]` por `001-solicitud-vacaciones`.
+   - En «Creada», pon la fecha de hoy. Deja «Estado: Borrador» como está.
+   - En «Petición original», escribe la frase con la que alguien te encargaría esto: «Queremos dejar de pedir las vacaciones por correo y saber siempre cuántos días nos quedan».
+
+   Después, en la sección «Resumen», escribe tres frases (hasta cinco si lo necesitas), sin tecnología, con esta estructura:
 
    ```text
    Hoy, para pedir vacaciones, [qué hace cada persona y por dónde].
@@ -61,7 +69,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
    Queremos que [qué debe poder hacer cada persona al final del proceso].
    ```
 
-   Qué deberías tener: un resumen que una persona recién llegada a la empresa entiende sin preguntar. Prueba del algodón: si contiene las palabras «aplicación», «base de datos» o «sistema», reescríbelo hablando de personas y de días.
+   Qué deberías tener: un resumen que una persona recién llegada a la empresa entiende sin preguntar. Prueba del algodón: si el resumen contiene «aplicación», «base de datos» o «sistema», reescríbelo hablando de personas y de días. (En los requisitos del paso 5, en cambio, el sujeto siempre es «el sistema».)
 
    - [ ] La cabecera está rellena y el resumen tiene entre tres y cinco frases sin tecnología.
 
@@ -114,7 +122,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    - [ ] Hay al menos cinco casos límite y cada uno dice qué debe ocurrir (o está marcado como duda).
 
-5. **Convierte lo anterior en requisitos EARS (mínimo seis).** Es la sección «Requisitos», subsección «Requisitos funcionales». EARS (*Easy Approach to Requirements Syntax*) es una forma sencilla y estructurada de redactar requisitos: cinco plantillas de frase, siempre con el verbo «deberá» y la palabra clave en mayúsculas. Las tienes en el comentario de la plantilla y, explicadas con calma, en [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) y en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
+5. **Convierte lo anterior en requisitos EARS (mínimo seis).** Es la sección «Requisitos», subsección «Requisitos funcionales». EARS (*Easy Approach to Requirements Syntax*) es una forma sencilla y estructurada de redactar requisitos: cinco plantillas de frase, siempre con el verbo «deberá» y la palabra clave en mayúsculas. Las tienes resumidas en la ayuda en cursiva de la sección «Requisitos» de la plantilla y, explicadas con calma, en [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) y en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
 
    | Patrón | Plantilla | Para qué |
    |---|---|---|
@@ -173,7 +181,17 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    - [ ] Hay una lista de dudas; las respondidas han cambiado la sección afectada y las demás están marcadas como pendientes.
 
-8. **Revisa con la lista de verificación.** Abre tu copia de [lista-de-verificacion.md](plantillas/lista-de-verificacion.md). En la cabecera, cambia el propósito, la funcionalidad y la persona responsable de la revisión por los de tu especificación (puedes ser tú). En CHK010 y CHK012, sustituye los ejemplos de ReservaSalas que van entre paréntesis por los de vacaciones (más días de los que hay, fechas pasadas, solapamiento con el equipo). Responde cada pregunta de CHK001 a CHK019 mirando tu texto, y marca `[x]` solo las que cumplan. Dos avisos: CHK019 habla de la constitución, que en este ejercicio no existe, así que márcala si tus requisitos no se contradicen entre sí; y la categoría propia (CHK020 a CHK022) puedes borrarla o cambiarla por preguntas sobre vacaciones. Cada «no» te manda a una sección concreta: arréglala y vuelve a comprobar. Si puedes, pídele a otra persona que pase la lista por ti: quien escribe casi nunca ve sus propios huecos.
+8. **Revisa con la lista de verificación.** Abre tu copia de [lista-de-verificacion.md](plantillas/lista-de-verificacion.md) y sigue este orden:
+
+   - En la cabecera, pon el propósito, la funcionalidad (tu especificación) y quién hace la revisión (puedes ser tú).
+   - En CHK010, cambia los ejemplos de ReservaSalas que van entre paréntesis por los de vacaciones: más días de los que hay, fechas pasadas, solapamiento con el equipo.
+   - En CHK012, cambia los ejemplos entre paréntesis por tus supuestos (por ejemplo, todas las personas tienen manager asignado).
+   - Borra la categoría propia (CHK020 a CHK022) o cámbiala por preguntas tuyas sobre vacaciones.
+   - Responde cada pregunta de CHK001 a CHK019 mirando tu texto y marca `[x]` solo las que cumplan.
+
+   CHK019 habla de la constitución, que aquí no existe. Úsala para comprobar que tus requisitos no se contradicen entre sí, que solo se guardan los datos imprescindibles de cada persona y que las ausencias ajenas solo las ve quien las necesita (su manager y RRHH). Si dudas, consulta con quien se ocupe de la protección de datos en la empresa.
+
+   Cada «no» te manda a una sección concreta: arréglala y vuelve a comprobar. Si puedes, pídele a otra persona que pase la lista por ti: quien escribe casi nunca ve sus propios huecos.
 
    Qué deberías tener: la lista con todo marcado o, si queda algo sin marcar, una nota en «Notas» que diga por qué y qué falta.
 

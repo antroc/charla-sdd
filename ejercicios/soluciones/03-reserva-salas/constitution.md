@@ -59,7 +59,7 @@ Cada reserva muestra quién la ha hecho.
 
 - Aplicación de uso interno, accesible solo desde la red de la empresa y con el acceso corporativo existente; no gestiona contraseñas propias.
 - Los límites de uso (horario, duración máxima, antelación) se fijan en la especificación, no en el código: cambiarlos es cambiar la especificación y regenerar.
-- La primera versión no se integra con el calendario corporativo ni con ningún otro sistema externo.
+- La primera versión no se integra con el calendario corporativo. Solo usa dos sistemas que ya existen en la empresa: el acceso corporativo, para saber quién es cada persona, y el servidor de correo, para los avisos.
 - Tiene que poder ejecutarse en un único servidor modesto, sin servicios adicionales que instalar.
 
 ## Flujo de trabajo y puertas de calidad (Development Workflow)

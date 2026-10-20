@@ -45,7 +45,7 @@ Luis quiere tomarse la semana del 9 al 13 de noviembre de 2026. Indica la fecha 
 1. **Dado** que Luis tiene 12 días disponibles, **cuando** pide del lunes 9 al viernes 13 de noviembre de 2026 (5 días laborables), **entonces** la solicitud queda en estado «pendiente», Luis ve que le quedarían 7 días y Marta recibe un aviso con las fechas y los días.
 2. **Dado** que Luis tiene 2 días disponibles, **cuando** pide 5, **entonces** el sistema rechaza la solicitud e indica que solo le quedan 2 días.
 3. **Dado** que hoy es martes 20 de octubre de 2026, **cuando** Luis pide del 13 al 16 de octubre, **entonces** el sistema rechaza la solicitud e indica que la fecha de inicio ya ha pasado.
-4. **Dado** que hoy es martes 20 de octubre de 2026, **cuando** Luis pide a partir del jueves 22, **entonces** el sistema rechaza la solicitud e indica que la primera fecha de inicio posible es el martes 27 de octubre.
+4. **Dado** que hoy es martes 20 de octubre de 2026, **cuando** Luis pide a partir del jueves 22, **entonces** el sistema rechaza la solicitud e indica que la primera fecha de inicio posible es el martes 27 de octubre (el quinto día laborable después del envío).
 
 ### Historia de usuario 2 - Aprobar o rechazar una solicitud (Prioridad: P2)
 
@@ -72,7 +72,7 @@ Luis quiere saber cuántos días le quedan y en qué estado está lo que ha pedi
 
 **Criterios de aceptación:**
 
-1. **Dado** que Luis tiene aprobada la semana del 9 al 13 de noviembre y pendiente el 21 y 22 de diciembre, **cuando** consulta su saldo, **entonces** ve 12 días totales, 5 consumidos, 2 pendientes de decidir y 5 disponibles, y las dos solicitudes con su estado.
+1. **Dado** que Luis tiene 22 días de vacaciones en 2026, ya disfrutó 10 en agosto, tiene aprobada la semana del 9 al 13 de noviembre y pendientes el 21 y el 22 de diciembre, **cuando** consulta su saldo, **entonces** ve 22 días totales, 15 consumidos, 2 pendientes de decidir y 5 disponibles, y sus solicitudes con su estado.
 2. **Dado** que Luis tiene aprobada la semana del 9 al 13 de noviembre, **cuando** la cancela el lunes 2 de noviembre, **entonces** la solicitud pasa a «cancelada», sus 5 días vuelven al saldo y Marta y Jorge reciben el aviso.
 3. **Dado** que Jorge tiene rol de RRHH, **cuando** consulta el mes de noviembre, **entonces** ve todas las solicitudes aprobadas de la empresa con persona, equipo, fechas y días, y el saldo de cada persona.
 4. **Dado** que Luis no tiene rol de RRHH, **cuando** consulta las solicitudes, **entonces** ve solo las suyas y no las del resto de la empresa.
@@ -83,7 +83,7 @@ Luis quiere saber cuántos días le quedan y en qué estado está lo que ha pedi
 - ¿Qué pasa si las fechas se solapan con vacaciones ya aprobadas de otra persona del mismo equipo? → La solicitud se admite, pero Luis ve al pedir quién de su equipo estará fuera esas fechas y Marta ve el mismo aviso al decidir (RF-007). Bloquearla sería decidir por Marta.
 - ¿Qué pasa si la fecha de inicio ya ha pasado? → Se rechaza y se indica que la fecha ya ha pasado (RF-005). Si la fecha de fin es anterior a la de inicio, se rechaza igualmente y se indica que el fin no puede ser anterior al inicio.
 - ¿Qué pasa si las fechas incluyen un festivo o un fin de semana? → No consumen días (RF-002): del lunes 7 al viernes 11 de diciembre de 2026 salen 4 días, porque el martes 8 es festivo; un fin de semana suelto consume 0 días.
-- ¿Qué pasa si la manager está de vacaciones y no puede aprobar? → **Dado** que Marta tiene vacaciones aprobadas del 16 al 20 de noviembre (lo sabe el propio sistema, por su solicitud) y ha dejado a Ana como sustituta, **cuando** Luis envía una solicitud el martes 17, **entonces** la solicitud llega a Ana, que decide como lo haría Marta (RF-014). Si Marta no hubiera dejado a nadie, llegaría a Jorge.
+- ¿Qué pasa si la manager está de vacaciones y no puede aprobar? → **Dado** que Marta tiene vacaciones aprobadas del 16 al 20 de noviembre (lo sabe el propio sistema, por su solicitud) y ha dejado como sustituto a Pablo, otro manager del departamento, **cuando** Luis envía una solicitud el martes 17, **entonces** la solicitud llega a Pablo, que decide como lo haría Marta (RF-014). Si Marta no hubiera dejado a nadie, llegaría a Jorge.
 - ¿Qué pasa si una solicitud cruza el cambio de año? → Cada día se descuenta del saldo del año en que cae (RF-011): del 28 al 31 de diciembre de 2026 salen del saldo de 2026, y del 4 al 8 de enero de 2027 (el 1 y el 6 son festivos) del de 2027. Por eso Jorge carga el saldo del año siguiente antes del 1 de diciembre (ver Supuestos).
 - ¿Qué pasa si Luis quiere cancelar una solicitud ya aprobada? → Puede hasta el día anterior al inicio: la solicitud pasa a «cancelada», los días vuelven a su saldo y Marta y Jorge reciben el aviso (RF-012). Una vez empezadas las vacaciones, lo gestiona RRHH fuera del sistema (ver Fuera de alcance).
 - ¿Qué pasa si una persona no tiene manager asignado? → No debería ocurrir: es un supuesto, porque Jorge asigna manager a cada persona al cargar su saldo. Si ocurre, la solicitud llega a Jorge como sustituto por defecto, igual que cuando Marta está fuera sin dejar a nadie (RF-014), y Jorge corrige la asignación.
@@ -97,7 +97,7 @@ Dudas que surgieron al escribir el borrador y respuestas de Jorge (RRHH), que es
 - P: ¿Los días se cuentan en laborables o en naturales? → R: En laborables: no cuentan sábados, domingos ni festivos del calendario de la empresa.
 - P: ¿Quién aprueba si la manager está de vacaciones? → R: La persona que la manager haya dejado como sustituta antes de irse; si no ha dejado a nadie, RRHH.
 - P: ¿Se puede cancelar una solicitud ya aprobada y se devuelven los días? → R: Sí, hasta el día anterior al inicio, y los días vuelven al saldo; una vez empezada, lo gestiona RRHH fuera del sistema.
-- P: ¿Hay una antelación mínima para pedir? → R: Sí: 5 días laborables entre el envío y la fecha de inicio.
+- P: ¿Hay una antelación mínima para pedir? → R: Sí: 5 días laborables. Las vacaciones pueden empezar, como pronto, el quinto día laborable después del envío.
 - P: ¿Los días que no se gastan pasan al año siguiente? → R: No de forma automática: el saldo de cada año lo carga RRHH y, si decide arrastrar días a alguien, los suma a mano en el saldo nuevo.
 
 Cambios aplicados en el texto a raíz de la sesión (una respuesta que no cambia nada no era una duda):
@@ -123,7 +123,7 @@ Redactados en EARS (*Easy Approach to Requirements Syntax*), una forma sencilla 
 - **RF-003**: CUANDO una persona envía una solicitud, el sistema deberá registrarla en estado «pendiente» y avisar a su manager con las fechas y los días laborables que consume.
 - **RF-004**: SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan.
 - **RF-005**: SI la fecha de inicio es anterior a hoy, ENTONCES el sistema deberá rechazar la solicitud e indicar que esa fecha ya ha pasado.
-- **RF-006**: SI quedan menos de 5 días laborables entre el envío y la fecha de inicio, ENTONCES el sistema deberá rechazar la solicitud e indicar la primera fecha de inicio posible.
+- **RF-006**: SI la fecha de inicio es anterior al quinto día laborable posterior al envío, ENTONCES el sistema deberá rechazar la solicitud e indicar la primera fecha de inicio posible.
 - **RF-007**: SI las fechas pedidas coinciden con vacaciones ya aprobadas de otra persona del mismo equipo, ENTONCES el sistema deberá avisar de quién estará fuera y en qué fechas, a la persona solicitante y a su manager, sin impedir la solicitud.
 - **RF-008**: MIENTRAS una solicitud esté pendiente de respuesta, el sistema deberá mostrarla en la lista de pendientes de su manager.
 - **RF-009**: CUANDO la manager aprueba o rechaza una solicitud, el sistema deberá registrar la decisión, con quién la tomó y cuándo, y comunicársela a la persona solicitante junto con el motivo si es un rechazo.
@@ -166,6 +166,7 @@ Cómo se medirán: CE-001 cronometrando a 10 personas de distintos equipos la pr
 - RRHH carga el saldo de días de cada persona antes de que empiece cada año (antes del 1 de diciembre del anterior, para las solicitudes que cruzan el año) e incluye en él los días que decida arrastrar.
 - Hay un único calendario de festivos para toda la empresa, que mantiene RRHH.
 - Todas las personas tienen correo corporativo, por el que reciben los avisos.
+- Las solicitudes de cada persona solo las ven ella, su manager (o quien la sustituya) y RRHH. El aviso de solapamiento de RF-007 muestra solo el nombre y las fechas de quien estará fuera: ni su saldo ni el resto de sus solicitudes.
 - El volumen es pequeño: unas 200 personas y unas pocas solicitudes al día.
 
 ## Fuera de alcance
@@ -181,7 +182,7 @@ Cómo se medirán: CE-001 cronometrando a 10 personas de distintos equipos la pr
 Pasada el 2026-10-20 con la [plantilla de lista de verificación](../../plantillas/lista-de-verificacion.md), como pide el paso 8 del ejercicio: cumple CHK001 a CHK019. Tres notas para quien la repita:
 
 - CHK010 y CHK012 se adaptaron a vacaciones: los casos límite que se buscan son «más días de los disponibles, solapamiento con el equipo y fecha pasada», y los supuestos «todas las personas tienen manager y RRHH carga el saldo cada año».
-- CHK019 habla de la constitución, que aquí no existe; se marcó porque ningún requisito contradice a otro (por ejemplo, RF-007 avisa del solapamiento pero no impide la solicitud que RF-003 registra).
+- CHK019 habla de la constitución, que aquí no existe; se usó para comprobar tres cosas y se marcó porque las tres se cumplen: ningún requisito contradice a otro (por ejemplo, RF-007 avisa del solapamiento pero no impide la solicitud que RF-003 registra); las entidades solo guardan los datos imprescindibles de cada persona; y las ausencias ajenas solo las ve quien las necesita: la manager (o quien la sustituya) y RRHH, enteras, y la persona solicitante, solo el nombre y las fechas del aviso de RF-007 (ver Supuestos).
 - La categoría propia (CHK020 a CHK022) se cambió por tres preguntas sobre vacaciones: ¿está dicho qué ve Luis cuando se rechaza (RF-009)?, ¿está dicho qué pasa con el saldo al cancelar (RF-012)?, ¿está dicho quién decide si Marta no está (RF-014)? Las tres cumplen.
 
 ## En tres frases

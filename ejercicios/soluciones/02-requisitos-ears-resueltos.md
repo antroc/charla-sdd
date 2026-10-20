@@ -81,8 +81,8 @@ Resultado esperado: un requisito por frase, que empieza por «El sistema deberá
 - **Frase original:** «El torno tiene que abrirse con la tarjeta.»
 - **Requisito:** CUANDO una persona acerca al lector una tarjeta de acceso válida, el torno deberá desbloquearse durante 5 segundos.
 - **Patrón:** por evento (CUANDO).
-- **Por qué:** pasar la tarjeta ocurre en un instante y es el funcionamiento normal, no un error. La frase no dice con qué tarjeta ni durante cuánto tiempo, así que llevamos dos supuestos anotados: «válida» quiere decir dada de alta y no bloqueada, y 5 segundos es una cifra razonable que hay que confirmar con Seguridad.
-- **Alternativa:** sin suponer nada, «…el torno deberá desbloquearse durante `[NECESITA ACLARACIÓN: ¿cuántos segundos permanece desbloqueado el torno?]`». Y si quieres cubrir la tarjeta que no vale, es otro requisito con otro patrón: «SI una persona acerca una tarjeta que no es válida, ENTONCES el torno deberá permanecer bloqueado».
+- **Por qué:** pasar la tarjeta ocurre en un instante y es el funcionamiento normal, no un error. La frase no dice con qué tarjeta ni durante cuánto tiempo. Sin esos datos, lo primero es preguntar (la alternativa de abajo); aquí hemos seguido con dos supuestos escritos a la vista: «válida» quiere decir dada de alta y no bloqueada, y «se asume 5 segundos; confirmar con Seguridad». Son provisionales: el requisito no se da por cerrado hasta que Seguridad los confirme.
+- **Alternativa:** sin suponer nada, «…el torno deberá desbloquearse durante `[NECESITA ACLARACIÓN: ¿cuántos segundos permanece desbloqueado el torno?]`», y se pregunta a Seguridad. Y si quieres cubrir la tarjeta que no vale, es otro requisito con otro patrón: «SI una persona acerca una tarjeta que no es válida, ENTONCES el torno deberá permanecer bloqueado».
 
 ## Bloque B: elegir bien entre patrones parecidos
 
@@ -157,7 +157,7 @@ Resultado esperado: cinco requisitos para cuatro frases (cuatro si juntas los do
 - **Requisito («avise cuando toque»):** CUANDO la cafetera lleve `[NECESITA ACLARACIÓN: ¿cuántos cafés o cuántos días?]` sin limpiarse, la cafetera deberá encender el aviso de limpieza.
 - **Patrón:** por evento (CUANDO).
 - **Por qué:** «cuando toque» es un momento concreto, pero la frase no dice cuál, y solo lo sabe quien conoce la cafetera. Inventarlo a escondidas sería peor que dejar la pregunta a la vista; para eso está el marcador, el mismo que usa el asistente de IA cuando le falta un dato.
-- **Alternativa:** con un supuesto anotado, «CUANDO la cafetera lleve 100 cafés sin limpiarse, la cafetera deberá encender el aviso de limpieza» (100 es una cifra inventada que hay que confirmar).
+- **Alternativa:** con un supuesto anotado, «CUANDO la cafetera lleve 100 cafés sin limpiarse, la cafetera deberá encender el aviso de limpieza» (100 es una cifra provisional, escrita a la vista como supuesto, que hay que confirmar antes de dar el requisito por cerrado).
 
 ## Al revés: clasifica cuatro requisitos
 
@@ -206,11 +206,11 @@ Cada requisito tenía un fallo distinto. En los cuatro arreglos no desaparece na
 - **Requisito con fallo:** «El sistema deberá rechazar la solicitud de vacaciones.»
 - **Qué falla:** no dice cuándo ni bajo qué condición. Tal como está, es un requisito ubicuo: obligaría a rechazar todas las solicitudes, siempre.
 - **Cómo queda (RF-004 de vacaciones, literal):** SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan.
-- **Otras condiciones válidas:** la fecha de inicio ya ha pasado (RF-005) o faltan menos de 5 días laborables para empezar (RF-006). Si no sabes qué casos son, no los inventes: `[NECESITA ACLARACIÓN: ¿en qué casos rechaza el sistema una solicitud?]`. Y si quien rechaza es la manager, el disparador es su decisión, así que es un CUANDO (RF-009).
+- **Otras condiciones válidas:** la fecha de inicio ya ha pasado (RF-005) o es anterior al quinto día laborable después del envío (RF-006). Si no sabes qué casos son, no los inventes: `[NECESITA ACLARACIÓN: ¿en qué casos rechaza el sistema una solicitud?]`. Y si quien rechaza es la manager, el disparador es su decisión, así que es un CUANDO (RF-009).
 
 ## Supuestos y aclaraciones pendientes
 
-Lo que las frases no decían y cómo lo hemos resuelto. En una especificación de verdad, los supuestos van a su sección «Supuestos» y los marcadores se resuelven en la fase de aclarar, preguntando a quien encarga el sistema, no adivinando.
+Lo que las frases no decían y cómo lo hemos resuelto. En una especificación de verdad, los supuestos van a su sección «Supuestos» y los marcadores se resuelven en la fase de aclarar, preguntando a quien encarga el sistema, no adivinando; y la especificación no se da por aprobada hasta que quien encarga confirma las cifras provisionales.
 
 | Frase | Qué no decía | Cómo queda |
 |---|---|---|
