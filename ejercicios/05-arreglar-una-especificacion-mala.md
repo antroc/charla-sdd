@@ -17,17 +17,17 @@ Luis tenía prisa. Un viernes a última hora escribió la especificación de Res
 
 ## Objetivo
 
-Al terminar sabrás leer una especificación con ojo crítico: detectar tecnología donde no toca, requisitos vagos o dobles, contradicciones, historias sin prioridad, criterios de éxito que no se pueden medir y choques con la constitución. Y sabrás reescribir la parte que más importa, los requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos) y los criterios de éxito, hasta que pasen la lista de verificación. En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) esta revisión ocurre antes de que nada pase al plan técnico, y es la que evita que un error de una línea se convierta en una semana de retrabajo.
+Al terminar sabrás leer una especificación con ojo crítico: detectar tecnología donde no toca, requisitos vagos o dobles, contradicciones, historias sin prioridad, criterios de éxito que no se pueden medir y choques con la constitución. Y sabrás reescribir la parte que más importa, los requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos) y los criterios de éxito, hasta que pasen la lista de verificación. En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) esta revisión ocurre antes de que nada pase al plan técnico, y es el momento más barato para encontrar un error: corregir una línea aquí cuesta minutos; corregirla cuando ya hay código suele costar días.
 
 ## Qué necesitas
 
 - Haber leído [Los artefactos](../docs/04-los-artefactos.md) y [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md). Muy recomendable haber hecho el [ejercicio 02](02-practicar-requisitos-ears.md).
 - La [constitución de ReservaSalas](soluciones/03-reserva-salas/constitution.md) abierta al lado: varios problemas solo se ven comparándola con ella.
 - Las plantillas de [especificación](plantillas/especificacion.md) (para consultar qué secciones debería tener una buena) y de [lista de verificación](plantillas/lista-de-verificacion.md) (la pasarás en el paso 5).
-- Tiempo: entre 30 y 40 minutos.
+- Tiempo: entre 30 y 40 minutos (unos 5 para leer, 10 para marcar problemas, 10 para reescribir, 5 para la lista de verificación y 5-10 para comparar). La segunda revisión con un asistente de IA, si la haces, va aparte.
 - Dónde trabajar. Elige una vía:
   - **Vía A, sin instalar nada:** imprime o copia la especificación del paso 1 a un documento compartido y trabaja sobre ella con bolígrafo o con comentarios. Vale para todos los perfiles.
-  - **Vía B, con un asistente de IA:** además de lo anterior, un chat de IA genérico autorizado por la empresa para pedir una segunda revisión en el paso 6. No hace falta Spec Kit: aquí se entrena tu ojo, no la herramienta.
+  - **Vía B, con un asistente de IA:** además de lo anterior, un chat de IA genérico autorizado por la empresa para pedir una segunda revisión en el paso 6. No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu ojo, no la herramienta.
 
 > [!IMPORTANT]
 > No abras todavía [soluciones/03-reserva-salas/spec.md](soluciones/03-reserva-salas/spec.md): es la versión buena de esta misma especificación y te chafaría el ejercicio. Úsala solo en el paso 7. La constitución sí puedes (y debes) tenerla abierta.
@@ -41,12 +41,11 @@ flowchart LR
     leer["1. Leer de un tirón"] --> marcar["2. Marcar cada problema con su línea"]
     marcar --> reescribir["3 y 4. Reescribir requisitos y criterios de éxito"]
     reescribir --> checklist["5. Pasar la lista de verificación"]
-    checklist -->|"todo marcado"| lista["Lista para planificar"]
-    checklist -->|"queda algún no"| marcar
-    lista --> comparar["6 y 7. Segunda opinión y comparar con la solución"]
+    checklist -->|"algún no en lo reescrito"| marcar
+    checklist -->|"lo reescrito, todo marcado"| comparar["6 y 7. Segunda opinión y comparar con la solución"]
 ```
 
-De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan los problemas línea a línea; con esa lista se reescriben los requisitos y los criterios de éxito; se pasa la lista de verificación y, si queda algún «no», se vuelve a marcar y corregir. Solo cuando todo está marcado la especificación está lista para planificar, y entonces se compara con la solución.
+De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan los problemas línea a línea; con esa lista se reescriben los requisitos y los criterios de éxito; se pasa la lista de verificación y, si en lo que has reescrito queda algún «no», se vuelve a marcar y corregir. Cuando lo reescrito está todo marcado (lo que no has reescrito, como las historias, se deja anotado como pendiente), se pide una segunda opinión y se compara con la solución.
 
 1. **Lee la especificación mala de un tirón.** Léela entera una vez, sin bolígrafo, como la leería Ana el lunes por la mañana. No apuntes nada todavía: el objetivo es que te quede la sensación de «aquí hay algo que no cuadra» en varios sitios. Los números de la izquierda no forman parte de la especificación: están para que puedas citar líneas en el paso 2.
 
@@ -98,7 +97,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    45    cambio de contraseña).
    46  - RF-2: Avisar si hay choque de reservas.
    47  - RF-4: CUANDO una persona confirma una reserva, el sistema deberá guardarla en la tabla
-   48    `reservas` de PostgreSQL y enviar el correo con la API de SendGrid.
+   48    `reservas` de PostgreSQL y enviar el correo por la API de un proveedor externo.
    49  - RF-5: El usuario deberá hacer las reservas dentro del horario de oficina, de 08:00 a
    50    20:00 (o hasta las 22:00 si es un evento).
    51  - RF-6: El sistema podría enviar un correo de confirmación, si da tiempo a hacerlo.
@@ -133,7 +132,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    80  ## Supuestos
    81
    82  - Todo el mundo usará Chrome en un portátil de la empresa.
-   83  - Las reservas de la hoja de cálculo actual se pasarán a mano la primera semana.
+   83  - Las reservas que ya están en la hoja de cálculo las pasará alguien a mano la primera semana.
    84
    85  ## Fuera de alcance
    86
@@ -150,9 +149,24 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    - [ ] La he leído entera una vez sin apuntar nada.
 
-2. **Marca los problemas, línea a línea.** Segunda lectura, ahora con bolígrafo. Por cada problema apunta una fila en esta tabla: en qué línea o líneas está, qué falla, de qué tipo es y cómo lo arreglarías en una frase. Encuentra **al menos 10**; hay bastantes más de 12, y varios se repiten en distintos sitios. La primera fila va de ejemplo.
+2. **Marca los problemas, línea a línea.** Segunda lectura, ahora con bolígrafo. Por cada problema apunta una fila en esta tabla: en qué línea o líneas está, qué falla, de qué tipo es y cómo lo arreglarías en una frase. Encuentra **al menos 10**; hay más de veinte, y varios se repiten en distintos sitios (la tecnología, por ejemplo, aparece en el resumen, en los requisitos, en los criterios de éxito y en los supuestos). La primera fila va de ejemplo.
 
-   Tipos que puedes usar: tecnología · vago · dos cosas en una · sin disparador o sin sujeto · contradicción · laguna (falta algo) · prioridad · no medible · contra la constitución · alcance · terminología · interfaz · duplicado.
+   Tipos que puedes usar (y qué quiere decir cada uno):
+
+   - tecnología: nombra lenguajes, bases de datos, productos o «dónde se guarda» algo;
+   - vago: no se puede comprobar con un sí o un no («rápido», «correctamente», «funciona bien»);
+   - dos cosas en una: la mitad podría cumplirse y la otra mitad no;
+   - sin disparador o sin sujeto: no dice cuándo actúa el sistema, o el sujeto no es el sistema;
+   - verbo blando: «podría», «pueden», «si da tiempo» en lugar de «deberá»;
+   - contradicción: choca con otra línea del documento;
+   - laguna: falta algo que debería estar;
+   - prioridad: no dice qué es imprescindible y qué puede esperar;
+   - no medible: criterio de éxito sin cifra;
+   - contra la constitución: choca con uno de sus principios o con sus restricciones;
+   - alcance: mete cosas que nadie ha pedido o no acota qué queda fuera;
+   - terminología: llama de formas distintas a la misma cosa;
+   - interfaz: describe botones, colores o pantallas en vez de lo que hace el sistema;
+   - duplicado: repite algo ya dicho, con el mismo número o con otro.
 
    | Línea(s) | Qué falla | Tipo | Cómo lo arreglarías |
    |---|---|---|---|
@@ -168,7 +182,13 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    | … | … | … | … |
    | … | … | … | … |
 
-   Pistas. Para cada requisito, pregúntate «¿cómo demostraría que se cumple?»; si no sabes, es vago o no es comprobable. Si una palabra solo la entendería quien programa (React, Node.js, API REST, PostgreSQL, SendGrid), es tecnología y sobra: no hace falta saber qué es cada cosa para marcarla. Para cada afirmación, pregúntate si choca con otra línea (horarios, duraciones) o con alguno de los cinco principios de la constitución (sencillez, accesible y en castellano, pruebas, datos mínimos, transparencia). Y mira lo que falta, no solo lo que sobra: prioridades P1/P2/P3, criterios de aceptación (los ejemplos Dado/Cuando/Entonces de cada historia), casos límite, responsable de cada reserva.
+   Pistas:
+
+   - Para cada requisito, pregúntate «¿cómo demostraría que se cumple?»; si no lo sabes, es vago o no es comprobable.
+   - Si una palabra solo la entendería quien programa (React, Node.js, API REST, PostgreSQL, «tabla»), es tecnología y sobra: no hace falta saber qué es cada cosa para marcarla.
+   - Para cada afirmación, pregúntate si choca con otra línea (horarios, duraciones, lo que queda fuera de alcance) o con la constitución: sus cinco principios (sencillez, accesible y en castellano, pruebas, datos mínimos, transparencia) y sus «Restricciones adicionales» (acceso corporativo existente, un único servidor, sin sistemas externos).
+   - Mira lo que falta, no solo lo que sobra: prioridades P1/P2/P3, criterios de aceptación (los ejemplos Dado/Cuando/Entonces de cada historia), casos límite, responsable de cada reserva, la pregunta pendiente de la línea 61.
+   - No te saltes la cabecera (línea 03) ni las notas del final (líneas 89-93): también cuentan.
 
    Qué deberías ver: una tabla con al menos diez filas y al menos seis tipos distintos. Si todas tus filas son «tecnología» y «vago», relee las entidades, los criterios de éxito y las notas finales.
 
@@ -176,7 +196,15 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
 3. **Reescribe los requisitos funcionales.** Deja la especificación mala a un lado y escribe la sección «Requisitos funcionales» como debería ser: entre 10 y 12 requisitos en EARS, numerados RF-001, RF-002… sin huecos ni repetidos, cada uno con un solo patrón, sin tecnología y sin adjetivos sin cifra. Tienen que cubrir, como mínimo, estos diez puntos: listar las salas, ver disponibilidad, confirmar una reserva, rechazar solapamientos, rechazar franjas fuera de horario o demasiado largas, salas en mantenimiento, cancelar o modificar, permisos (quién marca una sala en mantenimiento y quién cancela reservas ajenas), aviso por correo y responsable visible.
 
-   Para que la aclaración pendiente de la línea 61 y las contradicciones de las líneas 49-50 y 54-55 no te bloqueen, estas son las respuestas que dio Ana cuando por fin se le preguntó: una sala la marca en mantenimiento solo administración; una reserva ajena solo la puede cancelar administración; el horario de reservas es de 08:00 a 20:00 y el máximo son 4 horas, sin excepciones (ni «eventos» hasta las 22:00 ni reuniones de todo el día); el correo de confirmación es obligatorio; se puede reservar con 30 días de antelación como máximo; no hay reservas recurrentes ni control de asistencia en la primera versión.
+   Para que la aclaración pendiente de la línea 61 y las contradicciones de las líneas 49-50 y 54-55 no te bloqueen, estas son las respuestas que dio Ana cuando por fin se le preguntó:
+
+   - una sala la marca en mantenimiento solo administración;
+   - una reserva ajena solo la puede cancelar o modificar administración;
+   - el horario de reservas es de 08:00 a 20:00 y el máximo son 4 horas, sin excepciones (ni «eventos» hasta las 22:00 ni reuniones de todo el día);
+   - el correo de confirmación es obligatorio;
+   - se puede reservar con 30 días de antelación como máximo;
+   - no hay reservas recurrentes ni control de asistencia en la primera versión;
+   - y, aunque no hizo falta preguntarlo porque lo dice la constitución, toda reserva lleva el nombre de quien la hace.
 
    Plantilla a medio rellenar (la numeración es tuya; no tiene por qué coincidir con la del ejemplo canónico):
 

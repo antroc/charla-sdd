@@ -20,7 +20,7 @@ El ejercicio reproduce la sesión que hizo Luis (programador junior) con el enca
 
 ## Objetivo
 
-Al terminar habrás recorrido los siete pasos del flujo SDD con una herramienta real: crear el proyecto, dictar la constitución (`constitution.md`), escribir la especificación (`spec.md`) sin tecnología, aclarar, redactar el plan técnico (`plan.md`), trocear en una lista de tareas (`tasks.md`), analizar e implementar. Sabrás leer cada artefacto que genera el asistente y qué comprobar en él antes de seguir. Y habrás vivido el momento que resume todo el método: pedir un cambio tocando la especificación, no el código.
+Al terminar habrás creado un proyecto con Spec Kit y recorrido en él los siete pasos del flujo SDD con una herramienta real: dictar la constitución (`constitution.md`), escribir la especificación (`spec.md`) sin tecnología, aclarar, pedir el plan técnico (`plan.md`) indicando la tecnología, trocear en una lista de tareas (`tasks.md`), analizar e implementar. Sabrás leer cada artefacto que genera el asistente y qué comprobar en él antes de seguir. Y habrás vivido el momento que resume todo el método: pedir un cambio tocando la especificación, no el código.
 
 ## Qué necesitas
 
@@ -30,7 +30,7 @@ Al terminar habrás recorrido los siete pasos del flujo SDD con una herramienta 
 - **Asistente:** cualquiera de los compatibles con Spec Kit (Claude Code, GitHub Copilot, Cursor, Gemini CLI, Codex CLI, Kiro CLI, entre otros; la lista está en [Herramientas](../docs/07-herramientas.md)). En este documento escribimos los comandos como `/speckit.specify`; en tu asistente pueden aparecer como `/speckit-specify` o `$speckit-specify`. Es la misma orden.
 
 > [!NOTE]
-> **Si no programas**, también puedes seguir este ejercicio sin instalar nada. Los pasos 2, 3 y 4 (constitución, especificación y aclaraciones) se hacen igual con las [plantillas](plantillas/README.md) y un chat de IA genérico autorizado por la empresa: los *prompts* (las instrucciones que le escribes al asistente) de esos pasos funcionan en cualquier chat si le pegas antes la plantilla correspondiente. Los pasos 5 a 9 léelos siguiendo la solución canónica: te enseñan qué recibe negocio y qué tiene que revisar. Si prefieres empezar por algo más corto, el [ejercicio 01](01-tu-primera-especificacion-sin-codigo.md) es la versión sin código.
+> **Si no programas**, también puedes seguir este ejercicio sin instalar nada. Los pasos 2, 3 y 4 (constitución, especificación y aclaraciones) se hacen igual con las [plantillas](plantillas/README.md) y un chat de IA genérico autorizado por la empresa: los *prompts* (las instrucciones que le escribes al asistente) de esos pasos funcionan en cualquier chat si le pegas antes la plantilla correspondiente y quitas la primera palabra del bloque (el comando `/speckit.…`); para el paso 4, que no lleva texto, pídele: «Lee esta especificación y hazme hasta cinco preguntas de aclaración, de una en una, sin proponer tecnología». Los pasos 5 a 9 léelos siguiendo la solución canónica: te enseñan qué recibe negocio y qué tiene que revisar. Si prefieres empezar por algo más corto, el [ejercicio 01](01-tu-primera-especificacion-sin-codigo.md) es la versión sin código.
 
 > [!WARNING]
 > Durante el paso 8 el asistente crea ficheros, instala dependencias y ejecuta pruebas en tu equipo. Léete lo que propone antes de aceptar, usa la cuenta corporativa del asistente y no metas ningún dato real: todos los nombres de este ejercicio (Ana, Luis, Marta, Jorge, las salas) son ficticios.
@@ -82,7 +82,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     cd reserva-salas
     ```
 
-    Cuando pregunte «Choose script type», pulsa Intro para aceptar el valor por defecto. Si tu asistente es un editor o Spec Kit no encuentra su ejecutable, añade `--ignore-agent-tools` al final del comando. `specify init` no crea un repositorio Git; si quieres guardar cada paso (recomendado: en el paso 9 te permitirá ver exactamente qué ha cambiado), ejecuta `git init` dentro de la carpeta y, al terminar cada paso, `git add -A && git commit -m "Paso N"`.
+    Cuando pregunte «Choose script type», pulsa Intro para aceptar el valor por defecto. La bandera `--ignore-agent-tools` solo hace falta si tu asistente es de línea de comandos y Spec Kit no encuentra su ejecutable (en `specify check` aparece como no encontrado): añádela al final del comando. A los asistentes que son editores, como Cursor o GitHub Copilot, no los comprueba de todos modos. `specify init` no crea un repositorio Git; si quieres guardar cada paso (recomendado: en el paso 9 te permitirá ver exactamente qué ha cambiado), ejecuta `git init` dentro de la carpeta y, al terminar cada paso, `git add -A` seguido de `git commit -m "Paso N"` (dos comandos, válidos en cualquier terminal).
 
     Qué deberías ver: el panel «Next Steps» con el orden `constitution → specify → plan → tasks → implement → converge` y otro con los opcionales `clarify`, `analyze` y `checklist`. Dentro de `reserva-salas/`:
 
@@ -93,14 +93,15 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     │   ├── templates/                # plantillas de especificación, plan, tareas y lista de verificación
     │   ├── scripts/bash/             # scripts auxiliares (powershell/ en Windows)
     │   └── workflows/                # flujo automatizado "speckit" (no hace falta para el ejercicio)
-    └── .claude/skills/               # los comandos del asistente (la carpeta cambia según cuál uses)
+    └── .claude/skills/               # una carpeta por comando, con su fichero SKILL.md (speckit-specify/, speckit-plan/…);
+                                      #   con Copilot es .github/skills/, con Cursor .cursor/skills/, con Gemini CLI .gemini/commands/
     ```
 
     Ahora abre el asistente **dentro de esta carpeta** (desde la terminal, su comando desde `reserva-salas/`; en un editor, abre la carpeta como proyecto) y comprueba que al escribir `/speckit` (o `$speckit` en Codex CLI) aparecen los comandos.
 
     - [ ] Existe `reserva-salas/.specify/` y el asistente, abierto en esa carpeta, me sugiere los comandos `speckit`.
 
-2. **Dicta la constitución.** Son los cinco principios que Ana fijó con Luis. Pega este *prompt* completo detrás del comando, todo en el mismo mensaje. Pégalo de una vez: los asistentes de terminal distinguen un texto pegado de pulsar Intro, así que no se envía a medias; si el tuyo lo enviara al primer salto de línea, junta el texto en un solo párrafo.
+2. **Dicta la constitución.** Son los cinco principios que Ana fijó con Luis. Copia este bloque entero (empieza por el comando y sigue con el *prompt*) y pégalo en el chat del asistente como un único mensaje. Si tu asistente escribe los comandos con guion o con dólar (`/speckit-constitution`, `$speckit-constitution`), cambia solo la primera palabra. La mayoría de asistentes aceptan un texto pegado con varias líneas sin enviarlo a medias; si el tuyo lo enviara al primer salto de línea, junta el texto en un solo párrafo.
 
     ```text
     /speckit.constitution Crea la constitución del proyecto ReservaSalas, una aplicación interna para reservar las 12 salas de reuniones de la empresa, repartidas en 3 plantas. Redáctala en castellano. Cinco principios, cada uno con su regla y su «por qué»:
@@ -124,15 +125,15 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 
     - [ ] `.specify/memory/constitution.md` tiene los cinco principios con su «por qué», sin huecos, con versión 1.0.0.
 
-3. **Especifica, sin tecnología.** Este es el texto de Ana, tal cual se lo contó a Luis. Fíjate en que no dice nada de cómo se construye: ni lenguaje, ni base de datos, ni pantallas. Le añadimos una instrucción para que redacte los requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos que practicaste en el ejercicio 02). Pégalo todo detrás del comando:
+3. **Especifica, sin tecnología.** Este es el texto de Ana, tal cual se lo contó a Luis. Fíjate en que no dice nada de cómo se construye: ni lenguaje, ni base de datos, ni pantallas. Le añadimos una instrucción para que redacte los requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos que practicaste en el ejercicio 02) y los cuatro objetivos medibles que Ana puso como condición. Pega el bloque entero como un único mensaje (cambia la primera palabra si tu asistente usa guion o dólar):
 
     ```text
     /speckit.specify Quiero una aplicación interna para reservar las 12 salas de reuniones de la empresa, repartidas en 3 plantas. Hoy nos apuntamos en una hoja de cálculo compartida y pasa de todo: dos equipos en la misma sala, salas reservadas que se quedan vacías y reservas de las que nadie sabe quién es el responsable. Cualquier empleado tiene que poder ver qué salas están libres en una franja, reservar una, cancelar o cambiar su reserva, y ver sus reservas y las de hoy en cada sala. El horario de oficina es de 08:00 a 20:00 y no queremos reservas de más de 4 horas. Administración tiene que poder marcar una sala en mantenimiento.
 
-    Redacta la especificación en castellano. Escribe los requisitos funcionales en formato EARS (CUANDO…, MIENTRAS…, SI…, ENTONCES…, DONDE…) con el verbo «deberá». No decidas ninguna tecnología.
+    Redacta la especificación en castellano. Escribe los requisitos funcionales en formato EARS (CUANDO…, MIENTRAS…, SI…, ENTONCES…, DONDE…) con el verbo «deberá». Como criterios de éxito, Ana quiere: reservar una sala lleva menos de 1 minuto; cero reservas solapadas; el 90 % de las personas completan una reserva sin ayuda la primera vez; el listado de disponibilidad se muestra en menos de 2 segundos. No decidas ninguna tecnología.
     ```
 
-    Qué deberías ver: el asistente crea la carpeta `specs/001-reserva-salas/` (el nombre corto lo elige él a partir de la descripción, así que puede ser `001-reservar-salas` o parecido; no importa) con `spec.md` y `checklists/requirements.md`, y escribe `.specify/feature.json` con esa carpeta como funcionalidad activa. Al final te da un informe con la ruta de la especificación, el resultado de la lista de verificación automática y la recomendación de seguir con aclarar o planificar. Puede que antes te haga hasta tres preguntas en bloque, cada una con una tabla de opciones A, B, C y «Custom», porque le faltaba un dato importante; responde con las decisiones de Ana de la tabla del paso 4, en el formato que te pida (por ejemplo, «Q1: B» o «Q1: Custom - No en la primera versión»).
+    Qué deberías ver: el asistente crea la carpeta `specs/001-reserva-salas/` (el nombre corto lo elige él a partir de la descripción, así que puede ser `001-reservar-salas` o parecido; no importa) con `spec.md` y `checklists/requirements.md`, y escribe `.specify/feature.json` con esa carpeta como funcionalidad activa. Al final te da un informe con la ruta de la especificación, el resultado de la lista de verificación automática y la recomendación de seguir con aclarar o planificar. Puede que, antes de ese informe, te haga hasta tres preguntas en bloque (una por cada marcador `[NEEDS CLARIFICATION: …]` que no haya sabido resolver con un supuesto razonable), cada una con una tabla de opciones A, B, C y «Custom»; responde con las decisiones de Ana de la tabla del paso 4, en el formato que te pida (por ejemplo, «Q1: B» o «Q1: Custom - No en la primera versión»), y el asistente sustituye cada marcador por tu respuesta.
 
     Qué revisar en `spec.md`, comparando con [spec.md](soluciones/03-reserva-salas/spec.md) de la solución:
 
@@ -143,7 +144,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     | Requisitos funcionales | Entre 8 y 12, en EARS, uno por frase, sin tecnología (en la solución son RF-001 a RF-012; tu asistente puede numerarlos `FR-001`, que es lo mismo) | Si ves «System MUST…» en inglés o requisitos con dos cosas, pide que los reescriba con la tabla de patrones de [EARS](../docs/05-escribir-requisitos-claros-ears.md) |
     | Entidades clave | Sala, Reserva y Persona con sus datos | Si aparece «tabla», «campo» o «clave primaria», eso es plan: pide que lo quite |
     | Criterios de éxito | Medibles y sin tecnología (menos de 1 minuto por reserva, cero solapamientos, 90 % sin ayuda, listado en menos de 2 segundos) | Si dice «rápido» o «intuitivo» sin cifra, pide una cifra |
-    | Marcadores `[NEEDS CLARIFICATION: …]` | Como mucho tres; lo normal es que no haya ninguno y que las dudas estén en «Supuestos» | Los resuelves en el paso 4 |
+    | Marcadores `[NEEDS CLARIFICATION: …]` | Ninguno al terminar: el propio comando te pregunta los que deja (como mucho tres) y los sustituye por tus respuestas; las dudas menores van a «Supuestos» | Si queda alguno, contesta a la pregunta o resuélvelo en el paso 4 |
 
     Abre también `checklists/requirements.md`: es la lista de verificación automática de la calidad de la especificación (tres bloques, 16 comprobaciones). Las casillas sin marcar son lo que el paso 4 tiene que cerrar.
 
@@ -168,20 +169,23 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     | Qué pasa si nadie aparece (control de asistencia, liberar la sala) | Fuera de alcance: no se controla la asistencia. |
     | Cualquier tecnología (base de datos, aplicación móvil, servidor) | Eso se decide en el plan técnico; pasa a la siguiente pregunta. |
     | Algo que ya está en la descripción (horario, 4 horas, mantenimiento) | Lo que dice la descripción de Ana. |
+    | Cualquier otra cosa (volumen de uso, zona horaria, acceso, accesibilidad) | Lo que dicen los «Supuestos» de la solución: unas 200 personas, una sola sede, acceso corporativo sin contraseñas propias, correo corporativo disponible. Si no está ahí, acepta la opción recomendada. |
 
     Al terminar, el asistente informa de cuántas preguntas ha hecho, qué secciones ha tocado y cómo ha cambiado la lista de verificación automática (algo como «13/16 → 16/16 items passing»; en la solución canónica esa lista está ampliada a 23 comprobaciones y pasó de 20 a 23), y recomienda pasar a planificar. En `spec.md` aparece una sección nueva, `## Clarifications`, con `### Session` y la fecha, y una línea `- Q: … → A: …` por respuesta. Compárala con [aclaraciones.md](soluciones/03-reserva-salas/aclaraciones.md), que además explica qué cambió en cada requisito.
 
     Qué revisar: que cada respuesta haya llegado a la sección que le toca, no solo a la lista de aclaraciones: «solo administración» tiene que aparecer como requisito (en la solución, RF-010) y en un criterio de la historia 2; «30 días» en el requisito de límites y en un caso límite; el correo como requisito propio; recurrentes y asistencia en «Fuera de alcance» o en «Supuestos». Si alguna se quedó solo en la lista, díselo: «La respuesta sobre la antelación de 30 días no está reflejada en los requisitos; añádela».
 
-    Si el asistente responde que no detecta ambigüedades críticas (algo como «No critical ambiguities detected»), la especificación ya cubría esos huecos con supuestos. Comprueba que los supuestos coinciden con la tabla; si no, ejecuta `/speckit.clarify alcance, permisos y avisos` para centrarlo en esas áreas.
+    Si el asistente responde que no detecta ambigüedades críticas (algo como «No critical ambiguities detected»), o si termina sin preguntar por alguno de los cinco temas de la tabla, es que la especificación ya cubría ese hueco con un supuesto o que lo contestaste en el paso 3. Comprueba que lo que dice `spec.md` coincide con la tabla; si no, vuelve a ejecutarlo centrado en lo que falta, por ejemplo `/speckit.clarify alcance, permisos y avisos` (cada ejecución añade sus respuestas a la sesión del día).
 
-    - [ ] `spec.md` tiene la sección de aclaraciones con las cinco respuestas de Ana y cada una se refleja en un requisito, un caso límite o «Fuera de alcance».
+    - [ ] Las cinco respuestas de Ana están en `spec.md` (en la sección de aclaraciones o, si las contestaste ya en el paso 3, en el cuerpo de la especificación) y cada una se refleja en un requisito, un caso límite o «Fuera de alcance».
 
-5. **Planifica: ahora sí, la tecnología.** Es el único paso en el que decides el «cómo». Luis eligió lo más sencillo que cumple la constitución:
+5. **Planifica: ahora sí, la tecnología.** Es el único paso en el que decides el «cómo». Luis eligió lo más sencillo que cumple la constitución; pega el bloque entero como un único mensaje:
 
     ```text
     /speckit.plan Aplicación web sencilla con Python 3.12 y FastAPI, base de datos SQLite y páginas HTML con plantillas Jinja2. Pruebas con pytest. Sin frontend complejo: nada de frameworks de JavaScript. Redacta el plan en castellano.
     ```
+
+    «Sin frontend complejo» quiere decir que no habrá una aplicación aparte ejecutándose en el navegador: las páginas las genera el servidor y los formularios HTML funcionan solos, sin *frameworks* (las bibliotecas de JavaScript con las que se construyen las aplicaciones web grandes).
 
     Qué deberías ver: en `specs/001-…/` aparecen `plan.md`, `research.md` (decisiones y alternativas), `data-model.md` (modelo de datos), la carpeta `contracts/` (qué entra y qué sale en cada operación; el asistente la crea si decide que hay interfaces que documentar, y en la solución las hay) y `quickstart.md` (cómo arrancar y probar). El asistente te lista esos ficheros al terminar. Todavía no existe `tasks.md`: eso es el paso siguiente.
 
@@ -195,7 +199,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 
     - [ ] `plan.md` existe, la comprobación contra la constitución está rellena y justificada, y no queda ningún «NEEDS CLARIFICATION».
 
-6. **Trocea en tareas.** Sin argumentos:
+6. **Trocea en tareas.** Sin argumentos (o, si quieres asegurarte desde el principio de que salen las pruebas antes que el código, con este texto detrás: `Incluye las pruebas de cada historia antes de su implementación, como exige el principio 3 de la constitución`):
 
     ```text
     /speckit.tasks
@@ -218,7 +222,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     /speckit.analyze
     ```
 
-    Qué deberías ver: un informe (algo parecido a un «Specification Analysis Report») con una tabla de incidencias (identificador, categoría, gravedad CRITICAL / HIGH / MEDIUM / LOW, dónde está, resumen y recomendación), una tabla de cobertura (cada requisito y qué tareas lo cubren), las incidencias con la constitución si las hay, unas métricas (requisitos, tareas, porcentaje de cobertura) y un bloque de siguientes acciones. Al final pregunta si quieres que proponga correcciones concretas; nunca las aplica solo.
+    Qué deberías ver: un informe (algo parecido a un «Specification Analysis Report») con una tabla de incidencias (identificador, categoría, gravedad CRITICAL / HIGH / MEDIUM / LOW, dónde está, resumen y recomendación), una tabla de cobertura (cada requisito y qué tareas lo cubren), las incidencias con la constitución si las hay, unas métricas (requisitos, tareas, porcentaje de cobertura) y un bloque de siguientes acciones. Al final pregunta si quieres que proponga correcciones concretas; no las aplica por su cuenta, te las propone para que las apruebes.
 
     Cómo actuar según lo que informe:
 
@@ -240,11 +244,11 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     /speckit.implement
     ```
 
-    Qué deberías ver: primero una tabla con el estado de las listas de verificación (si todas están completas, sigue; si alguna tiene casillas sin marcar, pregunta algo como «Do you want to proceed with implementation anyway?»; responde `yes` si las has revisado). Después va fase por fase: crea `pyproject.toml` y la estructura de carpetas, escribe las pruebas de la historia 1, las ejecuta y ve que fallan, implementa, vuelve a ejecutarlas y pasan, y así con cada historia. Marca cada tarea terminada como `[X]` en `tasks.md`. Si una tarea falla, se para y te explica por qué.
+    Qué deberías ver: primero una tabla con el estado de las listas de verificación (si todas están completas, sigue; si alguna tiene casillas sin marcar, pregunta algo como «Do you want to proceed with implementation anyway?»; responde `yes` si las has revisado). Después va fase por fase: crea `pyproject.toml` y la estructura de carpetas, escribe las pruebas de la historia 1, las ejecuta y ve que fallan, implementa, vuelve a ejecutarlas y pasan, y así con cada historia. Marca cada tarea terminada como `[X]` en `tasks.md`. Si una tarea falla, debería pararse y explicarte por qué.
 
     Cómo seguir el progreso: abre `tasks.md` en el editor y mira cuántas `[X]` hay. Si prefieres ir por partes, puedes pedir un alcance: `/speckit.implement solo las fases 1, 2 y 3` te deja el producto mínimo viable (historia 1) para enseñárselo a Ana; después vuelve a lanzar `/speckit.implement` para el resto.
 
-    Cuando termine, arranca la aplicación. Los comandos exactos están en el `quickstart.md` de **tu** proyecto (y en su `README.md`), porque cada asistente puede elegir otros nombres de módulo o de variable. Los de la solución canónica son estos (ya estás dentro de la carpeta, así que no hace falta clonar nada). Si el asistente ya ha creado `.venv` e instalado las dependencias durante la implementación, sáltate las dos primeras líneas y limítate a activar el entorno. En Linux o macOS:
+    Cuando termine, arranca la aplicación. Abre una segunda terminal dentro de `reserva-salas/` (la primera la ocupa el asistente; déjala abierta). Los comandos exactos están en la guía de arranque rápido (`quickstart.md`) de **tu** proyecto (y en su `README.md`), porque cada asistente puede elegir otros nombres de módulo o de variable. Los de la solución canónica son estos (ya estás dentro de la carpeta, así que no hace falta clonar nada). Si el asistente ya ha creado el entorno virtual `.venv` (la carpeta con las dependencias del proyecto) e instalado las dependencias durante la implementación, sáltate las dos primeras líneas y limítate a activar el entorno. Si tu empresa usa un índice privado de paquetes, define antes la variable `UV_DEFAULT_INDEX` con su dirección (en Linux y macOS, `export UV_DEFAULT_INDEX=https://tu-indice/simple/`; en PowerShell, `$env:UV_DEFAULT_INDEX = "https://tu-indice/simple/"`; la dirección te la da IT). En Linux o macOS:
 
     ```bash
     uv venv && source .venv/bin/activate
@@ -262,14 +266,14 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     uvicorn reservasalas.app:app --reload
     ```
 
-    Abre <http://localhost:8000> en el navegador. Deberías ver las 12 salas con su planta y su aforo. Ahora haz la prueba de la historia 1, tal como la describe el quickstart del plan:
+    Abre <http://localhost:8000> en el navegador. Deberías ver las 12 salas con su planta y su aforo. Ahora haz la prueba de la historia 1, tal como la describe la guía de arranque rápido del plan:
 
     1. Indica mañana de 10:00 a 11:00 y pulsa «Ver disponibilidad»: todas las salas aparecen libres salvo las que estén en mantenimiento.
     2. Elige Mediterráneo y confirma: aparece «Reserva confirmada: Mediterráneo, …» con tu nombre como responsable.
     3. Repite la misma franja: Mediterráneo aparece ocupada de 10:00 a 11:00 con tu nombre.
     4. Intenta reservar de 09:00 a 14:00: la aplicación rechaza la reserva e indica que el máximo son 4 horas.
 
-    Por último, en otra terminal, activa el entorno (`source .venv/bin/activate`; en Windows, `.venv\Scripts\activate`) y ejecuta las pruebas automáticas:
+    Por último, en una tercera terminal (o en la segunda, parando el servidor con `Ctrl+C`), activa el entorno (`source .venv/bin/activate`; en Windows, `.venv\Scripts\activate`) y ejecuta las pruebas automáticas:
 
     ```bash
     pytest
@@ -279,10 +283,11 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 
     Opcional pero recomendado: `/speckit.converge` compara el código con la especificación, el plan y las tareas. Si todo está cubierto responde que converge («✅ Converged» o parecido); si falta algo, añade una fase `Convergence` al final de `tasks.md` con las tareas pendientes, y `/speckit.implement` las ejecuta. Lo usarás en el paso siguiente.
 
-    Si usas Git, guarda este estado antes de seguir (comprueba primero que el `.gitignore` que ha creado el asistente excluye `.venv/` y el fichero de la base de datos):
+    Si usas Git, guarda este estado antes de seguir. Comprueba primero que el `.gitignore` que ha creado el asistente excluye `.venv/` y el fichero de la base de datos; si falta este último, añade su nombre (`reservasalas.db` en la solución) en una línea nueva:
 
     ```bash
-    git add -A && git commit -m "ReservaSalas: primera versión"
+    git add -A
+    git commit -m "ReservaSalas: primera versión"
     ```
 
     - [ ] La aplicación arranca, he hecho una reserva de prueba, la franja aparece ocupada y `pytest` pasa.
@@ -295,12 +300,12 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     Ana ha decidido que se puede reservar con hasta 60 días de antelación (hasta ahora eran 30). Actualiza únicamente la especificación en specs/001-reserva-salas/spec.md: el requisito de límites (RF-006) y el caso límite «Antelación excesiva», cambiando su ejemplo para que siga siendo un rechazo (una reserva para dentro de 75 días). Anota la decisión en la sección de aclaraciones, en una sesión nueva con la fecha de hoy, sin borrar la respuesta anterior. No toques el código, el plan ni las tareas.
     ```
 
-    Si tu carpeta de funcionalidad se llama distinto de `001-reserva-salas`, cambia la ruta del *prompt*. Qué revisar: `git diff` (si usas Git) tiene que mostrar cambios solo en `spec.md`. En RF-006 y en el caso límite ya pone 60 días; el «30» solo sobrevive en la aclaración antigua, que es el historial de la decisión.
+    Si tu carpeta de funcionalidad se llama distinto de `001-reserva-salas`, o si en tu `spec.md` el requisito de límites tiene otro identificador (`FR-006`, `RF-005`…), cambia la ruta y el identificador en el *prompt*. Qué revisar: `git diff` (si usas Git) tiene que mostrar cambios solo en `spec.md`. En RF-006 y en el caso límite ya pone 60 días; el «30» solo sobrevive en la aclaración antigua, que es el historial de la decisión.
 
     Segundo, el plan, porque el modelo de datos también recogía el límite:
 
     ```text
-    La especificación ha cambiado: la antelación máxima para reservar pasa de 30 a 60 días. Actualiza plan.md y data-model.md para que reflejen el nuevo límite. No cambies nada más y no toques el código ni tasks.md.
+    La especificación ha cambiado: la antelación máxima para reservar pasa de 30 a 60 días. Actualiza plan.md, data-model.md y cualquier otro fichero de specs/001-reserva-salas/ que mencione el límite de 30 días (salvo tasks.md) para que reflejen el nuevo límite. No cambies nada más y no toques el código ni tasks.md.
     ```
 
     Tercero, deja que Spec Kit encuentre la diferencia entre lo que dicen los ficheros y lo que hace el código:
@@ -309,7 +314,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     /speckit.converge
     ```
 
-    Qué deberías ver: una tabla de hallazgos (algo como «Convergence Findings») con al menos una incidencia que remite al requisito de límites (tipo `contradicts`: el código sigue rechazando las reservas a más de 30 días) y, al final de `tasks.md`, una fase nueva `## Phase 7: Convergence` (el número depende de cuántas fases tenías) con tareas numeradas a continuación de la última (T048 en adelante si tenías 47): cambiar la validación de antelación en el servicio de reservas y actualizar las pruebas de límites, cada una con su requisito de origen y el tipo de desviación entre paréntesis. El comando no edita código ni las tareas antiguas: solo añade. Las tareas ya hechas que mencionaban los 30 días (en la solución, T014 y T019) se quedan como están, porque son el historial de lo que se hizo.
+    Qué deberías ver: una tabla de hallazgos (algo como «Convergence Findings») con al menos una incidencia que remite al requisito de límites (normalmente de tipo `contradicts` o `partial`: el código sigue rechazando las reservas a más de 30 días) y, al final de `tasks.md`, una fase nueva `## Phase 7: Convergence` (el número depende de cuántas fases tenías) con tareas numeradas a continuación de la última (T048 en adelante si tenías 47): cambiar la validación de antelación en el servicio de reservas y actualizar las pruebas de límites, cada una con su requisito de origen y el tipo de desviación entre paréntesis. El comando no edita código ni las tareas antiguas: solo añade. Las tareas ya hechas que mencionaban los 30 días (en la solución, T014 y T019) se quedan como están, porque son el historial de lo que se hizo.
 
     Cuarto, ejecuta solo esas tareas:
 
@@ -317,7 +322,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     /speckit.implement solo la fase de convergencia
     ```
 
-    Qué deberías ver: el asistente actualiza las pruebas de límites, las ejecuta (fallan), cambia la validación, las vuelve a ejecutar (pasan) y marca las tareas nuevas como `[X]`. Comprueba tú: `pytest` en verde; en la aplicación (si está arrancada con `--reload`, se recarga sola), una reserva para una fecha dentro de 45 días se acepta y una para dentro de 75 días se rechaza indicando que el máximo son 60 días. Un segundo `/speckit.converge` tiene que responder que todo converge («✅ Converged»).
+    Qué deberías ver: el asistente actualiza las pruebas de límites, las ejecuta (fallan), cambia la validación, las vuelve a ejecutar (pasan) y marca las tareas nuevas como `[X]`. Comprueba tú: `pytest` en verde; en la aplicación (si está arrancada con `--reload`, se recarga sola), una reserva para una fecha dentro de 45 días se acepta y una para dentro de 75 días se rechaza indicando que el máximo son 60 días. Un segundo `/speckit.converge` debería responder que todo converge («✅ Converged»); si todavía señala algo, léelo: o queda una tarea por hacer o algún fichero sigue diciendo 30.
 
     Fíjate en lo que acaba de pasar: has cambiado una cifra en un documento en castellano, y el código, las pruebas y los mensajes de la aplicación han cambiado en consecuencia. La especificación es la fuente de verdad; el código es su consecuencia. Si comparas ahora tus ficheros con la solución canónica, los tuyos van un cambio por delante (allí la antelación máxima sigue siendo de 30 días): es lo esperado.
 
@@ -330,7 +335,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     - Si mañana Ana pide que administración pueda cancelar cualquier reserva con un motivo obligatorio, ¿qué fichero abres primero?
     - ¿Qué habrías hecho distinto con *vibe coding* y cuánto habrías tardado en descubrir, tres meses después, que el límite de antelación seguía en 30 días en algún rincón del código?
 
-    Limpieza: para el servidor con `Ctrl+C`, desactiva el entorno con `deactivate`, y guarda el estado con `git add -A && git commit -m "ReservaSalas: flujo SDD completo"` si usas Git. No borres la carpeta: te servirá de referencia en el [ejercicio 06](06-reto-final-tu-propio-proyecto.md). Lo único que puedes borrar sin pena es el fichero de la base de datos (`reservasalas.db` en la solución), que se vuelve a crear al arrancar.
+    Limpieza: para el servidor con `Ctrl+C`, desactiva el entorno con `deactivate`, y guarda el estado con `git add -A` y `git commit -m "ReservaSalas: flujo SDD completo"` si usas Git. No borres la carpeta: te servirá de referencia en el [ejercicio 06](06-reto-final-tu-propio-proyecto.md). Lo único que puedes borrar sin pena es el fichero de la base de datos (`reservasalas.db` en la solución), que se vuelve a crear al arrancar.
 
     - [ ] He escrito la reflexión y el proyecto queda guardado y parado.
 
@@ -347,8 +352,8 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 | En `plan.md` queda «NEEDS CLARIFICATION» en el contexto técnico, o un principio aparece como incumplido sin justificar | Al *prompt* del paso 5 le faltaba un dato, o el asistente ha tomado una decisión que choca con la constitución | Repite `/speckit.plan` con el dato que falta. Para la desviación: «El plan incumple el principio N; cámbialo o justifícalo en el registro de complejidad» |
 | `tasks.md` no tiene tareas de pruebas | En Spec Kit las tareas de pruebas son opcionales: hay que pedirlas, y no todos los asistentes las deducen de la constitución | `/speckit.tasks Incluye las pruebas de cada historia antes de su implementación, como exige el principio 3 de la constitución` |
 | `/speckit.implement` se para: «Some checklists have unchecked items. Do you want to proceed…?» | Una lista de `checklists/` (por ejemplo, la de accesibilidad del paso 7) tiene casillas sin marcar | Revisa esa lista y marca tú las casillas que se cumplen, o responde `yes` si asumes el riesgo |
-| `/speckit.implement` falla al instalar dependencias (tiempo de espera, certificado) | Proxy o índice privado de paquetes de la empresa | Configura `UV_DEFAULT_INDEX` como en el [ejercicio 00](00-preparacion-del-entorno.md) y vuelve a lanzar el comando; si no, habla con IT |
-| `uvicorn: command not found` | El entorno virtual no está activado o faltan las dependencias | `source .venv/bin/activate` (en Windows, `.venv\Scripts\activate`) y `uv pip install -e ".[dev]"` |
+| `/speckit.implement` falla al instalar dependencias (tiempo de espera, certificado) | Proxy o índice privado de paquetes de la empresa | Cierra el asistente, define en esa terminal la variable `UV_DEFAULT_INDEX` con la dirección del índice (en Linux y macOS, `export UV_DEFAULT_INDEX=https://tu-indice/simple/`; en PowerShell, `$env:UV_DEFAULT_INDEX = "https://tu-indice/simple/"`), vuelve a abrir el asistente en `reserva-salas/` y repite `/speckit.implement`. Es el mismo índice que usaste en el [ejercicio 00](00-preparacion-del-entorno.md); si no funciona, habla con IT |
+| `uvicorn: command not found` | El entorno virtual (`.venv`) no está activado en esa terminal o faltan las dependencias | `source .venv/bin/activate` (en Windows, `.venv\Scripts\activate`) y `uv pip install -e ".[dev]"` |
 | La aplicación rechaza todo o dice que no hay identidad | Falta la variable que simula el acceso corporativo en esa terminal (en la solución, `RESERVASALAS_USUARIO_DEV`; en tu proyecto puede llamarse distinto) | Mira el `README.md` o el `quickstart.md` de tu proyecto, define la variable y arranca de nuevo |
 | «Address already in use» al arrancar | Ya hay un servidor escuchando en el puerto 8000 | Páralo con `Ctrl+C` en su terminal, o arranca este en otro puerto: `uvicorn reservasalas.app:app --reload --port 8001` |
 | En el paso 9 el asistente ha cambiado el código directamente | Ha tomado el atajo | Deshaz solo el cambio del código (con Git, `git checkout -- src tests`, o las carpetas de código de tu proyecto; sin Git, pídele al asistente que revierta únicamente el código) y repite el *prompt*, que dice expresamente «no toques el código» |
