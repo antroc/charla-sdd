@@ -4,7 +4,7 @@
 
 Este es el primer documento del itinerario. Cuenta qué pasa cuando se construye software con un asistente de IA sin un texto claro que diga qué tiene que hacer, y por qué eso acaba costando tiempo y dinero a la empresa. No hace falta saber programar para seguirlo: basta con haber pedido alguna vez que te hicieran algo.
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Qué es el vibe coding](#qué-es-el-vibe-coding)
 - [Por qué engancha](#por-qué-engancha)

@@ -114,10 +114,10 @@ En muchos proyectos ya existía un documento de requisitos. Se escribía al prin
 
 SDD le da la vuelta a eso. En programación, el *código fuente* es el texto a partir del cual se construye el programa; en SDD, la especificación pasa a jugar ese papel: es el «programa fuente», el texto del que todo lo demás se deriva. El asistente la lee y genera el plan, las tareas y el código. Si la especificación cambia, el código cambia. Si el código no hace lo que dice la especificación, el que está mal es el código.
 
-Un ejemplo. Ana decide ampliar el horario de reservas hasta las 21:00.
+Un ejemplo. Ana decide ampliar la antelación máxima de 30 a 60 días: a partir de ahora se podrá reservar una sala hasta dos meses antes.
 
-- **En ReservaSalas v0** (la versión sin SDD del documento anterior), Luis le pediría al asistente «cambia el horario», el asistente buscaría dónde está escondida la hora de cierre en el código, la cambiaría y, con suerte, no rompería nada más. Nadie sabría después por qué el horario es el que es.
-- **Con SDD**, Ana cambia la especificación: el requisito RF-006, que dice «fuera del horario de oficina (08:00-20:00)», pasa a decir «08:00-21:00», y con él el caso límite y el criterio de aceptación que lo acompañan. Luis vuelve a generar el plan y las tareas afectadas, el asistente actualiza el código y las pruebas, y el nuevo horario queda escrito donde cualquiera puede verlo.
+- **En ReservaSalas v0** (la versión sin SDD del documento anterior), Luis le pediría al asistente «cambia la antelación», el asistente buscaría dónde está escondido el «30» en el código, lo cambiaría y, con suerte, no rompería nada más. Nadie sabría después por qué la antelación es la que es.
+- **Con SDD**, Ana cambia la especificación: el requisito RF-006, que rechaza las reservas que empiezan «más de 30 días después de hoy», pasa a decir «más de 60 días», y con él el caso límite que lo acompaña. Luis vuelve a generar el plan y las tareas afectadas, el asistente actualiza el código y las pruebas, y la nueva antelación queda escrita donde cualquiera puede verla.
 
 No es casualidad: la [constitución de ReservaSalas](../ejercicios/soluciones/03-reserva-salas/constitution.md) lo deja fijado como regla. Los límites de uso se fijan en la especificación, no en el código; cambiarlos es cambiar la especificación y regenerar.
 
@@ -163,18 +163,18 @@ Para ver que una especificación no necesita tecnología ni programadores, aquí
 - **Historia 1 - Pedir días de vacaciones (P1)**: como empleado, quiero pedir días libres indicando las fechas, para que mi manager los apruebe.
 - **Historia 2 - Aprobar o rechazar una solicitud (P2)**: como manager, quiero aprobar o rechazar una solicitud y, si la rechazo, indicar el motivo.
 - **Historia 3 - Ver el saldo y las solicitudes (P3)**: como empleado, quiero ver cuántos días me quedan y en qué estado están mis solicitudes.
-- **RF-001**: El sistema deberá mostrar a cada persona su saldo de días de vacaciones.
-- **RF-002**: CUANDO una persona envía una solicitud, el sistema deberá avisar a su manager.
-- **RF-003**: SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan.
-- **RF-004**: CUANDO su manager aprueba una solicitud, el sistema deberá descontar los días pedidos del saldo.
-- **RF-005**: CUANDO una solicitud se aprueba o se rechaza, el sistema deberá avisar a la persona que la pidió y a RRHH.
-- **CE-001**: pedir días lleva menos de 2 minutos.
-- **CE-002**: ninguna solicitud queda sin respuesta más de 3 días laborables.
+- **RF-001**: El sistema deberá mostrar a cada persona su saldo de días de vacaciones del año en curso: días totales, consumidos, pendientes de decidir y disponibles.
+- **RF-003**: CUANDO una persona envía una solicitud, el sistema deberá registrarla en estado «pendiente» y avisar a su manager con las fechas y los días laborables que consume.
+- **RF-004**: SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan.
+- **RF-009**: CUANDO la manager aprueba o rechaza una solicitud, el sistema deberá registrar la decisión, con quién la tomó y cuándo, y comunicársela a la persona solicitante junto con el motivo si es un rechazo.
+- **RF-011**: CUANDO una solicitud queda aprobada, el sistema deberá descontar cada día del saldo del año al que pertenece y dejar la solicitud registrada para RRHH.
+- **CE-001**: Pedir vacaciones, desde que se abre la solicitud hasta que se envía, lleva menos de 2 minutos.
+- **CE-002**: El 100 % de las solicitudes aprobadas quedan registradas para RRHH sin que nadie las copie a mano.
 ```
 
-Fíjate en tres cosas. No hay ni una palabra de tecnología: podría acabar siendo una aplicación, un formulario o un procedimiento en papel. Las historias llevan prioridad (P1 es lo imprescindible; si solo se hiciera eso, ya serviría). Y cada requisito es una frase con una sola cosa comprobable: cualquiera puede leer RF-003 y decir si el sistema lo cumple o no.
+Fíjate en tres cosas. No hay ni una palabra de tecnología: podría acabar siendo una aplicación, un formulario o un procedimiento en papel. Las historias llevan prioridad (P1 es lo imprescindible; si solo se hiciera eso, ya serviría). Y cada requisito es una frase con una sola cosa comprobable: cualquiera puede leer RF-004 y decir si el sistema lo cumple o no.
 
-Esta especificación la podría escribir Jorge, de RRHH, sin ayuda de nadie técnico. Es exactamente lo que se hace en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), con la [plantilla de especificación](../ejercicios/plantillas/especificacion.md); la versión completa está en [la solución del ejercicio](../ejercicios/soluciones/01-solicitud-de-vacaciones/especificacion.md).
+Esta especificación la podría escribir Jorge, de RRHH, sin ayuda de nadie técnico. Es exactamente lo que se hace en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), con la [plantilla de especificación](../ejercicios/plantillas/especificacion.md); la versión completa, con los catorce requisitos de los que salen estos cinco (por eso la numeración salta), está en [la solución del ejercicio](../ejercicios/soluciones/01-solicitud-de-vacaciones/especificacion.md).
 
 ## De dónde viene
 
