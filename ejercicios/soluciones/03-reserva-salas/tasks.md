@@ -103,13 +103,13 @@
 
 ## Fase 5: Historia de usuario 3 — Ver mis reservas y las de hoy en cada sala (Prioridad: P3)
 
-**Objetivo:** que cada persona vea sus reservas futuras y cualquiera vea las reservas de hoy por sala, con responsable (RF-004, RF-012, RF-013).
+**Objetivo:** que cada persona vea sus reservas futuras y cualquiera vea las reservas de hoy por sala, con responsable (RF-004, RF-012).
 
 **Prueba independiente:** crear reservas de varias personas y comprobar que cada una ve solo las suyas y que la vista de hoy muestra todas con nombre.
 
 ### Pruebas de la historia 3 (se escriben primero y tienen que fallar)
 
-- [ ] T033 [P] [HU3] Pruebas de contrato de `GET /api/mis-reservas` en `tests/contrato/test_api_mis_reservas.py` (solo las futuras de la persona, ordenadas por fecha; las canceladas no aparecen) y de `GET /api/hoy` en `tests/contrato/test_api_hoy.py` (las 12 salas con sus reservas de hoy y el nombre del responsable) (RF-004, RF-012, RF-013)
+- [ ] T033 [P] [HU3] Pruebas de contrato de `GET /api/mis-reservas` en `tests/contrato/test_api_mis_reservas.py` (solo las futuras de la persona, ordenadas por fecha; las canceladas no aparecen) y de `GET /api/hoy` en `tests/contrato/test_api_hoy.py` (las 12 salas con sus reservas de hoy y el nombre del responsable) (RF-004, RF-012)
 - [ ] T034 [P] [HU3] Prueba de integración en `tests/integracion/test_hu3_ver.py`: tres personas reservan, cada una ve lo suyo, la vista de hoy muestra las tres reservas, una persona sin reservas ve «No tienes reservas» y una reserva cancelada desaparece de «Mis reservas» (escenarios 1-4 de la historia)
 
 ### Implementación de la historia 3

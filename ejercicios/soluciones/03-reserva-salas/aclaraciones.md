@@ -12,7 +12,7 @@ Luis ejecutó `/speckit.clarify` el 2026-10-07 con la especificación recién ge
 | # | Pregunta del asistente | Respuesta de Ana | Impacto en la especificación |
 |---|---|---|---|
 | 1 | ¿Se pueden hacer reservas recurrentes (por ejemplo, todos los lunes de 09:00 a 10:00)? | No en la primera versión. | Añadido a «Fuera de alcance». No hace falta guardar en cada reserva ningún dato sobre repeticiones. |
-| 2 | ¿Quién puede cancelar una reserva ajena? | Solo administración. | Nuevo RF-010; RF-008 ampliado para que administración también pueda cancelar o modificar; escenarios 4 y 5 de la historia 2. Se precisa qué puede hacer el rol de administración, que ya existía por RF-009. |
+| 2 | ¿Quién puede cancelar una reserva ajena? | Solo administración. | Nuevo RF-010 y criterios 4 y 5 de la historia 2. Se precisa qué puede hacer el rol de administración, que ya existía por RF-009. |
 | 3 | ¿Hay que avisar por correo cuando se hace una reserva? | Sí, un correo de confirmación. | Nuevo RF-011 (también al modificar y al cancelar, para que el correo sirva de comprobante) y criterio de aceptación 7 de la historia 1. Nuevo supuesto: existe un servidor de correo corporativo. |
 | 4 | ¿Con cuánta antelación máxima se puede reservar? | 30 días. | Límite añadido a RF-006 y nuevo caso límite «Antelación excesiva». |
 | 5 | ¿Qué pasa si nadie aparece a la reserva? ¿Se libera la sala? | Fuera de alcance: no se controla la asistencia. | Añadido a «Fuera de alcance». Evita construir confirmaciones de llegada, sensores o liberación automática. |

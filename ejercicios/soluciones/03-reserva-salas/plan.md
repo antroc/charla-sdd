@@ -105,7 +105,7 @@ De izquierda a derecha: una sala tiene muchas reservas y una persona es responsa
 |---|---|---|
 | `id` | entero | clave primaria |
 | `nombre` | texto | obligatorio |
-| `correo` | texto | único; identifica a la persona (principio IV: nada más) |
+| `correo` | texto | único; identifica a la persona (principio 4: nada más) |
 | `rol` | texto | `empleado` (por defecto) o `administracion` (RF-009, RF-010) |
 
 **`reserva`**
@@ -114,11 +114,11 @@ De izquierda a derecha: una sala tiene muchas reservas y una persona es responsa
 |---|---|---|
 | `id` | entero | clave primaria |
 | `sala_id` | entero | obligatorio; referencia a `sala` |
-| `persona_id` | entero | obligatorio; referencia a `persona` (principio V) |
+| `persona_id` | entero | obligatorio; referencia a `persona` (principio 5) |
 | `inicio`, `fin` | texto ISO 8601 (`2026-10-22T10:00`) | `fin` posterior a `inicio`; dentro de 08:00-20:00; duración máxima 4 h; `fin` en el futuro; `inicio` como máximo 30 días después de hoy (RF-006) |
 | `motivo` | texto | opcional, máximo 120 caracteres |
 | `estado` | texto | `activa` o `cancelada` |
-| `cancelada_por` | entero | opcional; referencia a `persona`; se rellena al cancelar (principio V) |
+| `cancelada_por` | entero | opcional; referencia a `persona`; se rellena al cancelar (principio 5) |
 
 Regla de integridad principal (CE-002): no pueden existir dos reservas con `estado = activa`, la misma `sala_id` y franjas que se crucen (`inicio_a < fin_b` y `fin_a > inicio_b`). Se comprueba en el servicio dentro de la misma transacción que la escritura, abierta con `BEGIN IMMEDIATE` para que dos peticiones simultáneas no lean «libre» a la vez (RF-005). Índice en `(sala_id, inicio)` para que el listado cumpla CE-004.
 
@@ -137,7 +137,7 @@ La aplicación expone una pequeña API JSON bajo `/api/` que usan las pruebas de
 | `/api/reservas` | POST | HU1 | RF-003, RF-004, RF-005, RF-006, RF-007, RF-011 |
 | `/api/reservas/{id}` | PUT, DELETE | HU2 | RF-008, RF-010, RF-011 |
 | `/api/mis-reservas` | GET | HU3 | RF-012 |
-| `/api/hoy` | GET | HU3 | RF-004, RF-013 |
+| `/api/hoy` | GET | HU3 | RF-004, RF-012 |
 | `/api/salas/{id}/mantenimiento` | PUT | Administración | RF-009 |
 
 Páginas HTML: `/` (disponibilidad y formulario de reserva), `/reservas/{id}` (detalle, cancelar y modificar), `/mis-reservas` y `/hoy` (reservas de hoy por sala).
@@ -202,7 +202,7 @@ Respuesta `200` (RF-012): solo las reservas activas y futuras de la persona iden
 
 ### 5. Reservas de hoy por sala: `GET /api/hoy`
 
-Respuesta `200` (RF-004, RF-013): las 12 salas, cada una con sus reservas activas del día y el nombre de la persona responsable.
+Respuesta `200` (RF-004, RF-012): las 12 salas, cada una con sus reservas activas del día y el nombre de la persona responsable.
 
 ```json
 {
@@ -247,7 +247,7 @@ reserva-salas/
     └── integracion/                # test_hu1_reservar.py, test_hu2_cancelar_modificar.py, test_hu3_ver.py
 ```
 
-**Decisión de estructura:** un solo proyecto Python, con la lógica de negocio en `servicios/` separada de las rutas para que las pruebas unitarias no necesiten arrancar el servidor web. Las plantillas y los textos están en módulos propios para cumplir el principio II sin repartir cadenas por todo el código.
+**Decisión de estructura:** un solo proyecto Python, con la lógica de negocio en `servicios/` separada de las rutas para que las pruebas unitarias no necesiten arrancar el servidor web. Las plantillas y los textos están en módulos propios para cumplir el principio 2 sin repartir cadenas por todo el código.
 
 ## Riesgos
 
@@ -293,7 +293,7 @@ Escenario de validación de extremo a extremo (historia 1):
 Pruebas automáticas:
 
 ```bash
-pytest                    # toda la batería; tiene que pasar al 100 % (principio III)
+pytest                    # toda la batería; tiene que pasar al 100 % (principio 3)
 pytest tests/unitarias -q # solo las reglas de negocio, en pocos segundos
 ```
 

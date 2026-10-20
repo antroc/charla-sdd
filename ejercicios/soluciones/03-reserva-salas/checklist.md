@@ -19,7 +19,7 @@ Una casilla marcada (`[x]`) significa que ese criterio de calidad se ha comproba
 ## Completitud de los requisitos (Requirement Completeness)
 
 - [x] CHK005 No queda ningún marcador «[NECESITA ACLARACIÓN]» (la etiqueta que el asistente de IA deja en la especificación donde le falta información). — No hubo marcadores: donde faltaba un dato, el asistente tomó una decisión razonable y la anotó en «Supuestos»; los huecos de alcance y de permisos los cerró después la sesión de aclarar del 2026-10-07.
-- [x] CHK006 Cada requisito es comprobable y no admite dos lecturas. — Los trece siguen el formato EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos): sistema y respuesta y, cuando toca, disparador o condición.
+- [x] CHK006 Cada requisito es comprobable y no admite dos lecturas. — Los doce siguen el formato EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos): sistema y respuesta y, cuando toca, disparador o condición.
 - [x] CHK007 Cada historia de usuario tiene criterios de aceptación en formato Dado/Cuando/Entonces, incluidos los de error.
 - [x] CHK008 Los casos límite están identificados. — Nueve casos, cada uno con el comportamiento esperado.
 - [x] CHK009 El alcance está delimitado. — Sección «Fuera de alcance» con cinco exclusiones explícitas, dos de ellas fruto de aclarar.

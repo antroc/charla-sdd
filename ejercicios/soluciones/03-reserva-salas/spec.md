@@ -110,22 +110,21 @@ Redactados en EARS (*Easy Approach to Requirements Syntax*), una forma sencilla 
 - **RF-003**: CUANDO una persona confirma una reserva, el sistema deberá guardarla y mostrar un mensaje de confirmación con sala, fecha y hora.
 - **RF-004**: El sistema deberá mostrar, junto a cada reserva, el nombre de la persona responsable.
 - **RF-005**: SI la franja solicitada se solapa con otra reserva de la misma sala, ENTONCES el sistema deberá rechazar la reserva e indicar qué franja está ocupada.
-- **RF-006**: SI la franja solicitada incumple alguno de estos límites, ENTONCES el sistema deberá rechazar la reserva e indicar qué límite se incumple: (a) queda fuera del horario de oficina (08:00-20:00); (b) dura más de 4 horas; (c) termina en el pasado; (d) empieza más de 30 días después de hoy.
+- **RF-006**: SI la franja solicitada queda fuera del horario de oficina (08:00-20:00), dura más de 4 horas, termina en el pasado o empieza más de 30 días después de hoy, ENTONCES el sistema deberá rechazar la reserva e indicar qué límite se incumple.
 - **RF-007**: MIENTRAS una sala esté marcada en mantenimiento, el sistema deberá impedir nuevas reservas en ella.
-- **RF-008**: CUANDO la persona responsable de una reserva, o una persona con permisos de administración, la cancela o la modifica, el sistema deberá aplicar el cambio, liberar la franja anterior, registrar quién lo ha hecho y mostrar un mensaje de confirmación.
+- **RF-008**: CUANDO la persona responsable de una reserva la cancela o la modifica, el sistema deberá aplicar el cambio, liberar la franja anterior y mostrar un mensaje de confirmación.
 - **RF-009**: DONDE la persona tenga permisos de administración, el sistema deberá permitir marcar una sala en mantenimiento.
 - **RF-010**: SI una persona sin permisos de administración intenta cancelar o modificar una reserva de la que no es responsable, ENTONCES el sistema deberá rechazar la operación e indicar quién puede hacerlo.
 - **RF-011**: CUANDO una reserva se confirma, se modifica o se cancela, el sistema deberá enviar un correo a la persona responsable con la sala, la fecha, la franja y el tipo de cambio.
-- **RF-012**: El sistema deberá permitir a cada persona ver sus reservas futuras ordenadas por fecha.
-- **RF-013**: El sistema deberá mostrar, para cada sala, las reservas del día en curso con el nombre de su responsable.
+- **RF-012**: El sistema deberá permitir a cada persona ver sus reservas futuras ordenadas por fecha y, para cada sala, las reservas del día en curso con el nombre de su responsable.
 
-RF-006 agrupa cuatro límites en un solo SI porque la respuesta del sistema es la misma para todos (rechazar e indicar el límite); cada límite se comprueba por separado en los casos límite y en las pruebas. Si la respuesta fuera distinta para alguno, sería un requisito aparte.
+Dos apuntes sobre la regla «un requisito, una sola cosa»: RF-006 agrupa cuatro límites en un solo SI porque la respuesta del sistema es la misma para todos (rechazar e indicar el límite); cada límite se comprueba por separado en los casos límite y en las pruebas, y si la respuesta fuera distinta para alguno sería un requisito aparte. RF-012 reúne dos vistas de la misma información (las reservas activas: las mías y las de hoy) en un solo requisito ubicuo. Que administración pueda cancelar o modificar una reserva ajena queda recogido en RF-010, en el criterio 5 de la historia 2 y en la aclaración 2.
 
 Patrones EARS usados, para quien quiera comprobarlos:
 
 | Patrón | Requisitos |
 |---|---|
-| Ubicuo («El sistema deberá…») | RF-001, RF-004, RF-012, RF-013 |
+| Ubicuo («El sistema deberá…») | RF-001, RF-004, RF-012 |
 | Por evento (CUANDO…) | RF-002, RF-003, RF-008, RF-011 |
 | Por estado (MIENTRAS…) | RF-007 |
 | Comportamiento no deseado (SI…, ENTONCES…) | RF-005, RF-006, RF-010 |
@@ -137,7 +136,7 @@ Qué requisitos necesita cada historia de usuario (HU); sirve para comprobar des
 |---|---|
 | HU1 — Reservar una sala | RF-001, RF-002, RF-003, RF-004, RF-005, RF-006, RF-007, RF-011 |
 | HU2 — Cancelar o modificar mi reserva | RF-008, RF-010, RF-011 |
-| HU3 — Ver mis reservas y las de hoy | RF-004, RF-012, RF-013 |
+| HU3 — Ver mis reservas y las de hoy | RF-004, RF-012 |
 | Administración (sin historia propia) | RF-009 |
 
 ### Entidades clave (Key Entities)
