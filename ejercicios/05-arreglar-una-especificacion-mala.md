@@ -23,7 +23,7 @@ Al terminar sabrás leer una especificación con ojo crítico: detectar tecnolog
 
 - Haber leído [Los artefactos](../docs/04-los-artefactos.md) y [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md). Muy recomendable haber hecho el [ejercicio 02](02-practicar-requisitos-ears.md).
 - La [constitución de ReservaSalas](soluciones/03-reserva-salas/constitution.md) abierta al lado: varios problemas solo se ven comparándola con ella.
-- Las plantillas de [especificación](plantillas/especificacion.md) y de [lista de verificación](plantillas/lista-de-verificacion.md).
+- Las plantillas de [especificación](plantillas/especificacion.md) (para consultar qué secciones debería tener una buena) y de [lista de verificación](plantillas/lista-de-verificacion.md) (la pasarás en el paso 5).
 - Tiempo: entre 30 y 40 minutos.
 - Dónde trabajar. Elige una vía:
   - **Vía A, sin instalar nada:** imprime o copia la especificación del paso 1 a un documento compartido y trabaja sobre ella con bolígrafo o con comentarios. Vale para todos los perfiles.
@@ -240,7 +240,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
 7. **Compara con la solución y con el ejemplo canónico.** Abre [soluciones/05-especificacion-arreglada.md](soluciones/05-especificacion-arreglada.md) (lista numerada de problemas con explicación y versión corregida) y, ahora sí, [la especificación canónica](soluciones/03-reserva-salas/spec.md). Comprueba tres cosas: cuántos problemas de la lista habías encontrado y cuáles se te escaparon; si tus requisitos cubren lo mismo que RF-001 a RF-012 del ejemplo (aunque los hayas numerado o agrupado distinto); y si tus criterios de éxito se parecen a CE-001 a CE-004.
 
-   Qué deberías ver: tu lista con, probablemente, entre 10 y 15 de los problemas de la solución (nadie los encuentra todos a la primera), y requisitos que dicen lo mismo que el ejemplo con otras palabras. Si tienes Spec Kit instalado, el cierre natural es el paso 3 del [ejercicio 03](03-reserva-salas-paso-a-paso.md): verás que `/speckit.specify`, a partir de la petición de Ana, genera una especificación mucho más cercana a tu versión corregida que a la de Luis.
+   Qué deberías ver: tu lista con, probablemente, entre 10 y 15 de los problemas de la solución (nadie los encuentra todos a la primera), y requisitos que dicen lo mismo que el ejemplo con otras palabras. Si tienes Spec Kit instalado, el cierre natural es el paso 3 del [ejercicio 03](03-reserva-salas-paso-a-paso.md): lo normal es que `/speckit.specify`, a partir de la petición de Ana, genere una especificación mucho más cercana a tu versión corregida que a la de Luis (cada asistente responde distinto, pero la diferencia se nota).
 
    - [ ] He comparado con la solución y he apuntado los problemas que se me escaparon.
 
@@ -267,8 +267,8 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
 1. Porque la especificación es el contrato de qué hace el sistema y por qué, y tiene que seguir siendo válida aunque cambie la tecnología. Las decisiones técnicas van al plan técnico, donde se justifican contra la constitución y se pueden cambiar sin tocar los requisitos. Lo que está mal no es la elección, es el sitio.
 2. Un requisito vago describe un comportamiento sin que se pueda comprobar («rápido»); se arregla poniéndole cifra o moviéndolo a criterios de éxito. Un criterio de éxito no medible describe un resultado sin número («la gente estará más contenta»); se arregla fijando qué se mide y cuánto («el 90 % completa una reserva sin ayuda la primera vez»). Los dos fallan por lo mismo, la falta de medida, pero viven en sitios distintos.
-3. La resuelve quien encarga el sistema (Ana), no quien programa ni el asistente de IA. La respuesta se registra en la sección «Aclaraciones» de la especificación (con Spec Kit, `/speckit.clarify` la añade como «P: … → R: …») y se corrige el requisito afectado. En el ejemplo canónico no hizo falta preguntarlo: Ana ya había fijado en su petición el máximo de 4 horas, sin excepciones, y así lo recoge RF-006.
-4. Porque la constitución fija reglas que la especificación no repite pero debe respetar. Ejemplos: las reservas anónimas (línea 52) chocan con el principio 5, transparencia; los datos de la entidad Usuario (líneas 68-69) chocan con el principio 4, datos mínimos; «se probará a mano al final» (línea 92) choca con el principio 3; «todo el mundo usará Chrome» (línea 82) choca con el principio 2.
+3. La resuelve quien encarga el sistema (Ana), no quien programa ni el asistente de IA. La respuesta se registra en la sección «Aclaraciones» de la especificación (con Spec Kit, `/speckit.clarify` la añade como «P: … → R: …»; en el original en inglés, «Q: … → A: …») y se corrige el requisito afectado. En el ejemplo canónico no hizo falta preguntarlo: Ana ya había fijado en su petición el máximo de 4 horas, sin excepciones, y así lo recoge RF-006.
+4. Porque la constitución fija reglas que la especificación no repite pero debe respetar. Ejemplos: las reservas anónimas (línea 52) chocan con el principio 5, transparencia; los datos de la entidad Usuario (líneas 68-69) chocan con el principio 4, datos mínimos; «se probará a mano al final» (línea 92) choca con el principio 3; «todo el mundo usará Chrome en un portátil» (línea 82) choca con el principio 2, porque exige un navegador y un dispositivo concretos para poder usar la aplicación, y además es una decisión técnica que no va en la especificación.
 5. «Ver estadísticas» no resuelve el problema (choques, salas vacías, reservas fantasma): se baja de prioridad o se deja fuera de la primera versión; en el ejemplo canónico ni siquiera aparece, porque Ana no la pidió. «Proyector y café» es otra funcionalidad mezclada en la historia P1: se saca de la historia y va a «Fuera de alcance» (el ejemplo canónico lo deja ahí como «reserva de equipamiento»); si algún día se quiere, será su propia especificación.
 
 </details>
@@ -285,7 +285,7 @@ La lista completa de problemas, numerada y explicada, y la especificación corre
 
 ## Siguiente paso
 
-Continúa con el [reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md), donde escribirás una especificación desde cero y la revisarás tú con esta misma lista. Si no programas, el [ejercicio 04](04-dinamica-de-equipo-20-minutos.md) te sirve para hacer esta revisión en grupo.
+Continúa con el [reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md), donde escribirás una especificación desde cero y la revisarás tú con esta misma lista. Si no programas, el [ejercicio 04](04-dinamica-de-equipo-20-minutos.md) te sirve para practicar en grupo la caza de vaguedades en requisitos escritos por otras personas.
 
 ---
 

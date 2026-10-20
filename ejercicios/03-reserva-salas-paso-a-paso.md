@@ -300,7 +300,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     Segundo, el plan, porque el modelo de datos también recogía el límite:
 
     ```text
-    La especificación ha cambiado: la duración máxima de una reserva pasa de 4 a 2 horas. Actualiza plan.md y data-model.md para que reflejen el nuevo límite. No cambies nada más y no toques el código.
+    La especificación ha cambiado: la antelación máxima para reservar pasa de 30 a 60 días. Actualiza plan.md y data-model.md para que reflejen el nuevo límite. No cambies nada más y no toques el código ni tasks.md.
     ```
 
     Tercero, deja que Spec Kit encuentre la diferencia entre lo que dicen los ficheros y lo que hace el código:
@@ -309,7 +309,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     /speckit.converge
     ```
 
-    Qué deberías ver: una tabla «Convergence Findings» con al menos una incidencia que remite al requisito de límites (tipo `contradicts`: el código sigue aceptando 4 horas) y, al final de `tasks.md`, una fase nueva `## Phase 7: Convergence` (el número depende de cuántas fases tenías) con tareas numeradas a continuación de la última: cambiar la validación en el servicio de reservas y actualizar las pruebas de límites, cada una con su requisito de origen. El comando no edita código: solo añade tareas.
+    Qué deberías ver: una tabla de hallazgos (algo como «Convergence Findings») con al menos una incidencia que remite al requisito de límites (tipo `contradicts`: el código sigue rechazando las reservas a más de 30 días) y, al final de `tasks.md`, una fase nueva `## Phase 7: Convergence` (el número depende de cuántas fases tenías) con tareas numeradas a continuación de la última (T048 en adelante si tenías 47): cambiar la validación de antelación en el servicio de reservas y actualizar las pruebas de límites, cada una con su requisito de origen y el tipo de desviación entre paréntesis. El comando no edita código ni las tareas antiguas: solo añade. Las tareas ya hechas que mencionaban los 30 días (en la solución, T014 y T019) se quedan como están, porque son el historial de lo que se hizo.
 
     Cuarto, ejecuta solo esas tareas:
 
@@ -317,7 +317,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
     /speckit.implement solo la fase de convergencia
     ```
 
-    Qué deberías ver: el asistente actualiza las pruebas de límites, las ejecuta (fallan), cambia la validación, las vuelve a ejecutar (pasan) y marca las tareas nuevas como `[X]`. Comprueba tú: `pytest` en verde; en la aplicación (si está arrancada con `--reload`, se recarga sola), una reserva de 09:00 a 12:00 se rechaza indicando que el máximo son 2 horas, y una de 09:00 a 11:00 se acepta. Un segundo `/speckit.converge` tiene que responder «✅ Converged».
+    Qué deberías ver: el asistente actualiza las pruebas de límites, las ejecuta (fallan), cambia la validación, las vuelve a ejecutar (pasan) y marca las tareas nuevas como `[X]`. Comprueba tú: `pytest` en verde; en la aplicación (si está arrancada con `--reload`, se recarga sola), una reserva para una fecha dentro de 45 días se acepta y una para dentro de 75 días se rechaza indicando que el máximo son 60 días. Un segundo `/speckit.converge` tiene que responder que todo converge («✅ Converged»).
 
     Fíjate en lo que acaba de pasar: has cambiado una frase en un documento en castellano, y el código, las pruebas y los mensajes de la aplicación han cambiado en consecuencia. La especificación es la fuente de verdad; el código es su consecuencia. Si comparas ahora tus ficheros con la solución canónica, los tuyos van un cambio por delante (allí el límite sigue siendo 4 horas): es lo esperado.
 
