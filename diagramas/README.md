@@ -39,7 +39,7 @@ Los ficheros se llaman como el diagrama del que salen, con un número al final s
 
 ## Cómo cambiar un diagrama
 
-Un diagrama es texto dentro de un bloque que empieza por ` ```mermaid `. Para cambiarlo, edita ese texto y comprueba el resultado en la vista previa de GitHub o pegándolo en el editor en línea de Mermaid (<https://mermaid.live>). Después hay que regenerar sus versiones en `svg/` y `png/`. Las reglas para que un diagrama no falle y cómo proponer el cambio están en [CONTRIBUIR.md](../CONTRIBUIR.md).
+Un diagrama es texto dentro de un bloque que empieza por ` ```mermaid `. Para cambiarlo, edita ese texto y comprueba el resultado en la vista previa de GitHub. Después hay que regenerar sus versiones en `svg/` y `png/`. Las reglas para que un diagrama no falle y cómo proponer el cambio están en [CONTRIBUIR.md](../CONTRIBUIR.md).
 
 ## Siguiente paso
 

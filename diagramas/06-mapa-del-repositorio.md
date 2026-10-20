@@ -2,7 +2,7 @@
 
 > **Para quién:** todos los perfiles (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~8 min · **Nivel:** 🟢 básico
 
-Este repositorio es el material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Tiene cinco ramas y unos cincuenta ficheros, pero nadie tiene que leerlos todos: cada perfil tiene su propio camino. Esta página es el plano del edificio: primero un mapa con todo lo que hay, después el itinerario de cada perfil y, al final, una tabla con cada fichero, de qué va, para quién es y cuánto se tarda. Si acabas de llegar, lo más cómodo es empezar por la [portada](../README.md), que tiene estos mismos itinerarios en forma de enlaces.
+Este repositorio es el material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Tiene cinco partes y unos cincuenta ficheros, pero nadie tiene que leerlos todos: cada perfil tiene su propio camino. Esta página es el plano del edificio: primero un mapa con todo lo que hay, después el itinerario de cada perfil y, al final, una tabla con cada fichero, de qué va, para quién es y cuánto se tarda. Si acabas de llegar, lo más cómodo es empezar por la [portada](../README.md), que tiene estos mismos itinerarios en forma de enlaces.
 
 **Qué vas a encontrar**
 
@@ -12,7 +12,7 @@ Este repositorio es el material de formación interno sobre SDD (*Spec-Driven De
 
 ## El repositorio de un vistazo
 
-El mapa mental muestra el repositorio entero: en el centro, su nombre; alrededor, cinco ramas (la raíz y las cuatro carpetas de contenido: `docs/`, `diagramas/`, `ejercicios/` y `charla/`), y dentro de cada rama sus ficheros con el nombre abreviado.
+El mapa mental muestra el repositorio entero: en el centro, su nombre; alrededor, cinco partes (la raíz y las cuatro carpetas de contenido: `docs/`, `diagramas/`, `ejercicios/` y `charla/`), y dentro de cada rama sus ficheros con el nombre abreviado.
 
 ```mermaid
 mindmap
@@ -72,7 +72,7 @@ Para no recargar el mapa no aparecen los índices: cada carpeta (también `plant
 
 Cada diagrama es un camino de lectura: empiezas por la izquierda y sigues las flechas. Cada recuadro dice de qué carpeta es (doc, diagrama, ejercicio o charla) y debajo tienes los enlaces en el mismo orden. Los tiempos son aproximados; los exactos están en la cabecera de cada fichero.
 
-### Manager o responsable de equipo (unas 2 horas)
+### Manager o responsable de equipo (unas 3 horas)
 
 Este camino te da lo justo para decidir si tu equipo prueba SDD y saber qué te va a pedir: el problema, la idea, tu papel y lo que suele salir mal.
 
@@ -83,11 +83,12 @@ flowchart LR
   c --> d["docs 08 y 09: buenas prácticas y preguntas frecuentes"]
   d --> e["ejercicio 01: tu primera especificación sin código"]
   e --> f["charla: el guion de 20 minutos"]
+  f --> g["ejercicio 04: la dinámica de 20 minutos, con tu equipo"]
 ```
 
 De izquierda a derecha: empiezas por [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md); los ves dibujados en [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) y [Flujo completo de SDD](02-flujo-completo-sdd.md); en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) encuentras tu papel, y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) y [Preguntas frecuentes](../docs/09-preguntas-frecuentes.md) te preparan para las dudas del equipo. Terminas escribiendo una especificación sin código en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y, si quieres contárselo a tu equipo, tienes el [guion de 20 minutos](../charla/guion-20-minutos.md).
 
-### RRHH y perfiles de negocio (unas 2 horas)
+### RRHH y perfiles de negocio (unas 3 horas)
 
 Si pides software o lo usas, este camino te enseña a escribir lo que necesitas de forma que no se pueda malinterpretar.
 
@@ -208,8 +209,8 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 
 ## En tres frases
 
-1. El repositorio tiene cinco ramas: la portada y la guía de contribución en la raíz, la teoría en `docs/`, los dibujos en `diagramas/`, la práctica en `ejercicios/` y el material para presentarlo en `charla/`.
-2. No hace falta leerlo todo: cada perfil tiene su itinerario, desde unas dos horas para managers, RRHH y negocio hasta varios días de práctica para quien programa, y los diagramas de esta página lo recorren paso a paso con sus enlaces.
+1. El repositorio tiene cinco partes: la portada y la guía de contribución en la raíz, la teoría en `docs/`, los dibujos en `diagramas/`, la práctica en `ejercicios/` y el material para presentarlo en `charla/`.
+2. No hace falta leerlo todo: cada perfil tiene su itinerario, desde unas tres horas para managers, RRHH y negocio hasta varios días de práctica para quien programa, y los diagramas de esta página lo recorren paso a paso con sus enlaces.
 3. Cuando dudes de qué fichero abrir, la tabla final te dice de qué va cada uno, para quién es y cuánto se tarda.
 
 ## Siguiente paso

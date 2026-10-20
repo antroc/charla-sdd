@@ -188,7 +188,7 @@ Si aun así falla, sospecha de la versión: Spec Kit cambia deprisa, y un error 
 
 Con algo pequeño, según tu perfil:
 
-- **Si no programas:** haz el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), la especificación de la «Solicitud de vacaciones», en 30 minutos y sin instalar nada.
+- **Si no programas:** haz el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), la especificación de la «Solicitud de vacaciones», en una hora u hora y media y sin instalar nada.
 - **Si programas:** prepara el entorno con la vía B del [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md) y recorre el flujo completo en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md).
 - **Si diriges un equipo:** lleva la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) a tu próxima reunión; no hace falta ningún ordenador.
 

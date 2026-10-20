@@ -129,7 +129,7 @@ Entre MIENTRAS y SI, fíjate en la duración. Una sala en mantenimiento es un es
 
 ## Reglas de oro
 
-Las plantillas evitan la mitad de los problemas. La otra mitad la evitan estas reglas.
+Las plantillas evitan muchos malentendidos; estas reglas, buena parte de los que quedan.
 
 1. **Un requisito, una frase, una cosa comprobable.** Si no puedes decir con un sí o un no si se cumple, no es un requisito. Y si la frase lleva «y además…», probablemente son dos. Matiz: una respuesta con dos partes que siempre van juntas (RF-003: «guardarla y mostrar un mensaje de confirmación») sigue siendo una cosa; dos respuestas que pueden fallar por separado, o con disparadores distintos, son dos requisitos.
 2. **El sujeto es «el sistema» y el verbo es «deberá».** Ni «debería», ni «podría», ni «intentará», ni «sería deseable». Tampoco «la persona deberá…»: eso es una norma para personas, no un requisito del sistema. Si quieres obligar a algo a la persona, escríbelo como lo que el sistema impide o exige.
@@ -233,7 +233,7 @@ Convierte estas tres frases en requisitos EARS. Escribe tu versión antes de abr
 
 ## Para seguir practicando
 
-- [Ejercicio 02: practicar requisitos EARS](../ejercicios/02-practicar-requisitos-ears.md): doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro mal escritos para cazar el error. Veinte minutos, sin ordenador.
+- [Ejercicio 02: practicar requisitos EARS](../ejercicios/02-practicar-requisitos-ears.md): doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro mal escritos para cazar el error. Media hora, sin ordenador.
 - [Diagrama 05: anatomía de un requisito EARS](../diagramas/05-anatomia-de-un-requisito-ears.md): las piezas de un requisito y el árbol de decisión «¿qué patrón uso?».
 - [Ejercicio 01: tu primera especificación sin código](../ejercicios/01-tu-primera-especificacion-sin-codigo.md): escribe los requisitos de Solicitud de vacaciones dentro de una especificación completa.
 - [Ejercicio 05: arreglar una especificación mala](../ejercicios/05-arreglar-una-especificacion-mala.md): una especificación de ReservaSalas escrita con prisa, para detectar requisitos vagos, con tecnología o con dos cosas.
@@ -250,7 +250,7 @@ Convierte estas tres frases en requisitos EARS. Escribe tu versión antes de abr
 
 ## Siguiente paso
 
-Continúa con [Roles: quién hace qué](06-roles-quien-hace-que.md), que explica quién escribe estos requisitos, quién los revisa y qué hace cada persona en cada paso del flujo. Si prefieres practicar antes, el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md) te lleva veinte minutos.
+Continúa con [Roles: quién hace qué](06-roles-quien-hace-que.md), que explica quién escribe estos requisitos, quién los revisa y qué hace cada persona en cada paso del flujo. Si prefieres practicar antes, el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md) te lleva media hora.
 
 ---
 

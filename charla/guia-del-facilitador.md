@@ -106,7 +106,7 @@ Lleva preparadas las fechas del próximo taller para la diapositiva de cierre: s
 
 **Variantes:**
 
-- **Grupo que empieza de cero:** cambia el ejercicio 05 por el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) (Solicitud de vacaciones, 30 minutos): escribir una especificación propia, completa y sin código prepara mejor que revisar una ajena cuando todavía no se ha escrito ninguna.
+- **Grupo que empieza de cero:** cambia el ejercicio 05 por el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) (Solicitud de vacaciones; en el taller, los pasos 1 a 5, y el resto en casa): escribir una especificación propia, completa y sin código prepara mejor que revisar una ajena cuando todavía no se ha escrito ninguna.
 - **Grupo técnico con el entorno instalado de antemano** (la vía B del [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md), con GitHub Spec Kit, la herramienta de GitHub para seguir SDD con un asistente de IA): sustituye los ejercicios 02 y 05 por la primera sesión del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), los pasos 0 a 7, hasta analizar. La implementación queda para una segunda sesión, como propone el propio ejercicio.
 - **En línea:** usa la variante en línea de la [dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes), con salas pequeñas y un documento compartido por grupo, y cuenta 25 minutos para ella en vez de 20: los cinco que faltan, quítalos de la apertura.
 

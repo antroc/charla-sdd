@@ -259,7 +259,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 
 | Síntoma | Causa | Cómo arreglarlo |
 |---|---|---|
-| Un grupo dibuja pantallas o discute dónde va el botón. | Han saltado al CÓMO. | «Botones no: ¿qué tiene que poder hacer la persona y por qué?» |
+| Un grupo dibuja pantallas o discute dónde va el botón. | Han saltado al **cómo**. | «Botones no: ¿qué tiene que poder hacer la persona y por qué?» |
 | Los grupos te preguntan «¿y esto cuenta?», «¿cuántas plazas hay?». | Quieren que decidas tú. | «Yo no soy quien lo pide. Apuntadlo en el apartado 3.» |
 | Todos los requisitos empiezan por «el usuario». | El sujeto es la persona, no el sistema. | Dar la vuelta a la frase: qué hace el sistema cuando la persona hace algo. |
 | Se van los cinco minutos y solo hay una historia. | Perfeccionismo en la P1. | Corta a tiempo: una P1 clara vale más que tres historias a medias. |

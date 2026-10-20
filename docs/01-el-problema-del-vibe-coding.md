@@ -144,7 +144,7 @@ Ninguna de las tres preguntas pide ver código. Las tres se responden con una es
 
 Es tentador sacar la conclusión equivocada: «los asistentes de IA no sirven para hacer software serio». No es eso. En la historia de ReservaSalas v0 el asistente hizo, cada vez, exactamente lo que se le pidió. El fallo estuvo en lo que no se le pidió.
 
-Lo que faltaba es lo que en cualquier otro encargo llamaríamos un contrato: un texto claro, que todas las partes pueden leer y aceptar, que dice qué se va a construir, para qué, con qué límites y cómo sabremos que está bien. Con un albañil se llama plano y presupuesto. Con un asistente de IA se llama especificación.
+Lo que faltaba es lo que en cualquier otro encargo llamaríamos un contrato: un texto claro, que todas las partes pueden leer y aceptar, que dice qué se va a construir, para qué, con qué límites y cómo sabremos que está bien. Con un albañil se llama plano. Con un asistente de IA se llama especificación.
 
 Esa es la idea del SDD, el desarrollo guiado por especificaciones: escribir primero ese contrato en lenguaje natural y dejar que el asistente trabaje a partir de él, en vez de a partir de frases sueltas. No elimina los errores (ningún método lo hace), pero convierte «salió así» en «lo decidimos así, y está escrito aquí».
 

@@ -11,9 +11,9 @@ No hace falta instalar nada para usarlas. Si trabajas con GitHub Spec Kit (la he
 | Plantilla | Para qué sirve | Quién la rellena | En qué paso del flujo |
 |---|---|---|---|
 | [constitucion.md](constitucion.md) | Los principios innegociables del proyecto: sencillez, pruebas, datos, accesibilidad… | Quien encarga el proyecto y quien lo construye, juntos | 0 · Constitución |
-| [especificacion.md](especificacion.md) | QUÉ queremos y POR QUÉ: historias priorizadas, requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), criterios de éxito, casos límite | Negocio (quien pide), con revisión de quien construye | 1 · Especificar |
+| [especificacion.md](especificacion.md) | **Qué** queremos y **por qué**: historias priorizadas, requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), criterios de éxito, casos límite | Negocio (quien pide), con revisión de quien construye | 1 · Especificar |
 | [lista-de-aclaraciones.md](lista-de-aclaraciones.md) | Registro de preguntas y respuestas que afinan la especificación | Pregunta quien construye (o el asistente de IA); responde quien encarga | 2 · Aclarar |
-| [plan-tecnico.md](plan-tecnico.md) | CÓMO lo haremos: tecnología, estructura, modelo de datos (qué información guarda el sistema), contratos (qué entra y qué sale en cada operación) y riesgos | Quien construye (con el asistente de IA); revisa alguien con experiencia técnica | 3 · Planificar |
+| [plan-tecnico.md](plan-tecnico.md) | **Cómo** lo haremos: tecnología, estructura, modelo de datos (qué información guarda el sistema), contratos (qué entra y qué sale en cada operación) y riesgos | Quien construye (con el asistente de IA); revisa alguien con experiencia técnica | 3 · Planificar |
 | [tareas.md](tareas.md) | Lista ordenada y troceada de trabajo, agrupada por historia de usuario | Quien construye (con el asistente de IA) | 4 · Trocear en tareas |
 | [lista-de-verificacion.md](lista-de-verificacion.md) | Preguntas de sí o no para comprobar la calidad de la especificación | Alguien que *no* la escribió: otra persona del equipo o negocio. Con Spec Kit, la lista automática la evalúa el asistente de IA; las listas por tema las marca quien revisa | 5 · Analizar (y antes, al revisar la especificación) |
 

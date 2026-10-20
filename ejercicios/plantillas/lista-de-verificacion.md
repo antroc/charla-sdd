@@ -21,7 +21,7 @@
 **Significado de las etiquetas:** al final de cada ítem, la primera palabra dice qué aspecto se revisa (Completitud: no falta nada · Claridad: se entiende de una sola forma · Coherencia: no se contradice · Medibilidad: se puede comprobar con un número o con un sí/no · Cobertura: todos los casos están tratados) y, cuando procede, el tipo de fallo que se busca ([Laguna] falta algo · [Ambigüedad] se entiende de dos formas · [Conflicto] dos partes se contradicen · [Supuesto] se da por hecho sin decirlo). Lo que va tras «Spec §» es la sección o el requisito donde mirar.
 
 ## Calidad del contenido
-<!-- Qué se escribe: ¿la especificación habla de QUÉ y POR QUÉ, y la entiende alguien de negocio? Para quién: cualquiera. Consejo: haz que la lea la persona menos técnica del equipo y pregúntale qué no ha entendido. -->
+<!-- Qué se escribe: ¿la especificación habla de qué y por qué, y la entiende alguien de negocio? Para quién: cualquiera. Consejo: haz que la lea la persona menos técnica del equipo y pregúntale qué no ha entendido. -->
 
 - [ ] CHK001 ¿La especificación está libre de tecnología: lenguajes, bases de datos, herramientas o nombres de API (la conexión entre dos programas)? [Completitud, Spec §toda]
 - [ ] CHK002 ¿Está centrada en lo que las personas necesitan y en el valor para la empresa, no en cómo se construye? [Claridad]

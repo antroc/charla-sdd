@@ -1,14 +1,14 @@
 # Plantilla: plan técnico
 
 > [!TIP]
-> Este fichero describe CÓMO vamos a construir lo que pide la especificación: tecnología, estructura, datos, contratos y riesgos. Lo escribe quien construye; negocio solo necesita leer el resumen y la comprobación contra la constitución. Copia este fichero junto a la especificación, renómbralo `plan.md`, rellena los corchetes y borra este aviso; el título pasa a ser `# Plan técnico: <nombre de la funcionalidad>`.
+> Este fichero describe **cómo** vamos a construir lo que pide la especificación: tecnología, estructura, datos, contratos y riesgos. Lo escribe quien construye; negocio solo necesita leer el resumen y la comprobación contra la constitución. Copia este fichero junto a la especificación, renómbralo `plan.md`, rellena los corchetes y borra este aviso; el título pasa a ser `# Plan técnico: <nombre de la funcionalidad>`.
 >
 > Con Spec Kit, `/speckit.plan` genera su equivalente (más `research.md`, `data-model.md`, `contracts/` y `quickstart.md`) a partir de la especificación y de la constitución. Esta plantilla sirve para trabajar sin herramientas o para revisar lo que el asistente de IA haya generado; aquí resumimos esos ficheros de apoyo en secciones de este mismo documento.
 >
 > Aquí sí se habla de tecnología. Pero cada decisión tiene que responder a algo que pide la especificación o la constitución; si no, sobra.
 
 <!--
-  Qué es: CÓMO vamos a construir lo que la especificación pide. Sale de la especificación, nunca al revés.
+  Qué es: Cómo vamos a construir lo que la especificación pide. Sale de la especificación, nunca al revés.
   Para quién: lo escribe quien construye (con el asistente de IA); lo revisa alguien con experiencia técnica. Negocio solo necesita leer el resumen y la comprobación contra la constitución.
   Consejo: si una sección no aplica, bórrala. Un plan corto que se lee entero vale más que uno largo que nadie abre.
 -->

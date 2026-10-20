@@ -5,7 +5,7 @@
 >
 > Con Spec Kit, `/speckit.specify` genera su equivalente a partir de tu descripción en lenguaje natural. Usa esta plantilla para trabajar sin herramientas o para revisar lo que el asistente de IA haya generado.
 >
-> Regla de oro: aquí se escribe QUÉ queremos y POR QUÉ. Nada de tecnología: si aparece «base de datos», «API» (la conexión entre dos programas) o el nombre de un lenguaje de programación, eso va al plan técnico.
+> Regla de oro: aquí se escribe **qué** queremos y **por qué**. Nada de tecnología: si aparece «base de datos», «API» (la conexión entre dos programas) o el nombre de un lenguaje de programación, eso va al plan técnico.
 
 <!--
   Qué es: el contrato entre quien pide el software y quien lo construye. Es la fuente de verdad: si el código no hace lo que dice aquí, se corrige el código (o se corrige esto y se regenera).

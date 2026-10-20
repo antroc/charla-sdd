@@ -1,8 +1,8 @@
 # Ejercicio 01: tu primera especificación sin código
 
-> **Para quién:** managers, RRHH y perfiles de negocio (y cualquiera que empiece con SDD) · **Tiempo de lectura:** ~10 min (hacerlo: 30 min) · **Nivel:** 🟢 básico
+> **Para quién:** managers, RRHH y perfiles de negocio (y cualquiera que empiece con SDD) · **Tiempo de lectura:** ~10 min (hacerlo: 60-90 min, en una o dos sesiones) · **Nivel:** 🟢 básico
 
-En este ejercicio vas a escribir una especificación completa sin una sola línea de código. La especificación es el documento central del SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): dice QUÉ queremos y POR QUÉ, en lenguaje natural, y de ella se derivan después el plan técnico, las tareas y el código. El caso es «Solicitud de vacaciones», un proceso que conoce todo el mundo, para que puedas concentrarte en el método y no en el problema.
+En este ejercicio vas a escribir una especificación completa sin una sola línea de código. La especificación es el documento central del SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): dice **qué** queremos y **por qué**, en lenguaje natural, y de ella se derivan después el plan técnico, las tareas y el código. El caso es «Solicitud de vacaciones», un proceso que conoce todo el mundo, para que puedas concentrarte en el método y no en el problema.
 
 **Qué vas a encontrar**
 
@@ -22,7 +22,7 @@ Al terminar sabrás rellenar las secciones de una especificación (historias de 
 
 ## Qué necesitas
 
-- **Tiempo:** 30 minutos (45 si haces la variante con asistente de IA).
+- **Tiempo:** entre 60 y 90 minutos la primera vez (algo más con la variante con asistente de IA). Puedes hacerlo en dos sesiones: los pasos 1 a 4 en la primera y los pasos 5 a 8 en la segunda.
 - **Requisitos previos:** ninguno. Ayuda haber leído [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), pero el ejercicio recuerda lo imprescindible.
 - **Materiales:** la plantilla [especificacion.md](plantillas/especificacion.md) y la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md), copiadas en un documento como se explica en la vía A del [ejercicio 00](00-preparacion-del-entorno.md). Si no has hecho el 00, basta con abrir las dos plantillas en GitHub con el botón «Raw», copiarlas y pegarlas en un documento o escribirlas en papel.
 - **Opcional:** un chat de IA autorizado por tu empresa, para la variante con asistente.
@@ -203,7 +203,7 @@ Si el asistente se desvía (propone bases de datos, reescribe todo, inventa requ
 
 | Síntoma | Causa | Cómo arreglarlo |
 |---|---|---|
-| El resumen o los requisitos hablan de «la base de datos», «la app móvil» o «el formulario web» | Has mezclado el QUÉ con el CÓMO | Quita la tecnología; describe lo que la persona consigue. Lo que has quitado puede valer para el plan técnico, no para la especificación |
+| El resumen o los requisitos hablan de «la base de datos», «la app móvil» o «el formulario web» | Has mezclado el **qué** con el **cómo** | Quita la tecnología; describe lo que la persona consigue. Lo que has quitado puede valer para el plan técnico, no para la especificación |
 | Un requisito dice «el sistema deberá ser fácil de usar» | Adjetivo vago sin cifra | Conviértelo en algo comprobable: «CE-001: pedir vacaciones lleva menos de 2 minutos» (criterio de éxito) o quítalo |
 | Un requisito dice «avisar a la manager y descontar los días y registrar la fecha» | Tres cosas en una frase | Divídelo en tres requisitos, cada uno con su número |
 | La P1 es «ver el saldo» | La historia P1 no resuelve el problema principal | La P1 es lo imprescindible: pedir días. Pregúntate: si solo hiciéramos esto, ¿ya serviría? |
@@ -223,7 +223,7 @@ Si el asistente se desvía (propone bases de datos, reescribe todo, inventa requ
 
 <details><summary>Ver respuestas</summary>
 
-1. Responde QUÉ queremos y POR QUÉ. El CÓMO (tecnología, arquitectura, de qué manera se guarda la información) va al plan técnico.
+1. Responde **qué** queremos y **por qué**. El **cómo** (tecnología, arquitectura, de qué manera se guarda la información) va al plan técnico.
 2. Es un comportamiento no deseado, así que patrón «SI…, ENTONCES…»: «SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan.»
 3. Porque la P1 tiene que valer por sí sola y resolver el problema principal: que las peticiones se pierdan por correo. Con solo «pedir días», las solicitudes ya quedan registradas y Marta puede decidir fuera del sistema; la aprobación dentro del sistema es la siguiente mejora, no la primera.
 4. Un número y una forma de medirlo. Por ejemplo: «El 100 % de las solicitudes aprobadas quedan registradas para RRHH sin copiarlas a mano», o «RRHH dedica menos de 1 hora al mes a cuadrar el saldo de vacaciones».
@@ -249,7 +249,7 @@ Si quieres ver una especificación con código detrás, la de ReservaSalas está
 
 ## En tres frases
 
-1. Una especificación dice QUÉ queremos y POR QUÉ, en lenguaje natural y sin tecnología; cualquiera puede escribirla, y en este ejercicio lo has hecho con «Solicitud de vacaciones».
+1. Una especificación dice **qué** queremos y **por qué**, en lenguaje natural y sin tecnología; cualquiera puede escribirla, y en este ejercicio lo has hecho con «Solicitud de vacaciones».
 2. Sus piezas son historias priorizadas con criterios Dado / Cuando / Entonces, casos límite, requisitos EARS numerados, criterios de éxito con cifra y aclaraciones que cambian el texto.
 3. La lista de verificación (y, si quieres, un asistente de IA que solo haga preguntas) sirve para encontrar los huecos antes de que alguien construya nada.
 

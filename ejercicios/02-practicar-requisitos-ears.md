@@ -1,6 +1,6 @@
 # Ejercicio 02: practicar requisitos EARS
 
-> **Para quién:** RRHH, perfiles de negocio, managers y programadores junior · **Tiempo de lectura:** ~5 min (hacerlo: 20 min) · **Nivel:** 🟢 básico
+> **Para quién:** RRHH, perfiles de negocio, managers y programadores junior · **Tiempo de lectura:** ~5 min (hacerlo: 30 min, con la comparación) · **Nivel:** 🟢 básico
 
 Doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro para cazar el error. Es el entrenamiento práctico de [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md): si no lo has leído, échale un vistazo antes (unos 12 minutos) o apóyate en la tabla del paso 1. No hace falta saber programar ni instalar nada.
 
@@ -22,7 +22,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 ## Qué necesitas
 
 - Haber leído [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md), o al menos tener a mano la tabla de patrones del paso 1.
-- Tiempo: unos 20 minutos (5 por cada bloque de frases, 5 para clasificar y cazar errores), más unos 10 al final para comparar con la solución.
+- Tiempo: unos 30 minutos: 20 para hacerlo (5 por cada bloque de frases y 5 para clasificar y cazar errores) y 10 para comparar con la solución.
 - Dónde escribir. Elige una vía:
   - **Vía A, sin instalar nada:** papel y bolígrafo, o un documento compartido. Es la vía recomendada para quien no programa y perfectamente válida para quien sí.
   - **Vía B, con un asistente de IA:** cualquier chat de IA genérico autorizado por la empresa. Lo usarás solo al final, para que revise lo que tú has escrito (paso 7). No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu criterio, y en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) verás cómo la herramienta genera estos requisitos y cómo los revisas tú.

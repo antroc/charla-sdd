@@ -22,7 +22,7 @@ En la forma habitual de pedir software, negocio participa dos veces: al principi
 
 Con SDD la traducción desaparece, o casi. La especificación (`spec.md`) está escrita en castellano, con historias de usuario, requisitos y criterios de éxito que cualquiera puede leer. Eso cambia tres cosas:
 
-- **Lo que negocio aprueba es lo que el asistente de IA construye.** No hay un documento técnico intermedio que negocio no entiende. Ana lee la especificación de ReservaSalas entera; el asistente lee exactamente la misma.
+- **Lo que negocio aprueba es lo que el asistente de IA usa para construir, y contra lo que se comprueba el resultado.** No hay un documento técnico intermedio que negocio no entiende. Ana lee la especificación de ReservaSalas entera; el asistente lee exactamente la misma.
 - **Las dudas se resuelven antes de construir, por escrito.** El paso de aclarar hace preguntas concretas («¿quién puede cancelar una reserva ajena?») y la respuesta queda en la especificación, no en un correo.
 - **Cuesta desaparecer sin que se note.** Cada paso tiene una persona que lidera y otra que revisa, y los artefactos dejan rastro de quién decidió qué.
 

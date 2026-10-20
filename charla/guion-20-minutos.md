@@ -21,13 +21,13 @@ Este es el guion de la charla «Pizza Day»: veinte minutos para presentar a tod
 
 ## Objetivo, público y materiales
 
-**Objetivo.** Que al salir cualquier persona sepa explicar en una frase qué es SDD, por qué evita los problemas de pedirle código a un asistente de IA sin nada escrito, y qué puede hacer ella desde mañana según su rol. Nadie tiene que salir sabiendo usar una herramienta: eso es cosa de los talleres.
+**Objetivo.** Que al salir cualquier persona sepa explicar en una frase qué es SDD, por qué reduce los problemas de pedirle código a un asistente de IA sin nada escrito, y qué puede hacer ella desde mañana según su rol. Nadie tiene que salir sabiendo usar una herramienta: eso es cosa de los talleres.
 
 **Público.** Toda la empresa a la vez, en una sala o en línea: managers, RRHH, perfiles de negocio y quien programa. La charla está pensada para quien no ha escrito nunca una línea de código; quien programa encontrará los detalles en el repositorio.
 
 **Quién presenta.** Una persona que haya leído [El problema del *vibe coding*](../docs/01-el-problema-del-vibe-coding.md), [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), y que haya hecho al menos una vez la [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md). No hace falta que programe. Si puedes, busca una segunda persona que lleve el tiempo y escriba en la pizarra durante el mini-ejercicio.
 
-**Materiales.** No hace falta preparar una presentación: la charla se da desde el propio repositorio, abierto en el navegador. Solo necesitas:
+**Materiales.** No hace falta preparar una presentación completa: la charla se da desde el propio repositorio, abierto en el navegador, con dos diapositivas sencillas cuyo texto está en este guion. Solo necesitas:
 
 - Un proyector o la pantalla compartida, con el navegador al 125-150 % de zoom para que se lea desde el fondo, y, como plan B por si falla la conexión, capturas de las pestañas de abajo.
 - Una pizarra, un rotafolio o un documento en blanco proyectado, para escribir lo que dicte la sala, y un cronómetro que veas tú (el móvil vale).
@@ -242,7 +242,7 @@ Para cada frase tienes la respuesta típica de la sala, que también es tu plan 
 
 > Si os quedáis con una sola frase, que sea esta: primero el qué y el porqué, por escrito; el código, lo último. *[Con la versión A del gancho: «El asistente de IA es el albañil más rápido del mundo; el plano lo ponemos nosotros».]*
 >
-> Mañana, una cosa cada uno. Si no programas, haz el ejercicio de la solicitud de vacaciones: media hora y sin instalar nada. Si diriges un equipo, lleva la dinámica de veinte minutos a tu próxima reunión. Si programas, prepara el entorno y recorre ReservaSalas de principio a fin.
+> Mañana, una cosa cada uno. Si no programas, haz el ejercicio de la solicitud de vacaciones: una hora larga y sin instalar nada. Si diriges un equipo, lleva la dinámica de veinte minutos a tu próxima reunión. Si programas, prepara el entorno y recorre ReservaSalas de principio a fin.
 >
 > Todo está en el repositorio, con una ruta de lectura para cada perfil. Y hay talleres: *[fecha y lugar del próximo taller de dos horas]* y *[fecha de la sesión práctica para quien programa]*. El enlace está en pantalla. ¿Preguntas?
 
@@ -252,13 +252,13 @@ Para cada frase tienes la respuesta típica de la sala, que también es tu plan 
 SDD: primero el qué y el porqué, por escrito. El código, lo último.
 
 Empieza mañana:
-  Si no programas       → ejercicio 01: Solicitud de vacaciones (30 min)
+  Si no programas       → ejercicio 01: Solicitud de vacaciones (60-90 min)
   Si diriges un equipo  → ejercicio 04: la dinámica de 20 minutos
   Si programas          → ejercicios 00 (entorno) y 03 (ReservaSalas)
 
 Rutas de lectura (con sus ejercicios):
-  Manager o responsable de equipo   docs 01, 02, 06, 08 y 09     unas 2 h
-  RRHH y perfiles de negocio        docs 01, 02, 05, 06 y 10     unas 2 h
+  Manager o responsable de equipo   docs 01, 02, 06, 08 y 09     unas 3 h
+  RRHH y perfiles de negocio        docs 01, 02, 05, 06 y 10     unas 3 h
   Programador junior                todos los docs y diagramas   10-12 h, en varios días
   Programador con experiencia       docs 02, 03, 04, 07 y 08     6-8 h
 

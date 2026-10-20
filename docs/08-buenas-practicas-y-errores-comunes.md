@@ -33,7 +33,7 @@ Están agrupadas por el momento del flujo en que más importan. Las seis primera
 
 **4. Criterios de éxito con cifra y sin tecnología.** «Que sea rápido» no se puede comprobar; «menos de 2 segundos» sí. Y el criterio describe lo que ve la persona, no cómo se consigue. Si no sabes cómo lo medirías, no es un criterio de éxito.
 
-*En ReservaSalas:* CE-001, reservar una sala lleva menos de 1 minuto; CE-002, cero reservas solapadas; CE-003, el 90 % de las personas completan una reserva sin ayuda la primera vez. *En la solicitud de vacaciones:* «que RRHH no pierda tiempo» se convierte en «registrar una solicitud aprobada lleva menos de 2 minutos».
+*En ReservaSalas:* CE-001, reservar una sala lleva menos de 1 minuto; CE-002, cero reservas solapadas; CE-003, el 90 % de las personas completan una reserva sin ayuda la primera vez. *En la solicitud de vacaciones:* «que RRHH no pierda tiempo» se convierte en «el 100 % de las solicitudes aprobadas quedan registradas para RRHH sin que nadie las copie a mano» (CE-002).
 
 **5. Un requisito, una frase, una cosa comprobable.** Redacta los requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos): el verbo «deberá», una palabra clave en mayúsculas cuando toca (CUANDO, MIENTRAS, SI/ENTONCES, DONDE) y nada de adjetivos vagos. Cómo hacerlo está en [Escribir requisitos claros (EARS)](05-escribir-requisitos-claros-ears.md).
 

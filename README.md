@@ -48,7 +48,7 @@ Lo bueno es que la especificación se escribe en lenguaje natural. Por eso negoc
 | 👩‍💻 Programo | [Qué es SDD](docs/02-que-es-sdd.md) | El [ejercicio 00](ejercicios/00-preparacion-del-entorno.md) para preparar el entorno y el [ejercicio 03](ejercicios/03-reserva-salas-paso-a-paso.md) para construir ReservaSalas |
 | 🎤 Voy a dar la charla o un taller | [La carpeta de la charla](charla/README.md) | El [guion de 20 minutos](charla/guion-20-minutos.md) y la [guía del facilitador](charla/guia-del-facilitador.md) |
 
-Si solo tienes cinco minutos, mira el [flujo completo de SDD](diagramas/02-flujo-completo-sdd.md): es el método entero en un dibujo.
+Si solo tienes cinco minutos, lee [SDD en un minuto](#sdd-en-un-minuto) y mira [*Vibe coding* frente a SDD](diagramas/01-vibe-coding-vs-sdd.md).
 
 ## Rutas de lectura por perfil
 
@@ -56,11 +56,11 @@ No hace falta leerlo todo. Cada perfil tiene su camino:
 
 | Perfil | Qué leer y hacer, en este orden | Tiempo |
 |---|---|---|
-| Manager o responsable de equipo | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → diagramas [01](diagramas/01-vibe-coding-vs-sdd.md) y [02](diagramas/02-flujo-completo-sdd.md) → doc [06](docs/06-roles-quien-hace-que.md) → docs [08](docs/08-buenas-practicas-y-errores-comunes.md) y [09](docs/09-preguntas-frecuentes.md) → [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) → [guion de la charla](charla/guion-20-minutos.md) | Unas 2 h |
-| RRHH o perfil de negocio | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → [diagrama 01](diagramas/01-vibe-coding-vs-sdd.md) → docs [05](docs/05-escribir-requisitos-claros-ears.md) y [06](docs/06-roles-quien-hace-que.md) → ejercicios [01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [02](ejercicios/02-practicar-requisitos-ears.md), con el [glosario](docs/10-glosario.md) a mano | Unas 2 h |
+| Manager o responsable de equipo | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → diagramas [01](diagramas/01-vibe-coding-vs-sdd.md) y [02](diagramas/02-flujo-completo-sdd.md) → doc [06](docs/06-roles-quien-hace-que.md) → docs [08](docs/08-buenas-practicas-y-errores-comunes.md) y [09](docs/09-preguntas-frecuentes.md) → [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) → [guion de la charla](charla/guion-20-minutos.md) → [dinámica de 20 minutos](ejercicios/04-dinamica-de-equipo-20-minutos.md) con tu equipo | Unas 3 h, en dos o tres ratos |
+| RRHH o perfil de negocio | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → [diagrama 01](diagramas/01-vibe-coding-vs-sdd.md) → docs [05](docs/05-escribir-requisitos-claros-ears.md) y [06](docs/06-roles-quien-hace-que.md) → ejercicios [01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [02](ejercicios/02-practicar-requisitos-ears.md), con el [glosario](docs/10-glosario.md) a mano | Unas 3 h, en dos o tres ratos |
 | Programador junior | Docs [01 a 10](docs/README.md) → diagramas [01 a 06](diagramas/README.md) → ejercicios [00](ejercicios/00-preparacion-del-entorno.md), [02](ejercicios/02-practicar-requisitos-ears.md), [03](ejercicios/03-reserva-salas-paso-a-paso.md), [05](ejercicios/05-arreglar-una-especificacion-mala.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 10-12 h, en varios días |
 | Programador con experiencia | Doc [02](docs/02-que-es-sdd.md) → docs [03](docs/03-el-flujo-paso-a-paso.md) y [04](docs/04-los-artefactos.md) → diagramas [02](diagramas/02-flujo-completo-sdd.md) y [03](diagramas/03-artefactos-y-relaciones.md) → docs [07](docs/07-herramientas.md) y [08](docs/08-buenas-practicas-y-errores-comunes.md) → ejercicios [03](ejercicios/03-reserva-salas-paso-a-paso.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 6-8 h |
-| Quien facilita la charla o un taller | [Carpeta de la charla](charla/README.md) → [guion](charla/guion-20-minutos.md) → [guía del facilitador](charla/guia-del-facilitador.md) → [ejercicio 04](ejercicios/04-dinamica-de-equipo-20-minutos.md) → [diagramas](diagramas/README.md) | Hora y media de preparación |
+| Quien facilita la charla o un taller | [Carpeta de la charla](charla/README.md) → [guion](charla/guion-20-minutos.md) → [guía del facilitador](charla/guia-del-facilitador.md) → [ejercicio 04](ejercicios/04-dinamica-de-equipo-20-minutos.md) → [diagramas](diagramas/README.md) | Unas 2 h de preparación la primera vez |
 
 Las mismas rutas, dibujadas paso a paso, están en el [mapa del repositorio](diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil).
 
@@ -112,8 +112,8 @@ Todos están también como imagen en [svg/](diagramas/svg/README.md) y [png/](di
 ### Ejercicios ([ejercicios/](ejercicios/README.md))
 
 0. [Preparación del entorno](ejercicios/00-preparacion-del-entorno.md): lo que necesitas, con o sin instalar nada.
-1. [Tu primera especificación sin código](ejercicios/01-tu-primera-especificacion-sin-codigo.md): la solicitud de vacaciones, con una plantilla (30 min).
-2. [Practicar requisitos EARS](ejercicios/02-practicar-requisitos-ears.md): de frases vagas a requisitos claros (20 min).
+1. [Tu primera especificación sin código](ejercicios/01-tu-primera-especificacion-sin-codigo.md): la solicitud de vacaciones, con una plantilla (60-90 min).
+2. [Practicar requisitos EARS](ejercicios/02-practicar-requisitos-ears.md): de frases vagas a requisitos claros (30 min).
 3. [ReservaSalas paso a paso con Spec Kit](ejercicios/03-reserva-salas-paso-a-paso.md): el flujo completo con una herramienta real (90-120 min).
 4. [Dinámica de equipo de 20 minutos](ejercicios/04-dinamica-de-equipo-20-minutos.md): en grupo y sin ordenador.
 5. [Arreglar una especificación mala](ejercicios/05-arreglar-una-especificacion-mala.md): encontrar los problemas y reescribirla (30-40 min).
@@ -142,6 +142,8 @@ Si algo no se entiende, falta un ejemplo o un comando ha cambiado, cuéntalo. Pu
 
 ## Sobre este material
 
-Es material interno de formación. Los ejemplos y sus personajes son ficticios: no metas nunca datos reales de clientes ni de personas de la plantilla en un asistente de IA que la empresa no haya autorizado.
+Es material interno de formación. Lo mantiene [equipo o persona responsable del material]; para dudas y propuestas, escribe a [buzón o canal de contacto]. Si no tienes cuenta en GitHub, pide a IT acceso de lectura al repositorio o pide al contacto las imágenes de los diagramas.
+
+Los ejemplos y sus personajes son ficticios: no metas nunca datos reales de clientes ni de personas de la plantilla en un asistente de IA que la empresa no haya autorizado.
 
 Las herramientas citadas pertenecen a sus autores y cambian a menudo, así que consulta siempre su documentación oficial: [GitHub Spec Kit](https://github.com/github/spec-kit) (con su [documentación](https://github.github.io/spec-kit/)) y [Kiro](https://kiro.dev). El formato de requisitos EARS (*Easy Approach to Requirements Syntax*) lo propusieron Alistair Mavin y otros autores en 2009.
