@@ -258,7 +258,7 @@ reserva-salas/
 
 ## Arranque rápido (quickstart.md)
 
-Requisitos: Python 3.12 (si tienes otra versión, instala esta con `uv python install 3.12`) y `uv` (o `pip`).
+Requisitos: Python 3.12 (si tu equipo tiene otra versión, instálala con `uv python install 3.12`) y `uv` (o `pip`).
 
 En Linux o macOS:
 
