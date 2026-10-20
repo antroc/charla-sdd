@@ -319,16 +319,16 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 
     Qué deberías ver: el asistente actualiza las pruebas de límites, las ejecuta (fallan), cambia la validación, las vuelve a ejecutar (pasan) y marca las tareas nuevas como `[X]`. Comprueba tú: `pytest` en verde; en la aplicación (si está arrancada con `--reload`, se recarga sola), una reserva para una fecha dentro de 45 días se acepta y una para dentro de 75 días se rechaza indicando que el máximo son 60 días. Un segundo `/speckit.converge` tiene que responder que todo converge («✅ Converged»).
 
-    Fíjate en lo que acaba de pasar: has cambiado una frase en un documento en castellano, y el código, las pruebas y los mensajes de la aplicación han cambiado en consecuencia. La especificación es la fuente de verdad; el código es su consecuencia. Si comparas ahora tus ficheros con la solución canónica, los tuyos van un cambio por delante (allí el límite sigue siendo 4 horas): es lo esperado.
+    Fíjate en lo que acaba de pasar: has cambiado una cifra en un documento en castellano, y el código, las pruebas y los mensajes de la aplicación han cambiado en consecuencia. La especificación es la fuente de verdad; el código es su consecuencia. Si comparas ahora tus ficheros con la solución canónica, los tuyos van un cambio por delante (allí la antelación máxima sigue siendo de 30 días): es lo esperado.
 
-    - [ ] He cambiado el límite en la especificación, no en el código; `converge` ha añadido las tareas, `implement` las ha hecho y la aplicación rechaza una reserva de 3 horas.
+    - [ ] He cambiado el límite de antelación en la especificación, no en el código; `converge` ha añadido las tareas, `implement` las ha hecho y la aplicación acepta una reserva a 45 días y rechaza una a 75.
 
 10. **Reflexiona y recoge.** Antes de cerrar, responde por escrito (dos líneas por pregunta bastan) en un fichero `docs/reflexion.md` dentro del proyecto o en tu cuaderno:
 
     - ¿Cuántas líneas de código has escrito tú? ¿Y cuántas has leído?
     - ¿Qué artefacto te costó más revisar? ¿En cuál detectaste un error antes de que llegara al código?
     - Si mañana Ana pide que administración pueda cancelar cualquier reserva con un motivo obligatorio, ¿qué fichero abres primero?
-    - ¿Qué habrías hecho distinto con *vibe coding* y cuánto habrías tardado en descubrir el error del límite de horas tres meses después?
+    - ¿Qué habrías hecho distinto con *vibe coding* y cuánto habrías tardado en descubrir, tres meses después, que el límite de antelación seguía en 30 días en algún rincón del código?
 
     Limpieza: para el servidor con `Ctrl+C`, desactiva el entorno con `deactivate`, y guarda el estado con `git add -A && git commit -m "ReservaSalas: flujo SDD completo"` si usas Git. No borres la carpeta: te servirá de referencia en el [ejercicio 06](06-reto-final-tu-propio-proyecto.md). Lo único que puedes borrar sin pena es el fichero de la base de datos (`reservasalas.db` en la solución), que se vuelve a crear al arrancar.
 
@@ -338,11 +338,11 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 
 | Síntoma | Causa | Cómo arreglarlo |
 |---|---|---|
-| Al ejecutar `/speckit.plan` o `/speckit.tasks`: «ERROR: Feature directory not found» o «Run /speckit.specify first» | No hay funcionalidad activa: no has ejecutado `/speckit.specify`, o el asistente está abierto en otra carpeta y no ve `.specify/feature.json` | Ejecuta `/speckit.specify` (paso 3) o abre el asistente dentro de `reserva-salas/`. Comprueba que `.specify/feature.json` apunta a `specs/001-…` |
+| Al ejecutar `/speckit.plan` o `/speckit.tasks`: «ERROR: Feature directory not found… run the specify command to create .specify/feature.json» | No hay funcionalidad activa: no has ejecutado `/speckit.specify`, o el asistente está abierto en otra carpeta y no ve `.specify/feature.json` | Ejecuta `/speckit.specify` (paso 3) o abre el asistente dentro de `reserva-salas/`. Comprueba que `.specify/feature.json` apunta a `specs/001-…` |
 | La especificación sale en inglés | El asistente ha seguido el idioma de la plantilla | Pídele: «Traduce spec.md al castellano manteniendo la estructura y los identificadores». En el *prompt* del paso 3 ya va la instrucción; no la recortes |
 | La especificación menciona Python, SQLite, API o «tabla» | Se coló tecnología en el *prompt* o el asistente la añadió por su cuenta | Pídele: «Quita de spec.md cualquier mención a tecnología; eso va en el plan». La primera comprobación de `checklists/requirements.md` vigila exactamente esto |
 | Los requisitos están como «System MUST…» y no en EARS | El asistente ha usado el formato de la plantilla original | Pásale la tabla de patrones de [EARS](../docs/05-escribir-requisitos-claros-ears.md) y pide que reescriba cada requisito con uno de los cinco patrones y el verbo «deberá» |
-| `/speckit.clarify` dice «No critical ambiguities detected» | La especificación cerró los huecos con supuestos | Comprueba «Supuestos» contra la tabla del paso 4; si no coincide, `/speckit.clarify alcance, permisos y avisos` |
+| `/speckit.clarify` dice que no detecta ambigüedades críticas («No critical ambiguities detected…») | La especificación cerró los huecos con supuestos | Comprueba «Supuestos» contra la tabla del paso 4; si no coincide, `/speckit.clarify alcance, permisos y avisos` |
 | `/speckit.clarify` pregunta por tecnología (base de datos, móvil) | Se ha salido de su papel | Responde: «Eso se decide en el plan técnico; siguiente pregunta» |
 | En `plan.md` queda «NEEDS CLARIFICATION» en el contexto técnico, o un principio aparece como incumplido sin justificar | Al *prompt* del paso 5 le faltaba un dato, o el asistente ha tomado una decisión que choca con la constitución | Repite `/speckit.plan` con el dato que falta. Para la desviación: «El plan incumple el principio N; cámbialo o justifícalo en el registro de complejidad» |
 | `tasks.md` no tiene tareas de pruebas | En Spec Kit las tareas de pruebas son opcionales: hay que pedirlas, y no todos los asistentes las deducen de la constitución | `/speckit.tasks Incluye las pruebas de cada historia antes de su implementación, como exige el principio 3 de la constitución` |
@@ -351,13 +351,13 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 | `uvicorn: command not found` | El entorno virtual no está activado o faltan las dependencias | `source .venv/bin/activate` (en Windows, `.venv\Scripts\activate`) y `uv pip install -e ".[dev]"` |
 | La aplicación rechaza todo o dice que no hay identidad | Falta la variable que simula el acceso corporativo en esa terminal (en la solución, `RESERVASALAS_USUARIO_DEV`; en tu proyecto puede llamarse distinto) | Mira el `README.md` o el `quickstart.md` de tu proyecto, define la variable y arranca de nuevo |
 | «Address already in use» al arrancar | Ya hay un servidor escuchando en el puerto 8000 | Páralo con `Ctrl+C` en su terminal, o arranca este en otro puerto: `uvicorn reservasalas.app:app --reload --port 8001` |
-| En el paso 9 el asistente ha cambiado el código directamente | Ha tomado el atajo | Deshaz el cambio (`git checkout -- .` si usas Git) y repite el *prompt*, que dice expresamente «no toques el código» |
+| En el paso 9 el asistente ha cambiado el código directamente | Ha tomado el atajo | Deshaz solo el cambio del código (con Git, `git checkout -- src tests`, o las carpetas de código de tu proyecto; sin Git, pídele al asistente que revierta únicamente el código) y repite el *prompt*, que dice expresamente «no toques el código» |
 | Ha aparecido `specs/002-…` | Has vuelto a ejecutar `/speckit.specify`: cada ejecución crea una funcionalidad nueva | Borra `specs/002-…`, deja `.specify/feature.json` apuntando a `specs/001-…` y edita la especificación existente como en el paso 9 |
 
 ## Comprueba lo que has aprendido
 
 1. ¿En qué fichero queda la especificación de ReservaSalas, quién decide el nombre de su carpeta y qué fichero le dice a Spec Kit cuál es la funcionalidad activa?
-2. Ana cambia de opinión: el máximo de antelación pasa de 30 a 15 días. ¿Qué fichero abres primero y qué comandos vienen después?
+2. Ana cambia de opinión: el horario de reservas pasa a terminar a las 21:00 en vez de a las 20:00. ¿Qué fichero abres primero y qué comandos vienen después?
 3. `/speckit.analyze` informa de que el requisito del correo de confirmación no tiene ninguna tarea. ¿Qué haces y qué no haces?
 4. ¿Por qué el *prompt* del paso 3 no menciona Python ni SQLite, y el del paso 5 sí?
 5. ¿Qué diferencia hay entre `/speckit.analyze` y `/speckit.converge`?
@@ -365,7 +365,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 <details><summary>Ver respuestas</summary>
 
 1. En `specs/001-reserva-salas/spec.md` (el nombre corto lo elige el asistente a partir de la descripción; el número es secuencial). La funcionalidad activa la marca `.specify/feature.json`, no una rama de Git.
-2. `spec.md`: cambias el límite en el requisito de límites, en el caso límite y en la aclaración. Después actualizas el plan y el modelo de datos si lo recogían, ejecutas `/speckit.converge` para que añada las tareas de convergencia y `/speckit.implement` para que las haga. Nunca empiezas por el código.
+2. `spec.md`: cambias el horario en el requisito de límites (RF-006), en el caso límite «Fuera del horario de oficina» y en el criterio de aceptación de la historia 1 que lo comprueba (la franja de 19:30 a 20:30 pasa a ser válida), y anotas la decisión en las aclaraciones. Después actualizas el plan y el modelo de datos si lo recogían, ejecutas `/speckit.converge` para que añada las tareas de convergencia y `/speckit.implement` para que las haga. Nunca empiezas por el código.
 3. Haces: responder «sí» a la propuesta de correcciones, revisarlas y pedir que añada la tarea a `tasks.md` (o repetir `/speckit.tasks` indicando qué falta), y volver a ejecutar `/speckit.analyze`. No haces: empezar a implementar con un requisito sin cubrir, ni quitar el requisito para que el informe salga limpio.
 4. Porque la especificación dice QUÉ y POR QUÉ, en lenguaje natural, para que Ana pueda leerla y aprobarla; la tecnología es el CÓMO y se decide en el plan, justificada contra la constitución. Si la tecnología entra en la especificación, negocio deja de poder revisarla y cualquier cambio técnico obliga a reescribirla.
 5. `/speckit.analyze` se ejecuta antes de escribir código y comprueba la coherencia entre especificación, plan, tareas y constitución; es solo lectura. `/speckit.converge` se ejecuta después de implementar y compara el código con esos ficheros; solo puede añadir tareas a `tasks.md`, nunca editar código ni los otros ficheros.
@@ -378,7 +378,7 @@ La carpeta [soluciones/03-reserva-salas/](soluciones/03-reserva-salas/README.md)
 
 ## En tres frases
 
-1. El flujo completo con Spec Kit es `init → constitution → specify → clarify → plan → tasks → analyze → implement → converge`: tú escribes principios, descripción, respuestas y tecnología; el asistente genera los artefactos y el código, y tú revisas cada uno antes de seguir.
+1. El flujo completo con Spec Kit es `init → constitution → specify → clarify → plan → tasks → analyze → implement → converge` (con `checklist`, opcional, justo después de `plan`): tú escribes principios, descripción, respuestas y tecnología; el asistente genera los artefactos y el código, y tú revisas cada uno antes de seguir.
 2. La especificación no lleva tecnología, el plan sí, y ambos se comprueban contra la constitución; `analyze` evita escribir código con incoherencias y `converge` evita dar por terminado lo que no cumple la especificación.
 3. Cuando Ana cambia de opinión, se cambia la especificación y se regenera: la especificación es la fuente de verdad y el código es su consecuencia.
 
