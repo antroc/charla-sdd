@@ -259,8 +259,8 @@ Empieza mañana:
 Rutas de lectura (con sus ejercicios):
   Manager o responsable de equipo   docs 01, 02, 06, 08 y 09     unas 2 h
   RRHH y perfiles de negocio        docs 01, 02, 05, 06 y 10     unas 2 h
-  Programador junior                todos los docs y diagramas   9-12 h, en varios días
-  Programador con experiencia       docs 02, 03, 04, 07 y 08     5-8 h
+  Programador junior                todos los docs y diagramas   10-12 h, en varios días
+  Programador con experiencia       docs 02, 03, 04, 07 y 08     6-8 h
 
 Repositorio:        [enlace al repositorio]
 Próximos talleres:  [fecha, lugar o enlace de inscripción]

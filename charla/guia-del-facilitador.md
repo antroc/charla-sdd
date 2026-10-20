@@ -140,7 +140,7 @@ El orden difiere un poco de la ruta del programador junior de los [itinerarios p
 ### En una sala
 
 - [ ] El proyector, probado con tu portátil; el navegador al 125-150 % de zoom y las pestañas abiertas en el orden del guion.
-- [ ] Un plan B sin conexión: capturas de los diagramas y de los fragmentos que vas a enseñar. Si tu copia del repositorio incluye las exportaciones de `diagramas/svg/` y `diagramas/png/`, úsalas para las diapositivas.
+- [ ] Un plan B sin conexión: capturas de los diagramas y de los fragmentos que vas a enseñar. Para las diapositivas tienes todos los diagramas exportados en [`diagramas/svg/`](../diagramas/svg/README.md) (PowerPoint, Keynote) y [`diagramas/png/`](../diagramas/png/README.md) (Google Slides).
 - [ ] Mesas separadas para grupos de 3 o 4 personas, con los perfiles ya mezclados, si vas a hacer la dinámica.
 - [ ] El material impreso: tarjetas y plantillas de la dinámica (con letra de ancho fijo), la especificación del ejercicio 05 si toca, y bolígrafos.
 - [ ] Una pizarra o un rotafolio para la caza de vaguedades, y un cronómetro visible.
