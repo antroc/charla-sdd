@@ -235,15 +235,15 @@ Si el asistente se desvía (propone bases de datos, reescribe todo, inventa requ
 
 La especificación completa está en [soluciones/01-solicitud-de-vacaciones/especificacion.md](soluciones/01-solicitud-de-vacaciones/especificacion.md). Es un ejemplo, no la única respuesta correcta: si la tuya toma otras decisiones (por ejemplo, que la manager pueda delegar la aprobación), es igual de válida mientras pase la lista de verificación.
 
-Para que puedas compararla paso a paso, la solución sigue exactamente la plantilla y este ejercicio:
+Para que puedas compararla paso a paso, la solución sigue la misma plantilla y el mismo orden que este ejercicio. Fíjate en:
 
-- Cabecera con carpeta `001-solicitud-vacaciones`, estado y petición original; «Resumen» de tres a cinco frases sin tecnología (paso 1) y la lista de los tres perfiles (paso 2).
-- Tres historias, en «Historias de usuario y escenarios»: HU1 Pedir días (P1), HU2 Aprobar o rechazar con motivo (P2) y HU3 Ver el saldo y las solicitudes (P3), cada una con recorrido, por qué, prueba independiente y entre dos y cuatro criterios Dado / Cuando / Entonces, incluido al menos uno de error (paso 3).
-- «Casos límite» con los tres obligatorios (más días de los disponibles, solapamiento con el equipo, fecha pasada) y al menos tres más (paso 4).
-- «Requisitos funcionales» RF-001 a RF-008 como mínimo, con los cinco patrones EARS representados, y «Entidades clave» con Solicitud, Persona y Saldo (paso 5).
+- La cabecera con la carpeta `001-solicitud-vacaciones`, el estado y la petición original; el «Resumen» sin tecnología (paso 1) y la lista de los tres perfiles (paso 2).
+- Las tres historias de «Historias de usuario y escenarios»: pedir días (P1), aprobar o rechazar con motivo (P2) y ver el saldo y las solicitudes (P3), cada una con recorrido, por qué, prueba independiente y criterios Dado / Cuando / Entonces, incluido alguno de error (paso 3).
+- «Casos límite» con los tres obligatorios (más días de los disponibles, solapamiento con el equipo, fecha pasada) y varios más (paso 4).
+- «Requisitos funcionales» numerados RF-001, RF-002… con los cinco patrones EARS representados, y «Entidades clave» con Solicitud, Persona y Saldo (paso 5).
 - «Resultados medibles» CE-001 a CE-003, cada uno con cifra y sin tecnología (paso 6).
-- «Aclaraciones» con una «Sesión» de cinco preguntas respondidas en formato `P: … → R: …`, con sus cambios aplicados en el texto, más «Supuestos» y «Fuera de alcance» (paso 7).
-- Una nota final que indica que pasa los 19 primeros puntos de la lista de verificación (paso 8).
+- «Aclaraciones» con una «Sesión» de preguntas respondidas en formato `P: … → R: …` y sus cambios aplicados en el texto, más «Supuestos» y «Fuera de alcance» (paso 7).
+- Pásale también tu lista de verificación: debería cumplir de CHK001 a CHK019 (paso 8).
 
 Si quieres ver una especificación con código detrás, la de ReservaSalas está en [soluciones/03-reserva-salas/spec.md](soluciones/03-reserva-salas/spec.md): mismas secciones, otro problema.
 
