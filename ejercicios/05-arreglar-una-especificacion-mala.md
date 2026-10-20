@@ -221,13 +221,13 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    - **RF-008**: …
    ```
 
-   Qué hacer con lo que no era un requisito: RF-1 (rápido, intuitivo) se convierte en criterios de éxito en el paso 4; la gestión de contraseñas de RF-2 desaparece (la constitución dice que se usa el acceso corporativo existente); RF-7 (anónimas) se convierte en su contrario, porque la constitución exige un responsable visible; RF-4, RF-6 y RF-10 se convierten en dos requisitos sin tecnología, uno para guardar la reserva y confirmarla en pantalla y otro para el correo, porque pueden fallar por separado (compara después con RF-003 y RF-011 del ejemplo).
+   Qué hacer con lo que no era un requisito: RF-1 (rápido, intuitivo) se convierte en criterios de éxito en el paso 4; la gestión de contraseñas de RF-2 desaparece (la constitución dice que se usa el acceso corporativo existente); RF-7 (anónimas) se convierte en su contrario, porque la constitución exige un responsable visible; RF-5 y RF-8 dicen lo que debe hacer la persona: dales la vuelta y di qué hace el sistema si la franja queda fuera del horario o dura más de 4 horas (compara después con RF-006 del ejemplo); RF-4, RF-6 y RF-10 se convierten en dos requisitos sin tecnología, uno para guardar la reserva y confirmarla en pantalla y otro para el correo, porque pueden fallar por separado (compara después con RF-003 y RF-011 del ejemplo).
 
-   Qué deberías ver: una lista limpia en la que cada requisito empieza por «El sistema deberá», «CUANDO», «MIENTRAS», «SI» o «DONDE», y en la que ya no aparecen PostgreSQL, SendGrid, «rápido», «podría» ni «el usuario deberá».
+   Qué deberías ver: una lista limpia en la que cada requisito empieza por «El sistema deberá», «CUANDO», «MIENTRAS», «SI» o «DONDE», y en la que ya no aparecen PostgreSQL, «API», «rápido», «podría» ni «el usuario deberá».
 
    - [ ] Tengo entre 10 y 12 requisitos en EARS, numerados sin huecos y sin tecnología.
 
-4. **Reescribe los criterios de éxito.** Sustituye CE-1 a CE-4 por al menos tres criterios con un número (tiempo, porcentaje o cantidad), que hablen de lo que ve o consigue una persona y no de cómo está construido el sistema. Un buen truco: coge cada criterio malo y pregúntate «¿cómo sabría dentro de tres meses si esto se ha cumplido?».
+4. **Reescribe los criterios de éxito.** Sustituye CE-1 a CE-4 por al menos tres criterios con un número (tiempo, porcentaje o cantidad), que hablen de lo que ve o consigue una persona y no de cómo está construido el sistema. Un buen truco: coge cada criterio malo y pregúntate «¿cómo sabría dentro de tres meses si esto se ha cumplido?». Las cifras las fija quien encarga el sistema, no quien revisa: como aquí no puedes preguntar a Ana, pon las que te parezcan razonables y anótalas como supuesto («cifra provisional, confirmar con Ana»); en el paso 7 verás las que fijó ella.
 
    ```markdown
    ### Resultados medibles
@@ -242,9 +242,9 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    - [ ] Tengo al menos tres criterios de éxito con cifra y sin tecnología.
 
-5. **Pasa la lista de verificación.** Copia la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md) y responde las preguntas CHK001 a CHK019 sobre tu versión (las CHK020 a CHK022 de la plantilla son ejemplos de una categoría propia; puedes dejarlas en blanco): los requisitos y criterios de éxito nuevos más la tabla de problemas del paso 2 (para las secciones que no has reescrito, como historias y casos límite, vale con que tu tabla diga cómo las arreglarías). Marca `[x]` solo lo que cumpla de verdad; cada «no» te manda de vuelta al paso 2 o al 3.
+5. **Pasa la lista de verificación.** Imprime o copia la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md) y responde las preguntas CHK001 a CHK019 sobre tu versión, es decir, sobre los requisitos y los criterios de éxito nuevos (las CHK020 a CHK022 de la plantilla son ejemplos de una categoría propia; déjalas en blanco). Marca `[x]` solo lo que cumpla de verdad. Las preguntas que hablan de secciones que no has reescrito (historias, casos límite, alcance y supuestos: CHK010 a CHK016 y CHK018) déjalas sin marcar y escribe en «Notas» qué habría que arreglar; tu tabla del paso 2 ya lo dice. Cada «no» sobre un requisito o un criterio de éxito te manda de vuelta al paso 3 o al 4 (y al 2, si descubres un problema que no habías apuntado).
 
-   Qué deberías ver: marcadas, como mínimo, CHK001 (sin tecnología), CHK005 (sin marcadores de aclaración pendientes), CHK006 a CHK009 (requisitos en EARS, una sola cosa, sin adjetivos, numerados), CHK017 (criterios de éxito medibles) y CHK019 (compatibles con la constitución). Es normal que CHK013 a CHK015 (historias con prioridad y criterios Dado/Cuando/Entonces) queden sin marcar si no has reescrito las historias: anótalo en «Notas» como trabajo pendiente.
+   Qué deberías ver: marcadas, como mínimo, CHK001 (sin tecnología), CHK005 (sin marcadores de aclaración pendientes), CHK006 a CHK009 (requisitos en EARS, una sola cosa, sin adjetivos sin cifra, numerados), CHK017 (criterios de éxito con número y sin tecnología) y CHK019 (compatibles con la constitución). Es normal que CHK013 a CHK015 (historias con prioridad, «por qué» y criterios Dado/Cuando/Entonces) queden sin marcar si no has reescrito las historias: con la nota de qué falta, el paso está hecho.
 
    - [ ] He pasado la lista y cada casilla sin marcar tiene una nota que dice qué falta.
 

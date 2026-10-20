@@ -20,16 +20,16 @@ Veinte minutos, grupos de tres o cuatro personas, una petición vaga por grupo y
 
 ## Objetivo
 
-Al terminar, cada participante habrá vivido en pequeño los tres primeros pasos del flujo SDD: especificar (historias y requisitos), aclarar (las preguntas que haría a quien pide) y revisar (detectar vaguedades en lo que han escrito otros). Y quien facilita sabrá dirigir la dinámica con un guion cerrado, en una sala o en línea, sin necesidad de saber programar.
+Al terminar, cada participante habrá vivido en pequeño dos pasos del flujo SDD, especificar (historias y requisitos) y aclarar (las preguntas que haría a quien pide), y la revisión que cierra toda especificación: detectar vaguedades en lo que han escrito otros. Y quien facilita sabrá dirigir la dinámica con un guion cerrado, en una sala o en línea, sin necesidad de saber programar.
 
 ## Qué necesitas
 
-- Entre 6 y 24 personas, en grupos de 3 o 4 (lo ideal son 4 a 6 grupos). Mezcla perfiles: en cada grupo, si puedes, alguien de negocio y alguien técnico.
+- Entre 6 y 24 personas, en grupos de 3 o 4: de 2 a 6 grupos (hay seis tarjetas, y en el paso 5 caben cinco o seis lecturas). Mezcla perfiles: en cada grupo, si puedes, alguien de negocio y alguien técnico. Con más de 24 personas, monta dos dinámicas en paralelo, cada una con quien la facilite.
 - Una persona que facilita. Puedes ser tú: no hace falta saber programar, solo seguir el [guion minuto a minuto](#guion-minuto-a-minuto-para-quien-facilita).
 - Una sala con mesas separadas, o una reunión en línea con salas pequeñas (ver [Variantes](#variantes)).
 - Impreso, de la sección [Materiales imprimibles](#materiales-imprimibles): una tarjeta de petición por grupo (recortada) y una plantilla de una página por grupo. Bolígrafos. Un cronómetro visible (el móvil vale).
 - Opcional: la tabla de patrones EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos) proyectada; está resumida en la propia plantilla.
-- Lo que no necesitas: ordenadores, Spec Kit ni asistentes de IA. Hay una variante opcional con un chat de IA al final, para después de la dinámica.
+- Lo que no necesitas: ordenadores, Spec Kit (la herramienta de los ejercicios con código) ni asistentes de IA. Hay una variante opcional con un chat de IA al final, para después de la dinámica.
 - Tiempo: 20 minutos de dinámica más 10 de preparación. Lectura previa recomendada para quien facilita: [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md). Para quien participa, ninguna.
 
 Este diagrama muestra los cinco bloques de tiempo y su orden.
