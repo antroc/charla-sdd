@@ -89,7 +89,9 @@ Elige una de las dos versiones. La reforma funciona mejor si la mayoría del pú
 >
 > La cuarta semana, Ana pregunta por qué no se puede reservar antes de las 09:00, si la oficina abre a las 08:00. Nadie lo decidió: el asistente supuso un horario «normal», y la conversación de aquella tarde ya no existe. Luis cambia de equipo, nadie se atreve a tocar la aplicación y Ana vuelve a la hoja de cálculo.
 >
-> Fijaos en que nada de esto es culpa de Luis ni del asistente. Faltaba un texto que dijera qué tenía que hacer la aplicación, y un sitio donde quedaran las decisiones. *[Señala la tabla.]* El primer día, el *vibe coding* gana: hay demo en una tarde. A los tres meses pierde, porque cada cambio obliga a releer código que nadie entiende. Para una prueba que se va a tirar no es malo; el problema es cuando esa prueba se convierte en la aplicación que usa todo el mundo.
+> Fijaos en que nada de esto es culpa de Luis ni del asistente. Faltaba un texto que dijera qué tenía que hacer la aplicación, y un sitio donde quedaran las decisiones.
+>
+> *[Señala la tabla.]* El primer día, el *vibe coding* gana: hay demo en una tarde. A los tres meses pierde, porque cada cambio obliga a releer código que nadie entiende. Para una prueba que se va a tirar no es malo; el problema es cuando esa prueba se convierte en la aplicación que usa todo el mundo.
 
 **Qué muestras:** pestaña 1, [`../diagramas/01-vibe-coding-vs-sdd.md`](../diagramas/01-vibe-coding-vs-sdd.md#los-dos-caminos-cara-a-cara), tabla «Los dos caminos, cara a cara». Señala solo dos filas: «Velocidad el primer día» y «Velocidad a los 3 meses».
 
@@ -107,7 +109,9 @@ Aquí presentas el método y sus cuatro documentos principales: la constitución
 >
 > Del 3 al 5 viene la parte técnica: planificar, que es decidir la tecnología y justificarla; trocear el plan en tareas pequeñas, y analizar, que es comprobar que todo cuadra con todo. El código solo aparece en el paso 6, implementar, y llega con cuatro documentos que explican qué debe hacer y por qué.
 >
-> Lo más importante son las flechas que vuelven hacia arriba. Si algo está mal, no se parchea el código: se corrige la especificación y se regenera lo afectado. Si mañana Ana decide que se puede reservar con 60 días de antelación en vez de 30, se cambia una frase del texto; nadie rebusca en el código. ¿Y es muy lento? Menos de lo que parece: en nuestra experiencia, una funcionalidad pequeña como esta recorre los siete pasos en uno o dos días.
+> Lo más importante son las flechas que vuelven hacia arriba. Si algo está mal, no se parchea el código: se corrige la especificación y se regenera lo afectado. Si mañana Ana decide que se puede reservar con 60 días de antelación en vez de 30, se cambia una frase del texto; nadie rebusca en el código.
+>
+> ¿Y es muy lento? Menos de lo que parece: en nuestra experiencia, una funcionalidad pequeña como esta recorre los siete pasos en uno o dos días.
 
 **Qué muestras:** pestaña 2, [`../diagramas/02-flujo-completo-sdd.md`](../diagramas/02-flujo-completo-sdd.md#los-siete-pasos-y-sus-artefactos). Recorre los pasos (nodos azules) de arriba abajo, señala los ficheros (nodos amarillos) sin leerlos y termina en las flechas de vuelta. Los iconos dicen quién participa: 👤 negocio, 👩‍💻 quien programa, 🤖 el asistente de IA. Si alguien pregunta por las flechas, la tabla [«Los tres bucles de vuelta»](../diagramas/02-flujo-completo-sdd.md#los-tres-bucles-de-vuelta) las explica una a una.
 
@@ -121,14 +125,13 @@ Aquí enseñas dos ficheros reales del ejemplo resuelto: la especificación (`sp
 
 > Esta es la especificación real de ReservaSalas. Arriba está la petición de Ana, con sus palabras. Lo primero que os pido es que os fijéis en lo que no hay: ni una línea de código. Cualquiera de esta sala puede leerla y decir «esto está mal».
 >
-> Historia de usuario 1, reservar una sala, prioridad P1. Criterio 3: «Dado que Mediterráneo ya está reservada el jueves de 10:30 a 11:30, cuando Marta intenta reservarla de 10:00 a 11:00, entonces el sistema rechaza la reserva e indica que la sala está ocupada». ¿Os suena? Es el choque del lunes, escrito antes de que ocurra.
+> Historia de usuario 1, reservar una sala, prioridad P1. Criterio 3: «Dado que Mediterráneo ya está reservada el jueves de 10:30 a 11:30, cuando Marta intenta reservarla de 10:00 a 11:00, entonces el sistema rechaza la reserva e indica que la sala está ocupada de 10:30 a 11:30». ¿Os suena? Es el choque del lunes, escrito antes de que ocurra.
 >
 > Un poco más abajo está el mismo caso como requisito, el RF-005. Y los criterios de éxito, con cifras: reservar lleva menos de un minuto; cero reservas solapadas. Son de Ana, no del equipo técnico.
 >
 > Y esta es la lista de tareas, lo que sale del plan: tareas pequeñas, cada una con el fichero que toca y el requisito que cumple. Fijaos en el orden: primero se escriben las pruebas, que tienen que fallar, y después se programa. La T013 prueba justo el RF-005. Del choque del lunes a una prueba automática hay un hilo que cualquiera puede seguir.
 
 **Qué muestras:**
-
 1. Pestaña 3, [`../ejercicios/soluciones/03-reserva-salas/spec.md`](../ejercicios/soluciones/03-reserva-salas/spec.md): la «Petición original» de arriba; después la [historia de usuario 1](../ejercicios/soluciones/03-reserva-salas/spec.md#historia-de-usuario-1--reservar-una-sala-prioridad-p1), criterio 3; después los [requisitos funcionales](../ejercicios/soluciones/03-reserva-salas/spec.md#requisitos-funcionales-functional-requirements), RF-005, y los [resultados medibles](../ejercicios/soluciones/03-reserva-salas/spec.md#resultados-medibles-measurable-outcomes), CE-001 y CE-002.
 2. Pestaña 4, [`../ejercicios/soluciones/03-reserva-salas/tasks.md`](../ejercicios/soluciones/03-reserva-salas/tasks.md#fase-3-historia-de-usuario-1--reservar-una-sala-prioridad-p1--mvp), fase 3: la tarea T013 (pruebas) y la T020 (implementación).
 
@@ -183,24 +186,24 @@ Plantillas EARS (el sujeto es siempre el sistema; el verbo, «deberá»):
 >
 > Para cada frase, que alguien me dicte un requisito con una de las plantillas; lo escribo tal cual. El resto tiene veinte segundos para cazarle una vaguedad: un adjetivo sin cifra, dos cosas en una frase, una tecnología colada o un sujeto que es la persona y no el sistema.
 
-Para cada frase tienes la respuesta típica de la sala (que también es tu plan B: si en cinco segundos nadie se anima, díctala tú y pide que la cacen), las vaguedades que deberían salir y la versión de referencia, con el patrón de la tabla de [Escribir requisitos claros](../docs/05-escribir-requisitos-claros-ears.md#los-cinco-patrones-y-el-sexto).
+Para cada frase tienes la respuesta típica de la sala, que también es tu plan B (si en cinco segundos nadie se anima, díctala tú y pide que la cacen), las vaguedades que deberían salir y la versión de referencia con su patrón.
 
-**Minuto 12-13. Frase 1: «que se vea qué plazas hay».**
+**Minutos 12-13. Frase 1: «que se vea qué plazas hay».**
 - Respuesta típica: «El usuario deberá poder ver las plazas de forma rápida».
 - Vaguedades: el sujeto es la persona, no el sistema; «de forma rápida» es un adjetivo sin cifra; no dice qué plazas (¿las libres?, ¿de qué día?).
 - Referencia (ubicuo): «El sistema deberá mostrar las plazas libres de cada día con su número y su planta».
 
-**Minuto 13-14. Frase 2: «que no se pueda coger una plaza ocupada».**
+**Minutos 13-14. Frase 2: «que no se pueda coger una plaza ocupada».**
 - Respuesta típica: «SI la plaza está ocupada, ENTONCES el usuario no podrá cogerla».
 - Vaguedades: otra vez el sujeto es la persona; no dice qué hace el sistema (¿rechaza?, ¿avisa?, ¿de quién es la plaza?), ni ocupada cuándo.
 - Referencia (comportamiento no deseado): «SI la plaza elegida ya está reservada ese día, ENTONCES el sistema deberá rechazar la reserva e indicar quién la tiene». Si la respuesta del sistema es rechazar, casi siempre es un SI.
 
-**Minuto 14-15. Frase 3: «que Oficina pueda bloquear plazas».**
+**Minutos 14-15. Frase 3: «que Oficina pueda bloquear plazas».**
 - Respuesta típica: «DONDE la persona sea de Oficina, el sistema deberá permitir bloquear plazas para que nadie pueda reservarlas».
 - Vaguedades: dos cosas en una frase (quién puede bloquear y qué le pasa a una plaza bloqueada); «bloquear», ¿para siempre o un tiempo?
 - Referencia: dos requisitos. Opcional: «DONDE la persona tenga permisos de Oficina, el sistema deberá permitir marcar una plaza como no disponible». Por estado: «MIENTRAS una plaza esté marcada como no disponible, el sistema deberá impedir reservarla».
 
-**Minuto 15-16. Cierre del ejercicio.** Proyecta las versiones de referencia (o escríbelas debajo de las de la sala) y cierra con la idea de la dinámica:
+**Minutos 15-16. Cierre del ejercicio.** Proyecta las versiones de referencia (o escríbelas debajo de las de la sala) y cierra con la idea de la dinámica:
 
 ```text
 1   El sistema deberá mostrar las plazas libres de cada día con su número
@@ -225,7 +228,7 @@ Para cada frase tienes la respuesta típica de la sala (que también es tu plan 
 >
 > Si encargas algo, como Ana, lideras los tres primeros pasos: dictas los principios, describes qué quieres y por qué, y respondes a las aclaraciones; en ReservaSalas fue una reunión de quince minutos. Al final pruebas la aplicación con la especificación en la mano. Sin leer código ni instalar nada.
 >
-> Si diriges un equipo que la va a usar, como Marta, aportas el uso real: qué es «rápido» para ti y qué te molesta hoy. Si eres de RRHH o de negocio, como Jorge, sabes qué datos de las personas se pueden guardar y cuáles no, y puedes escribir tú la especificación de un proceso de tu área, como una solicitud de vacaciones.
+> Si diriges un equipo que va a usar la aplicación, como Marta, aportas el uso real: qué es «rápido» para ti y qué te molesta hoy. Si eres de RRHH o de negocio, como Jorge, sabes qué datos de las personas se pueden guardar y cuáles no, y puedes escribir tú la especificación de un proceso de tu área, como una solicitud de vacaciones.
 >
 > Si programas, como Luis, vas a teclear menos y a decidir y revisar más: eliges la tecnología y la justificas, compruebas que cada requisito tiene su tarea y, cuando algo falla, corriges la especificación, no el código. Y el asistente de IA redacta, pregunta y ejecuta, pero no lidera ningún paso ni aprueba nada.
 

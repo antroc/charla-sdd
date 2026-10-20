@@ -2,7 +2,7 @@
 
 > **Para quién:** quien va a formar a un equipo con este repositorio: managers, RRHH, responsables de formación o cualquier persona que facilite (no hace falta programar) · **Tiempo de lectura:** ~15 min · **Nivel:** 🟢 básico
 
-Esta guía explica cómo usar el repositorio para enseñar a un equipo SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): escribir primero qué se quiere y por qué, en vez de recurrir al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). Hay tres formatos, una charla de 20 minutos, un taller de 2 horas y un itinerario de autoformación de 2 semanas, y para cada uno tienes la agenda y los ficheros de cada tramo.
+Esta guía explica cómo usar el repositorio para enseñar a un equipo SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): escribir primero qué se quiere y por qué, en vez de recurrir al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). Hay tres formatos (una charla de 20 minutos, un taller de 2 horas y un itinerario de autoformación de 2 semanas) y, para cada uno, tienes la agenda y los ficheros de cada tramo.
 
 **Qué vas a encontrar**
 
@@ -31,8 +31,10 @@ El repositorio se puede leer a solas, pero se aprende más en grupo y practicand
 Tres reglas que valen para cualquier formato:
 
 - **Practicar antes que explicar.** En el taller, más de dos tercios del tiempo son ejercicios. Si dudas entre explicar algo o dejar que lo descubran haciendo, elige lo segundo.
-- **Un solo ejemplo.** Todo el material usa ReservaSalas, la aplicación interna para reservar salas de reuniones, y la Solicitud de vacaciones para lo que no lleva código. Los documentos resueltos de ReservaSalas, de la constitución (`constitution.md`) y la especificación (`spec.md`) al plan técnico (`plan.md`) y la lista de tareas (`tasks.md`), están en la [solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md). No cambies de ejemplo a mitad: la gente aprende el método porque ya conoce el caso.
+- **Un solo ejemplo.** Todo el material usa ReservaSalas, la aplicación interna para reservar salas de reuniones, y la Solicitud de vacaciones para lo que no lleva código. No cambies de ejemplo a mitad: la gente aprende el método porque ya conoce el caso.
 - **Datos ficticios siempre.** Ni nombres de clientes ni datos de empleados en los ejercicios. Si usas un problema real del equipo, quítale antes los nombres y los datos.
+
+Los artefactos que enseñarás están resueltos en la [solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md): la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`) y la lista de tareas (`tasks.md`) de ReservaSalas.
 
 Antes de facilitar por primera vez, recorre el [itinerario de quien facilita](../diagramas/06-mapa-del-repositorio.md#facilitador-de-la-charla-o-del-taller): esta carpeta, la [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) y los seis diagramas. Y haz tú los ejercicios que vayas a dirigir: es la única forma de saber dónde se atasca la gente.
 
@@ -104,7 +106,7 @@ Lleva preparadas las fechas del próximo taller para la diapositiva de cierre: s
 
 **Variantes:**
 
-- **Grupo que empieza de cero:** cambia el ejercicio 05 por el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) (Solicitud de vacaciones, 30 minutos), para escribir una especificación completa sin código antes de revisar una ajena.
+- **Grupo que empieza de cero:** cambia el ejercicio 05 por el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) (Solicitud de vacaciones, 30 minutos): escribir una especificación propia, completa y sin código prepara mejor que revisar una ajena cuando todavía no se ha escrito ninguna.
 - **Grupo técnico con el entorno instalado de antemano** (la vía B del [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md), con GitHub Spec Kit, la herramienta de GitHub para seguir SDD con un asistente de IA): sustituye los ejercicios 02 y 05 por la primera sesión del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), los pasos 0 a 7, hasta analizar. La implementación queda para una segunda sesión, como propone el propio ejercicio.
 - **En línea:** usa la variante en línea de la [dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes), con salas pequeñas y un documento compartido por grupo, y cuenta 25 minutos para ella en vez de 20; quítalos de la apertura.
 

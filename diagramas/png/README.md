@@ -22,8 +22,8 @@ Se generan automáticamente a partir de los ficheros de [diagramas/](../README.m
 | [06-mapa-del-repositorio-1.png](06-mapa-del-repositorio-1.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [El repositorio de un vistazo](../06-mapa-del-repositorio.md#el-repositorio-de-un-vistazo) |
 | [06-mapa-del-repositorio-2.png](06-mapa-del-repositorio-2.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Manager o responsable de equipo (unas 2 horas)](../06-mapa-del-repositorio.md#manager-o-responsable-de-equipo-unas-2-horas) |
 | [06-mapa-del-repositorio-3.png](06-mapa-del-repositorio-3.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [RRHH y perfiles de negocio (unas 2 horas)](../06-mapa-del-repositorio.md#rrhh-y-perfiles-de-negocio-unas-2-horas) |
-| [06-mapa-del-repositorio-4.png](06-mapa-del-repositorio-4.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Programador junior (9-12 horas, en varios días)](../06-mapa-del-repositorio.md#programador-junior-9-12-horas-en-varios-días) |
-| [06-mapa-del-repositorio-5.png](06-mapa-del-repositorio-5.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Programador con experiencia (5-8 horas)](../06-mapa-del-repositorio.md#programador-con-experiencia-5-8-horas) |
+| [06-mapa-del-repositorio-4.png](06-mapa-del-repositorio-4.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Programador junior (10-12 horas, en varios días)](../06-mapa-del-repositorio.md#programador-junior-10-12-horas-en-varios-días) |
+| [06-mapa-del-repositorio-5.png](06-mapa-del-repositorio-5.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Programador con experiencia (6-8 horas)](../06-mapa-del-repositorio.md#programador-con-experiencia-6-8-horas) |
 | [06-mapa-del-repositorio-6.png](06-mapa-del-repositorio-6.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Facilitador de la charla o del taller](../06-mapa-del-repositorio.md#facilitador-de-la-charla-o-del-taller) |
 
 ---
