@@ -6,7 +6,7 @@ Cuando alguien oye hablar por primera vez de SDD (*Spec-Driven Development*, des
 
 Iconos que usamos: 👤 negocio (quien encarga o usa la aplicación), 👩‍💻 quien programa, 🤖 asistente de IA. Cuando decimos QA nos referimos al control de calidad: la persona o el equipo que prueba que la aplicación hace lo que debe.
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Pasos 0 a 2: pensar, lidera negocio](#pasos-0-a-2-pensar-lidera-negocio)
 - [Pasos 3 a 6: construir, lidera quien programa](#pasos-3-a-6-construir-lidera-quien-programa)

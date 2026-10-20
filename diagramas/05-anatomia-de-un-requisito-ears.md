@@ -6,7 +6,7 @@ En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) la es
 
 Esta página desmonta un requisito real de ReservaSalas pieza a pieza y te da un árbol de decisión (una cadena de preguntas que se responden con sí o no) para elegir el patrón. La explicación completa, con reglas y ejemplos «antes → después», está en [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md).
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Las piezas de un requisito](#las-piezas-de-un-requisito)
 - [¿Qué patrón EARS uso?](#qué-patrón-ears-uso)

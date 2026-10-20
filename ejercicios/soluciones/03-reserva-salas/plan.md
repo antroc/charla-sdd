@@ -7,7 +7,7 @@
 
 **Entrada (instrucción de Luis):** «Aplicación web sencilla con Python 3.12 y FastAPI, base de datos SQLite y páginas HTML con plantillas Jinja2. Pruebas con pytest. Sin frontend complejo: nada de frameworks de JavaScript».
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Resumen](#resumen-summary)
 - [Contexto técnico](#contexto-técnico-technical-context)

@@ -6,7 +6,7 @@ Este documento reúne las dudas que más se repiten cuando alguien oye hablar po
 
 Las respuestas son cortas a propósito. Cada una termina con un enlace al documento, diagrama o ejercicio donde el tema se explica con calma. Los ejemplos son los de siempre: ReservaSalas, la aplicación para reservar las 12 salas de reuniones de la empresa, y la «Solicitud de vacaciones». Si una palabra no te suena, búscala en el [glosario](10-glosario.md).
 
-## Qué vas a encontrar
+**Qué vas a encontrar**
 
 - [Para managers](#para-managers): si es más lento, quién responde cuando algo falla y cómo encaja con lo que ya hace tu equipo.
 - [Para negocio y RRHH](#para-negocio-y-rrhh): si hace falta saber programar, qué te va a tocar hacer y si sirve para procesos sin código.

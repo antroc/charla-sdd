@@ -6,7 +6,7 @@ En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) cada 
 
 Aquí vemos cada uno por dentro: para qué sirve, quién lo escribe y quién lo revisa, qué secciones tiene, un extracto real del ejemplo ReservaSalas y los errores más típicos. Si quieres saber en qué momento del flujo aparece cada uno, eso está en [El flujo paso a paso](03-el-flujo-paso-a-paso.md).
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Cómo se relacionan](#cómo-se-relacionan)
 - [Dónde viven en un proyecto](#dónde-viven-en-un-proyecto)

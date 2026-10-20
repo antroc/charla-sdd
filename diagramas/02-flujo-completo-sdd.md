@@ -2,13 +2,13 @@
 
 > **Para quién:** programadores junior, managers y cualquier persona que quiera ver el proceso entero de un vistazo · **Tiempo de lectura:** ~10 min · **Nivel:** 🟡 intermedio
 
-**Qué vas a encontrar:**
+Este es el diagrama principal del repositorio: el flujo de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con sus siete pasos, numerados del 0 al 6, los ficheros que van saliendo por el camino y quién participa. Frente al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), aquí el código es lo último que aparece.
+
+**Qué vas a encontrar**
 
 - [Los siete pasos y sus artefactos](#los-siete-pasos-y-sus-artefactos)
 - [Los tres bucles de vuelta](#los-tres-bucles-de-vuelta)
 - [Una historia de ReservaSalas, paso a paso](#una-historia-de-reservasalas-paso-a-paso)
-
-Este es el diagrama principal del repositorio: el flujo de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con sus siete pasos, numerados del 0 al 6, los ficheros que van saliendo por el camino y quién participa. Frente al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), aquí el código es lo último que aparece.
 
 Los iconos de los nodos indican quién participa en cada paso:
 

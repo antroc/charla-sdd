@@ -4,7 +4,7 @@
 
 El SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) produce un puñado de documentos, los **artefactos**, y cada uno se alimenta de los anteriores. Este diagrama muestra el mapa: qué artefactos hay, en qué fichero vive cada uno y qué flecha une a cada uno con los demás. Lo que contiene cada artefacto por dentro lo cuenta [Los artefactos](../docs/04-los-artefactos.md); los pasos del flujo, [el diagrama anterior](02-flujo-completo-sdd.md).
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Cómo se alimentan los artefactos](#cómo-se-alimentan-los-artefactos)
 - [Un requisito, de principio a fin](#un-requisito-de-principio-a-fin)
@@ -13,7 +13,7 @@ El SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) produ
 
 ## Cómo se alimentan los artefactos
 
-El diagrama muestra los seis artefactos de SDD (constitución, especificación, aclaraciones, lista de verificación, plan técnico y lista de tareas), el informe de análisis (que no deja fichero) y el código que sale de todo ello, con las relaciones entre ellos: las flechas continuas significan «fija las reglas de», «se convierte en» o «produce»; las discontinuas, «comprueba» o «corrige».
+El diagrama muestra los cinco artefactos de SDD (constitución, especificación, lista de verificación, plan técnico y lista de tareas) más el registro de aclaraciones, el informe de análisis (que no deja fichero) y el código que sale de todo ello, con las relaciones entre ellos: las flechas continuas significan «fija las reglas de», «se convierte en» o «produce»; las discontinuas, «comprueba» o «corrige».
 
 ```mermaid
 flowchart TD

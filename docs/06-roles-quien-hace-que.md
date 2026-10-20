@@ -6,7 +6,7 @@ Cuando alguien oye hablar de SDD (*Spec-Driven Development*, desarrollo guiado p
 
 Este documento recorre el flujo rol a rol con ReservaSalas: Ana (responsable de Oficina) encarga la aplicación, Luis (programador junior) la construye con un asistente de IA, Marta (manager) y Jorge (RRHH) la usarán, y un programador senior y QA (la persona o el equipo de calidad y pruebas) revisan. Los siete pasos del flujo están explicados en [El flujo paso a paso](03-el-flujo-paso-a-paso.md); aquí solo importa quién hace qué en cada uno.
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Negocio entra desde el principio](#negocio-entra-desde-el-principio)
 - [Quién hace qué en cada paso](#quién-hace-qué-en-cada-paso)

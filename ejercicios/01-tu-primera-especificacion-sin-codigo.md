@@ -23,7 +23,7 @@ Al terminar sabrás rellenar las secciones de una especificación (historias de 
 ## Qué necesitas
 
 - **Tiempo:** 30 minutos (45 si haces la variante con asistente de IA).
-- **Requisitos previos:** ninguno. Ayuda haber leído [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md), pero el ejercicio recuerda lo imprescindible.
+- **Requisitos previos:** ninguno. Ayuda haber leído [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), pero el ejercicio recuerda lo imprescindible.
 - **Materiales:** la plantilla [especificacion.md](plantillas/especificacion.md) y la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md), copiadas en un documento como se explica en la vía A del [ejercicio 00](00-preparacion-del-entorno.md). Si no has hecho el 00, basta con abrir las dos plantillas en GitHub con el botón «Raw», copiarlas y pegarlas en un documento o escribirlas en papel.
 - **Opcional:** un chat de IA autorizado por tu empresa, para la variante con asistente.
 
@@ -114,7 +114,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    - [ ] Hay al menos cinco casos límite y cada uno dice qué debe ocurrir (o está marcado como duda).
 
-5. **Convierte lo anterior en requisitos EARS (mínimo seis).** Es la sección «Requisitos», subsección «Requisitos funcionales». EARS (*Easy Approach to Requirements Syntax*) es una forma sencilla y estructurada de redactar requisitos: cinco plantillas de frase, siempre con el verbo «deberá» y la palabra clave en mayúsculas. Las tienes en el comentario de la plantilla y, explicadas con calma, en [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md) y en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
+5. **Convierte lo anterior en requisitos EARS (mínimo seis).** Es la sección «Requisitos», subsección «Requisitos funcionales». EARS (*Easy Approach to Requirements Syntax*) es una forma sencilla y estructurada de redactar requisitos: cinco plantillas de frase, siempre con el verbo «deberá» y la palabra clave en mayúsculas. Las tienes en el comentario de la plantilla y, explicadas con calma, en [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) y en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
 
    | Patrón | Plantilla | Para qué |
    |---|---|---|
@@ -122,7 +122,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
    | Por evento | «CUANDO [disparador], el sistema deberá [respuesta].» | Algo que ocurre en un momento |
    | Por estado | «MIENTRAS [estado], el sistema deberá [respuesta].» | Algo que dura un tiempo |
    | Comportamiento no deseado | «SI [condición], ENTONCES el sistema deberá [respuesta].» | Errores y situaciones a evitar |
-   | Opcional | «DONDE [perfil o característica], el sistema deberá [respuesta].» | Solo para algunos perfiles |
+   | Opcional | «DONDE [característica o perfil], el sistema deberá [respuesta].» | Solo para algunos perfiles |
 
    Numera RF-001, RF-002… con el formato de la plantilla (**RF-001**: …). Cada requisito: una frase, una sola cosa comprobable, sin tecnología y sin adjetivos vagos. Intenta usar los cinco patrones al menos una vez. Para empezar:
 

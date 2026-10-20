@@ -6,7 +6,7 @@ SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un m�
 
 Si lo que buscas son los pasos de instalación uno a uno, con lo que deberías ver en cada momento, eso está en el [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md). Aquí está el panorama y la referencia de comandos.
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Tres formas de hacer SDD](#tres-formas-de-hacer-sdd)
 - [GitHub Spec Kit](#github-spec-kit)
@@ -88,7 +88,7 @@ Los comandos de terminal que vas a usar son pocos. Todos empiezan por `specify`:
 | `specify self upgrade` | Actualiza Spec Kit en el sitio (detecta si lo instalaste con `uv tool` o con `pipx`) |
 | `specify integration upgrade <clave>` y `specify extension update` | Refrescan los ficheros de Spec Kit en un proyecto ya creado sin tocar `specs/` ni la constitución |
 
-Si instalaste desde PyPI (el almacén público de paquetes de Python), repetir `uv tool install specify-cli` **no** actualiza: usa `uv tool install --force specify-cli`, `pipx install --force specify-cli` o `pip install --upgrade specify-cli`. En redes corporativas con índice privado de paquetes, `UV_DEFAULT_INDEX=https://tu-indice/simple/ uv tool install specify-cli` (sin credenciales en la dirección; la dirección te la da IT).
+Si instalaste desde PyPI (el almacén público de paquetes de Python), repetir `uv tool install specify-cli` **no** actualiza: usa `uv tool install --force specify-cli`, `pipx install --force specify-cli` o `pip install --upgrade specify-cli`. En redes corporativas con índice privado de paquetes, añade `--default-index https://tu-indice/simple/` al comando de `uv` (vale en cualquier terminal, PowerShell incluida; en Linux y macOS también puedes anteponer `UV_DEFAULT_INDEX=https://tu-indice/simple/`). No pongas credenciales en la dirección; te la da IT.
 
 ### Cómo se inicia un proyecto
 
@@ -223,7 +223,7 @@ También es una buena vía para equipos de programación que todavía no tienen 
 | **Coste** | Gratuito y de código abierto (licencia MIT). El asistente de IA tiene su propio coste, el que ya pague la empresa | Según las condiciones de AWS; consúltalas antes de instalarlo | Ninguno. El chat de IA, si se usa, el que la empresa tenga contratado |
 | **Requisitos** | Python 3.11 o superior, `uv` (o `pipx`/`pip`), un asistente compatible y saber usar una terminal | Instalar el editor; el resto, en su documentación | Saber escribir un documento |
 | **Asistente de IA** | El que ya uses, si es compatible (más de cuarenta) | El del propio editor | Cualquier chat genérico autorizado, o ninguno |
-| **Qué automatiza** | Generar y mantener los seis artefactos en ficheros fijos, con puertas de calidad (aclarar, listas de verificación, análisis) y la implementación tarea a tarea | Un flujo del mismo tipo dentro del editor, con sus propios nombres (no lo hemos verificado para este material) | Nada: tú escribes, el chat ayuda a redactar y a preguntar |
+| **Qué automatiza** | Generar y mantener los artefactos (constitución, especificación con sus aclaraciones, plan técnico, lista de tareas y listas de verificación) en ficheros fijos, con puertas de calidad (aclarar, listas de verificación, análisis) y la implementación tarea a tarea | Un flujo del mismo tipo dentro del editor, con sus propios nombres (no lo hemos verificado para este material) | Nada: tú escribes, el chat ayuda a redactar y a preguntar |
 | **Para quién** | Quien programa y ya trabaja con un asistente de IA | Quien programa y prefiere un entorno cerrado con todo dentro | Perfiles no técnicos, procesos que no son software, y equipos que todavía no tienen herramienta |
 | **Qué hay que pedir antes** | Autorización del asistente de IA que vayas a usar y permisos para instalar Python, `uv` y Spec Kit (o ayuda de IT) | Autorización e instalación del editor, según las condiciones de AWS | Nada; si quieres usar un chat de IA, que esté autorizado por la empresa |
 | **Dónde se usa aquí** | Ejercicios 03 y 06 | No se usa; se cita como alternativa | Ejercicios 01, 02, 04 y 05 |

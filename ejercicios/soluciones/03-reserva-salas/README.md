@@ -33,7 +33,7 @@ No incluimos el código: el paso 6 (implementar, `/speckit.implement`) lo genera
 Luis siguió el ejercicio 03 con un asistente de programación con IA compatible con Spec Kit, en este orden:
 
 ```text
-specify init reserva-salas   # crea .specify/ y los comandos /speckit.* en el asistente
+specify init reserva-salas --integration claude   # crea .specify/ y los comandos de Spec Kit en el asistente
 /speckit.constitution ...    # los 5 principios dictados por Ana   → .specify/memory/constitution.md
 /speckit.specify ...         # descripción de ReservaSalas, sin tecnología → specs/001-reserva-salas/spec.md
                              #                                      y checklists/requirements.md
@@ -46,7 +46,7 @@ specify init reserva-salas   # crea .specify/ y los comandos /speckit.* en el as
 /speckit.converge            # comprueba que el código cubre spec, plan y tareas; añade tareas si falta algo
 ```
 
-Según el asistente, los comandos aparecen con punto (`/speckit.specify`) o con guion (`/speckit-specify`); hacen lo mismo. Los textos exactos de cada *prompt* (la instrucción que le escribes al asistente) están en los pasos del [ejercicio 03](../../03-reserva-salas-paso-a-paso.md).
+Según el asistente, los comandos aparecen con punto (`/speckit.specify`) o con guion (`/speckit-specify`, como en Claude Code, la integración del ejemplo); hacen lo mismo. Si usas otro asistente, cambia `claude` por su clave (la lista está en [Herramientas](../../../docs/07-herramientas.md)). Los textos exactos de cada *prompt* (la instrucción que le escribes al asistente) están en los pasos del [ejercicio 03](../../03-reserva-salas-paso-a-paso.md).
 
 Lo que hemos cambiado respecto a la salida en bruto de Spec Kit: títulos de sección en castellano (con el original en inglés entre paréntesis), los ficheros de apoyo del plan resumidos dentro de `plan.md`, las aclaraciones también en un fichero aparte para que se vea el proceso, y la lista de verificación automática (`checklists/requirements.md`, que en Spec Kit tiene tres categorías y 16 comprobaciones sin numerar) ampliada con dos categorías y numeración CHK al estilo de `/speckit.checklist`, para que coincida con la plantilla. Además, cada fichero empieza con un aviso que explica qué es y termina con una línea de navegación; no llevan la cabecera ni las secciones finales («En tres frases», «Siguiente paso») del resto del repositorio porque imitan los ficheros reales de un proyecto.
 

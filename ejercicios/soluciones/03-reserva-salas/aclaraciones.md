@@ -41,6 +41,8 @@ El asistente añadió esta sección justo después de los escenarios de usuario 
 
 Después de incorporar las respuestas, el asistente volvió a pasar la lista de verificación de calidad (ver [checklist.md](checklist.md)): se pasó de 20 a 23 comprobaciones superadas, de un total de 23.
 
+Sobre la numeración: los dos requisitos nuevos (RF-010, permisos, y RF-011, correo) se colocaron junto a los de las historias 1 y 2, y el requisito de la historia 3, que hasta entonces era el RF-010, pasó a ser el RF-012. Se renumeró antes de aprobar la especificación, cuando todavía no lo citaba ningún plan ni ninguna tarea. Una vez aprobada, los identificadores ya no cambian: si algo desaparece se marca como retirado y lo nuevo toma el siguiente número libre.
+
 > [!TIP]
 > Si al responder descubres algo que cambia el alcance, no lo apuntes en un correo: vuelve a ejecutar `/speckit.clarify` o edita la especificación. La especificación es la fuente de verdad; el plan y las tareas se regeneran a partir de ella.
 

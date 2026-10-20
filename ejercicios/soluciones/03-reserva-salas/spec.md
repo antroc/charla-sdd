@@ -9,7 +9,7 @@
 
 > Quiero una aplicación interna para reservar las 12 salas de reuniones de la empresa, repartidas en 3 plantas. Hoy nos apuntamos en una hoja de cálculo compartida y pasa de todo: dos equipos en la misma sala, salas reservadas que se quedan vacías y reservas de las que nadie sabe quién es el responsable. Cualquier empleado tiene que poder ver qué salas están libres en una franja, reservar una, cancelar o cambiar su reserva, y ver sus reservas y las de hoy en cada sala. El horario de oficina es de 08:00 a 20:00 y no queremos reservas de más de 4 horas. Administración tiene que poder marcar una sala en mantenimiento.
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Historias de usuario y escenarios](#historias-de-usuario-y-escenarios-user-scenarios--testing)
 - [Aclaraciones](#aclaraciones-clarifications)

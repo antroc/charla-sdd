@@ -6,7 +6,7 @@ En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) la es
 
 Este documento enseña a escribir requisitos que no admiten dos lecturas con EARS (*Easy Approach to Requirements Syntax*), una forma sencilla y estructurada de redactar requisitos. No hace falta saber programar; de hecho, quien mejor escribe un requisito es quien conoce el problema. Qué es una especificación y en qué sección van los requisitos está en [Los artefactos](04-los-artefactos.md).
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Por qué los requisitos vagos cuestan dinero](#por-qué-los-requisitos-vagos-cuestan-dinero)
 - [Qué es EARS](#qué-es-ears)
@@ -89,12 +89,12 @@ Cada patrón responde a una pregunta distinta: ¿esto pasa siempre, cuando ocurr
 
 | Patrón | Plantilla en castellano | Cuándo se usa |
 |---|---|---|
-| Ubicuo | «El sistema deberá <respuesta>.» | Siempre se cumple, no depende de nada |
-| Por evento | «CUANDO <disparador>, el sistema deberá <respuesta>.» | Algo ocurre en un momento concreto |
-| Por estado | «MIENTRAS <estado>, el sistema deberá <respuesta>.» | Algo dura un tiempo |
-| Comportamiento no deseado | «SI <condición>, ENTONCES el sistema deberá <respuesta>.» | Errores y situaciones que queremos evitar |
-| Opcional | «DONDE <característica o perfil>, el sistema deberá <respuesta>.» | Solo en algunas instalaciones o para algunos perfiles |
-| Complejo | «MIENTRAS <estado>, CUANDO <disparador>, el sistema deberá <respuesta>.» | Varias condiciones a la vez |
+| Ubicuo | «El sistema deberá [respuesta].» | Siempre se cumple, no depende de nada |
+| Por evento | «CUANDO [disparador], el sistema deberá [respuesta].» | Algo ocurre en un momento concreto |
+| Por estado | «MIENTRAS [estado], el sistema deberá [respuesta].» | Algo dura un tiempo |
+| Comportamiento no deseado | «SI [condición], ENTONCES el sistema deberá [respuesta].» | Errores y situaciones que queremos evitar |
+| Opcional | «DONDE [característica o perfil], el sistema deberá [respuesta].» | Solo en algunas instalaciones o para algunos perfiles |
+| Complejo | «MIENTRAS [estado], CUANDO [disparador], el sistema deberá [respuesta].» | Varias condiciones a la vez |
 
 Dos ejemplos de cada patrón: uno de ReservaSalas (son, literalmente, requisitos de [la especificación canónica](../ejercicios/soluciones/03-reserva-salas/spec.md)) y otro de Solicitud de vacaciones, el caso sin código del [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), en el que Luis pide días, Marta aprueba o rechaza y Jorge, de RRHH, lo registra.
 
@@ -135,7 +135,7 @@ Las plantillas evitan la mitad de los problemas. La otra mitad la evitan estas r
 2. **El sujeto es «el sistema» y el verbo es «deberá».** Ni «debería», ni «podría», ni «intentará», ni «sería deseable». Tampoco «la persona deberá…»: eso es una norma para personas, no un requisito del sistema. Si quieres obligar a algo a la persona, escríbelo como lo que el sistema impide o exige.
 3. **Sin tecnología.** Nada de bases de datos, lenguajes, servidores ni productos concretos. «El sistema deberá guardar la reserva» es un requisito; «el sistema guardará la reserva en SQLite» es una decisión del plan técnico. La prueba del algodón: si solo lo entiende quien programa, sobra.
 4. **Sin adjetivos vagos.** Rápido, fácil, intuitivo, robusto, moderno, flexible. Si necesitas uno, conviértelo en un criterio de éxito con cifra (CE-004: «el listado de disponibilidad se muestra en menos de 2 segundos») o quítalo.
-5. **Numerados y estables.** RF-001, RF-002… Un número no se reutiliza nunca: si un requisito desaparece, se marca como retirado. Los criterios de aceptación, el plan y las tareas citan esos números (la tarea T013 de ReservaSalas dice «RF-005, CE-002»); si los cambias, rompes el hilo.
+5. **Numerados y estables.** RF-001, RF-002… Mientras la especificación es un borrador se pueden reordenar (en ReservaSalas, los dos requisitos que salieron de las aclaraciones se colocaron junto a su historia antes de aprobarla). Una vez aprobada, un número no se reutiliza nunca: si un requisito desaparece, se marca como retirado, y lo nuevo toma el siguiente número libre. Los criterios de aceptación, el plan y las tareas citan esos números (la tarea T013 de ReservaSalas dice «RF-005, CE-002»); si los cambias, rompes el hilo.
 6. **Palabras clave en mayúsculas.** CUANDO, MIENTRAS, SI/ENTONCES, DONDE. No es capricho: permite ver de un vistazo el patrón de cada requisito y detectar los que no tienen ninguno.
 7. **Escribe lo que ve la persona, no lo que pasa por dentro.** «Mostrar un mensaje con sala, fecha y hora» se puede comprobar mirando la pantalla; «actualizar el registro» no lo puede comprobar nadie que no programe.
 

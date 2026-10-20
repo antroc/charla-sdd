@@ -37,12 +37,12 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 
    | Patrón | Plantilla | Úsalo cuando… |
    |---|---|---|
-   | Ubicuo | «El sistema deberá <respuesta>.» | Se cumple siempre, pase lo que pase. |
-   | Por evento | «CUANDO <disparador>, el sistema deberá <respuesta>.» | Algo ocurre en un momento concreto. |
-   | Por estado | «MIENTRAS <estado>, el sistema deberá <respuesta>.» | Algo dura un tiempo. |
-   | Comportamiento no deseado | «SI <condición>, ENTONCES el sistema deberá <respuesta>.» | Un error o una situación que queremos evitar. |
-   | Opcional | «DONDE <característica o perfil>, el sistema deberá <respuesta>.» | Solo en algunas instalaciones o para algunos perfiles. |
-   | Complejo | «MIENTRAS <estado>, CUANDO <disparador>, el sistema deberá <respuesta>.» | Hacen falta dos condiciones a la vez. |
+   | Ubicuo | «El sistema deberá [respuesta].» | Se cumple siempre, pase lo que pase. |
+   | Por evento | «CUANDO [disparador], el sistema deberá [respuesta].» | Algo ocurre en un momento concreto. |
+   | Por estado | «MIENTRAS [estado], el sistema deberá [respuesta].» | Algo dura un tiempo. |
+   | Comportamiento no deseado | «SI [condición], ENTONCES el sistema deberá [respuesta].» | Un error o una situación que queremos evitar. |
+   | Opcional | «DONDE [característica o perfil], el sistema deberá [respuesta].» | Solo en algunas instalaciones o para algunos perfiles. |
+   | Complejo | «MIENTRAS [estado], CUANDO [disparador], el sistema deberá [respuesta].» | Hacen falta dos condiciones a la vez. |
 
    Tres reglas que no cambian: un requisito es **una** frase que dice **una** cosa comprobable; el sujeto es siempre el sistema (la aplicación, la cafetera, el torno), nunca la persona; y no aparece ninguna tecnología. Si te atascas eligiendo patrón, el [diagrama de decisión](../diagramas/05-anatomia-de-un-requisito-ears.md) te lleva al correcto con cuatro preguntas.
 

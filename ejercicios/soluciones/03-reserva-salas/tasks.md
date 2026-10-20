@@ -9,7 +9,7 @@
 
 **Organización:** las tareas se agrupan por historia de usuario para que cada historia se pueda implementar, probar y enseñar por separado.
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Fase 1: Preparación](#fase-1-preparación-infraestructura-compartida-setup)
 - [Fase 2: Base compartida](#fase-2-base-compartida-requisitos-bloqueantes-foundational)

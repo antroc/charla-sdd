@@ -83,7 +83,7 @@
 
 - P: [¿Se pueden hacer reservas recurrentes?] → R: [No en la primera versión.]
 - P: [¿Quién puede cancelar una reserva ajena?] → R: [Solo administración.]
-- P: [¿Hay que avisar por correo al confirmar?] → R: [Sí, un correo de confirmación.]
+- P: [¿Hay que avisar por correo?] → R: [Sí, un correo de confirmación.]
 - P: [¿Qué pasa si nadie aparece en la sala reservada?] → R: [Fuera de alcance: no se controla la asistencia.]
 
 ### Dudas pendientes
@@ -96,11 +96,11 @@
   Qué se escribe: la lista numerada de cosas que el sistema tiene que hacer: una por frase, cada una comprobable.
   Para quién: las escribe negocio con ayuda de quien construye; son el contrato que luego se convierte en pruebas.
   Consejo: usa EARS (*Easy Approach to Requirements Syntax*), «una forma sencilla y estructurada de redactar requisitos». Cinco plantillas de frase:
-    1. Ubicuo (siempre se cumple):        «El sistema deberá <respuesta>.»
-    2. Por evento (algo ocurre):          «CUANDO <disparador>, el sistema deberá <respuesta>.»
-    3. Por estado (dura un tiempo):       «MIENTRAS <estado>, el sistema deberá <respuesta>.»
-    4. Comportamiento no deseado:         «SI <condición>, ENTONCES el sistema deberá <respuesta>.»
-    5. Opcional (solo en algunos casos):  «DONDE <característica o perfil>, el sistema deberá <respuesta>.»
+    1. Ubicuo (siempre se cumple):        «El sistema deberá [respuesta].»
+    2. Por evento (algo ocurre):          «CUANDO [disparador], el sistema deberá [respuesta].»
+    3. Por estado (dura un tiempo):       «MIENTRAS [estado], el sistema deberá [respuesta].»
+    4. Comportamiento no deseado:         «SI [condición], ENTONCES el sistema deberá [respuesta].»
+    5. Opcional (solo en algunos casos):  «DONDE [característica o perfil], el sistema deberá [respuesta].»
   Se pueden combinar («MIENTRAS…, CUANDO…, el sistema deberá…»). Palabras clave en mayúsculas y siempre el verbo «deberá».
 -->
 

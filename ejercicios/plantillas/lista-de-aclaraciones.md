@@ -26,7 +26,7 @@
 |---|---|---|---|---|
 | 1 | [¿Se pueden hacer reservas recurrentes (por ejemplo, todos los lunes a las 9)?] | [No en la primera versión.] | [Ana, AAAA-MM-DD] | [Añadir a «Fuera de alcance».] |
 | 2 | [¿Quién puede cancelar una reserva ajena?] | [Solo administración.] | [Ana, AAAA-MM-DD] | [Nuevo requisito RF-010 con el patrón EARS «SI…, ENTONCES…»; retocar la historia 2.] |
-| 3 | [¿Hay que avisar por correo al confirmar?] | [Sí, un correo de confirmación.] | [Ana, AAAA-MM-DD] | [Resolver el marcador de RF-011.] |
+| 3 | [¿Hay que avisar por correo?] | [Sí, un correo de confirmación.] | [Ana, AAAA-MM-DD] | [Resolver el marcador de RF-011.] |
 | 4 | [¿Con cuánta antelación como máximo se puede reservar?] | [...] | [Pendiente] | [Previsto: nuevo límite en RF-006 (patrón EARS «SI…, ENTONCES…») y un caso límite.] |
 | 5 | [¿Qué pasa si nadie aparece en la sala reservada?] | [Fuera de alcance: no se controla la asistencia.] | [Ana, AAAA-MM-DD] | [Añadir a «Fuera de alcance».] |
 
@@ -70,7 +70,7 @@ Spec Kit escribe los títulos en inglés y cada respuesta en una línea; en el e
 
 - Q: ¿Se pueden hacer reservas recurrentes? → A: No en la primera versión.
 - Q: ¿Quién puede cancelar una reserva ajena? → A: Solo administración.
-- Q: ¿Hay que avisar por correo al confirmar? → A: Sí, un correo de confirmación.
+- Q: ¿Hay que avisar por correo? → A: Sí, un correo de confirmación.
 ```
 
 <!-- Volver al índice de plantillas: abre README.md en esta misma carpeta (ejercicios/plantillas/README.md). -->

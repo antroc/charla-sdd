@@ -6,7 +6,7 @@ SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un fl
 
 Si todavía no sabes qué es SDD, empieza por [Qué es SDD](02-que-es-sdd.md). Si lo que quieres es ver cada documento por dentro, eso está en [Los artefactos](04-los-artefactos.md). Cuando leas «en Spec Kit», hablamos de GitHub Spec Kit, la herramienta gratuita que añade este flujo a tu asistente de IA en forma de comandos (`/speckit.constitution`, `/speckit.specify`…); la vemos al final del documento y, con más detalle, en [Herramientas](07-herramientas.md).
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [El flujo de un vistazo](#el-flujo-de-un-vistazo)
 - [Paso 0: Constitución](#paso-0-constitución)
@@ -70,7 +70,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué es.** Escribir qué queremos y por qué, en lenguaje natural y sin decidir tecnología. La especificación recoge historias de usuario (lo que cada tipo de persona quiere conseguir, contado en unas líneas) ordenadas por prioridad (P1 es lo imprescindible), criterios de aceptación (situaciones concretas que se comprueban con un sí o un no, en formato Dado/Cuando/Entonces), requisitos funcionales redactados en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), casos límite (las situaciones raras o incómodas), criterios de éxito medibles y supuestos. Es el paso imprescindible: sin especificación no hay nada que planificar ni construir.
 
-**Quién participa.** Lidera quien pide el software (negocio), con ayuda de quien lo construye. El asistente de IA convierte la descripción en una especificación completa. La revisan todos.
+**Quién participa.** Lidera quien pide el software (negocio), con ayuda de quien lo construye. El asistente de IA convierte la descripción en una especificación completa. La revisan quien la va a construir y QA; las personas que la usarán (como Marta o Jorge) la consultan y aportan.
 
 **Qué entra y qué sale.** Entra la petición en lenguaje natural. Sale la especificación (`spec.md`); en Spec Kit, `specs/001-reserva-salas/spec.md`, junto con una lista de verificación automática (`checklists/requirements.md`). Si al asistente le falta información, deja marcadores `[NECESITA ACLARACIÓN: …]` (tres como máximo) para el paso siguiente.
 
@@ -115,7 +115,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué es.** Convertir el plan en una lista ordenada de tareas pequeñas y comprobables, agrupadas por fases: preparación, base compartida, una fase por historia de usuario (primero sus pruebas, luego su implementación) y remate. Cada tarea nombra el fichero que toca; `[P]` marca las que se pueden hacer en paralelo y `[HU1]`, `[HU2]`, `[HU3]` la historia a la que pertenecen.
 
-**Quién participa.** Quien construye, con el asistente de IA. Quien encarga puede seguir el avance por los puntos de control de cada fase.
+**Quién participa.** Quien construye, con el asistente de IA; revisan el programador senior y QA. Quien encarga no interviene en este paso, pero las tareas fijan los puntos de control en los que verá avances durante la implementación.
 
 **Qué entra y qué sale.** Entran el plan y la especificación (y los ficheros de apoyo del plan, si existen). Sale la lista de tareas (`tasks.md`); en Spec Kit, `/speckit.tasks`.
 
@@ -167,7 +167,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 | 1. Especificar | Petición en lenguaje natural | Especificación (`spec.md`) y lista de verificación automática | Negocio, con quien construye | Todo el equipo |
 | 2. Aclarar | La especificación | La especificación actualizada (sección de aclaraciones) | El asistente de IA pregunta | Quien encarga responde |
 | 3. Planificar | Especificación, constitución y tecnología elegida | Plan técnico (`plan.md`) y ficheros de apoyo | Quien construye | Alguien con experiencia técnica; negocio lee el resumen |
-| 4. Trocear en tareas | Plan y especificación | Lista de tareas (`tasks.md`) | Quien construye | Quien construye; negocio sigue los puntos de control |
+| 4. Trocear en tareas | Plan y especificación | Lista de tareas (`tasks.md`) | Quien construye | Programador senior y QA |
 | 5. Analizar | Especificación, plan, tareas y constitución | Informe de coherencia y listas de verificación | El asistente de IA | Quien construye y quien encarga deciden |
 | 6. Implementar | Tareas y plan | Código con pruebas; tareas marcadas | El asistente de IA ejecuta | Quien construye revisa; quien encarga prueba |
 

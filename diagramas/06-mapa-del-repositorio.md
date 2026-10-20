@@ -16,7 +16,7 @@ El mapa mental muestra el repositorio entero: en el centro, su nombre; alrededor
 
 ```mermaid
 mindmap
-  root((charla-sdd))
+  root((Charla SDD))
     Raíz
       README portada
       CONTRIBUIR cómo proponer mejoras
@@ -38,7 +38,7 @@ mindmap
       04 Roles y participación
       05 Anatomía de un requisito EARS
       06 Mapa del repositorio
-      svg exportaciones automáticas
+      svg y png exportaciones automáticas
     ejercicios
       00 Preparación del entorno
       01 Tu primera especificación sin código
@@ -48,12 +48,12 @@ mindmap
       05 Arreglar una especificación mala
       06 Reto final con tu propio proyecto
       plantillas
-        constitucion
-        especificacion
+        constitución
+        especificación
         lista de aclaraciones
-        plan tecnico
+        plan técnico
         tareas
-        lista de verificacion
+        lista de verificación
       soluciones
         01 solicitud de vacaciones
         02 requisitos EARS resueltos
@@ -66,7 +66,7 @@ mindmap
 
 De dentro hacia fuera: la raíz tiene la portada (`README.md`) y la guía para proponer mejoras (`CONTRIBUIR.md`). `docs/` es la teoría, en diez documentos numerados que se leen en orden (aunque cada perfil puede saltarse algunos): van desde el problema del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) hasta el glosario. `diagramas/` cuenta lo mismo en dibujos; esta página es el último. `ejercicios/` es la práctica: siete ejercicios, las plantillas de los artefactos listas para copiar y las soluciones, entre ellas el ejemplo completo de ReservaSalas en siete ficheros. `charla/` es para quien tiene que contárselo a los demás.
 
-Para no recargar el mapa no aparecen los índices: cada carpeta (también `plantillas/`, `soluciones/` y `soluciones/03-reserva-salas/`) tiene su propio `README.md`, y los encontrarás todos en la tabla del final. `diagramas/svg/` guarda una exportación automática de cada diagrama, útil para pegarlo en una presentación; no se edita a mano.
+Para no recargar el mapa no aparecen los índices: cada carpeta (también `plantillas/`, `soluciones/` y `soluciones/03-reserva-salas/`) tiene su propio `README.md`, y los encontrarás todos en la tabla del final. `diagramas/svg/` y `diagramas/png/` guardan una exportación automática de cada diagrama (SVG para PowerPoint y documentos; PNG para Google Slides o el correo), útil para pegarlo en una presentación; no se editan a mano.
 
 ## Itinerarios por perfil
 
@@ -143,10 +143,10 @@ flowchart LR
   b --> c["charla: guía del facilitador"]
   c --> d["ejercicio 04: dinámica de equipo de 20 minutos"]
   d --> e["diagramas 01 a 06, para proyectar"]
-  e --> f["diagramas svg, para las diapositivas"]
+  e --> f["diagramas en SVG y PNG, para las diapositivas"]
 ```
 
-De izquierda a derecha: el [índice de `charla/`](../charla/README.md) te dice qué hay; el [guion de 20 minutos](../charla/guion-20-minutos.md) es la charla minuto a minuto, y la [guía del facilitador](../charla/guia-del-facilitador.md) explica cómo montar un taller de dos horas o un itinerario de autoformación. La [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) es el ejercicio en grupo sin ordenador; los seis [diagramas](README.md) sirven para proyectar y sus versiones en [`svg/`](svg/) para pegarlas en las diapositivas. Las mejoras que te sugiera el público se recogen como explica [CONTRIBUIR.md](../CONTRIBUIR.md).
+De izquierda a derecha: el [índice de `charla/`](../charla/README.md) te dice qué hay; el [guion de 20 minutos](../charla/guion-20-minutos.md) es la charla minuto a minuto, y la [guía del facilitador](../charla/guia-del-facilitador.md) explica cómo montar un taller de dos horas o un itinerario de autoformación. La [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) es el ejercicio en grupo sin ordenador; los seis [diagramas](README.md) sirven para proyectar y sus versiones en [`svg/`](svg/) y [`png/`](png/) para pegarlas en las diapositivas. Las mejoras que te sugiera el público se recogen como explica [CONTRIBUIR.md](../CONTRIBUIR.md).
 
 ## Todos los ficheros, uno por línea
 
@@ -174,7 +174,8 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 | [diagramas/04-roles-y-participacion.md](04-roles-y-participacion.md) | Quién lidera y quién revisa en cada paso, con la matriz rol × paso | Todos | ~7 min · 🟢 |
 | [diagramas/05-anatomia-de-un-requisito-ears.md](05-anatomia-de-un-requisito-ears.md) | Un requisito EARS pieza a pieza y el árbol de decisión para elegir patrón | Managers, RRHH, negocio y junior | ~6 min · 🟢 |
 | [diagramas/06-mapa-del-repositorio.md](06-mapa-del-repositorio.md) | Esta página: el mapa del repositorio, los itinerarios por perfil y esta tabla | Todos | ~8 min · 🟢 |
-| [diagramas/svg/](svg/) | Exportación automática de cada diagrama en SVG, lista para pegar en una presentación; no se edita a mano | Facilitadores y quien prepare diapositivas | — |
+| [diagramas/svg/](svg/) | Exportación automática de cada diagrama en SVG (PowerPoint, documentos), lista para pegar en una presentación; no se edita a mano | Facilitadores y quien prepare diapositivas | — |
+| [diagramas/png/](png/) | La misma exportación en PNG (Google Slides, correo, chats); no se edita a mano | Facilitadores y quien prepare diapositivas | — |
 | [ejercicios/README.md](../ejercicios/README.md) | Índice de ejercicios, niveles, itinerarios por perfil y cómo usarlos | Todos | ~3 min · 🟢 |
 | [ejercicios/00-preparacion-del-entorno.md](../ejercicios/00-preparacion-del-entorno.md) | Preparar el entorno: vía A sin instalar nada y vía B con Git, un asistente de IA y Spec Kit | Todos (vía A) y quien programa (vía B) | 10-45 min · 🟡 |
 | [ejercicios/01-tu-primera-especificacion-sin-codigo.md](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) | Escribir la especificación de «Solicitud de vacaciones» con la plantilla, sin código | Managers, RRHH y negocio | 30 min · 🟢 |

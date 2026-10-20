@@ -6,7 +6,7 @@ Este documento recoge lo que, en nuestra experiencia, hace que SDD (*Spec-Driven
 
 Léelo entero la primera vez. Después sirve como lista de repaso: antes de empezar un proyecto, las buenas prácticas; cuando algo chirría, la tabla de errores.
 
-**Qué vas a encontrar:**
+**Qué vas a encontrar**
 
 - [Doce buenas prácticas](#doce-buenas-prácticas)
 - [Doce errores comunes](#doce-errores-comunes)
