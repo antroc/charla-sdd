@@ -229,8 +229,9 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 
 ## Variantes
 
-- **Versión de 10 minutos (para la charla de 20 minutos).** Una sola tarjeta para toda la sala (la 1, parking, es la que mejor funciona) y parejas en vez de grupos. Se salta el apartado 1: 4 minutos para tres requisitos EARS, 2 minutos para dos preguntas, 3 minutos de lectura (quien facilita pide tres requisitos a mano alzada y la sala caza vaguedades) y 1 minuto de cierre. Es la que usa el [guion de la charla](../charla/guion-20-minutos.md).
-- **En línea.** Copia la plantilla en un documento compartido, una copia por grupo, y usa las salas pequeñas de la herramienta de reuniones. El reloj se comparte en pantalla. En el paso 5, cada portavoz pega su requisito en el chat general y el resto responde en el chat con el tipo de vaguedad («adjetivo sin cifra») en vez de hablar: así participa todo el mundo y queda registro.
+- **Versión de 10 minutos (reunión corta o taller con poco tiempo).** Una sola tarjeta para toda la sala (la 1, parking: todo el mundo entiende el problema sin explicaciones) y parejas en vez de grupos. Se salta el apartado 1: 4 minutos para tres requisitos EARS, 2 minutos para dos preguntas, 3 minutos de lectura (quien facilita pide tres requisitos a mano alzada y la sala caza vaguedades) y 1 minuto de cierre.
+- **Versión de 4 minutos (la de la charla de 20 minutos).** Sin hojas ni grupos. Quien facilita proyecta la frase de la tarjeta 1 y, debajo, tres frases vagas: «que se vea qué plazas hay», «que no se pueda coger una plaza ocupada» y «que Oficina pueda bloquear plazas». Para cada una pide a la sala, a mano alzada, un requisito EARS, lo escribe tal cual y la sala caza una vaguedad en 20 segundos: un minuto por frase. El cuarto minuto es el cierre, con la idea 3 del paso 6. Es la que usa el [guion de la charla](../charla/guion-20-minutos.md).
+- **En línea.** Prepara antes de la reunión un documento compartido por grupo, con su tarjeta pegada arriba y la hoja de trabajo debajo (con letra de ancho fijo, o reconstruida como lista: lo que importa son los apartados). Usa las salas pequeñas de la herramienta de reuniones, una por grupo, y fija su duración en la propia herramienta (casi todas avisan y cierran las salas al acabar el tiempo); los avisos de «un minuto» mándalos como mensaje a todas las salas, porque dentro de ellas nadie ve tu pantalla. Cada cambio de sala cuesta medio minuto: recorta el apartado 3 a dos preguntas o cuenta con 25 minutos en vez de 20. En el paso 5, ya en la sala principal, cada portavoz pega su requisito en el chat general y el resto responde en el chat con el tipo de vaguedad («adjetivo sin cifra») en vez de hablar: así participa todo el mundo y queda registro.
 - **Con un asistente de IA (opcional, después de la dinámica).** Si la empresa tiene un chat de IA autorizado, cada grupo puede pegar su hoja con este *prompt* (la instrucción que le escribes al asistente) y comparar lo que el asistente encuentra con lo que cazó la sala:
 
   ```text
@@ -255,7 +256,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 | Los grupos te preguntan «¿y esto cuenta?», «¿cuántas plazas hay?». | Quieren que decidas tú. | «Yo no soy quien lo pide. Apuntadlo en el apartado 3.» |
 | Todos los requisitos empiezan por «el usuario». | El sujeto es la persona, no el sistema. | Dar la vuelta a la frase: qué hace el sistema cuando la persona hace algo. |
 | Se van los cinco minutos y solo hay una historia. | Perfeccionismo en la P1. | Corta a tiempo: una P1 clara vale más que tres historias a medias. |
-| El grupo técnico mete «base de datos», «API» o un lenguaje. | Costumbre. | Cuenta como vaguedad de tipo «tecnología» en el paso 5; lo cazará la sala. |
+| El grupo técnico mete «base de datos», «API» (una conexión entre programas) o un lenguaje. | Costumbre. | Cuenta como vaguedad de tipo «tecnología» en el paso 5; lo cazará la sala. |
 | En el paso 5 nadie encuentra nada. | Vergüenza o requisito de verdad bueno. | Pregunta tú: «¿con qué cifra lo comprobaríais?», «¿qué pasa si falla?». |
 | Un grupo se ríe de la tarjeta 2 («un bot de nóminas») y no la toma en serio. | La petición es realista pero suena a broma. | Recuérdales que así llegan las peticiones de verdad: su trabajo es convertirla en algo construible. |
 
@@ -277,7 +278,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 
 ## Solución o ejemplo resuelto
 
-Esta dinámica no tiene fichero de solución: cada sala produce hojas distintas y todas valen si pasan la caza de vaguedades. Como referencia de lo que es una buena hoja, así quedó la tarjeta 1 en un equipo que la hizo bien:
+Esta dinámica no tiene fichero de solución: cada sala produce hojas distintas y todas valen si pasan la caza de vaguedades. Como referencia de lo que es una buena hoja, así podría quedar la tarjeta 1 en un grupo que la ha hecho bien:
 
 ```text
 P1: Como empleado que viene en coche, quiero ver qué plazas están libres un día y reservar
