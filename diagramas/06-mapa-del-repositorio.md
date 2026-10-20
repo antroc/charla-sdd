@@ -72,7 +72,7 @@ Para no recargar el mapa no aparecen los índices: cada carpeta (también `plant
 
 Cada diagrama es un camino de lectura: empiezas por la izquierda y sigues las flechas. Cada recuadro dice de qué carpeta es (doc, diagrama, ejercicio o charla) y debajo tienes los enlaces en el mismo orden. Los tiempos son aproximados; los exactos están en la cabecera de cada fichero.
 
-### Manager o responsable de equipo (45 minutos)
+### Manager o responsable de equipo (unas 2 horas)
 
 Este camino te da lo justo para decidir si tu equipo prueba SDD y saber qué te va a pedir: el problema, la idea, tu papel y lo que suele salir mal.
 
@@ -87,7 +87,7 @@ flowchart LR
 
 De izquierda a derecha: empiezas por [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md); los ves dibujados en [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) y [Flujo completo de SDD](02-flujo-completo-sdd.md); en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) encuentras tu papel, y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) y [Preguntas frecuentes](../docs/09-preguntas-frecuentes.md) te preparan para las dudas del equipo. Terminas escribiendo una especificación sin código en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y, si quieres contárselo a tu equipo, tienes el [guion de 20 minutos](../charla/guion-20-minutos.md).
 
-### RRHH y perfiles de negocio (40 minutos)
+### RRHH y perfiles de negocio (unas 2 horas)
 
 Si pides software o lo usas, este camino te enseña a escribir lo que necesitas de forma que no se pueda malinterpretar.
 
@@ -102,7 +102,7 @@ flowchart LR
 
 De izquierda a derecha: [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md) explican de qué va esto, y [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) lo resume en dos dibujos. [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) es la pieza clave para ti: cómo pedir las cosas de forma comprobable; [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) te dice en qué pasos participas. Lo practicas con el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md), y el [glosario](../docs/10-glosario.md) queda a mano para cualquier término que se te resista.
 
-### Programador junior (3-4 horas con ejercicios)
+### Programador junior (9-12 horas, en varios días)
 
 Es el itinerario completo: toda la teoría, todos los diagramas y los ejercicios con herramientas, hasta construir ReservaSalas y un proyecto propio.
 
@@ -118,7 +118,7 @@ flowchart LR
 
 De izquierda a derecha: lees los diez documentos de [`docs/`](../docs/README.md) en orden, desde [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) hasta el [glosario](../docs/10-glosario.md), y después los seis [diagramas](README.md). Luego la práctica: instalas lo necesario en el [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md) (vía B), afinas los requisitos en el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md), construyes ReservaSalas con Spec Kit en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), entrenas el ojo crítico en el [ejercicio 05](../ejercicios/05-arreglar-una-especificacion-mala.md) y cierras con un proyecto tuyo en el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md).
 
-### Programador con experiencia (2 horas)
+### Programador con experiencia (5-8 horas)
 
 Si ya programas con un asistente de IA, puedes saltarte la motivación e ir directamente al flujo, los artefactos y las herramientas.
 
@@ -209,7 +209,7 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 ## En tres frases
 
 1. El repositorio tiene cinco ramas: la portada y la guía de contribución en la raíz, la teoría en `docs/`, los dibujos en `diagramas/`, la práctica en `ejercicios/` y el material para presentarlo en `charla/`.
-2. No hace falta leerlo todo: cada perfil tiene un itinerario de entre 40 minutos y 4 horas, y los diagramas de esta página lo recorren paso a paso con sus enlaces.
+2. No hace falta leerlo todo: cada perfil tiene su itinerario, desde unas dos horas para managers, RRHH y negocio hasta varios días de práctica para quien programa, y los diagramas de esta página lo recorren paso a paso con sus enlaces.
 3. Cuando dudes de qué fichero abrir, la tabla final te dice de qué va cada uno, para quién es y cuánto se tarda.
 
 ## Siguiente paso
