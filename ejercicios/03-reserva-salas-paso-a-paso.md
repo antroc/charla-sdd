@@ -228,7 +228,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 
     | Resultado | Qué haces |
     |---|---|
-    | Cero incidencias críticas y cobertura del 100 % | Sigue al paso 8. Es el resultado de la solución canónica. |
+    | Ninguna incidencia CRITICAL ni HIGH y cobertura del 100 % | Sigue al paso 8. Es el resultado de la solución canónica. |
     | Un requisito sin tarea (por ejemplo, el correo de RF-011) | No empieces a implementar. Responde «sí» a la propuesta de correcciones, revísalas, y pide que actualice `tasks.md` (o repite `/speckit.tasks` indicando qué falta). |
     | Una incidencia con la constitución (CRITICAL) | Se corrige el plan o la especificación, nunca la constitución. Vuelve al paso 5 (o al 3) con la corrección y regenera lo que venga después. |
     | Terminología distinta entre ficheros («usuario» en uno, «persona» en otro) | Pide que unifique el término en los tres ficheros. |
@@ -236,7 +236,7 @@ Cada paso tiene el comando o el *prompt* exacto, qué deberías ver (cada asiste
 
     Opcional (10 minutos más): genera una lista de verificación por tema con `/speckit.checklist accesibilidad` (el asistente te hará hasta tres preguntas antes). En el orden oficial de Spec Kit este comando va justo después de planificar, antes de trocear en tareas (solo necesita `plan.md`); aquí lo agrupamos con analizar porque los dos son puertas de calidad, y el resultado es el mismo. Aparece un fichero nuevo en `specs/001-…/checklists/` (por ejemplo `ux.md`; el nombre lo pone el asistente según el tema) con comprobaciones `CHK001…` **sin marcar**: las marcas tú al revisar la especificación, porque el asistente no lo hace. Ten en cuenta que el paso 8 se detiene a preguntar si quedan casillas sin marcar.
 
-    - [ ] El informe de `/speckit.analyze` no tiene incidencias críticas y todos los requisitos tienen al menos una tarea.
+    - [ ] El informe de `/speckit.analyze` no tiene incidencias CRITICAL ni HIGH y todos los requisitos tienen al menos una tarea.
 
 8. **Implementa y prueba la aplicación.** Aquí el asistente trabaja solo un buen rato. Lanza:
 

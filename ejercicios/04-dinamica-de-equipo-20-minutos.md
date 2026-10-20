@@ -47,7 +47,7 @@ De izquierda a derecha: antes de arrancar el reloj se reparten tarjetas y se exp
 
 ## Materiales imprimibles
 
-Para imprimir desde GitHub, abre el fichero con el botón «Raw» (texto sin formato), copia los bloques de abajo en un documento e imprímelos. Usa una letra de ancho fijo (Courier New o parecida, a 10 puntos): con otra letra, los huecos y las flechas se descolocan. Una tarjeta por grupo, recortada por las líneas; una plantilla por grupo, en una cara de A4.
+Para imprimir desde GitHub, abre el fichero con el botón «Raw» (texto sin formato), copia los bloques de abajo en un documento e imprímelos. Usa una letra de ancho fijo (Courier New o parecida) a 10 puntos, con interlineado 1,5 y sin espacio entre párrafos: con otra letra, los huecos y las flechas se descolocan, y así cada bloque cabe en una cara de A4 con los márgenes normales y deja sitio para escribir a mano. Si tu editor pasa alguno a una segunda página, baja la letra a 9 puntos. Una tarjeta por grupo, recortada por las líneas; una plantilla por grupo.
 
 ### Tarjetas de peticiones vagas
 
@@ -96,41 +96,46 @@ Lo usaría: recepción; quien recibe visitas; seguridad.
 ### Plantilla de una página
 
 ```text
-HOJA DE TRABAJO · Dinámica SDD de 20 minutos      Grupo: ____  Tarjeta: ____
-============================================================================
+HOJA DE TRABAJO · Dinámica SDD de 20 minutos  Grupo: ___  Tarjeta: ___
+======================================================================
 LA PETICIÓN (copia la frase entre comillas de la tarjeta)
-«________________________________________________________________________»
+«____________________________________________________________________»
 
-1. HISTORIAS DE USUARIO (0-5 min) · Como [quién], quiero [qué], para [por qué]
-P1 (imprescindible): Como ______________, quiero ____________________________
-                     para __________________________________________________
-P2: Como ______________, quiero _________________ para _____________________
-P3: Como ______________, quiero _________________ para _____________________
+1. HISTORIAS (0-5 min) · Como [quién], quiero [qué], para [por qué]
+P1 (imprescindible): Como ____________, quiero _______________________
+                     ______________________, para ____________________
+P2: Como _____________, quiero _______________, para _________________
+P3: Como _____________, quiero _______________, para _________________
 
-2. REQUISITOS EARS (5-10 min) · el sujeto es siempre el sistema; verbo «deberá»
+2. REQUISITOS EARS (5-10 min) · sujeto: el sistema · verbo: «deberá»
    Plantillas: «El sistema deberá…» · «CUANDO…, el sistema deberá…» ·
-   «MIENTRAS…, el sistema deberá…» · «SI…, ENTONCES el sistema deberá…» ·
-   «DONDE…, el sistema deberá…»
-RF-1 ______________________________________________________________________
-RF-2 ______________________________________________________________________
-RF-3 ______________________________________________________________________
-RF-4 ______________________________________________________________________
-RF-5 ______________________________________________________________________
+   «SI…, ENTONCES el sistema deberá…» ·
+   «MIENTRAS…, el sistema deberá…» · «DONDE…, el sistema deberá…»
+RF-1 _________________________________________________________________
+     _________________________________________________________________
+RF-2 _________________________________________________________________
+     _________________________________________________________________
+RF-3 _________________________________________________________________
+     _________________________________________________________________
+RF-4 _________________________________________________________________
+     _________________________________________________________________
+RF-5 _________________________________________________________________
+     _________________________________________________________________
 
-3. PREGUNTAS DE ACLARACIÓN (10-13 min) · lo que preguntaríais a quien lo pide
-   antes de construir nada; apuntad a qué afecta (historia, requisito, alcance)
-A1: _____________________________________________ → afecta a: _____________
-A2: _____________________________________________ → afecta a: _____________
-A3: _____________________________________________ → afecta a: _____________
+3. PREGUNTAS DE ACLARACIÓN (10-13 min) · para quien lo pide, antes
+   de construir nada · afecta a: historia, requisito o alcance
+A1: ________________________________________ → afecta a: _____________
+A2: ________________________________________ → afecta a: _____________
+A3: ________________________________________ → afecta a: _____________
 
 4. VAGUEDADES CAZADAS (13-18 min) · las vuestras y las de otros grupos
-   Tipos: adjetivo sin cifra · dos cosas en una · sin disparador · tecnología ·
-   el sujeto es la persona, no el sistema
-Grupo ___: «_______________________________» → tipo: ______________________
-Grupo ___: «_______________________________» → tipo: ______________________
+   Tipos: adjetivo sin cifra · dos cosas en una · sin disparador ·
+   tecnología · el sujeto es la persona, no el sistema
+Grupo ___: «______________________________» → tipo: __________________
+Grupo ___: «______________________________» → tipo: __________________
 
 FUERA DE ALCANCE (lo que decidís NO hacer en la primera versión):
-____________________________________________________________________________
+______________________________________________________________________
 ```
 
 ## Pasos
@@ -207,6 +212,8 @@ ____________________________________________________________________________
 
    Recoge las hojas (o fotografíalas): sirven para la variante con asistente de IA y para que quien programe en el equipo las use como punto de partida.
 
+   Qué deberías obtener: una hoja por grupo con los cuatro apartados rellenos (aunque alguno esté a medias) y al menos una línea en «Fuera de alcance».
+
    - [ ] Has dicho las tres ideas y has recogido las hojas.
 
 ## Guion minuto a minuto para quien facilita
@@ -221,7 +228,7 @@ ____________________________________________________________________________
 | 9:00 | «Un minuto. Lo que no sepáis, cifra inventada y pregunta al apartado 3.» | Cierran los requisitos. | |
 | 10:00 | «Apartado 3: tres preguntas que haríais a quien lo pide. Y a qué afecta cada una. Lo que dejéis fuera, al pie de la hoja.» | Escriben A1 a A3. | Cronómetro en 3:00 |
 | 13:00 | «Portavoces: leed la petición y un requisito. El resto, 30 segundos para cazar una vaguedad.» | Grupo 1 lee; los demás buscan. | Lista de tipos de vaguedad a la vista (es la del apartado 4 de la hoja; proyéctala si puedes) |
-| 14:00 a 17:00 | Un grupo por minuto. Corta las discusiones: «apuntadlo y seguimos». | Leen y cazan por turnos. | |
+| 14:00 a 17:00 | Un grupo por minuto. Corta las discusiones: «apuntadlo y seguimos». | Leen y cazan por turnos. | Cronómetro: 30 s por caza (20 s si hay seis grupos) |
 | 18:00 | Cierre con las tres ideas del paso 6. | Escuchan. | |
 | 19:30 | «Dejad las hojas en la mesa» (o foto). Indica dónde seguir (ver [Siguiente paso](#siguiente-paso)). | Entregan las hojas. | |
 
@@ -229,7 +236,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 
 ## Variantes
 
-- **Versión de 10 minutos (reunión corta o taller con poco tiempo).** Una sola tarjeta para toda la sala (la 1, parking: todo el mundo entiende el problema sin explicaciones) y parejas en vez de grupos. Se salta el apartado 1: 4 minutos para tres requisitos EARS, 2 minutos para dos preguntas, 3 minutos de lectura (quien facilita pide tres requisitos a mano alzada y la sala caza vaguedades) y 1 minuto de cierre.
+- **Versión de 10 minutos (reunión corta o taller con poco tiempo).** Una sola tarjeta para toda la sala (la 1, parking: todo el mundo entiende el problema sin explicaciones), que quien facilita lee en voz alta o proyecta, y parejas en vez de grupos; cada pareja escribe en los apartados 2 y 3 de la plantilla o en un folio. Las reglas del paso 1 se dicen antes de poner en marcha el reloj. Se salta el apartado 1: 4 minutos para tres requisitos EARS, 2 minutos para dos preguntas, 3 minutos de lectura (quien facilita pide tres requisitos a mano alzada y la sala caza vaguedades) y 1 minuto de cierre.
 - **Versión de 4 minutos (la de la charla de 20 minutos).** Sin hojas ni grupos. Quien facilita proyecta la frase de la tarjeta 1 y, debajo, tres frases vagas: «que se vea qué plazas hay», «que no se pueda coger una plaza ocupada» y «que Oficina pueda bloquear plazas». Para cada una pide a la sala, a mano alzada, un requisito EARS, lo escribe tal cual y la sala caza una vaguedad en 20 segundos: un minuto por frase. El cuarto minuto es el cierre, con la idea 3 del paso 6. Es la que usa el [guion de la charla](../charla/guion-20-minutos.md).
 - **En línea.** Prepara antes de la reunión un documento compartido por grupo, con su tarjeta pegada arriba y la hoja de trabajo debajo (con letra de ancho fijo, o reconstruida como lista: lo que importa son los apartados). Usa las salas pequeñas de la herramienta de reuniones, una por grupo, y fija su duración en la propia herramienta (casi todas avisan y cierran las salas al acabar el tiempo); los avisos de «un minuto» mándalos como mensaje a todas las salas, porque dentro de ellas nadie ve tu pantalla. Cada cambio de sala cuesta medio minuto: recorta el apartado 3 a dos preguntas o cuenta con 25 minutos en vez de 20. En el paso 5, ya en la sala principal, cada portavoz pega su requisito en el chat general y el resto responde en el chat con el tipo de vaguedad («adjetivo sin cifra») en vez de hablar: así participa todo el mundo y queda registro.
 - **Con un asistente de IA (opcional, después de la dinámica).** Si la empresa tiene un chat de IA autorizado, cada grupo puede pegar su hoja con este *prompt* (la instrucción que le escribes al asistente) y comparar lo que el asistente encuentra con lo que cazó la sala:
@@ -270,7 +277,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 <details><summary>Ver respuestas</summary>
 
 1. Porque en un proyecto real quien pide el sistema no está sentado al lado cuando se escribe la especificación, y mucho menos cuando el asistente de IA genera código. La regla obliga a hacer visible lo que no se sabe (las preguntas) en vez de rellenarlo con suposiciones. Es la diferencia entre «aclarar» e «inventar».
-2. Adjetivo sin cifra («fácil de usar»). Se arregla de dos formas: convirtiéndolo en un criterio de éxito medible («el 90 % de las personas reservan una plaza sin ayuda la primera vez») o sustituyéndolo por un requisito concreto («CUANDO una persona elige un día, el sistema deberá mostrar las plazas libres en una sola pantalla»). En la hoja se apunta en el apartado 4 como «adjetivo sin cifra».
+2. Adjetivo sin cifra («fácil de usar»). Se arregla de dos formas: convirtiéndolo en un criterio de éxito medible («el 90 % de las personas reservan una plaza sin ayuda la primera vez») o sustituyéndolo por un requisito concreto («CUANDO una persona elige un día, el sistema deberá mostrar las plazas libres de ese día sin pedirle ningún otro dato»). En la hoja se apunta en el apartado 4 como «adjetivo sin cifra».
 3. El paso 2, aclarar. Si se salta, las dudas no desaparecen: las resuelve quien programa (o el asistente de IA) sin consultar, y el error se descubre cuando el sistema ya está hecho, que es cuando más cuesta corregirlo.
 4. Porque la especificación la escribe negocio con ayuda de quien construye, y se lee en los dos sentidos: la persona de negocio sabe qué cifras y qué perfiles importan; la técnica detecta antes las lagunas y los casos límite. En la dinámica se nota: los grupos mixtos escriben mejores preguntas.
 

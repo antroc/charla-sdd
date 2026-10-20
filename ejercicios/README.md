@@ -22,7 +22,7 @@ Esta carpeta es la práctica del repositorio. Son siete ejercicios guiados paso 
 | 03 | [ReservaSalas paso a paso con Spec Kit](03-reserva-salas-paso-a-paso.md) | Construir ReservaSalas recorriendo los siete pasos del flujo con Spec Kit y un asistente de IA, y cambiarla tocando solo la especificación | 🟡 | 90-120 min | Sí (vía B) | [Ejemplo completo](soluciones/03-reserva-salas/README.md) |
 | 04 | [Dinámica de equipo de 20 minutos](04-dinamica-de-equipo-20-minutos.md) | Taller en grupo, sin ordenador: de una petición vaga a historias, requisitos y preguntas de aclaración | 🟢 | 20 min | No | Ejemplos dentro del propio ejercicio |
 | 05 | [Arreglar una especificación mala](05-arreglar-una-especificacion-mala.md) | Encontrar los problemas de una especificación escrita con prisa y reescribir sus requisitos y criterios de éxito | 🟡 | 30-40 min | No | [Especificación arreglada](soluciones/05-especificacion-arreglada.md) |
-| 06 | [Reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md) | Llevar un problema real de tu día a día por todo el flujo, hasta una aplicación pequeña que funciona | 🔴 | 2-4 h, en dos o tres sesiones | Sí (vía B) | Sin solución: rúbrica de autoevaluación y ejemplos de buen resultado |
+| 06 | [Reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md) | Llevar un problema real de tu día a día por todo el flujo, hasta una aplicación pequeña que funciona | 🔴 | 3-4 h, en dos o tres sesiones | Sí (vía B) | Sin solución: rúbrica de autoevaluación y ejemplos de buen resultado |
 
 🟢 básico: no hace falta ningún conocimiento técnico. 🟡 intermedio: ayuda saber qué es un repositorio y haber visto código. 🔴 avanzado: para quien programa habitualmente.
 

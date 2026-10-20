@@ -2,9 +2,7 @@
 
 > **Para quién:** quien presenta la charla (no hace falta programar) y, como público, toda la empresa · **Tiempo de lectura:** ~15 min (la charla dura 20) · **Nivel:** 🟢 básico
 
-Este es el guion de la charla «Pizza Day»: veinte minutos para presentar SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) a toda la empresa, desde dirección hasta quien acaba de empezar a programar.
-
-Cada bloque trae lo que dirías en voz alta, qué enseñar en pantalla y cómo pasar al siguiente. Los textos son sugerencias: dilos con tus palabras.
+Este es el guion de la charla «Pizza Day»: veinte minutos para presentar a toda la empresa SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) y explicar qué problema resuelve frente al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). Cada bloque trae lo que dirías en voz alta, qué enseñar en pantalla y cómo pasar al siguiente; los textos son sugerencias, así que dilos con tus palabras.
 
 **Qué vas a encontrar**
 
@@ -31,11 +29,9 @@ Cada bloque trae lo que dirías en voz alta, qué enseñar en pantalla y cómo p
 
 **Materiales.** No hace falta preparar una presentación: la charla se da desde el propio repositorio, abierto en el navegador. Solo necesitas:
 
-- Un proyector o la pantalla compartida, con el navegador al 125-150 % de zoom para que se lea desde el fondo.
-- Una pizarra, un rotafolio o un documento en blanco proyectado, para escribir lo que dicte la sala.
+- Un proyector o la pantalla compartida, con el navegador al 125-150 % de zoom para que se lea desde el fondo, y, como plan B por si falla la conexión, capturas de las pestañas de abajo.
+- Una pizarra, un rotafolio o un documento en blanco proyectado, para escribir lo que dicte la sala, y un cronómetro que veas tú (el móvil vale).
 - Dos diapositivas (o dos documentos proyectados): las frases vagas del mini-ejercicio y el cierre. Su texto está en los bloques correspondientes.
-- Un cronómetro que veas tú (el móvil vale).
-- Un plan B por si falla la conexión: capturas de las pestañas de abajo.
 
 Abre estas pestañas, en este orden, antes de empezar:
 
@@ -101,6 +97,8 @@ Elige una de las dos versiones. La reforma funciona mejor si la mayoría del pú
 
 ## Minutos 5-9: qué es SDD y los siete pasos
 
+Aquí presentas el método y sus cuatro documentos principales: la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`) y la lista de tareas (`tasks.md`). No hace falta que la sala retenga los nombres de los ficheros; sí, el orden.
+
 **Qué dices:**
 
 > SDD son las siglas de *Spec-Driven Development*, desarrollo guiado por especificaciones. En una frase: primero se escribe, en castellano corriente, qué queremos y por qué; y a partir de ese texto el asistente de IA genera el plan, las tareas y el código, con una persona revisando cada paso.
@@ -159,7 +157,7 @@ De `tasks.md` (la T020 está recortada):
 
 ## Minutos 12-16: mini-ejercicio con el público
 
-Es la versión de 4 minutos de la [dinámica de equipo](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes): la tarjeta 1 (plazas de parking), tres frases vagas, un minuto por frase y un minuto de cierre. Sin hojas ni grupos: la sala dicta a mano alzada y tú escribes en la pizarra, tal cual, sin corregir.
+La sala convierte tres frases vagas en requisitos EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos). Es la versión de 4 minutos de la [dinámica de equipo](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes): la tarjeta 1 (plazas de parking), un minuto por frase y un minuto de cierre. Sin hojas ni grupos: la sala dicta a mano alzada y tú escribes en la pizarra, tal cual, sin corregir.
 
 Lo que proyectas en la pestaña 5 sale de la [tarjeta 1](../ejercicios/04-dinamica-de-equipo-20-minutos.md#tarjetas-de-peticiones-vagas) y de la [tabla de patrones EARS](../docs/05-escribir-requisitos-claros-ears.md#los-cinco-patrones-y-el-sexto):
 
@@ -188,24 +186,21 @@ Plantillas EARS (el sujeto es siempre el sistema; el verbo, «deberá»):
 Para cada frase tienes la respuesta típica de la sala (que también es tu plan B: si en cinco segundos nadie se anima, díctala tú y pide que la cacen), las vaguedades que deberían salir y la versión de referencia, con el patrón de la tabla de [Escribir requisitos claros](../docs/05-escribir-requisitos-claros-ears.md#los-cinco-patrones-y-el-sexto).
 
 **Minuto 12-13. Frase 1: «que se vea qué plazas hay».**
-
 - Respuesta típica: «El usuario deberá poder ver las plazas de forma rápida».
 - Vaguedades: el sujeto es la persona, no el sistema; «de forma rápida» es un adjetivo sin cifra; no dice qué plazas (¿las libres?, ¿de qué día?).
 - Referencia (ubicuo): «El sistema deberá mostrar las plazas libres de cada día con su número y su planta».
 
 **Minuto 13-14. Frase 2: «que no se pueda coger una plaza ocupada».**
-
 - Respuesta típica: «SI la plaza está ocupada, ENTONCES el usuario no podrá cogerla».
 - Vaguedades: otra vez el sujeto es la persona; no dice qué hace el sistema (¿rechaza?, ¿avisa?, ¿de quién es la plaza?), ni ocupada cuándo.
 - Referencia (comportamiento no deseado): «SI la plaza elegida ya está reservada ese día, ENTONCES el sistema deberá rechazar la reserva e indicar quién la tiene». Si la respuesta del sistema es rechazar, casi siempre es un SI.
 
 **Minuto 14-15. Frase 3: «que Oficina pueda bloquear plazas».**
-
 - Respuesta típica: «DONDE la persona sea de Oficina, el sistema deberá permitir bloquear plazas para que nadie pueda reservarlas».
 - Vaguedades: dos cosas en una frase (quién puede bloquear y qué le pasa a una plaza bloqueada); «bloquear», ¿para siempre o un tiempo?
 - Referencia: dos requisitos. Opcional: «DONDE la persona tenga permisos de Oficina, el sistema deberá permitir marcar una plaza como no disponible». Por estado: «MIENTRAS una plaza esté marcada como no disponible, el sistema deberá impedir reservarla».
 
-**Minuto 15-16. Cierre del ejercicio.** Proyecta las versiones de referencia (o escríbelas debajo de las de la sala):
+**Minuto 15-16. Cierre del ejercicio.** Proyecta las versiones de referencia (o escríbelas debajo de las de la sala) y cierra con la idea de la dinámica:
 
 ```text
 1   El sistema deberá mostrar las plazas libres de cada día con su número
@@ -248,23 +243,24 @@ Para cada frase tienes la respuesta típica de la sala (que también es tu plan 
 >
 > Todo está en el repositorio, con una ruta de lectura para cada perfil. Y hay talleres: *[fecha y lugar del próximo taller de dos horas]* y *[fecha de la sesión práctica para quien programa]*. El enlace está en pantalla. ¿Preguntas?
 
-**Qué muestras:** pestaña 7, la diapositiva de cierre. Su texto, con las rutas de lectura de cada perfil:
+**Qué muestras:** pestaña 7, la diapositiva de cierre. Su texto, con el primer paso y la ruta de lectura de cada perfil:
 
 ```text
 SDD: primero el qué y el porqué, por escrito. El código, lo último.
 
 Empieza mañana:
-  Manager o responsable      → docs 01, 02, 06, 08 y 09 (~45 min)
-                               y la dinámica de 20 minutos en tu equipo
-  RRHH o negocio             → docs 01, 02, 05, 06 y 10 (~40 min)
-                               y los ejercicios 01 y 02
-  Programas (junior)         → todo en orden (3-4 h con ejercicios),
-                               empezando por el ejercicio 00
-  Programas (con experiencia)→ docs 02, 03, 04, 07 y 08 (~2 h)
-                               y los ejercicios 03 y 06
+  Si no programas       → ejercicio 01: Solicitud de vacaciones (30 min)
+  Si diriges un equipo  → ejercicio 04: la dinámica de 20 minutos
+  Si programas          → ejercicios 00 (entorno) y 03 (ReservaSalas)
 
-Repositorio:       [enlace al repositorio]
-Próximos talleres: [fecha, lugar o enlace de inscripción]
+Rutas de lectura (con sus ejercicios):
+  Manager o responsable de equipo   docs 01, 02, 06, 08 y 09     unas 2 h
+  RRHH y perfiles de negocio        docs 01, 02, 05, 06 y 10     unas 2 h
+  Programador junior                todos los docs y diagramas   9-12 h, en varios días
+  Programador con experiencia       docs 02, 03, 04, 07 y 08     5-8 h
+
+Repositorio:        [enlace al repositorio]
+Próximos talleres:  [fecha, lugar o enlace de inscripción]
 ```
 
 Los itinerarios completos, dibujados, están en [`../diagramas/06-mapa-del-repositorio.md`](../diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil), y el índice general, en [`../README.md`](../README.md).
@@ -308,7 +304,7 @@ Si te preguntan algo que no está aquí ni en las [preguntas frecuentes](../docs
 | Minutos 9-12 | Solo la especificación (criterio 3 y RF-005); la lista de tareas se nombra, pero no se abre. | 1 min |
 | Minutos 12-16 | Dos frases vagas en vez de tres: te saltas la tercera. | 1 min |
 | Minutos 16-18 | Una frase por rol y sin la matriz en pantalla. | 1 min |
-| Minutos 18-20 | Nada de la llamada a la acción; las preguntas pasan a un canal escrito. | 1 min |
+| Minutos 18-20 | Las preguntas pasan a un canal escrito; la llamada a la acción se queda entera. | 1 min |
 
 > [!IMPORTANT]
 > Lo que nunca se recorta: la frase de SDD (primero el qué y el porqué, por escrito; el código, lo último), el mini-ejercicio con al menos dos frases y la llamada a la acción con su enlace.
