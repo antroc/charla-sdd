@@ -88,11 +88,13 @@ Los documentos siguientes explican cómo se consigue cada una de estas cuatro co
 
 Si no programas, la analogía más útil es una reforma en casa.
 
-Imagina que encargas la reforma de la cocina a un albañil rapidísimo y muy voluntarioso, sin plano y sin presupuesto. Le dices «quiero la cocina más grande» y el lunes ya ha tirado un tabique. El martes le comentas que la nevera no cabe donde la ha puesto; la mueve, y para eso desvía una tubería. El jueves descubres que el baño se ha quedado sin agua. Cada día arregla lo del día anterior, y cada arreglo genera el problema del siguiente.
+Imagina que encargas la reforma de la cocina a un albañil rapidísimo y muy voluntarioso, sin plano y sin presupuesto. Le dices «quiero la cocina más grande» y el lunes ya ha tirado un tabique.
+
+El martes le comentas que la nevera no cabe donde la ha puesto; la mueve, y para eso desvía una tubería. El jueves descubres que el baño se ha quedado sin agua. Cada día arregla lo del día anterior, y cada arreglo genera el problema del siguiente.
 
 ¿El albañil es malo? No: es rápido y hace lo que le pides. El problema es que nadie escribió qué tenía que tener la cocina (cuántos fuegos, dónde va la nevera, qué tabique es de carga) ni cuánto podía costar. Sin plano, cada decisión se toma sobre la marcha y se olvida al momento.
 
-Con el software y un asistente de IA pasa igual, solo que este albañil trabaja a una velocidad que hace el desorden todavía más rápido. El plano es la especificación; el presupuesto y las decisiones de obra son el plan técnico. El [documento siguiente](02-que-es-sdd.md) explica qué contiene cada uno.
+Con el software y un asistente de IA pasa igual, solo que este albañil trabaja tan deprisa que el desorden llega mucho antes. El plano es la especificación; el presupuesto y las decisiones de obra son el plan técnico (`plan.md`). El [documento siguiente](02-que-es-sdd.md) explica qué contiene cada uno.
 
 ## Lo que le cuesta a la empresa
 
@@ -100,10 +102,10 @@ Los costes del *vibe coding* son invisibles al principio, porque la primera sema
 
 | Coste | En qué se nota | Ejemplo en ReservaSalas v0 |
 |---|---|---|
-| **Retrabajo** | Se hace, se deshace y se vuelve a hacer lo mismo varias veces | Los choques de sala se «arreglaron» tres veces, y cada arreglo rompió otra cosa |
+| **Retrabajo** | Se hace, se deshace y se vuelve a hacer lo mismo varias veces | Los choques de sala se «arreglaron» y cada arreglo rompió otra cosa: primero las reservas de más de una hora, después la lista de «mis reservas» |
 | **Deuda técnica** | Atajos que hoy ahorran una hora y dentro de unos meses cuestan una semana | Las salas «Baltico» y «Báltico» obligan a limpiar datos cada vez que se toca la lista de salas |
 | **Dependencia de una persona** | Solo quien lo hizo sabe cómo funciona; si se va, nadie se atreve a tocarlo | Cuando Luis cambia de equipo, la aplicación se queda huérfana |
-| **Riesgo con los datos** | El sistema guarda o enseña datos que nadie pidió, porque nadie dijo cuáles hacían falta | El asistente añadió «por si acaso» un campo de teléfono y un listado de todas las reservas con el nombre de cada persona, visible para cualquiera |
+| **Riesgo con los datos** | El sistema guarda o enseña datos que nadie pidió, porque nadie dijo cuáles hacían falta | El asistente añadió «por si acaso» un campo de teléfono, el departamento de cada persona y un informe de quién usa más las salas; nadie lo pidió y nadie sabía que estaba ahí |
 
 «Deuda técnica» es la expresión que usamos para los atajos acumulados: como una deuda, se puede vivir con ella un tiempo, pero cobra intereses, y cuanto más tarde se paga, más cuesta. El [glosario](10-glosario.md) recoge esta y otras palabras del repositorio.
 
@@ -130,10 +132,10 @@ Fíjate en la columna de la derecha: todas las filas terminan en lo mismo. Falta
 
 ## Tres preguntas antes de aceptar una demo
 
-Si alguien te enseña una aplicación hecha en una tarde con un asistente de IA, no hace falta saber programar para saber si estás ante *vibe coding*. Basta con tres preguntas.
+Si alguien te enseña una aplicación hecha en una tarde con un asistente de IA, no hace falta saber programar para distinguir si estás ante *vibe coding*. Basta con tres preguntas.
 
 1. **¿Dónde está escrito lo que hace?** Si la respuesta es «en el código» o «en el chat con el asistente», no está escrito.
-2. **¿Qué pasa cuando dos personas hacen lo mismo a la vez, o cuando alguien se equivoca?** Una demo enseña el camino feliz; los problemas viven en los casos límite: una reserva que se solapa con otra, una fecha pasada, una sala en mantenimiento.
+2. **¿Qué pasa cuando dos personas hacen lo mismo a la vez, o cuando alguien se equivoca?** Una demo enseña el caso en que todo va bien; los problemas viven en los casos límite (las situaciones raras o incómodas): una reserva que se solapa con otra, una fecha pasada, una sala en mantenimiento.
 3. **¿Cómo sabremos que sigue funcionando después del próximo cambio?** Si no hay pruebas automáticas, la respuesta real es «probándolo todo a mano otra vez».
 
 Ninguna de las tres preguntas pide ver código. Las tres se responden con una especificación.
