@@ -297,13 +297,13 @@ RF-5 DONDE la persona tenga permisos de Oficina, el sistema deberá permitir mar
      plaza como no disponible.
 
 A1: ¿Con cuánta antelación como máximo se puede reservar?  → afecta a: RF-2, casos límite
-A2: ¿Hay plazas fijas asignadas a alguien?                   → afecta a: P1, RF-1
-A3: ¿Se puede reservar más de un día seguido?               → afecta a: alcance
+A2: ¿Hay plazas fijas asignadas a alguien?                 → afecta a: P1, RF-1
+A3: ¿Se puede reservar más de un día seguido?              → afecta a: alcance
 
 Fuera de alcance: plazas de visitas; abonos mensuales; aviso por correo.
 ```
 
-Fíjate en que se parece mucho a la [especificación canónica de ReservaSalas](soluciones/03-reserva-salas/spec.md): mismos patrones, mismas preguntas de antelación y permisos. Los problemas de reservar cosas se parecen entre sí, y por eso el método funciona. Para ver una especificación completa escrita sin código, tienes la [solución del ejercicio 01](soluciones/01-solicitud-de-vacaciones/especificacion.md).
+Fíjate en que se parece mucho a la [especificación canónica de ReservaSalas](soluciones/03-reserva-salas/spec.md): mismos patrones, mismas preguntas de antelación y permisos. Los problemas de reservar cosas se parecen entre sí, y por eso las mismas plantillas sirven para casi cualquier petición. Para ver una especificación completa escrita sin código, tienes la [solución del ejercicio 01](soluciones/01-solicitud-de-vacaciones/especificacion.md).
 
 ## En tres frases
 

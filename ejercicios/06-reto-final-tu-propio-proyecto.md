@@ -35,10 +35,13 @@ Al terminar habrás llevado un problema real de tu día a día desde una petici�
 - **Asistente:** el mismo del ejercicio 03. Escribimos los comandos como `/speckit.specify`; en tu asistente pueden aparecer como `/speckit-specify` o `$speckit-specify`. Es la misma orden.
 
 > [!NOTE]
-> **Si no programas**, hay un reto reducido sin instalar nada: haz los pasos 1, 3, 4 y 5 con las [plantillas](plantillas/README.md) y un chat de IA autorizado por la empresa (los *prompts* de esos pasos, las instrucciones que le escribes al asistente, funcionan en cualquier chat si le pegas antes la plantilla correspondiente), pasa la [lista de verificación](plantillas/lista-de-verificacion.md) y entrega la especificación con la presentación de cinco minutos. De la rúbrica te aplican los criterios 1, 2 y 5.
+> **Si no programas**, hay un reto reducido sin instalar nada: haz los pasos 1, 3, 4 y 5 con las [plantillas](plantillas/README.md) y un chat de IA autorizado por la empresa (los *prompts* de esos pasos, las instrucciones que le escribes al asistente, funcionan en cualquier chat si le pegas antes la plantilla correspondiente), pasa la [lista de verificación](plantillas/lista-de-verificacion.md) y entrega la especificación con la presentación de cinco minutos. Para aclarar sin Spec Kit, usa el *prompt* de la [variante con asistente del ejercicio 01](01-tu-primera-especificacion-sin-codigo.md#variante-con-asistente-de-ia-opcional-entre-los-pasos-7-y-8), que hace el papel de `/speckit.clarify`. De la rúbrica te aplican los criterios 1 y 2 y, del 5, solo su primera pregunta: ¿tus principios prohíben algo concreto?
 
 > [!WARNING]
 > El problema es real; los datos, no. Inventa nombres, correos y cifras como hace todo este repositorio, y no pegues listados, nóminas ni contratos en el asistente. Y si el proyecto gusta y alguien quiere usarlo de verdad, antes de ponerlo en marcha habla con IT y con seguridad: este reto es formación, no una puesta en producción.
+
+> [!TIP]
+> **Si eres manager o de negocio y alguien de tu equipo te pide hacer de «Ana»**, esto es lo que te va a pedir, siempre por escrito y en ratos cortos: leer y corregir su petición (10 min), responder a entre tres y cinco preguntas de aclaración (15 min), ver funcionar la primera historia y pedirle un cambio (10 min) y, al final, leer la especificación y contestar «¿es esto lo que pedí?» (20 min). En ningún momento hace falta abrir el código.
 
 ## Ocho ideas de proyecto
 
@@ -47,7 +50,7 @@ Elige un problema que sufras tú o alguien cercano, que se pueda explicar en cin
 | # | Idea | Nivel | Por qué encaja |
 |---|---|---|---|
 | 1 | **Préstamo de portátiles y proyectores.** Oficina presta equipos; hoy se apuntan en un cuaderno y nunca se sabe quién tiene qué | 🟢 básico | Es ReservaSalas con otro objeto: reutilizas lo que ya sabes y te concentras en hacerlo sin guion |
-| 2 | **Buzón de sugerencias con votos.** Cualquiera propone una mejora para la oficina, los demás votan y Oficina responde | 🟢 básico | Una sola entidad, dos roles y ningún horario: ideal para una primera vez en solitario |
+| 2 | **Buzón de sugerencias con votos.** Cualquiera propone una mejora para la oficina, los demás votan y Oficina responde | 🟢 básico | Dos entidades (la sugerencia y el voto), dos roles y ningún horario: ideal para una primera vez en solitario |
 | 3 | **Días en la oficina.** Cada persona marca qué días viene, su equipo lo ve y hay un aforo máximo por planta | 🟢 básico | Una regla clara (el aforo) que da pie a buenos requisitos SI/ENTONCES y a casos límite reales |
 | 4 | **Solicitud de vacaciones.** Pedir días, que el manager apruebe o rechace con motivo y que RRHH lo registre | 🟡 intermedio | Si hiciste el [ejercicio 01](01-tu-primera-especificacion-sin-codigo.md) ya tienes la especificación: el reto es llevarla hasta el código |
 | 5 | **Incidencias de oficina.** «La impresora de la 2.ª no va»: se reporta, Oficina la asigna y la cierra, y quien la abrió se entera | 🟡 intermedio | Estados, responsables y un aviso: obliga a decidir quién puede hacer qué en cada momento |
@@ -81,9 +84,11 @@ De arriba abajo: dictas la constitución y especificas; aclaras con quien encarg
 
 ## Pasos
 
-Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, con una casilla al final. Para el detalle de cada comando (qué pregunta, qué ficheros crea, qué hacer si se desvía), el [paso correspondiente del ejercicio 03](03-reserva-salas-paso-a-paso.md#pasos) sigue siendo tu referencia; aquí nos centramos en lo que cambia cuando el proyecto es tuyo.
+Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, con una casilla al final. Los once pasos recorren los siete del diagrama: el 2 crea el proyecto, del 3 al 9 van del paso 0 al 6 del flujo, y el 10 y el 11 son el cambio desde la especificación y la entrega. Para el detalle de cada comando (qué pregunta, qué ficheros crea, qué hacer si se desvía), el [paso correspondiente del ejercicio 03](03-reserva-salas-paso-a-paso.md#pasos) sigue siendo tu referencia; aquí nos centramos en lo que cambia cuando el proyecto es tuyo.
 
-1. **Elige el problema y a tu «Ana» (15 min).** Escoge una idea de la tabla (o la tuya) y escribe la petición en un fichero de texto, `peticion.md`, como la que Ana le hizo a Luis: entre cinco y diez frases en lenguaje natural que digan cuál es el problema hoy y qué cuesta, quién lo usa, qué tiene que poder hacer cada perfil, los límites que ya conoces (plazos, cantidades, quién aprueba) y qué queda fuera de la primera versión. Ni una palabra de tecnología. Después pídele a tu Ana que la lea y la corrija: es su petición, no la tuya.
+1. **Elige el problema y a tu «Ana» (15 min).** Escoge una idea de la tabla (o la tuya) y escribe la petición en un fichero de texto, `peticion.md`, como la que Ana le hizo a Luis: entre cinco y diez frases en lenguaje natural que digan cuál es el problema hoy y qué cuesta, quién lo usa, qué tiene que poder hacer cada perfil, los límites que ya conoces (plazos, cantidades, quién aprueba) y qué queda fuera de la primera versión. Ni una palabra de tecnología.
+
+    Después pídele a tu Ana que la lea y la corrija: es su petición, no la tuya.
 
     Si haces los dos papeles, la regla es esta: cada decisión de negocio la escribes en `peticion.md` o en la sección de aclaraciones antes de usarla, y nunca la tomas sobre la marcha en el chat del asistente. Lo que no está escrito no existe.
 
@@ -101,13 +106,13 @@ Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, co
     git checkout -b reto-sdd
     ```
 
-    Añade `--ignore-agent-tools` si tu asistente es un editor. Copia `peticion.md` dentro de la carpeta. La rama `reto-sdd` es la que convertirás en *pull request* en el paso 11; a partir de ahora haz *commit* (guarda una versión) al terminar cada paso, por ejemplo `git add -A && git commit -m "Paso 3: constitución"`, para poder comparar cada artefacto con su versión anterior.
+    Añade `--ignore-agent-tools` si Spec Kit no encuentra el ejecutable de tu asistente (a los que son editores no los comprueba de todos modos). Copia `peticion.md` dentro de la carpeta. La rama `reto-sdd` es la que convertirás en *pull request* en el paso 11; a partir de ahora haz *commit* (guarda una versión) al terminar cada paso, por ejemplo `git add -A && git commit -m "Paso 3: constitución"`, para poder comparar cada artefacto con su versión anterior.
 
     Qué deberías ver: el panel «Next Steps» de `specify init` y, al abrir el asistente dentro de la carpeta, los comandos `speckit`, como en el paso 1 del ejercicio 03.
 
     - [ ] El proyecto existe, está en la rama `reto-sdd` y el asistente ve los comandos.
 
-3. **Dicta tu constitución (15 min).** No copies la de ReservaSalas: escribe entre tres y cinco principios que decidan algo en tu proyecto. Prueba rápida: si un principio no prohíbe nada concreto, no es un principio (error 8 de [Buenas prácticas](../docs/08-buenas-practicas-y-errores-comunes.md#doce-errores-comunes)). Si tu proyecto toca datos de personas o dinero, un principio sobre qué se guarda y qué no es obligatorio. Plantilla a medio rellenar:
+3. **Dicta tu constitución (15 min).** No copies la de ReservaSalas tal cual: escribe entre tres y cinco principios que decidan algo en tu proyecto. Prueba rápida: si un principio no prohíbe nada concreto, no es un principio (error 8 de [Buenas prácticas](../docs/08-buenas-practicas-y-errores-comunes.md#doce-errores-comunes)). Si tu proyecto toca datos de personas o dinero, un principio sobre qué se guarda y qué no es obligatorio. Plantilla a medio rellenar:
 
     ```text
     /speckit.constitution Crea la constitución del proyecto [NOMBRE], [una frase: qué es y para quién]. Redáctala en castellano. [Tres a cinco] principios, cada uno con su regla y su «por qué»:
@@ -138,7 +143,7 @@ Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, co
 
     Qué deberías ver: `specs/001-<nombre>/spec.md` y `checklists/requirements.md`, y quizá hasta tres preguntas con opciones si a la petición le faltaba algo importante; respóndelas con tu Ana al lado, no por tu cuenta.
 
-    Qué revisar, con la tabla del paso 3 del ejercicio 03 delante: que la P1 valga sola (si solo existiera eso, ¿se resolvería el problema de hoy?); entre dos y cuatro historias, no seis; entre 6 y 12 requisitos, uno por frase; al menos cuatro casos límite; criterios de éxito con cifra; «Fuera de alcance» con contenido. Lo que sobre, fuera: una especificación corta y completa vale más que una larga. Y haz lo que hiciste en el [ejercicio 05](05-arreglar-una-especificacion-mala.md): léela con ojo de revisor y apunta lo que no cuadre antes de aclarar.
+    Qué revisar, con la tabla del paso 3 del ejercicio 03 delante: que la P1 valga sola (si solo existiera eso, ¿se resolvería el problema de hoy?); entre dos y cuatro historias, no seis; entre 6 y 12 requisitos, uno por frase; al menos cuatro casos límite; criterios de éxito con cifra; «Fuera de alcance» con contenido (la plantilla de Spec Kit no trae esa sección: si el asistente no la ha escrito, pídesela: «Añade una sección Fuera de alcance con lo que la petición deja para más adelante»). Lo que sobre, fuera: una especificación corta y completa vale más que una larga. Y haz lo que hiciste en el [ejercicio 05](05-arreglar-una-especificacion-mala.md): léela con ojo de revisor y apunta lo que no cuadre antes de aclarar.
 
     - [ ] `spec.md` tiene una P1 que vale sola, requisitos en EARS, criterios con cifra y ninguna tecnología.
 
@@ -164,11 +169,13 @@ Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, co
     /speckit.tasks Incluye las pruebas de cada historia antes de su implementación, como exige la constitución.
     ```
 
-    Qué revisar en `tasks.md`: una fase por historia en orden P1, P2, P3; pruebas antes que implementación en cada una; ruta de fichero en todas las tareas; `[P]` solo en tareas que tocan ficheros distintos; y, a ojo, que tres o cuatro requisitos elegidos al azar aparezcan en alguna tarea. Entre 20 y 45 tareas es lo habitual para un proyecto de este tamaño; si pasan de 60, la especificación era demasiado grande: vuelve al paso 4 y recorta.
+    Qué revisar en `tasks.md`: una fase por historia en orden P1, P2, P3; pruebas antes que implementación en cada una; ruta de fichero en todas las tareas; `[P]` solo en tareas que tocan ficheros distintos; y, a ojo, que tres o cuatro requisitos elegidos al azar aparezcan en alguna tarea. En nuestra experiencia, un proyecto de este tamaño sale en 20 a 50 tareas (ReservaSalas, algo mayor, tuvo 47); si pasan de 60, la especificación era demasiado grande: vuelve al paso 4 y recorta.
 
     - [ ] `tasks.md` tiene fases por historia, pruebas primero y ruta de fichero en cada tarea.
 
-8. **Analiza antes de escribir código (10 min).** `/speckit.analyze` tiene que salir sin incidencias críticas y con cobertura del 100 % (cada requisito, al menos una tarea). Si no, corrige donde toque (especificación, plan o tareas; nunca la constitución) y repite hasta que salga limpio: la tabla del paso 7 del ejercicio 03 dice qué hacer con cada tipo de incidencia. Opcional: `/speckit.checklist` con el tema que más te preocupe (permisos, accesibilidad, datos); las casillas de esa lista las marcas tú al revisar la especificación.
+8. **Analiza antes de escribir código (10 min).** Ejecuta `/speckit.analyze`. Opcional: `/speckit.checklist` con el tema que más te preocupe (permisos, accesibilidad, datos); las casillas de esa lista las marcas tú al revisar la especificación.
+
+    Qué deberías ver: el informe en el chat, con la tabla de incidencias, la tabla de cobertura (cada requisito y las tareas que lo cubren) y las métricas. Tiene que salir sin incidencias críticas y con cobertura del 100 % (cada requisito, al menos una tarea). Si no, corrige donde toque (especificación, plan o tareas; nunca la constitución) y repite hasta que salga limpio: la tabla del paso 7 del ejercicio 03 dice qué hacer con cada tipo de incidencia.
 
     - [ ] El informe de `analyze` no tiene incidencias críticas y todos los requisitos tienen tarea.
 
@@ -178,11 +185,15 @@ Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, co
     /speckit.implement solo las fases 1, 2 y 3
     ```
 
-    Cuando termine, arranca la aplicación con los comandos del `quickstart.md` de tu proyecto, haz tú el recorrido de la historia 1 y pasa las pruebas (`pytest` o el equivalente de tu tecnología). Enséñaselo a tu Ana antes de seguir: cinco minutos bastan y es el momento en que más se aprende. Después, `/speckit.implement` sin alcance para el resto, y `/speckit.converge` hasta que responda «✅ Converged». Si una prueba falla, no la arregles tú: pégale la salida al asistente y dile que esa tarea no está terminada.
+    Qué deberías ver: el asistente recorre las fases, escribe primero las pruebas de la historia 1, las ve fallar, implementa y las ve pasar, y marca esas tareas `[X]` en `tasks.md`. Cuando termine, arranca la aplicación con los comandos del `quickstart.md` de tu proyecto, haz tú el recorrido de la historia 1 y pasa las pruebas (`pytest` o el equivalente de tu tecnología). Enséñaselo a tu Ana antes de seguir: cinco minutos bastan y es el momento en que más se aprende.
+
+    Después, `/speckit.implement` sin alcance para el resto, y `/speckit.converge`: si añade una fase de convergencia a `tasks.md`, ejecútala con `/speckit.implement solo la fase de convergencia` y vuelve a lanzar `/speckit.converge`, hasta que responda «✅ Converged». Si una prueba falla, no la arregles tú: pégale la salida al asistente y dile que esa tarea no está terminada.
 
     - [ ] La P1 funciona y la ha visto quien encarga; todas las pruebas pasan; `converge` está en verde.
 
-10. **Pide un cambio desde la especificación (20 min).** Tu Ana, después de ver la aplicación, querrá cambiar algo: un plazo, un límite, quién aprueba. Hazlo como en el paso 9 del ejercicio 03: primero `spec.md` (y el plan, si recogía el dato), luego `/speckit.converge` y `/speckit.implement solo la fase de convergencia`. Haz *commit* del cambio de la especificación antes de regenerar, para que en el historial se vea que el cambio empezó por ella.
+10. **Pide un cambio desde la especificación (20 min).** Tu Ana, después de ver la aplicación, querrá cambiar algo: un plazo, un límite, quién aprueba. Si no se le ocurre nada, pídele que elija un cambio pequeño: el reto necesita uno. Hazlo como en el paso 9 del ejercicio 03: primero `spec.md` (y el plan, si recogía el dato), luego `/speckit.converge` y `/speckit.implement solo la fase de convergencia`. Haz *commit* del cambio de la especificación antes de regenerar, para que en el historial se vea que el cambio empezó por ella.
+
+    Qué deberías ver: antes de converger, `git diff` solo muestra cambios en `spec.md` (y en el plan); `converge` añade una fase de convergencia a `tasks.md`; tras implementarla, la aplicación hace lo nuevo y `pytest` sigue en verde.
 
     - [ ] El último cambio de comportamiento de mi aplicación empezó por un cambio en `spec.md`, y está en el historial.
 
@@ -193,11 +204,11 @@ Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, co
 
     | Criterio | Nivel (1-4) | Por qué |
     |---|---|---|
-    | Claridad de la especificación | [ ] | [p. ej. «Ana la leyó entera y corrigió dos criterios de aceptación»] |
-    | Calidad de los requisitos EARS | [ ] | […] |
-    | Coherencia especificación-plan-tareas | [ ] | […] |
-    | Pruebas y verificación | [ ] | […] |
-    | Fidelidad a la constitución | [ ] | […] |
+    | Claridad de la especificación | [1-4] | [p. ej. «Ana la leyó entera y corrigió dos criterios de aceptación»] |
+    | Calidad de los requisitos EARS | [1-4] | […] |
+    | Coherencia especificación-plan-tareas | [1-4] | […] |
+    | Pruebas y verificación | [1-4] | […] |
+    | Fidelidad a la constitución | [1-4] | […] |
 
     **Tres cosas que haría distinto:** 1. […] 2. […] 3. […]
     ```
@@ -214,7 +225,7 @@ Antes de compartir, comprueba que existen estos ficheros y que cada uno cumple l
 - [ ] **`.specify/memory/constitution.md`**: entre tres y cinco principios con regla y «por qué», restricciones, flujo de trabajo y gobernanza con versión 1.0.0 y fechas; ningún hueco `[…]`.
 - [ ] **`specs/001-<nombre>/spec.md`**: entre dos y cuatro historias con prioridad y criterios Dado/Cuando/Entonces; casos límite; entre 6 y 12 requisitos EARS numerados sin huecos; entidades; criterios de éxito con cifra; supuestos; «Fuera de alcance»; sección de aclaraciones con las respuestas de quien encarga. Ni una tecnología.
 - [ ] **`specs/001-<nombre>/checklists/requirements.md`**: todas las casillas marcadas tras aclarar. Si generaste listas por tema con `/speckit.checklist`, marcadas por ti, con una nota en cada «no».
-- [ ] **`specs/001-<nombre>/plan.md`** (con `research.md`, `data-model.md`, `contracts/` y `quickstart.md`): contexto técnico sin «NEEDS CLARIFICATION»; comprobación contra la constitución explicada principio a principio; registro de complejidad con cada desviación; `quickstart.md` con los comandos para arrancar y probar la P1.
+- [ ] **`specs/001-<nombre>/plan.md`** (con `research.md`, `data-model.md`, `quickstart.md` y, si el asistente la creó, `contracts/`): contexto técnico sin «NEEDS CLARIFICATION»; comprobación contra la constitución explicada principio a principio; registro de complejidad con cada desviación; `quickstart.md` con los comandos para arrancar y probar la P1.
 - [ ] **`specs/001-<nombre>/tasks.md`**: fases por historia; pruebas antes que implementación; ruta de fichero en cada tarea; todas las tareas de las fases implementadas marcadas `[X]`, incluida la fase de convergencia si la hubo.
 - [ ] **Código y pruebas** (`src/`, `tests/` o la estructura que fije tu plan): las pruebas pasan todas; la P1 se puede probar siguiendo el quickstart sin ayuda.
 - [ ] **`README.md` del proyecto**: qué es, cómo arrancarlo y dónde está la especificación. Tres párrafos bastan.
@@ -229,7 +240,7 @@ Puntúa cada criterio del 1 al 4 leyendo la fila entera: el nivel es el más alt
 |---|---|---|---|---|
 | **Claridad de la especificación** | Mezcla qué y cómo; historias sin prioridad; alguien de negocio no la entiende | Historias con prioridad, pero la P1 no vale sola; quedan frases vagas o algún marcador de aclaración sin resolver | Sin tecnología; P1 que vale sola; criterios Dado/Cuando/Entonces; casos límite y «Fuera de alcance» escritos | Además, quien encarga la ha leído entera y ha corregido algo en ella, y `checklists/requirements.md` está completa sin excepciones |
 | **Calidad de los requisitos EARS** | Requisitos sin patrón, con dos cosas o con adjetivos sin cifra | La mayoría sigue EARS, pero hay repetidos, huecos en la numeración o alguno con tecnología | Todos siguen uno de los cinco patrones, numerados, una sola cosa comprobable cada uno | Además, cada requisito se refleja en un criterio de aceptación y cada historia tiene su tabla de requisitos, como en la especificación canónica |
-| **Coherencia especificación-plan-tareas** | No se ejecutó `analyze`, o se implementó con incidencias críticas | `analyze` con incidencias altas que se resolvieron tocando el código, no los ficheros | `analyze` sin incidencias críticas y cobertura del 100 %: cada requisito tiene tarea y cada tarea tiene fichero | Además, el modelo de datos solo tiene las entidades de la especificación y `converge` respondió «Converged» tras un cambio pedido desde la especificación |
+| **Coherencia especificación-plan-tareas** | No se ejecutó `analyze`, o se implementó con incidencias críticas | `analyze` se ejecutó, pero se implementó con incidencias altas pendientes, o se cerraron parcheando el código en vez de corregir la especificación, el plan o las tareas | `analyze` sin incidencias críticas y cobertura del 100 %: cada requisito tiene tarea y cada tarea tiene fichero | Además, el modelo de datos solo tiene las entidades de la especificación y `converge` respondió «Converged» tras un cambio pedido desde la especificación |
 | **Pruebas y verificación** | No hay pruebas automáticas, o no pasan | Hay pruebas, pero se escribieron después del código o no cubren las reglas de negocio | Pruebas antes que implementación en cada historia; todas pasan; las reglas de negocio (límites, permisos) tienen pruebas propias | Además, otra persona ha arrancado y probado la P1 siguiendo `quickstart.md` sin tu ayuda |
 | **Fidelidad a la constitución** | Constitución genérica (no prohíbe nada) o sin usar | Principios concretos, pero la comprobación del plan dice «cumple» sin explicar cómo | Cada principio decide algo; la comprobación explica cómo; las desviaciones están en el registro de complejidad | Además, la constitución frenó al menos una decisión (está anotado dónde) y nada del código la contradice |
 
@@ -256,7 +267,9 @@ git push -u origin main      # o master, según se llame tu rama inicial
 git push -u origin reto-sdd
 ```
 
-En la web del repositorio, abre una *pull request* de `reto-sdd` hacia `main`, con el guion de cinco puntos como descripción y enlaces directos a `spec.md`, `plan.md`, `tasks.md` y `docs/autoevaluacion.md`. Pide dos revisiones: a quien hizo de Ana, que lea solo la especificación y conteste «¿es esto lo que pedí?»; y a alguien con experiencia técnica, que mire la comprobación contra la constitución, las pruebas y el historial (¿el último cambio empezó por la especificación?). Los comentarios de la revisión son la primera lista de aclaraciones de la versión 2.
+En la web del repositorio, abre una *pull request* de `reto-sdd` hacia `main`, con el guion de cinco puntos como descripción y enlaces directos a `spec.md`, `plan.md`, `tasks.md` y `docs/autoevaluacion.md`.
+
+Pide dos revisiones: a quien hizo de Ana, que lea solo la especificación y conteste «¿es esto lo que pedí?»; y a alguien con experiencia técnica, que mire la comprobación contra la constitución, las pruebas y el historial (¿el último cambio empezó por la especificación?). Los comentarios de la revisión son la primera lista de aclaraciones de la versión 2.
 
 ### Opción B: presentación de cinco minutos
 
@@ -269,11 +282,11 @@ En la reunión de equipo, con el guion de arriba y tres cosas abiertas: `spec.md
 | Llevas una hora y la especificación no termina: seis historias y veinte requisitos | El problema es demasiado grande | Quédate con la P1 y una P2; el resto va a «Fuera de alcance» con una frase. La versión 2 será otra especificación |
 | Las aclaraciones las has respondido tú en diez segundos «porque era obvio» | Has hecho de Ana sin escribirlo | Anótalas en la sección de aclaraciones antes de seguir y, si tienes a alguien, pregúntale: lo obvio para ti suele ser lo que cambia |
 | La especificación tiene nombres de tecnología porque «ya sé cómo lo voy a hacer» | Has mezclado el qué con el cómo | Quítalos de `spec.md` y ponlos en el *prompt* de `/speckit.plan`; es el error 1 de Buenas prácticas |
-| `/speckit.plan` propone una tecnología que no conoces | El *prompt* no la fijaba | Repite el comando indicando lenguaje, almacenamiento y pruebas; el plan obedece a lo que escribes |
+| `/speckit.plan` propone una tecnología que no conoces | El *prompt* no la fijaba | Repite el comando indicando lenguaje, almacenamiento y pruebas: el plan parte de lo que escribes |
 | `/speckit.implement` falla al instalar dependencias | Proxy o índice privado de paquetes de la empresa | `UV_DEFAULT_INDEX` como en el [ejercicio 00](00-preparacion-del-entorno.md); si no, habla con IT |
 | `implement` lleva más de una hora o se para a cada rato | Demasiadas tareas, o tareas gigantes | Ejecuta por fases (`solo las fases 1, 2 y 3`) y, si una tarea no cabe en una línea con su fichero, regenera `tasks.md` pidiendo tareas más pequeñas |
 | `/speckit.converge` añade tareas una y otra vez | La especificación y el plan se contradicen en algo (un límite distinto en cada uno) | Unifica el dato en `spec.md` y `plan.md`, haz *commit* y vuelve a converger |
-| Has arreglado un fallo editando el código a mano «para ir más rápido» | El atajo de siempre | Deshazlo (`git checkout -- .`), decide si el error está en la especificación, el plan o la implementación ([qué se corrige](../docs/08-buenas-practicas-y-errores-comunes.md#cuando-algo-falla-qué-se-corrige)) y arréglalo ahí |
+| Has arreglado un fallo editando el código a mano «para ir más rápido» | El atajo de siempre | Deshazlo (`git checkout -- src tests`, o las carpetas de código de tu proyecto; nunca `git checkout -- .`, que borraría también lo que hayas cambiado en la especificación sin guardar), decide si el error está en la especificación, el plan o la implementación ([qué se corrige](../docs/08-buenas-practicas-y-errores-comunes.md#cuando-algo-falla-qué-se-corrige)) y arréglalo ahí |
 | Ha aparecido `specs/002-…` | Has vuelto a ejecutar `/speckit.specify` | Borra la carpeta nueva, deja `.specify/feature.json` apuntando a `001-…` y edita la especificación existente |
 | La *pull request* tiene cientos de ficheros y nadie la revisa | Has subido `.venv/`, la base de datos o ficheros generados | Añádelos a `.gitignore`, sácalos del control de versiones (`git rm -r --cached .venv`) y vuelve a subir |
 
@@ -297,7 +310,7 @@ En la reunión de equipo, con el guion de arriba y tres cosas abiertas: `spec.md
 
 ## Solución o ejemplo resuelto
 
-Este reto no tiene solución: cada proyecto es distinto y el tuyo lo juzgan la lista de entrega, la rúbrica y tu equipo. Lo que sí podemos enseñarte es cómo se ve un buen resultado. Dos ejemplos, uno de cada extremo de la tabla de ideas; los dos tienen fallos y los dos los dicen.
+Este reto no tiene solución: cada proyecto es distinto y el tuyo lo juzgan la lista de entrega, la rúbrica y tu equipo. Lo que sí podemos enseñarte es cómo se ve un buen resultado. Dos ejemplos, uno de cada extremo de la tabla de ideas; los dos tienen fallos y los dos los dicen. Son ficticios, como todo en este repositorio: sirven para ver qué aspecto tiene un buen resultado, no como medida de lo que tienes que tardar.
 
 ### Ejemplo 1: préstamo de portátiles (🟢), por Luis, en dos tardes
 
@@ -305,7 +318,7 @@ Este reto no tiene solución: cada proyecto es distinto y el tuyo lo juzgan la l
 - **Constitución:** cuatro principios. El cuarto, propio del problema: «todo equipo prestado tiene una persona responsable visible y una fecha de devolución; no existen préstamos abiertos».
 - **Especificación:** P1 «pedir un equipo para unas fechas y recogerlo» (vale sola: con eso el cuaderno desaparece); P2 «devolver o prorrogar»; P3 «ver qué hay disponible hoy». Nueve requisitos EARS, seis casos límite y cuatro criterios de éxito con cifra. Cuatro aclaraciones respondidas por Ana: máximo diez días laborables, una sola prórroga, no se guarda el motivo, aviso el día antes de la devolución.
 - **Plan y tareas:** la tecnología del ejercicio 03. La comprobación contra la constitución explica cada principio; una desviación en el registro de complejidad (el aviso del día antes necesita una tarea programada; la alternativa, que cada persona lo mire por su cuenta, se descartó porque Ana lo pidió expresamente). 31 tareas, pruebas primero.
-- **Análisis e implementación:** `analyze` encontró una incidencia HIGH (el requisito del aviso no tenía tarea) y se corrigió `tasks.md` antes de implementar. Producto mínimo en 25 minutos, enseñado a Ana; `converge` en verde a la segunda. Cambio desde la especificación: Ana bajó el máximo a cinco días; el *commit* de `spec.md` va antes que el del código.
+- **Análisis e implementación:** `analyze` encontró una incidencia HIGH (el requisito del aviso no tenía tarea) y se corrigió `tasks.md` antes de implementar. Producto mínimo enseñado a Ana ese mismo día; `converge` en verde a la segunda. Cambio desde la especificación: Ana bajó el máximo a cinco días; el *commit* de `spec.md` va antes que el del código.
 - **Autoevaluación:** 17 de 20. Claridad 4 (Ana la corrigió), EARS 3 (un requisito con dos cosas, anotado), coherencia 3, pruebas 3 (nadie más había seguido el quickstart todavía), constitución 4 (frenó una propuesta de guardar el departamento de cada persona). *Pull request* de 38 ficheros: Ana revisó la especificación en 20 minutos y pidió un cambio de texto; un compañero con experiencia revisó el plan y las pruebas.
 
 ### Ejemplo 2: turnos de guardia (🔴), por una persona con experiencia del equipo de soporte, en tres sesiones
