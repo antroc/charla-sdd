@@ -18,7 +18,7 @@ Si lo que buscas son los pasos de instalación uno a uno, con lo que deberías v
 
 ## Tres formas de hacer SDD
 
-- **GitHub Spec Kit.** Una herramienta de línea de comandos, gratuita y de código abierto, que prepara el proyecto y añade al asistente de programación con IA que ya uses una serie de comandos, uno por paso del flujo. Es la que usamos en los ejercicios 03 y 06.
+- **GitHub Spec Kit.** Una herramienta de línea de comandos (se maneja escribiendo órdenes en la terminal, la ventana de texto del ordenador, en vez de con botones), gratuita y de código abierto (cualquiera puede ver y usar su código). Prepara el proyecto y añade al asistente de programación con IA que ya uses una serie de comandos que recorren el flujo paso a paso. Es la que usamos en los ejercicios 03 y 06.
 - **Kiro, de AWS.** Un editor de código con el flujo de especificación, diseño y tareas integrado. No necesita Spec Kit: trae el suyo.
 - **Sin herramientas.** Las plantillas de este repositorio, un documento compartido y, si quieres, un chat de IA autorizado por la empresa. Es la vía de los ejercicios 01, 02, 04 y 05 y la única que necesita un perfil no técnico.
 

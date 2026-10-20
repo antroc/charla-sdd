@@ -4,7 +4,7 @@
 
 Cuando alguien oye hablar por primera vez de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) suele preguntar lo mismo: «¿y yo qué pinto ahí?». Este diagrama lo responde con ReservaSalas: Ana (responsable de Oficina) encarga la aplicación, Luis (programador junior) la construye con un asistente de IA, y Marta (manager de un equipo) y Jorge (RRHH) la van a usar. Lo que hace cada rol, explicado con calma, está en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md); los pasos del flujo, en [el diagrama 02](02-flujo-completo-sdd.md).
 
-Iconos que usamos: 👤 negocio (quien encarga o usa la aplicación), 👩‍💻 quien programa, 🤖 asistente de IA.
+Iconos que usamos: 👤 negocio (quien encarga o usa la aplicación), 👩‍💻 quien programa, 🤖 asistente de IA. Cuando decimos QA nos referimos al control de calidad: la persona o el equipo que prueba que la aplicación hace lo que debe.
 
 **Qué vas a encontrar:**
 
@@ -15,7 +15,7 @@ Iconos que usamos: 👤 negocio (quien encarga o usa la aplicación), 👩‍�
 
 ## Pasos 0 a 2: pensar, lidera negocio
 
-El diagrama muestra, para cada uno de los tres primeros pasos del flujo, quién lidera y quién revisa: cada casilla lo dice con su primera palabra, y el color indica si es negocio (naranja) o quien programa (azul).
+El diagrama muestra, para cada uno de los tres primeros pasos del flujo, quién lidera y quién revisa: cada casilla lo dice con su primera palabra, y el color es naranja cuando lidera o revisa negocio (aunque le acompañe alguien técnico) y azul cuando lo hace solo quien programa.
 
 ```mermaid
 flowchart TD
@@ -28,8 +28,8 @@ flowchart TD
     r1["👩‍💻 Revisan: Luis y QA · se consulta a Marta y Jorge"]
   end
   subgraph p2 ["2 · Aclarar"]
-    l2["🤖 Pregunta el asistente · 👤 responde Ana"]
-    r2["👩‍💻 Revisa: Luis, que ejecuta el comando y comprueba que la especificación se actualiza"]
+    l2["👤 Lidera: Ana, que responde (el 🤖 asistente pregunta)"]
+    r2["👩‍💻 Revisa: Luis, que lanza el paso en el asistente y comprueba que las respuestas quedan en la especificación"]
   end
   l0 ~~~ r0
   l1 ~~~ r1
@@ -41,11 +41,13 @@ flowchart TD
   class r0,r1,r2 dev;
 ```
 
-De arriba abajo: la constitución la fijan juntos quien encarga y quien construye, y la revisa alguien con experiencia técnica. La especificación la lidera Ana: ella dice qué quiere y por qué, el asistente de IA lo redacta con historias y requisitos, y Luis y QA revisan que no se haya colado tecnología ni frases vagas; a Marta y Jorge se les pregunta cómo usan hoy las salas. En aclarar, el asistente hace las preguntas, Ana responde y Luis se ocupa de que las respuestas acaben dentro de la especificación. En estos tres pasos nadie programa nada.
+De arriba abajo: la constitución (`constitution.md`) la fijan juntos quien encarga y quien construye, y la revisa alguien con experiencia técnica. La especificación (`spec.md`) la lidera Ana: ella dice qué quiere y por qué, el asistente de IA lo redacta con historias y requisitos, y Luis y QA revisan que no se haya colado tecnología ni frases vagas; a Marta y Jorge se les pregunta cómo usan hoy las salas.
+
+En aclarar, el asistente hace las preguntas, Ana responde y Luis se ocupa de que las respuestas acaben dentro de la especificación; a Marta, Jorge y QA se les consulta si alguna respuesta les afecta. En estos tres pasos nadie programa nada.
 
 ## Pasos 3 a 6: construir, lidera quien programa
 
-El diagrama sigue con los cuatro pasos restantes, con el mismo esquema: una casilla «Lidera» y otra «Revisa» por paso, naranja para negocio y azul para quien programa.
+El diagrama sigue con los cuatro pasos restantes, con el mismo esquema: una casilla «Lidera» y otra «Revisa» por paso, naranja cuando lidera o revisa negocio (aunque le acompañe alguien técnico) y azul cuando lo hace solo quien programa.
 
 ```mermaid
 flowchart TD
@@ -59,11 +61,11 @@ flowchart TD
   end
   subgraph p5 ["5 · Analizar"]
     l5["👩‍💻 Lidera: Luis (el 🤖 asistente informa de incoherencias)"]
-    r5["👤 Revisan: Ana (criterios de éxito) y QA (lista de verificación)"]
+    r5["👤 Revisan: Ana (criterios de éxito), senior (informe) y QA (lista de verificación)"]
   end
   subgraph p6 ["6 · Implementar"]
     l6["👩‍💻 Lidera: Luis (el 🤖 asistente ejecuta las tareas)"]
-    r6["👤 Revisan y prueban: Ana, Marta y Jorge · QA revisa las pruebas"]
+    r6["👤 Revisa: Ana · prueban: Marta y Jorge · senior y QA revisan código y pruebas"]
   end
   l3 ~~~ r3
   l4 ~~~ r4
@@ -76,11 +78,13 @@ flowchart TD
   class r5,r6 negocio;
 ```
 
-De arriba abajo: a partir del plan técnico lidera Luis, y el asistente de IA hace el trabajo pesado: redacta el plan, genera la lista de tareas, informa de incoherencias y, al final, ejecuta las tareas. La revisión técnica (plan y tareas) la hace alguien con experiencia. Negocio vuelve a aparecer en los dos últimos pasos: Ana comprueba que los criterios de éxito siguen siendo los suyos, y Ana, Marta y Jorge prueban la aplicación antes de darla por buena. Fíjate en que el asistente aparece en todos los pasos, pero nunca en una casilla «Revisa»: redacta y ejecuta, no aprueba.
+De arriba abajo: a partir del plan técnico (`plan.md`) lidera Luis. El asistente de IA hace el trabajo pesado: redacta el plan, genera la lista de tareas (`tasks.md`), informa de incoherencias y, al final, ejecuta las tareas. La revisión técnica (plan, tareas, informe y código) la hace alguien con experiencia, y QA vigila las pruebas; en planificar se consulta a Ana y a QA si una decisión les afecta.
+
+Negocio vuelve a aparecer en los dos últimos pasos: en analizar, Ana comprueba que los criterios de éxito siguen siendo los suyos; en implementar, Marta y Jorge prueban la aplicación y cuentan qué han visto, y Ana da el visto bueno final. Fíjate en que el asistente aparece en todos los pasos, pero nunca en una casilla «Revisa»: redacta y ejecuta, no aprueba.
 
 ## Cómo vive cada paso cada persona
 
-Una lectura más ligera del mismo recorrido: el diagrama muestra, paso a paso, lo cómodo que suele resultar cada paso para quien participa en él (cara contenta = paso cómodo y vistoso; cara seria = paso tedioso o de espera). Es una estimación hecha desde nuestra experiencia, no una medición.
+Una lectura más ligera del mismo recorrido. El diagrama muestra lo cómodo que suele resultar cada paso para quien participa en él: cara contenta, paso cómodo y vistoso; cara seria, paso tedioso o de espera. Es una estimación hecha desde nuestra experiencia, no una medición.
 
 ```mermaid
 journey
@@ -96,7 +100,7 @@ journey
     Implementar: 5: Luis, Ana
 ```
 
-De izquierda a derecha: los pasos más agradecidos son especificar (Ana por fin dice lo que necesita, sin traducirlo a jerga) e implementar (la aplicación aparece y se puede tocar). Las caras más serias están en aclarar y analizar: son pasos de preguntas y comprobaciones en los que no se ve avanzar nada, y por eso son los que más tentación dan de saltarse. Precisamente ahí se evitan los disgustos de después.
+De izquierda a derecha: los pasos más agradecidos son especificar (Ana por fin dice lo que necesita, sin traducirlo a jerga) e implementar (la aplicación aparece y se puede tocar). Las caras más serias están en aclarar y analizar: son pasos de preguntas y comprobaciones en los que no se ve avanzar nada, y por eso son los que más tentación dan de saltarse. Precisamente ahí se evitan muchos de los disgustos de después.
 
 ## Matriz de roles y pasos
 
@@ -112,7 +116,7 @@ La tabla resume la participación de cada rol en cada paso. **L** = lidera (es r
 | QA (calidad y pruebas) | — | R | C | C | R | R | R |
 | 🤖 Asistente de IA | redacta | redacta | pregunta | diseña | trocea | informa | ejecuta |
 
-Dos formas de leer la tabla. Por filas: si eres de negocio, estás en la primera mitad (pensar) y en la prueba final, siempre sin tocar código; si programas, participas en los siete pasos y lideras los cuatro últimos. Por columnas: ningún paso tiene como único participante al asistente de IA, y ningún paso lo lidera él.
+Dos formas de leer la tabla. Por filas: si eres de negocio, estás en la primera mitad (pensar), liderando o aportando información, y vuelves al final para revisar el análisis y probar la aplicación, siempre sin tocar código; Marta y Jorge prueban y cuentan qué han visto (por eso llevan una C), y el visto bueno es de Ana. Si programas, participas en los siete pasos y lideras los cuatro últimos. Por columnas: ningún paso tiene como único participante al asistente de IA, y ningún paso lo lidera él.
 
 > [!TIP]
 > Si en tu equipo no hay QA ni programador senior, sus casillas las cubre otra persona del equipo que **no** haya escrito el artefacto que revisa. Lo importante es que haya cuatro ojos, no el cargo.
@@ -121,7 +125,7 @@ Dos formas de leer la tabla. Por filas: si eres de negocio, estás en la primera
 
 1. Negocio lidera la primera mitad del flujo (constitución, especificar, aclarar) y vuelve al final para comprobar criterios y probar; quien programa lidera la segunda mitad.
 2. El asistente de IA participa en todos los pasos, pero siempre redactando, generando o ejecutando: nunca lidera y nunca aprueba.
-3. Cada paso tiene una persona que lidera y otra distinta que revisa; los pasos menos vistosos (aclarar y analizar) son los que más disgustos evitan.
+3. Cada paso tiene una persona que lidera y otra distinta que revisa; los pasos menos vistosos (aclarar y analizar) suelen ser los que más disgustos evitan.
 
 ## Siguiente paso
 

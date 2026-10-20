@@ -2,7 +2,7 @@
 
 > **Para quién:** programadores junior y cualquier persona que vaya a escribir o revisar una especificación · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
-En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) cada paso del flujo deja un documento. A esos documentos los llamamos artefactos. Son cinco: la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y la lista de verificación (o *checklist*). A ellos se suma el registro de aclaraciones, que en Spec Kit no es un fichero aparte sino una sección dentro de la especificación.
+En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) cada paso del flujo deja un documento. A esos documentos los llamamos artefactos. Son cinco: la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y la lista de verificación (o *checklist*; en Spec Kit, `checklists/requirements.md`; en nuestra solución, `checklist.md`). A ellos se suma el registro de aclaraciones, que en Spec Kit no es un fichero aparte sino una sección dentro de la especificación.
 
 Aquí vemos cada uno por dentro: para qué sirve, quién lo escribe y quién lo revisa, qué secciones tiene, un extracto real del ejemplo ReservaSalas y los errores más típicos. Si quieres saber en qué momento del flujo aparece cada uno, eso está en [El flujo paso a paso](03-el-flujo-paso-a-paso.md).
 
@@ -20,7 +20,7 @@ Aquí vemos cada uno por dentro: para qué sirve, quién lo escribe y quién lo 
 
 ## Cómo se relacionan
 
-Los artefactos no son documentos sueltos: cada uno sale del anterior y el asistente de IA los lee todos antes de dar un paso. El diagrama muestra quién alimenta a quién.
+Los artefactos no son documentos sueltos: cada uno sale del anterior, y el asistente de IA lee los anteriores antes de dar cada paso. El diagrama muestra quién alimenta a quién.
 
 ```mermaid
 flowchart TD
@@ -49,7 +49,7 @@ flowchart TD
   class A,V,N control;
 ```
 
-De arriba abajo: la constitución marca los límites de la especificación, del plan y de las tareas. La especificación (el qué y el por qué) alimenta al plan (el cómo), el plan a la lista de tareas y las tareas al código. A la izquierda, el registro de aclaraciones afina la especificación y la lista de verificación comprueba su calidad; el análisis de coherencia, en líneas discontinuas, cruza especificación, plan y tareas sin modificar ninguno.
+De arriba abajo: la constitución marca los límites de la especificación, del plan y de las tareas. La especificación (el qué y el por qué) alimenta al plan (el cómo), el plan a la lista de tareas y las tareas al código. Además, el registro de aclaraciones afina la especificación y la lista de verificación comprueba su calidad; el análisis de coherencia, con líneas discontinuas, cruza especificación, plan y tareas sin modificar ninguno.
 
 Una versión ampliada, con quién escribe y quién aprueba cada artefacto, está en [el diagrama de artefactos y relaciones](../diagramas/03-artefactos-y-relaciones.md).
 
@@ -78,7 +78,8 @@ reserva-salas/
 │       ├── contracts/              # apoyo del plan: contratos (solo si hay interfaces externas)
 │       ├── quickstart.md           # apoyo del plan: cómo arrancar
 │       └── tasks.md                # lista de tareas (/speckit.tasks); implement marca [X], converge añade fases
-└── src/ y tests/                   # el código y sus pruebas (/speckit.implement)
+├── src/                            # el código (/speckit.implement)
+└── tests/                          # y sus pruebas
 ```
 
 Sin herramientas, basta con una carpeta con los mismos nombres de fichero. Lo que importa es que estén juntos y en el repositorio, no sueltos en correos.
@@ -90,11 +91,11 @@ Sin herramientas, basta con una carpeta con los mismos nombres de fichero. Lo qu
 
 **Para qué sirve.** Es el conjunto de principios innegociables del proyecto. Cada vez que el asistente de IA planifica, trocea o implementa, la lee primero; cada vez que una decisión técnica choca con ella, se cambia la decisión. Es el único artefacto que no pertenece a una funcionalidad, sino al proyecto entero.
 
-**Quién la escribe y quién la revisa.** La redactan juntos quien encarga el proyecto y quien lo construye, a partir de lo que dicta quien encarga. La aprueba quien encarga. Se cambia poco y siempre por escrito.
+**Quién la escribe y quién la revisa.** La redactan juntos quien encarga el proyecto y quien lo construye; el asistente de IA la pone por escrito a partir de lo que le dictan. La aprueba quien encarga. Se cambia poco y siempre por escrito.
 
 **Qué secciones tiene** (nombre original de Spec Kit entre paréntesis):
 
-- Principios fundamentales (*Core Principles*): entre tres y siete, cada uno con nombre, regla y «por qué».
+- Principios fundamentales (*Core Principles*): entre tres y siete (la plantilla de Spec Kit trae hueco para cinco), cada uno con nombre, regla y «por qué».
 - Restricciones adicionales (*Additional Constraints*): límites que no son principios pero tampoco se negocian.
 - Flujo de trabajo y puertas de calidad (*Development Workflow, Quality Gates*): quién revisa, quién aprueba, qué tiene que pasar antes de dar algo por hecho.
 - Gobernanza (*Governance*): qué manda en caso de conflicto, cómo se cambia y la versión (`1.0.0`, con fecha de ratificación y de última modificación).
@@ -124,14 +125,14 @@ Ninguna funcionalidad se considera terminada sin al menos una prueba automática
 **Qué secciones tiene:**
 
 - Cabecera: carpeta o rama, fecha de creación, estado y petición original (*Feature Branch, Created, Status, Input*).
-- Historias de usuario y escenarios (*User Scenarios & Testing*, obligatorio): cada historia con prioridad P1, P2 o P3, «por qué esta prioridad», «prueba independiente» y criterios de aceptación en formato Dado/Cuando/Entonces (*Given/When/Then*).
+- Historias de usuario y escenarios (*User Scenarios & Testing*, obligatorio): cada historia (lo que un tipo de persona quiere conseguir, contado en unas líneas) con prioridad P1, P2 o P3, «por qué esta prioridad», «prueba independiente» y criterios de aceptación (situaciones concretas que se comprueban con un sí o un no) en formato Dado/Cuando/Entonces (*Given/When/Then*).
 - Casos límite (*Edge Cases*): las situaciones raras o incómodas.
 - Aclaraciones (*Clarifications*): la añade el paso de aclarar; la vemos en la sección siguiente.
 - Requisitos (*Requirements*, obligatorio): requisitos funcionales numerados RF-001, RF-002… y entidades clave (las «cosas» de las que el sistema guarda información).
 - Criterios de éxito (*Success Criteria*, obligatorio): resultados medibles CE-001, CE-002…, con cifra y sin tecnología.
-- Supuestos (*Assumptions*) y, en nuestras plantillas, Fuera de alcance.
+- Supuestos (*Assumptions*) y, en nuestras plantillas, un Resumen al principio y un Fuera de alcance al final.
 
-**Extracto de ReservaSalas** ([spec.md](../ejercicios/soluciones/03-reserva-salas/spec.md)):
+**Extracto de ReservaSalas** (fragmentos; la numeración salta donde hemos cortado) ([spec.md](../ejercicios/soluciones/03-reserva-salas/spec.md)):
 
 ```markdown
 ### Historia de usuario 1 — Reservar una sala (Prioridad: P1)
@@ -149,6 +150,10 @@ Ninguna funcionalidad se considera terminada sin al menos una prueba automática
 - **RF-003**: CUANDO una persona confirma una reserva, el sistema deberá guardarla y mostrar un mensaje de confirmación con sala, fecha y hora.
 - **RF-005**: SI la franja solicitada se solapa con otra reserva de la misma sala, ENTONCES el sistema deberá rechazar la reserva e indicar qué franja está ocupada.
 - **RF-007**: MIENTRAS una sala esté marcada en mantenimiento, el sistema deberá impedir nuevas reservas en ella.
+
+## Criterios de éxito (Success Criteria)
+
+### Resultados medibles (Measurable Outcomes)
 
 - **CE-001**: Reservar una sala, desde que se abre la aplicación hasta que aparece la confirmación, lleva menos de 1 minuto.
 ```
@@ -185,7 +190,7 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 
 ## El plan técnico
 
-**Para qué sirve.** Describe cómo vamos a construir lo que pide la especificación: tecnología, modelo de datos, contratos, estructura de carpetas y riesgos. Es el primer artefacto donde aparece tecnología, y cada decisión tiene que responder a algo que piden la especificación o la constitución.
+**Para qué sirve.** Describe cómo vamos a construir lo que pide la especificación: tecnología, modelo de datos (qué información guarda el sistema), contratos (qué entra y qué sale en cada operación), estructura de carpetas y riesgos. Es el primer artefacto donde aparece tecnología, y cada decisión tiene que responder a algo que piden la especificación o la constitución.
 
 **Quién lo escribe y quién lo revisa.** Lo genera el asistente de IA a partir de la especificación, la constitución y las indicaciones de quien construye. Lo revisa alguien con experiencia técnica. Quien encarga solo necesita leer el resumen y la tabla de comprobación contra la constitución.
 

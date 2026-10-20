@@ -2,9 +2,9 @@
 
 > **Para quién:** programadores junior y cualquier persona que quiera saber qué pasa en cada paso · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
-SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un flujo de siete pasos, numerados del 0 al 6. Cada paso produce un documento que el siguiente necesita como entrada. Aquí recorremos los siete con el mismo ejemplo de siempre, ReservaSalas: qué es cada paso, quién participa, qué entra y qué sale, cuánto suele durar y qué puede salir mal.
+SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un flujo de siete pasos, numerados del 0 al 6. Cada paso deja algo escrito (un documento casi siempre; un informe, en el paso de analizar) que el siguiente necesita como entrada. Aquí recorremos los siete con el mismo ejemplo de siempre, ReservaSalas: qué es cada paso, quién participa, qué entra y qué sale, cuánto suele durar y qué puede salir mal.
 
-Si todavía no sabes qué es SDD, empieza por [Qué es SDD](02-que-es-sdd.md). Si lo que quieres es ver cada documento por dentro, eso está en [Los artefactos](04-los-artefactos.md).
+Si todavía no sabes qué es SDD, empieza por [Qué es SDD](02-que-es-sdd.md). Si lo que quieres es ver cada documento por dentro, eso está en [Los artefactos](04-los-artefactos.md). Cuando leas «en Spec Kit», hablamos de GitHub Spec Kit, la herramienta gratuita que añade este flujo a tu asistente de IA en forma de comandos (`/speckit.constitution`, `/speckit.specify`…); la vemos al final del documento y, con más detalle, en [Herramientas](07-herramientas.md).
 
 **Qué vas a encontrar:**
 
@@ -22,7 +22,7 @@ Si todavía no sabes qué es SDD, empieza por [Qué es SDD](02-que-es-sdd.md). S
 
 ## El flujo de un vistazo
 
-Los tiempos que verás en cada paso son orientativos: en nuestra experiencia, una funcionalidad pequeña como ReservaSalas recorre los siete pasos en uno o dos días de trabajo, y la mayor parte se va en el último. Lo importante no es cuánto dura cada paso, sino que ninguno se salte.
+Los tiempos que verás en cada paso son orientativos: en nuestra experiencia, una funcionalidad pequeña como ReservaSalas recorre los siete pasos en uno o dos días de trabajo, y la mayor parte se va en el último. Lo importante no es cuánto dura cada paso, sino que no se salte ninguno por prisa.
 
 El diagrama muestra los siete pasos en orden, el fichero que produce cada uno y los tres bucles de vuelta: aclarar cambia la especificación, analizar puede devolverte al plan, e implementar termina siempre con una pregunta: ¿hace lo que dice la especificación?
 
@@ -64,11 +64,11 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **ReservaSalas.** Ana dicta cinco principios: sencillez primero, accesible y en castellano, pruebas antes de dar algo por hecho, datos mínimos y transparencia (toda reserva tiene un responsable visible). Luis se los pasa al asistente con `/speckit.constitution` y aparece la constitución en su versión 1.0.0, con una sección de restricciones (solo red interna, sin integración con el calendario corporativo) y otra que dice cómo se cambia.
 
-**Qué puede salir mal.** Una constitución genérica copiada de otro sitio («código limpio», «buenas prácticas») que no prohíbe nada y por tanto no sirve para decidir nada. O saltarse el paso «porque el proyecto es pequeño»: entonces el asistente decide los principios por ti, sin decírtelo.
+**Qué puede salir mal.** Una constitución genérica copiada de otro sitio («código limpio», «buenas prácticas») que no prohíbe nada y por tanto no sirve para decidir nada. O saltarse el paso «porque el proyecto es pequeño»: entonces las decisiones de fondo las toma el asistente sobre la marcha, sin que nadie las haya escrito.
 
 ## Paso 1: Especificar
 
-**Qué es.** Escribir qué queremos y por qué, en lenguaje natural y sin decidir tecnología: historias de usuario con prioridad (P1 es lo imprescindible), criterios de aceptación en formato Dado/Cuando/Entonces, requisitos funcionales redactados en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), casos límite, criterios de éxito medibles y supuestos. Es el único paso que no se puede saltar.
+**Qué es.** Escribir qué queremos y por qué, en lenguaje natural y sin decidir tecnología. La especificación recoge historias de usuario (lo que cada tipo de persona quiere conseguir, contado en unas líneas) ordenadas por prioridad (P1 es lo imprescindible), criterios de aceptación (situaciones concretas que se comprueban con un sí o un no, en formato Dado/Cuando/Entonces), requisitos funcionales redactados en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), casos límite (las situaciones raras o incómodas), criterios de éxito medibles y supuestos. Es el paso imprescindible: sin especificación no hay nada que planificar ni construir.
 
 **Quién participa.** Lidera quien pide el software (negocio), con ayuda de quien lo construye. El asistente de IA convierte la descripción en una especificación completa. La revisan todos.
 
@@ -107,7 +107,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Cuánto suele durar.** Alrededor de una hora entre generar y revisar.
 
-**ReservaSalas.** Luis indica al asistente: Python 3.12 con FastAPI, SQLite y páginas HTML con Jinja2; pruebas con pytest; sin una interfaz compleja. El plan describe un único servicio web, tres tablas (sala, persona, reserva), seis rutas y una tabla de comprobación contra la constitución con una sola desviación justificada: una pequeña API para que las pruebas de contrato no dependan del HTML. Puedes leerlo en [plan.md](../ejercicios/soluciones/03-reserva-salas/plan.md).
+**ReservaSalas.** Luis indica al asistente la tecnología: Python 3.12 con FastAPI, SQLite y páginas HTML con Jinja2, pruebas con pytest y sin una interfaz compleja (son nombres de herramientas de programación; no hace falta conocerlos para seguir el flujo). El plan describe un único servicio web, tres tablas de datos (sala, persona, reserva), seis operaciones (las «rutas») y una tabla de comprobación contra la constitución con una sola desviación justificada: una pequeña API, la conexión para otros programas que ha salido en el paso 1, que aquí sirve para que las pruebas automáticas no dependan de las pantallas. Puedes leerlo en [plan.md](../ejercicios/soluciones/03-reserva-salas/plan.md).
 
 **Qué puede salir mal.** Un plan de cuarenta páginas que nadie lee. Una tecnología que choca con la constitución (un servicio en la nube cuando el principio es «datos mínimos»). Planificar con aclaraciones pendientes. Y dejar que el asistente decida todo sin comprobar la tabla de la constitución.
 
@@ -121,7 +121,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Cuánto suele durar.** Generarla lleva minutos; revisarla, de 20 a 30 minutos bien empleados.
 
-**ReservaSalas.** La lista tiene 47 tareas en seis fases, 20 de ellas paralelizables. La fase de la historia 1 empieza con cinco pruebas (T013 a T017) que tienen que fallar antes de implementar nada, y termina con un punto de control: «la historia 1 funciona de principio a fin y se puede enseñar a Ana». Es el producto mínimo viable. Está completa en [tasks.md](../ejercicios/soluciones/03-reserva-salas/tasks.md).
+**ReservaSalas.** La lista tiene 47 tareas en seis fases, 20 de ellas paralelizables. La fase de la historia 1 empieza con cinco pruebas (T013 a T017) que tienen que fallar antes de implementar nada (si fallan es que de verdad comprueban algo que todavía no existe), y termina con un punto de control: «la historia 1 funciona de principio a fin y se puede enseñar a Ana». Es el producto mínimo viable: lo más pequeño que ya resuelve el problema y se puede enseñar. Está completa en [tasks.md](../ejercicios/soluciones/03-reserva-salas/tasks.md).
 
 **Qué puede salir mal.** Tareas gigantes («hacer toda la parte del servidor») que no se pueden dar por terminadas con un sí o un no. Tareas sin fichero. Fases de historia sin pruebas. Y no comprobar que cada requisito de la especificación aparece en alguna tarea: si falta uno, no se implementará.
 
@@ -129,7 +129,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué es.** La última comprobación antes de escribir código: ¿cada requisito tiene una tarea? ¿El plan respeta la constitución? ¿Hay contradicciones entre especificación, plan y tareas? A esto se suman las listas de verificación (*checklists*), que hacen preguntas de sí o no sobre la calidad de la propia especificación.
 
-**Quién participa.** El asistente de IA produce el informe; quien construye y quien encarga deciden qué corregir. La lista de verificación la pasa alguien que no escribió la especificación.
+**Quién participa.** El asistente de IA produce el informe; quien construye y quien encarga deciden qué corregir. Las listas de verificación las pasa alguien que no escribió la especificación (la automática la evalúa el propio asistente).
 
 **Qué entra y qué sale.** Entran la especificación, el plan, las tareas y la constitución. En Spec Kit, `/speckit.analyze` devuelve un informe en el chat y no modifica ningún fichero: propone remedios para que los apruebes. `/speckit.checklist` genera listas por tema en `checklists/<dominio>.md` (por ejemplo, `ux.md`) y nunca marca casillas: eso lo hace quien revisa.
 
@@ -152,7 +152,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Cuánto suele durar.** Es el paso más largo: varias horas, repartidas por fases, con paradas para probar.
 
-**ReservaSalas.** Tras las fases de preparación y base compartida, el asistente escribe las pruebas de la historia 1 (fallan), implementa los servicios de disponibilidad y reserva, las rutas y la página principal, y las pruebas pasan. Luis arranca la aplicación, abre `http://localhost:8000` y reserva la sala Mediterráneo; se la enseña a Ana antes de seguir con las historias 2 y 3. Semanas después Ana quiere ampliar la antelación máxima de 30 a 60 días: Luis no busca el número en el código, cambia RF-006 en la especificación, regenera el plan y las tareas afectadas y vuelve a implementar esa parte.
+**ReservaSalas.** Tras las fases de preparación y base compartida, el asistente escribe las pruebas de la historia 1 (fallan), implementa los servicios de disponibilidad y reserva, las rutas y la página principal, y las pruebas pasan. Luis arranca la aplicación, abre `http://localhost:8000` (la dirección de la aplicación en su propio ordenador) y reserva la sala Mediterráneo; se la enseña a Ana antes de seguir con las historias 2 y 3. Semanas después Ana quiere ampliar la antelación máxima de 30 a 60 días: Luis no busca el número en el código, cambia RF-006 en la especificación, regenera el plan y las tareas afectadas y vuelve a implementar esa parte.
 
 **Qué puede salir mal.** Aceptar código sin leerlo. Corregir el código a mano en vez de la especificación, con lo que el documento deja de ser la fuente de verdad. Tener una demo bonita sin pruebas que la respalden. Y dar por terminada una fase con tareas sin marcar.
 
@@ -175,7 +175,7 @@ Quién hace qué en cada rol, con más detalle, está en [Roles: quién hace qu�
 
 ## Cada herramienta lo llama a su manera
 
-Los siete pasos son el método. Las herramientas que lo automatizan les ponen sus propios nombres. En GitHub Spec Kit (<https://github.com/github/spec-kit>) cada paso es un comando que se escribe en el chat del asistente de IA, no en la terminal; antes hay que crear el proyecto una sola vez desde la terminal con `specify init`.
+Los siete pasos son el método. Las herramientas que lo automatizan les ponen sus propios nombres. En GitHub Spec Kit (<https://github.com/github/spec-kit>) cada paso es un comando que se escribe en el chat del asistente de IA, no en la terminal (la ventana donde se escriben órdenes al ordenador); antes hay que crear el proyecto una sola vez desde la terminal con `specify init`.
 
 | Nuestro nombre | Comando en Spec Kit | Fichero que crea o modifica | ¿Obligatorio? |
 |---|---|---|---|
@@ -185,7 +185,7 @@ Los siete pasos son el método. Las herramientas que lo automatizan les ponen su
 | 3. Planificar | `/speckit.plan` | `plan.md`, `research.md`, `data-model.md`, `contracts/`, `quickstart.md` | Sí |
 | 4. Trocear en tareas | `/speckit.tasks` | `tasks.md` | Sí |
 | 5. Analizar | `/speckit.checklist` y `/speckit.analyze` | `checklists/<dominio>.md`; el análisis no crea ficheros | Opcional, muy recomendado |
-| 6. Implementar | `/speckit.implement` y después `/speckit.converge` | Código del proyecto; `tasks.md` con marcas `[X]` y, si hace falta, tareas nuevas | Sí |
+| 6. Implementar | `/speckit.implement` y después `/speckit.converge` | Código del proyecto; `tasks.md` con marcas `[X]` y, si hace falta, tareas nuevas | Sí (`converge` es recomendado) |
 
 El orden oficial completo de Spec Kit es `constitution → specify → clarify → plan → checklist → tasks → analyze → implement → converge`; para funcionalidades muy pequeñas admite el camino corto `specify → plan → tasks → implement → converge`. La ortografía de los comandos cambia según el asistente (`/speckit.specify` en unos, `/speckit-specify` en otros), pero hacen lo mismo.
 
@@ -195,13 +195,13 @@ Kiro, de AWS (<https://kiro.dev>), integra un flujo parecido dentro de su editor
 
 Cada paso existe porque el siguiente lo necesita como entrada. No se puede planificar lo que no está especificado: el plan decidiría tecnología para un problema que nadie ha descrito. No se puede trocear en tareas lo que no está planificado: las tareas dirían «hacer la aplicación». Y no se implementa sin tareas: el asistente escribiría código de un tirón, sin pruebas y sin puntos de control, que es justo el *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) del que queríamos salir.
 
-El orden tampoco es una cascada de meses. Se recorre entero para cada funcionalidad pequeña, en horas o en un par de días, y los bucles de vuelta son cortos: una aclaración cambia una línea de la especificación, un análisis devuelve una incoherencia al plan, una prueba fallida devuelve una duda a la especificación.
+El orden tampoco es una «cascada» (el modelo antiguo: meses de documentos antes de ver nada funcionando). Se recorre entero para cada funcionalidad pequeña, en horas o en un par de días, y los bucles de vuelta son cortos: una aclaración cambia una línea de la especificación, un análisis devuelve una incoherencia al plan, una prueba fallida devuelve una duda a la especificación.
 
 Lo que no cambia es la dirección: la especificación es la fuente de verdad y el código es su consecuencia. Si al final algo está mal, se corrige el documento y se regenera; no se parchea el programa a ciegas.
 
 ## En tres frases
 
-1. SDD son siete pasos, del 0 al 6: constitución, especificar, aclarar, planificar, trocear en tareas, analizar e implementar; cada uno produce un documento que el siguiente necesita.
+1. SDD son siete pasos, del 0 al 6: constitución, especificar, aclarar, planificar, trocear en tareas, analizar e implementar; cada uno deja algo escrito que el siguiente necesita.
 2. Quien encarga lidera los pasos 0 a 2 (qué y por qué) con ayuda técnica; quien construye lidera los pasos 3 a 6 (cómo), con el asistente de IA generando y la persona revisando.
 3. El orden importa porque cada paso es la entrada del siguiente; cuando algo falla, se vuelve a la especificación y se regenera, nunca se parchea el código a ciegas.
 

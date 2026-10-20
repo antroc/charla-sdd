@@ -2,7 +2,7 @@
 
 > **Para quién:** managers, RRHH, perfiles de negocio y quien programa · **Tiempo de lectura:** ~12 min · **Nivel:** 🟢 básico
 
-En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) la especificación es la fuente de verdad: el asistente de IA la lee y de ella salen el plan técnico, la lista de tareas y el código. Dentro de la especificación, la parte de la que más depende todo son los requisitos. Un requisito ambiguo se convierte en código ambiguo en cuestión de minutos.
+En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) la especificación (`spec.md`) es la fuente de verdad: el asistente de IA la lee y de ella salen el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y el código. Dentro de la especificación, la parte de la que más depende todo son los requisitos. Un requisito ambiguo puede convertirse en código ambiguo en cuestión de minutos.
 
 Este documento enseña a escribir requisitos que no admiten dos lecturas con EARS (*Easy Approach to Requirements Syntax*), una forma sencilla y estructurada de redactar requisitos. No hace falta saber programar; de hecho, quien mejor escribe un requisito es quien conoce el problema. Qué es una especificación y en qué sección van los requisitos está en [Los artefactos](04-los-artefactos.md).
 
@@ -41,15 +41,15 @@ El coste de un requisito vago no se ve el primer día; se ve después:
 | «Que no haya líos con las salas» | El asistente de IA resuelve el lío que él entiende, no el de Ana | Retrabajo: se construye, se enseña, se rehace |
 | «Que avise cuando haga falta» | ¿A quién, por qué medio, cuándo? Se decide sobre la marcha y nadie lo apunta | Dentro de seis meses nadie sabe por qué se avisa como se avisa |
 
-Con un asistente de IA el problema se multiplica. Antes, un programador con dudas preguntaba; el asistente, muchas veces, rellena el hueco con una suposición razonable y sigue adelante. La velocidad que da el asistente se vuelve en contra cuando lo que recibe es vago: es el mecanismo que describe [El problema del vibe coding](01-el-problema-del-vibe-coding.md).
+Con un asistente de IA el problema se multiplica. Antes, un programador con dudas preguntaba; el asistente, muchas veces, rellena el hueco con una suposición razonable y sigue adelante. La velocidad que da el asistente se vuelve en contra cuando lo que recibe es vago: es el mecanismo del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) que describe [El problema del vibe coding](01-el-problema-del-vibe-coding.md).
 
 La buena noticia es que escribir requisitos claros no exige un talento especial. Exige una plantilla.
 
 ## Qué es EARS
 
-EARS es un conjunto de cinco plantillas de frase, cada una con una palabra clave, que obligan a decir cuándo ocurre algo, quién responde y qué hace exactamente. Lo propusieron Alistair Mavin y otros en 2009, en el campo de la ingeniería de requisitos y mucho antes de los asistentes de IA, para que personas sin formación técnica escribieran requisitos que un equipo pudiera comprobar.
+EARS es un conjunto de cinco plantillas de frase (cuatro de ellas con una palabra clave) que obligan a decir cuándo ocurre algo, quién responde y qué hace exactamente. Lo propusieron Alistair Mavin y otros en 2009, mucho antes de los asistentes de IA, para quitar ambigüedad a los requisitos escritos en lenguaje corriente sin obligar a nadie a aprender una notación técnica. Por eso sirve igual a quien programa y a quien no.
 
-Todo requisito EARS tiene las mismas piezas, en el mismo orden: una palabra clave (que no existe en el patrón más simple), un disparador o condición, el sujeto «el sistema deberá» y una respuesta. Así se descompone el requisito RF-003 de ReservaSalas:
+Todo requisito EARS tiene las mismas piezas, en el mismo orden: una palabra clave (que no existe en el patrón más simple), un disparador o condición, el sujeto «el sistema deberá» y una respuesta. Así se descompone el requisito RF-003 de ReservaSalas (RF es la abreviatura de «requisito funcional»; los requisitos van numerados):
 
 ```text
 CUANDO   una persona confirma una reserva,   el sistema deberá   guardarla y mostrar un mensaje de
@@ -78,7 +78,7 @@ flowchart TD
   class R,C,T,K claro;
 ```
 
-De arriba abajo: la frase vaga («que no haya líos») provoca preguntas; las respuestas se escriben como un requisito EARS (RF-005); del requisito sale un criterio de aceptación con datos concretos (una sala, dos franjas, un rechazo); del criterio, una prueba automática; y de la prueba, el código que la hace pasar. La flecha discontinua de vuelta es la regla de SDD: si el código no hace lo que debe, se revisa el requisito y se regenera, no se parchea a ciegas. Todo lo que hay por debajo del requisito depende de que el requisito esté bien escrito.
+De arriba abajo: la frase vaga («que no haya líos») provoca preguntas; las respuestas se escriben como un requisito EARS (RF-005); del requisito sale un criterio de aceptación con datos concretos (una sala, dos franjas, un rechazo); del criterio, una prueba automática (un pequeño programa que comprueba la regla por sí solo cada vez que cambia el código); y de la prueba, el código que la hace pasar. La flecha discontinua de vuelta es la regla de SDD: si el código no hace lo que debe, se revisa el requisito y se regenera, no se parchea a ciegas. Todo lo que hay por debajo del requisito depende de que el requisito esté bien escrito.
 
 > [!NOTE]
 > Con GitHub Spec Kit (<https://github.com/github/spec-kit>) la plantilla de especificación escribe los requisitos como `**FR-001**: System MUST …`. En este repositorio los numeramos `RF-001` y usamos «deberá»; los patrones EARS encajan en ese formato sin cambiar nada más. La anatomía de un requisito, dibujada pieza a pieza, está en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
@@ -105,7 +105,7 @@ Dos ejemplos de cada patrón: uno de ReservaSalas (son, literalmente, requisitos
 | Por estado | RF-007: MIENTRAS una sala esté marcada en mantenimiento, el sistema deberá impedir nuevas reservas en ella. | MIENTRAS una solicitud esté pendiente de respuesta, el sistema deberá mostrarla en la lista de pendientes de su manager. |
 | Comportamiento no deseado | RF-005: SI la franja solicitada se solapa con otra reserva de la misma sala, ENTONCES el sistema deberá rechazar la reserva e indicar qué franja está ocupada. | SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan. |
 | Opcional | RF-009: DONDE la persona tenga permisos de administración, el sistema deberá permitir marcar una sala en mantenimiento. | DONDE la persona tenga rol de RRHH, el sistema deberá permitir ver las solicitudes aprobadas de toda la empresa. |
-| Complejo | MIENTRAS una sala esté en mantenimiento, CUANDO administración la desmarca, el sistema deberá volver a mostrarla como disponible. (No está en la especificación canónica; es solo para ver cómo suena.) | MIENTRAS la manager esté de vacaciones, CUANDO llegue una solicitud de su equipo, el sistema deberá enviarla a la persona que la sustituye. |
+| Complejo | MIENTRAS una sala esté marcada en mantenimiento, CUANDO una persona consulta la disponibilidad, el sistema deberá mostrarla como «en mantenimiento» y no permitir elegirla. (Construido a partir del criterio de aceptación 5 de la historia 1; la especificación canónica no usa este patrón.) | MIENTRAS la manager esté de vacaciones, CUANDO llegue una solicitud de su equipo, el sistema deberá enviarla a la persona que la sustituye. |
 
 Tres observaciones sobre la tabla:
 
@@ -157,7 +157,7 @@ El método es siempre el mismo: coger la frase, hacerle las preguntas que no res
 - **RF-007**: MIENTRAS una sala esté marcada en mantenimiento, el sistema deberá impedir nuevas reservas en ella.
 ```
 
-La pregunta sobre la media hora no cabe en el requisito: va a «Casos límite» («una franja de 10:00 a 11:00 choca con otra de 10:30 a 11:30; dos reservas consecutivas no chocan»).
+La pregunta sobre la media hora no cabe en el requisito: va a la sección «Casos límite» de la especificación, que dice que una franja de 10:00 a 11:00 choca con otra de 10:30 a 11:30 aunque no coincidan por completo, y que dos reservas consecutivas no chocan.
 
 ### 2. La frase que mezcla tecnología
 
