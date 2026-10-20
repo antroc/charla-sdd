@@ -248,10 +248,10 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    - [ ] He pasado la lista y cada casilla sin marcar tiene una nota que dice qué falta.
 
-6. **Vía B: pide una segunda revisión a un asistente de IA.** Solo después de tener tu tabla, pega en el chat de IA autorizado este *prompt* (la instrucción que le escribes al asistente), con la constitución y la especificación mala en los huecos indicados:
+6. **Vía B: pide una segunda revisión a un asistente de IA.** Si sigues la vía A, pasa directamente al paso 7. Solo después de tener tu tabla, pega en el chat de IA autorizado este *prompt* (la instrucción que le escribes al asistente), con la constitución y la especificación mala en los huecos indicados:
 
    ```text
-   Actúa como revisor de especificaciones en un proceso de desarrollo guiado por especificaciones. Te paso (1) la constitución de un proyecto, con sus principios innegociables, y (2) una especificación escrita con prisas. Revisa la especificación y devuélveme una tabla con una fila por problema: número de línea, qué falla, tipo de problema (tecnología, vago, dos cosas en una, sin disparador o sin sujeto, contradicción, laguna, prioridad, no medible, contra la constitución, alcance, terminología, interfaz, duplicado) y cómo lo arreglarías en una frase.
+   Actúa como revisor de especificaciones en un proceso de desarrollo guiado por especificaciones. Te paso (1) la constitución de un proyecto, con sus principios innegociables, y (2) una especificación escrita con prisas. Revisa la especificación y devuélveme una tabla con una fila por problema: número de línea, qué falla, tipo de problema (tecnología, vago, dos cosas en una, sin disparador o sin sujeto, verbo blando, contradicción, laguna, prioridad, no medible, contra la constitución, alcance, terminología, interfaz, duplicado) y cómo lo arreglarías en una frase.
 
    Reglas: la especificación solo puede decir QUÉ hace el sistema y POR QUÉ, nunca con qué tecnología. Cada requisito funcional debe ser una sola frase en formato EARS en castellano («El sistema deberá…», «CUANDO…, el sistema deberá…», «MIENTRAS…, el sistema deberá…», «SI…, ENTONCES el sistema deberá…», «DONDE…, el sistema deberá…»), con una sola cosa comprobable y sin adjetivos sin cifra. Los criterios de éxito deben tener un número (tiempo, porcentaje o cantidad) y no mencionar tecnología. Las historias de usuario deben tener prioridad P1/P2/P3 y criterios de aceptación Dado/Cuando/Entonces. No reescribas la especificación entera y no inventes cifras: si falta un dato, dilo como [NECESITA ACLARACIÓN: …].
 
@@ -266,7 +266,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
    - [ ] He comparado la tabla del asistente con la mía y he añadido lo que me faltaba.
 
-7. **Compara con la solución y con el ejemplo canónico.** Abre [soluciones/05-especificacion-arreglada.md](soluciones/05-especificacion-arreglada.md) (lista numerada de problemas con explicación y versión corregida) y, ahora sí, [la especificación canónica](soluciones/03-reserva-salas/spec.md). Comprueba tres cosas: cuántos problemas de la lista habías encontrado y cuáles se te escaparon; si tus requisitos cubren lo mismo que RF-001 a RF-012 del ejemplo (aunque los hayas numerado o agrupado distinto); y si tus criterios de éxito se parecen a CE-001 a CE-004.
+7. **Compara con la solución y con el ejemplo canónico.** Abre [soluciones/05-especificacion-arreglada.md](soluciones/05-especificacion-arreglada.md) (lista numerada de problemas con explicación y versión corregida) y, ahora sí, [la especificación canónica](soluciones/03-reserva-salas/spec.md). Comprueba tres cosas: cuántos problemas de la lista habías encontrado y cuáles se te escaparon; si tus requisitos cubren lo mismo que RF-001 a RF-011 del ejemplo (aunque los hayas numerado o agrupado distinto; RF-012, ver mis reservas y las de hoy, no estaba entre los diez puntos del paso 3, así que no pasa nada si te falta); y si tus criterios de éxito se parecen a CE-001 a CE-004.
 
    Qué deberías ver: tu lista con, probablemente, entre 10 y 15 de los problemas de la solución (nadie los encuentra todos a la primera), y requisitos que dicen lo mismo que el ejemplo con otras palabras. Si tienes Spec Kit instalado, el cierre natural es el paso 3 del [ejercicio 03](03-reserva-salas-paso-a-paso.md): lo normal es que `/speckit.specify`, a partir de la petición de Ana, genere una especificación mucho más cercana a tu versión corregida que a la de Luis (cada asistente responde distinto, pero la diferencia se nota).
 
@@ -280,6 +280,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 | Al corregir has añadido más tecnología («mejor SQLite que PostgreSQL»). | Confundes arreglar la especificación con tomar decisiones técnicas. | Toda tecnología sale de la especificación y va al plan técnico; en la especificación solo queda qué hace el sistema. |
 | Has reescrito el documento entero y has tardado dos horas. | El ejercicio pide reescribir solo requisitos y criterios de éxito. | Las historias y los casos límite se anotan en la tabla como «cómo lo arreglaría»; reescribirlos es opcional. |
 | Tus requisitos corregidos no coinciden con la solución. | Es lo normal: hay varias formas buenas de decir lo mismo. | Compara patrón, disparador y respuesta, y pasa la lista de verificación; si la pasa, está bien. |
+| Tus criterios de éxito llevan cifras que te has inventado sin más. | Las cifras las fija quien encarga el sistema, no quien revisa. | Déjalas anotadas como supuesto («provisional, confirmar con Ana») o como `[NECESITA ACLARACIÓN: …]`; lo que no se hace es quitar la cifra y volver a «rápido». |
 | No sabes si «exportar a Excel» o «botón verde» son tecnología. | Mezclan qué quiere la persona con cómo se le da. | Quédate con el qué («descargar el listado», «confirmar la reserva») y deja el cómo para el plan y el diseño. |
 | El chat de IA te dice que la especificación «está bastante bien». | El *prompt* no llevaba reglas ni constitución. | Usa el *prompt* del paso 6 completo, con la constitución pegada, y pídele una tabla, no una opinión. |
 
@@ -287,7 +288,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
 1. ¿Por qué «React y PostgreSQL» no pueden estar en la especificación aunque sean la tecnología que se acabe usando?
 2. ¿Qué diferencia hay entre un requisito vago (RF-1) y un criterio de éxito no medible (CE-1)? ¿Cómo se arregla cada uno?
-3. La línea 54 dice «máximo 4 horas, salvo las reuniones de todo el día». ¿Quién resuelve la contradicción y dónde queda registrada la respuesta?
+3. La línea 54 dice que las reservas «no pueden durar más de 4 horas, salvo las reuniones de todo el día». ¿Quién resuelve la contradicción y dónde queda registrada la respuesta?
 4. ¿Por qué la constitución te ayudó a encontrar problemas que no se ven leyendo solo la especificación? Da dos ejemplos.
 5. La historia «Ver estadísticas de uso» (líneas 15-21): ¿se borra o se baja de prioridad? ¿Y «reservar el proyector y pedir café»?
 
@@ -295,9 +296,9 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
 1. Porque la especificación es el contrato de qué hace el sistema y por qué, y tiene que seguir siendo válida aunque cambie la tecnología. Las decisiones técnicas van al plan técnico, donde se justifican contra la constitución y se pueden cambiar sin tocar los requisitos. Lo que está mal no es la elección, es el sitio.
 2. Un requisito vago describe un comportamiento sin que se pueda comprobar («rápido»); se arregla poniéndole cifra o moviéndolo a criterios de éxito. Un criterio de éxito no medible describe un resultado sin número («la gente estará más contenta»); se arregla fijando qué se mide y cuánto («el 90 % completa una reserva sin ayuda la primera vez»). Los dos fallan por lo mismo, la falta de medida, pero viven en sitios distintos.
-3. La resuelve quien encarga el sistema (Ana), no quien programa ni el asistente de IA. La respuesta se registra en la sección «Aclaraciones» de la especificación (con Spec Kit, `/speckit.clarify` la añade como «P: … → R: …»; en el original en inglés, «Q: … → A: …») y se corrige el requisito afectado. En el ejemplo canónico no hizo falta preguntarlo: Ana ya había fijado en su petición el máximo de 4 horas, sin excepciones, y así lo recoge RF-006.
+3. La resuelve quien encarga el sistema (Ana), no quien programa ni el asistente de IA. La respuesta se registra en la sección «Aclaraciones» de la especificación (con Spec Kit, `/speckit.clarify` la añade como una línea «Q: … → A: …», que en este repositorio traducimos por «P: … → R: …») y se corrige el requisito afectado. En el ejemplo canónico no hizo falta preguntarlo: Ana ya había fijado en su petición el máximo de 4 horas, sin excepciones, y así lo recoge RF-006.
 4. Porque la constitución fija reglas que la especificación no repite pero debe respetar. Ejemplos: las reservas anónimas (línea 52) chocan con el principio 5, transparencia; los datos de la entidad Usuario (líneas 68-69) chocan con el principio 4, datos mínimos; «se probará a mano al final» (línea 92) choca con el principio 3; «todo el mundo usará Chrome en un portátil» (línea 82) choca con el principio 2, porque exige un navegador y un dispositivo concretos para poder usar la aplicación, y además es una decisión técnica que no va en la especificación.
-5. «Ver estadísticas» no resuelve el problema (choques, salas vacías, reservas fantasma): se baja de prioridad o se deja fuera de la primera versión; en el ejemplo canónico ni siquiera aparece, porque Ana no la pidió. «Proyector y café» es otra funcionalidad mezclada en la historia P1: se saca de la historia y va a «Fuera de alcance» (el ejemplo canónico lo deja ahí como «reserva de equipamiento»); si algún día se quiere, será su propia especificación.
+5. «Ver estadísticas» no resuelve el problema (choques, salas vacías, reservas fantasma): se baja de prioridad o se deja fuera de la primera versión; en el ejemplo canónico ni siquiera aparece, porque Ana no la pidió, y si las gráficas permitieran ver quién usa qué sala chocaría además con el principio 4 (datos mínimos: nada de informes sobre personas). «Proyector y café» es otra funcionalidad mezclada en la historia P1: se saca de la historia y va a «Fuera de alcance» (el ejemplo canónico lo deja ahí como «reserva de equipamiento»); si algún día se quiere, será su propia especificación.
 
 </details>
 
@@ -309,7 +310,7 @@ La lista completa de problemas, numerada y explicada, y la especificación corre
 
 1. Una especificación mala no suele tener un gran error, sino muchos pequeños: tecnología donde no toca, requisitos vagos o dobles, contradicciones, cosas que faltan y choques con la constitución.
 2. Revisar es preguntar, línea a línea, «¿cómo lo comprobaría?» y «¿respeta los principios?»; lo que no pasa esas dos preguntas se reescribe o se manda a aclaraciones.
-3. Los requisitos y los criterios de éxito se arreglan con EARS y con cifras; el asistente de IA ayuda a encontrar fallos, pero la última palabra sobre qué quiere el sistema la tiene la persona que lo encarga.
+3. Los requisitos y los criterios de éxito se arreglan con EARS y con cifras; el asistente de IA ayuda a encontrar fallos, pero la última palabra sobre qué tiene que hacer el sistema la tiene la persona que lo encarga.
 
 ## Siguiente paso
 

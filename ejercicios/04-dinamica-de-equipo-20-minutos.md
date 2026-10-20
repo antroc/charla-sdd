@@ -47,7 +47,7 @@ De izquierda a derecha: antes de arrancar el reloj se reparten tarjetas y se exp
 
 ## Materiales imprimibles
 
-Para imprimir desde GitHub, abre el fichero con el botón «Raw» (texto sin formato), copia los bloques de abajo en un documento e imprímelos. Una tarjeta por grupo, recortada por las líneas; una plantilla por grupo, en una cara de A4.
+Para imprimir desde GitHub, abre el fichero con el botón «Raw» (texto sin formato), copia los bloques de abajo en un documento e imprímelos. Usa una letra de ancho fijo (Courier New o parecida, a 10 puntos): con otra letra, los huecos y las flechas se descolocan. Una tarjeta por grupo, recortada por las líneas; una plantilla por grupo, en una cara de A4.
 
 ### Tarjetas de peticiones vagas
 
@@ -123,7 +123,7 @@ A1: _____________________________________________ → afecta a: _____________
 A2: _____________________________________________ → afecta a: _____________
 A3: _____________________________________________ → afecta a: _____________
 
-4. VAGUEDADES CAZADAS (13-18 min) · en los requisitos de los otros grupos
+4. VAGUEDADES CAZADAS (13-18 min) · las vuestras y las de otros grupos
    Tipos: adjetivo sin cifra · dos cosas en una · sin disparador · tecnología ·
    el sujeto es la persona, no el sistema
 Grupo ___: «_______________________________» → tipo: ______________________
@@ -135,7 +135,7 @@ ____________________________________________________________________________
 
 ## Pasos
 
-1. **Prepara el material y forma los grupos (10 minutos antes).** Imprime y recorta una tarjeta por grupo y una plantilla por grupo. Forma grupos de 3 o 4 personas mezclando perfiles. En cada grupo, pide que elijan quién escribe y quién será portavoz. Reparte a cada grupo una tarjeta boca abajo y una plantilla. Explica las reglas en un minuto, con estas palabras o parecidas:
+1. **Prepara el material y forma los grupos (10 minutos antes).** Imprime y recorta una tarjeta por grupo y una plantilla por grupo; si tienes menos de seis grupos, elige las tarjetas que más se parezcan a los problemas de tu equipo. Forma grupos de 3 o 4 personas mezclando perfiles. En cada grupo, pide que elijan quién escribe y quién será portavoz. Reparte a cada grupo una tarjeta boca abajo y una plantilla. Explica las reglas en un minuto, con estas palabras o parecidas:
 
    ```text
    La tarjeta es todo lo que sabéis del encargo. No podéis preguntarme nada: lo que no sepáis
@@ -148,7 +148,7 @@ ____________________________________________________________________________
 
    - [ ] Los grupos están formados, el material repartido y las reglas dichas.
 
-2. **Minutos 0-5: tres historias de usuario priorizadas.** Los grupos dan la vuelta a la tarjeta y rellenan el apartado 1 de la plantilla: tres historias con la forma «Como [quién], quiero [qué], para [por qué]», ordenadas por prioridad. La regla de la P1: si solo se hiciera esa historia, ¿ya resolvería el problema de la tarjeta? Si no, no es la P1. Ejemplo a medio rellenar con la tarjeta 1:
+2. **Minutos 0-5: tres historias de usuario priorizadas.** Los grupos dan la vuelta a la tarjeta y rellenan el apartado 1 de la plantilla: tres historias con la forma «Como [quién], quiero [qué], para [por qué]», ordenadas por prioridad. La regla de la P1: si solo se hiciera esa historia, ¿ya resolvería el problema de la tarjeta? Si no, no es la P1. Lo que decidáis no hacer en la primera versión (abonos, plazas de visitas…) va al pie de la hoja, en «Fuera de alcance»: también es una decisión. Ejemplo a medio rellenar con la tarjeta 1:
 
    ```text
    P1: Como empleado que viene en coche, quiero ver qué plazas están libres un día y
@@ -159,7 +159,7 @@ ____________________________________________________________________________
 
    Qué deberías ver: tres frases por grupo, con un «quién» distinto en al menos una de ellas (la persona que pide y la que usa no suelen ser la misma) y sin mencionar pantallas. Avisa cuando queden 60 segundos.
 
-   - [ ] Cada grupo tiene tres historias con P1, P2 y P3.
+   - [ ] Cada grupo tiene una P1 que resolvería el problema por sí sola y, si ha dado tiempo, la P2 y la P3.
 
 3. **Minutos 5-10: cinco requisitos EARS.** Apartado 2. Cada requisito es una sola frase cuyo sujeto es el sistema (nunca «el usuario»), con el verbo «deberá» y una de las cinco plantillas que vienen en la hoja. Reto para el grupo: usar al menos tres plantillas distintas. Si falta una cifra (¿cuántos días? ¿hasta qué hora?), se inventa una razonable y se apunta como pregunta en el apartado 3. Ejemplo a medio rellenar con la tarjeta 1:
 
@@ -168,17 +168,17 @@ ____________________________________________________________________________
    RF-2 CUANDO una persona confirma una reserva, el sistema deberá ______________________.
    RF-3 SI una plaza ya está reservada ese día, ENTONCES el sistema deberá ______________.
    RF-4 MIENTRAS una plaza esté marcada como ____________, el sistema deberá ___________.
-   RF-5 DONDE la persona sea ______________, el sistema deberá _______________________.
+   RF-5 DONDE la persona tenga permisos de ________, el sistema deberá _______________.
    ```
 
    Qué deberías ver: cinco frases que empiezan por «El sistema deberá», «CUANDO», «MIENTRAS», «SI» o «DONDE». Pasa por las mesas: si ves «el usuario deberá» o «rápido», señálalo sin corregirlo; lo cazarán en el paso 5.
 
    - [ ] Cada grupo tiene cinco requisitos y al menos tres plantillas distintas.
 
-4. **Minutos 10-13: preguntas de aclaración.** Apartado 3. Cada grupo escribe las tres preguntas que haría a quien pide el sistema antes de construir nada, y a qué parte de la hoja afecta cada respuesta. Son las dudas que han ido apareciendo en los pasos 2 y 3: cifras que han tenido que inventar, perfiles que no estaban claros, cosas que no saben si entran o no. Ejemplo con la tarjeta 1:
+4. **Minutos 10-13: preguntas de aclaración.** Apartado 3. Cada grupo escribe las tres preguntas que haría a quien pide el sistema antes de construir nada, y a qué parte de la hoja afecta cada respuesta. Son las dudas que han ido apareciendo en los pasos 2 y 3: cifras que han tenido que inventar, perfiles que no estaban claros, cosas que no saben si entran o no. Si una duda se resuelve sola con un «eso no, en la primera versión», no es una pregunta: va a «Fuera de alcance». Ejemplo con la tarjeta 1:
 
    ```text
-   A1: ¿Se puede reservar con más de una semana de antelación?      → afecta a: RF-3, alcance
+   A1: ¿Se puede reservar con más de una semana de antelación?        → afecta a: RF-2, casos límite
    A2: ¿Hay plazas fijas asignadas a alguien, o todas son rotatorias? → afecta a: P1, RF-1
    A3: ______________________________________________________________ → afecta a: ________
    ```
@@ -187,7 +187,7 @@ ____________________________________________________________________________
 
    - [ ] Cada grupo tiene al menos tres preguntas, cada una con la parte a la que afecta.
 
-5. **Minutos 13-18: lectura en voz alta y caza de vaguedades.** Por turnos, el portavoz de cada grupo lee en voz alta la petición de su tarjeta y **un** requisito (el que más les guste). El resto de la sala tiene 30 segundos para encontrarle una vaguedad: un adjetivo sin cifra, dos cosas en una frase, un requisito sin disparador, una tecnología colada o un sujeto que no es el sistema. Quien la encuentra la dice en voz alta; el grupo que lee la apunta en su apartado 4 (y el que la ha cazado, también). Con cinco grupos sale a un minuto por grupo; si hay más, lee solo la mitad.
+5. **Minutos 13-18: lectura en voz alta y caza de vaguedades.** Por turnos, el portavoz de cada grupo lee en voz alta la petición de su tarjeta y **un** requisito (el que más les guste). El resto de la sala tiene 30 segundos para encontrarle una vaguedad: un adjetivo sin cifra, dos cosas en una frase, un requisito sin disparador, una tecnología colada o un sujeto que no es el sistema. Quien la encuentra la dice en voz alta; el grupo que lee la apunta en su apartado 4 (y el que la ha cazado, también). Con cinco grupos sale a un minuto por grupo; con seis, acorta la caza a 20 segundos. Si tienes más de seis grupos, sortea qué seis leen: los demás cazan.
 
    Qué deberías ver: casi todos los requisitos tienen algo que cazar, y eso es bueno: no es un examen, es la demostración de que un requisito que parece claro a quien lo escribe no lo es para quien lo lee. Si a un requisito nadie le encuentra nada, felicita al grupo y pregunta «¿con qué cifra lo comprobaríais?».
 
@@ -201,8 +201,8 @@ ____________________________________________________________________________
       código, y lo habéis hecho sin tocar un ordenador.
    2. Las preguntas del apartado 3 son el paso «aclarar». Sin ellas, alguien (una persona o
       un asistente) decide por vosotros y no os enteráis hasta que está hecho.
-   3. Las vaguedades que habéis cazado en 30 segundos son las que un asistente resolvería
-      inventando. Cada una es un error evitado antes de que exista.
+   3. Las vaguedades que habéis cazado en 30 segundos son las que un asistente de IA suele
+      resolver inventando. Cada una es un error que se evita antes de que exista.
    ```
 
    Recoge las hojas (o fotografíalas): sirven para la variante con asistente de IA y para que quien programe en el equipo las use como punto de partida.
@@ -219,10 +219,10 @@ ____________________________________________________________________________
 | 5:00 | «Apartado 2: cinco requisitos. El sujeto es siempre el sistema. Al menos tres plantillas distintas.» | Escriben RF-1 a RF-5. | Cronómetro en 5:00 |
 | 7:30 | Pasa por las mesas. Si ves «el usuario deberá» o un adjetivo suelto, dilo sin corregirlo. | Siguen escribiendo. | |
 | 9:00 | «Un minuto. Lo que no sepáis, cifra inventada y pregunta al apartado 3.» | Cierran los requisitos. | |
-| 10:00 | «Apartado 3: tres preguntas que haríais a quien lo pide. Y a qué afecta cada una.» | Escriben A1 a A3. | Cronómetro en 3:00 |
-| 13:00 | «Portavoces: leed la petición y un requisito. El resto, 30 segundos para cazar una vaguedad.» | Grupo 1 lee; los demás buscan. | Lista de tipos de vaguedad a la vista |
+| 10:00 | «Apartado 3: tres preguntas que haríais a quien lo pide. Y a qué afecta cada una. Lo que dejéis fuera, al pie de la hoja.» | Escriben A1 a A3. | Cronómetro en 3:00 |
+| 13:00 | «Portavoces: leed la petición y un requisito. El resto, 30 segundos para cazar una vaguedad.» | Grupo 1 lee; los demás buscan. | Lista de tipos de vaguedad a la vista (es la del apartado 4 de la hoja; proyéctala si puedes) |
 | 14:00 a 17:00 | Un grupo por minuto. Corta las discusiones: «apuntadlo y seguimos». | Leen y cazan por turnos. | |
-| 18:00 | Cierre con las tres ideas del paso 6. | Escuchan y apuntan la vaguedad en el apartado 4. | |
+| 18:00 | Cierre con las tres ideas del paso 6. | Escuchan. | |
 | 19:30 | «Dejad las hojas en la mesa» (o foto). Indica dónde seguir (ver [Siguiente paso](#siguiente-paso)). | Entregan las hojas. | |
 
 Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el valor de la dinámica está en que todos lleguen al paso 5. Si la sala es muy grande, dos personas facilitan: una lleva el tiempo y otra pasa por las mesas.
