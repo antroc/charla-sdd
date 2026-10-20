@@ -104,7 +104,7 @@ La pregunta más frecuente de quien empieza es «no funciona, ¿qué toco?». El
 flowchart TD
   F["Algo no funciona o no es lo que esperabas"]
   Q1["¿La especificación dice lo que de verdad quieres?"]
-  S["Corrige la especificación y regenera el plan, las tareas y el código afectados"]
+  S["Corrige la especificación, actualiza el plan y deja que converge añada las tareas que faltan"]
   Q2["¿El plan y las tareas cumplen la especificación y la constitución?"]
   P["Corrige el plan o las tareas y vuelve a implementar esa parte"]
   Q3["¿El código hace lo que dicen las tareas y pasan las pruebas?"]
@@ -124,7 +124,7 @@ flowchart TD
   class S,P,K,M accion;
 ```
 
-De arriba abajo: primero se mira la especificación; si no dice lo que quieres, se corrige y se regenera lo que dependa de ella. Si la especificación está bien, se mira si el plan y las tareas la cumplen; si no, se corrigen ellos y se vuelve a implementar esa parte. Si también están bien, se mira si el código hace lo que dicen las tareas: si no, es un fallo de implementación que el asistente corrige y una prueba nueva evita que vuelva. Y si todo cuadra y aun así falta algo, es que ese algo nunca se escribió: vuelve a la especificación.
+De arriba abajo: primero se mira la especificación; si no dice lo que quieres, se corrige (quien encarga aprueba el texto nuevo), se actualiza el plan y `/speckit.converge` añade las tareas que faltan, como en el paso 9 del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md). Si la especificación está bien, se mira si el plan y las tareas la cumplen; si no, se corrigen ellos y se vuelve a implementar esa parte. Si también están bien, se mira si el código hace lo que dicen las tareas: si no, es un fallo de implementación que el asistente corrige y una prueba nueva evita que vuelva. Y si todo cuadra y aun así falta algo, es que ese algo nunca se escribió: vuelve a la especificación.
 
 Fíjate en que el camino nunca termina en «edita el código a mano y sigue». Esa es la diferencia entre SDD y el parcheo a ciegas.
 
