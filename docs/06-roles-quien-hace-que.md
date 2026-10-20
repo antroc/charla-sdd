@@ -4,7 +4,7 @@
 
 Cuando alguien oye hablar de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) por primera vez, la pregunta que llega antes que ninguna es «¿y yo qué pinto ahí?». La respuesta corta: más de lo que pintabas antes. Como la especificación se escribe en lenguaje natural, negocio entra en la conversación desde el principio, y no al final, cuando ya solo queda decir «esto no es lo que pedí».
 
-Este documento recorre el flujo rol a rol con ReservaSalas: Ana (responsable de Oficina) encarga la aplicación, Luis (programador junior) la construye con un asistente de IA, Marta (manager) y Jorge (RRHH) la usarán, y un programador senior y QA revisan. Los siete pasos del flujo están explicados en [El flujo paso a paso](03-el-flujo-paso-a-paso.md); aquí solo importa quién hace qué en cada uno.
+Este documento recorre el flujo rol a rol con ReservaSalas: Ana (responsable de Oficina) encarga la aplicación, Luis (programador junior) la construye con un asistente de IA, Marta (manager) y Jorge (RRHH) la usarán, y un programador senior y QA (la persona o el equipo de calidad y pruebas) revisan. Los siete pasos del flujo están explicados en [El flujo paso a paso](03-el-flujo-paso-a-paso.md); aquí solo importa quién hace qué en cada uno.
 
 **Qué vas a encontrar:**
 
@@ -24,7 +24,7 @@ Con SDD la traducción desaparece, o casi. La especificación (`spec.md`) está 
 
 - **Lo que negocio aprueba es lo que el asistente de IA construye.** No hay un documento técnico intermedio que negocio no entiende. Ana lee la especificación de ReservaSalas entera; el asistente lee exactamente la misma.
 - **Las dudas se resuelven antes de construir, por escrito.** El paso de aclarar hace preguntas concretas («¿quién puede cancelar una reserva ajena?») y la respuesta queda en la especificación, no en un correo.
-- **Nadie puede desaparecer sin que se note.** Cada paso tiene una persona que lidera y otra que revisa, y los artefactos dejan rastro de quién decidió qué.
+- **Cuesta desaparecer sin que se note.** Cada paso tiene una persona que lidera y otra que revisa, y los artefactos dejan rastro de quién decidió qué.
 
 A cambio, pide algo: que negocio esté disponible en los momentos en que se le necesita. No son muchos, pero son concretos. Los vemos a continuación.
 
@@ -48,7 +48,7 @@ flowchart TD
   D -->|"revisa que no haya tecnología ni vaguedades"| s1
   D -->|"decide, comprueba y supervisa"| s3
   N -->|"valida criterios y prueba"| s6
-  A -.->|"redacta, pregunta, diseña, trocea, informa y ejecuta; nunca aprueba"| s0
+  A -.->|"redacta, pregunta, diseña, trocea, informa y ejecuta, pero nunca aprueba"| s0
   classDef negocio fill:#FDF2E9,stroke:#B7791F;
   classDef dev fill:#E8F0FE,stroke:#1A56DB;
   classDef ia fill:#F3F4F6,stroke:#4B5563;
@@ -57,9 +57,9 @@ flowchart TD
   class A ia;
 ```
 
-De arriba abajo: negocio (Ana, Marta y Jorge) entra en la mitad de pensar dictando la constitución, describiendo lo que quiere y respondiendo a las aclaraciones, y vuelve al final de la mitad de construir para validar los criterios de éxito y probar. Quien programa (Luis, el senior y QA) revisa la primera mitad, vigilando que no se cuele tecnología ni frases vagas, y lidera la segunda: decide, comprueba y supervisa. El asistente de IA, con la flecha discontinua, participa en todos los pasos redactando, preguntando, diseñando, troceando, informando y ejecutando; nunca aprueba.
+De arriba abajo: negocio (Ana, Marta y Jorge) entra en la mitad de pensar dictando la constitución (Ana, junto con Luis), describiendo lo que quiere y respondiendo a las aclaraciones, y vuelve al final de la mitad de construir para validar los criterios de éxito y probar. Quien programa (Luis, el senior y QA) revisa la primera mitad, vigilando que no se cuele tecnología ni frases vagas, y lidera la segunda: decide, comprueba y supervisa. El asistente de IA, con la flecha discontinua, participa en todos los pasos redactando, preguntando, diseñando, troceando, informando y ejecutando; nunca aprueba.
 
-La versión completa, con un diagrama por paso y quién lidera y quién revisa en cada casilla, está en [el diagrama 04](../diagramas/04-roles-y-participacion.md). La tabla siguiente lo resume rol a rol. **L** = lidera (responde de que el paso salga bien) · **R** = revisa (aprueba o pide cambios) · **C** = consulta (se le pregunta o aporta información) · **—** = no participa.
+La versión completa, con una casilla «lidera» y otra «revisa» por cada paso, está en [el diagrama 04](../diagramas/04-roles-y-participacion.md). La tabla siguiente lo resume rol a rol. **L** = lidera (responde de que el paso salga bien) · **R** = revisa (aprueba o pide cambios) · **C** = consulta (se le pregunta o aporta información) · **—** = no participa.
 
 | Rol (en ReservaSalas) | 0 Constitución | 1 Especificar | 2 Aclarar | 3 Planificar | 4 Tareas | 5 Analizar | 6 Implementar |
 |---|---|---|---|---|---|---|---|
@@ -79,8 +79,8 @@ Dos cosas saltan a la vista. Ningún paso lo lidera el asistente de IA, y en nin
 
 Es la persona que tiene el problema y decide qué se construye. En ReservaSalas, Ana sabe que hay choques, salas vacías y reservas fantasma, y sabe qué límites quiere (horario de 08:00 a 20:00, máximo 4 horas).
 
-- **Lidera** la constitución (dicta los cinco principios), la especificación (describe qué quiere y por qué, en castellano y sin tecnología) y las aclaraciones (responde a las preguntas del asistente; en ReservaSalas fue una reunión de 15 minutos).
-- **Consulta** en el plan: no tiene que leerlo entero; le basta el resumen y la tabla «Comprobación contra la constitución».
+- **Lidera** la constitución (`constitution.md`: dicta los cinco principios), la especificación (describe qué quiere y por qué, en castellano y sin tecnología) y las aclaraciones (responde a las preguntas del asistente; en ReservaSalas fue una reunión de 15 minutos).
+- **Consulta** en el plan técnico (`plan.md`): no tiene que leerlo entero; le basta el resumen y la tabla «Comprobación contra la constitución».
 - **Revisa** en analizar (¿los criterios de éxito siguen siendo los míos?) y en implementar (prueba la aplicación en cada punto de control: primero la historia 1, luego la 2, luego la 3).
 - **Lo que no tiene que hacer:** leer código, entender el plan técnico entero, instalar nada.
 
@@ -90,7 +90,7 @@ Marta no encarga la aplicación, pero la va a usar todos los días con su equipo
 
 - **Consulta** al especificar: cómo reserva hoy, qué le molesta de la hoja de cálculo, qué es «rápido» para ella (dos clics, no diez). De ahí salen prioridades y criterios de éxito como CE-001 (reservar en menos de 1 minuto).
 - **Consulta** al aclarar, si una pregunta afecta a su equipo (¿reservas recurrentes? Marta tendría opinión).
-- **Prueba** al implementar: es una de las personas de la sesión con la que se comprueban CE-001 y CE-003 (que el 90 % reserve sin ayuda la primera vez).
+- **Prueba** al implementar: participa en la sesión de prueba con la que se comprueban CE-001 y CE-003 (que el 90 % de las personas reserve sin ayuda la primera vez).
 - **Si además dirige un equipo técnico**, tiene otro papel: proteger el tiempo de los pasos poco vistosos (aclarar, analizar) y no premiar que alguien se los salte por ir más rápido.
 
 ### RRHH y otros perfiles de negocio (Jorge)
@@ -105,7 +105,8 @@ Jorge aporta lo que nadie más sabe: los datos de las personas y las normas de l
 
 Luis construye la aplicación, pero no la teclea: dirige al asistente de IA y revisa lo que produce. Para alguien que empieza, el flujo le da una estructura que antes solo daba la experiencia.
 
-- **Lidera** la constitución junto a Ana (le pasa los principios al asistente y comprueba el resultado) y los cuatro pasos de construir: planificar (elige la tecnología con el asistente y justifica cada decisión contra la constitución), trocear en tareas (comprueba que cada requisito RF aparece en alguna tarea y que las pruebas van antes que el código), analizar (ejecuta el análisis de coherencia y decide con Ana qué corregir) e implementar (lanza las tareas, sigue el progreso, ejecuta las pruebas).
+- **Lidera** la constitución junto a Ana: le pasa los principios al asistente y comprueba el resultado.
+- **Lidera** los cuatro pasos de construir: planificar (elige la tecnología con el asistente y justifica cada decisión contra la constitución), trocear en tareas (comprueba que cada requisito RF aparece en alguna tarea y que las pruebas van antes que el código), analizar (ejecuta el análisis de coherencia y decide con Ana qué corregir) e implementar (lanza las tareas, sigue el progreso, ejecuta las pruebas).
 - **Revisa** la especificación y las aclaraciones: vigila que no se cuele tecnología ni frases vagas, y que cada respuesta de Ana acabe dentro de la especificación.
 - **Su regla de oro:** si el código no hace lo que debe, corrige la especificación y regenera; no parchea a mano. Lo vive en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md).
 
@@ -113,7 +114,7 @@ Luis construye la aplicación, pero no la teclea: dirige al asistente de IA y re
 
 Es la red de seguridad técnica. No lidera ningún paso en ReservaSalas; revisa los que más daño hacen si salen mal.
 
-- **Revisa** la constitución (¿los principios prohíben algo de verdad?), el plan (¿la tecnología es proporcionada? ¿cada desviación está justificada en el registro de complejidad?), las tareas (¿son pequeñas? ¿dos tareas `[P]` tocan el mismo fichero?), el análisis y el código final.
+- **Revisa** la constitución (¿los principios prohíben algo de verdad?), el plan (¿la tecnología es proporcionada? ¿cada desviación está justificada en el registro de complejidad?), las tareas (¿son pequeñas? ¿dos tareas marcadas `[P]`, las que pueden hacerse en paralelo, tocan el mismo fichero?), el análisis y el código final.
 - **Consulta** al especificar: puede avisar de que algo es inviable o desproporcionado, sin decidir tecnología todavía.
 - **Lo que cambia para esta persona:** menos tiempo escribiendo código y más tiempo revisando planes y enseñando a leerlos. Las revisiones del plan técnico son la mejor clase que puede dar a un junior.
 
@@ -127,7 +128,7 @@ QA entra mucho antes de lo habitual: en la especificación, no en la demo.
 
 ### El asistente de IA
 
-Participa en los siete pasos y no lidera ninguno. Redacta la constitución y la especificación a partir de lo que le dictan; hace las preguntas de aclarar (con GitHub Spec Kit, `/speckit.clarify` hace hasta 5, de una en una, con una opción recomendada); diseña el plan; trocea las tareas; informa de incoherencias (`/speckit.analyze` es solo lectura: no modifica nada y ofrece remedios para que los apruebes); y ejecuta las tareas.
+Participa en los siete pasos y no lidera ninguno. Redacta la constitución y la especificación a partir de lo que le dictan; hace las preguntas de aclarar (con GitHub Spec Kit, la herramienta que describe [Herramientas](07-herramientas.md), el comando `/speckit.clarify` hace hasta 5, de una en una, con una opción recomendada); diseña el plan; trocea las tareas; informa de incoherencias (el comando `/speckit.analyze` es solo lectura: no modifica nada y ofrece remedios para que los apruebes); y ejecuta las tareas.
 
 Lo que nunca hace es aprobar. No marca las casillas de las listas de verificación por tema (eso lo hace quien revisa), no decide límites de negocio (si le falta un dato, deja un marcador `[NECESITA ACLARACIÓN: …]` o pregunta) y no da por buena su propia obra. Si en tu equipo el asistente es a la vez quien escribe y quien aprueba, no estás haciendo SDD; estás haciendo *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) con más documentos.
 
@@ -147,7 +148,7 @@ Cuatro cosas, y ninguna exige instalar nada ni ver una línea de código.
 
 Menos teclear, más pensar y revisar. En ReservaSalas, Luis no escribe a mano las 47 tareas de `tasks.md` ni el código que sale de ellas: lo hace el asistente. Lo que Luis sí hace, y nadie puede hacer por él:
 
-- **Decidir y justificar.** Elige Python, FastAPI y SQLite porque la constitución pide sencillez y un único servidor modesto, y lo deja escrito en el plan con las alternativas descartadas.
+- **Decidir y justificar.** Elige Python, FastAPI y SQLite (el lenguaje de programación, la pieza que sirve las páginas web y la base de datos) porque la constitución pide sencillez y un único servidor modesto, y lo deja escrito en el plan con las alternativas descartadas.
 - **Comprobar coherencia.** Coge cada RF de la especificación y busca en qué tarea aparece; comprueba que las pruebas de cada historia van antes que su implementación; lee el informe de `/speckit.analyze` y decide qué corregir.
 - **Leer lo que genera el asistente antes de aceptarlo.** Un plan de cuarenta páginas o una tarea del tipo «hacer toda la parte del servidor» son señales de que algo va mal, y solo las ve quien lee.
 - **Volver a la especificación cuando algo falla.** Es el cambio de hábito más difícil: la tentación de «lo arreglo en el código en dos minutos» es enorme, y es la puerta de vuelta al *vibe coding*.
@@ -156,19 +157,19 @@ Para un junior, el método sustituye a la experiencia que todavía no tiene: le 
 
 ## Cómo encaja con las reuniones y los procesos de hoy
 
-SDD no añade una capa de reuniones encima de las que ya tienes; sustituye algunas y da contenido a otras.
+SDD no tiene por qué añadir una capa de reuniones encima de las que ya tienes: sustituye algunas y da contenido a otras.
 
 | Lo que haces hoy | Con SDD |
 |---|---|
 | Cadena de correos de «¿y si…?» entre negocio y desarrollo | Una sesión de aclarar de 15 minutos; las respuestas quedan en la especificación, no en la bandeja de entrada |
 | Reunión de arranque en la que negocio cuenta lo que quiere | Sigue existiendo, pero sale con un documento: la constitución y el borrador de la especificación |
-| Historias de usuario en el tablero del equipo | Son las mismas: las historias P1, P2 y P3 de la especificación van al tablero, y las tareas T001, T002… son sus subtareas |
+| Historias de usuario en el tablero del equipo | Son las mismas: las historias P1, P2 y P3 de la especificación van al tablero, y las tareas de cada historia (T013 a T024 para la historia 1 de ReservaSalas) son sus subtareas |
 | Estimaciones a ojo | La lista de tareas dice cuántas son, cuáles van en paralelo y dónde están los puntos de control |
 | Una demo al final | Un punto de control por historia: la historia 1 de ReservaSalas se enseña a Ana antes de empezar la 2 |
 | «¿Por qué se decidió esto?» preguntado en un pasillo | El registro de aclaraciones y las decisiones del plan, con fecha y quién respondió |
 | Revisión de código | Sigue existiendo, y se le suma una revisión que negocio sí puede hacer: la de la especificación |
 
-Una especificación bien escrita sustituye a muchos correos. Y cuando alguien nuevo entra en el proyecto, no hace falta una reunión para ponerle al día: lee la constitución, la especificación y el plan, en ese orden, y ya sabe qué se construyó y por qué.
+Una especificación bien escrita sustituye a muchos correos. Y cuando alguien nuevo entra en el proyecto, ponerle al día cuesta mucho menos: lee la constitución, la especificación y el plan, en ese orden, y ya sabe qué se construyó y por qué.
 
 ## Dos riesgos que conviene conocer
 
@@ -188,9 +189,9 @@ Luis ve un fallo, lo arregla en el código en dos minutos y no toca la especific
 
 Cómo evitarlo:
 
-- Ponerlo en la constitución, como en ReservaSalas: «si el resultado no es el esperado, se corrige la especificación y se regenera; no se parchea el código a mano "para salir del paso"».
+- Ponerlo en la constitución, como en ReservaSalas: «si el resultado no es el esperado, se corrige la especificación y se regenera; no se parchea el código a mano “para salir del paso”».
 - Que la revisión de código pregunte siempre «¿qué requisito cubre este cambio?». Si no hay RF, el cambio empieza por la especificación.
-- Usar las comprobaciones de la herramienta: `/speckit.analyze` detecta incoherencias entre especificación, plan y tareas, y `/speckit.converge` compara el código con los tres y añade las tareas que falten.
+- Usar las comprobaciones de la herramienta, si trabajas con Spec Kit: `/speckit.analyze` detecta incoherencias entre especificación, plan y tareas, y `/speckit.converge` compara el código con los tres y añade las tareas que falten.
 - Y la parte del manager: no premiar la prisa. Si quien se salta la especificación es quien entrega «más rápido», el equipo entero aprende a saltársela.
 
 > [!IMPORTANT]

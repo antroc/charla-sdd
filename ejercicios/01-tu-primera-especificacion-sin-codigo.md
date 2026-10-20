@@ -2,7 +2,7 @@
 
 > **Para quién:** managers, RRHH y perfiles de negocio (y cualquiera que empiece con SDD) · **Tiempo de lectura:** ~10 min (hacerlo: 30 min) · **Nivel:** 🟢 básico
 
-En este ejercicio vas a escribir una especificación completa sin una sola línea de código. La especificación es el primer artefacto del SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): el documento que dice QUÉ queremos y POR QUÉ, en lenguaje natural, y del que después se derivan el plan técnico, las tareas y el código. El caso es «Solicitud de vacaciones», un proceso que conoce todo el mundo, para que puedas concentrarte en el método y no en el problema.
+En este ejercicio vas a escribir una especificación completa sin una sola línea de código. La especificación es el documento central del SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): dice QUÉ queremos y POR QUÉ, en lenguaje natural, y de ella se derivan después el plan técnico, las tareas y el código. El caso es «Solicitud de vacaciones», un proceso que conoce todo el mundo, para que puedas concentrarte en el método y no en el problema.
 
 **Qué vas a encontrar**
 
@@ -53,7 +53,7 @@ De izquierda a derecha: empiezas por el problema y las personas, sigues con las 
 
 Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué deberías tener al acabar. Trabaja directamente sobre tu copia de la plantilla.
 
-1. **Describe el problema de hoy en tres frases.** Rellena la cabecera y la sección «Resumen». En la cabecera, cambia `[001-reserva-salas]` por `001-solicitud-vacaciones`, pon la fecha de hoy en «Creada», deja «Estado: Borrador» y escribe en «Petición original» la frase con la que alguien te encargaría esto («Queremos dejar de pedir las vacaciones por correo y saber siempre cuántos días nos quedan»). En «Resumen», tres frases, sin tecnología, con esta estructura:
+1. **Describe el problema de hoy en tres frases.** Empieza por el título: cambia «Plantilla: especificación» por «Especificación: Solicitud de vacaciones» y borra el aviso que hay justo debajo (habla de Spec Kit y aquí no hace falta). Después rellena la cabecera y la sección «Resumen». La cabecera es la línea que empieza por «Carpeta/rama» (un simple identificador): cambia `[001-reserva-salas]` por `001-solicitud-vacaciones`, pon la fecha de hoy en «Creada», deja «Estado: Borrador» y escribe en «Petición original» la frase con la que alguien te encargaría esto («Queremos dejar de pedir las vacaciones por correo y saber siempre cuántos días nos quedan»). En «Resumen», tres frases (hasta cinco si lo necesitas), sin tecnología, con esta estructura:
 
    ```text
    Hoy, para pedir vacaciones, [qué hace cada persona y por dónde].
@@ -77,7 +77,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    - [ ] Los tres perfiles tienen escrito qué quieren conseguir.
 
-3. **Escribe las tres historias de usuario, por prioridad.** Es la sección «Historias de usuario y escenarios». Cada historia lleva el título con su prioridad, un recorrido en lenguaje llano, «Por qué esta prioridad», «Prueba independiente» y, en «Criterios de aceptación», al menos dos criterios en formato Dado / Cuando / Entonces: uno que sale bien y otro que sale mal. Las prioridades ya están decididas:
+3. **Escribe las tres historias de usuario, por prioridad.** Es la sección «Historias de usuario y escenarios». Cada historia lleva el título con su prioridad, un recorrido en lenguaje llano, «Por qué esta prioridad», «Prueba independiente» y, en «Criterios de aceptación», al menos dos criterios en formato Dado / Cuando / Entonces: uno que sale bien y otro que sale mal. «Prueba independiente» es cómo comprobarías esa historia ella sola, sin las otras dos (por ejemplo: «Luis pide tres días y Marta recibe el aviso»). Sustituye los ejemplos de ReservaSalas de cada apartado y mantén el formato de la plantilla, con **Dado**, **cuando** y **entonces** en negrita. Las prioridades ya están decididas:
 
    - **Historia de usuario 1 - Pedir días de vacaciones (Prioridad: P1).** Luis elige las fechas, ve cuántos días consumen y cuántos le quedan, y envía la solicitud; Marta recibe un aviso.
    - **Historia de usuario 2 - Aprobar o rechazar una solicitud (Prioridad: P2).** Marta ve las solicitudes pendientes de su equipo, aprueba o rechaza, y si rechaza tiene que dar un motivo; Luis recibe la respuesta.
@@ -118,13 +118,13 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    | Patrón | Plantilla | Para qué |
    |---|---|---|
-   | Ubicuo | «El sistema deberá <respuesta>.» | Algo que se cumple siempre |
-   | Por evento | «CUANDO <disparador>, el sistema deberá <respuesta>.» | Algo que ocurre en un momento |
-   | Por estado | «MIENTRAS <estado>, el sistema deberá <respuesta>.» | Algo que dura un tiempo |
-   | Comportamiento no deseado | «SI <condición>, ENTONCES el sistema deberá <respuesta>.» | Errores y situaciones a evitar |
-   | Opcional | «DONDE <perfil o característica>, el sistema deberá <respuesta>.» | Solo para algunos perfiles |
+   | Ubicuo | «El sistema deberá [respuesta].» | Algo que se cumple siempre |
+   | Por evento | «CUANDO [disparador], el sistema deberá [respuesta].» | Algo que ocurre en un momento |
+   | Por estado | «MIENTRAS [estado], el sistema deberá [respuesta].» | Algo que dura un tiempo |
+   | Comportamiento no deseado | «SI [condición], ENTONCES el sistema deberá [respuesta].» | Errores y situaciones a evitar |
+   | Opcional | «DONDE [perfil o característica], el sistema deberá [respuesta].» | Solo para algunos perfiles |
 
-   Numera RF-001, RF-002… Cada requisito: una frase, una sola cosa comprobable, sin tecnología y sin adjetivos vagos. Intenta usar los cinco patrones al menos una vez. Para empezar:
+   Numera RF-001, RF-002… con el formato de la plantilla (**RF-001**: …). Cada requisito: una frase, una sola cosa comprobable, sin tecnología y sin adjetivos vagos. Intenta usar los cinco patrones al menos una vez. Para empezar:
 
    ```text
    - RF-001: El sistema deberá mostrar a cada persona su saldo de días de vacaciones del año en curso.
@@ -157,7 +157,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    - [ ] Hay tres criterios de éxito con un número cada uno y sin tecnología.
 
-7. **Apunta las dudas que tendrías que preguntar.** Mientras escribías, seguro que te han surgido preguntas que no puedes responder tú. Van en la sección «Aclaraciones», subsección «Dudas pendientes», y como máximo tres de ellas pueden marcarse en el texto con `[NECESITA ACLARACIÓN: pregunta concreta]` junto al requisito o caso límite afectado. Preguntas típicas de este caso:
+7. **Apunta las dudas que tendrías que preguntar.** Mientras escribías, seguro que te han surgido preguntas que no puedes responder tú. Van en la sección «Aclaraciones» (en la plantilla está entre «Casos límite» y «Requisitos»), subsección «Dudas pendientes»; borra los ejemplos de ReservaSalas que trae. Como máximo tres de ellas pueden marcarse además en el texto con `[NECESITA ACLARACIÓN: pregunta concreta]` junto al requisito o caso límite afectado. Preguntas típicas de este caso:
 
    ```text
    - ¿Los días se cuentan en laborables o en naturales? → afecta a [RF-003 y al criterio 1 de la historia 1].
@@ -167,13 +167,13 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
    - ¿Los días que no se gastan pasan al año siguiente? → afecta a [...].
    ```
 
-   Ahora haz de Jorge (RRHH) y responde tú a las dudas, con decisiones cortas. Mueve cada pregunta respondida a la subsección «Sesión [AAAA-MM-DD]» con el formato `P: … → R: …` y, lo más importante, cambia la sección afectada: una respuesta que no cambia nada en la especificación no era una duda. Aprovecha para rellenar «Supuestos» (lo que das por hecho: todas las personas tienen manager asignado, RRHH carga el saldo inicial cada año) y «Fuera de alcance» (lo que no vas a hacer: bajas médicas y otros permisos, nómina, festivos distintos por sede).
+   Ahora haz de Jorge (RRHH) y responde tú a las dudas, con decisiones cortas. Mueve cada pregunta respondida a la subsección «Sesión [AAAA-MM-DD]» (pon la fecha de hoy) con el formato `P: … → R: …` y, lo más importante, cambia la sección afectada: una respuesta que no cambia nada en la especificación no era una duda. Aprovecha para rellenar «Supuestos» (lo que das por hecho: todas las personas tienen manager asignado, RRHH carga el saldo inicial cada año) y «Fuera de alcance» (lo que no vas a hacer: bajas médicas y otros permisos, nómina, festivos distintos por sede).
 
    Qué deberías tener: al menos cinco preguntas, la mayoría respondidas y reflejadas en el texto, y las secciones «Supuestos» y «Fuera de alcance» con dos o tres líneas cada una.
 
    - [ ] Hay una lista de dudas; las respondidas han cambiado la sección afectada y las demás están marcadas como pendientes.
 
-8. **Revisa con la lista de verificación.** Abre tu copia de [lista-de-verificacion.md](plantillas/lista-de-verificacion.md). En la cabecera, cambia el propósito y la funcionalidad por los de tu especificación; en CHK010 y CHK012, sustituye los ejemplos de ReservaSalas entre corchetes por los de vacaciones (más días de los que hay, fechas pasadas, solapamiento con el equipo). Responde cada pregunta de CHK001 a CHK019 mirando tu texto, y marca `[x]` solo las que cumplan. Cada «no» te manda a una sección concreta: arréglala y vuelve a comprobar. Si puedes, pídele a otra persona que pase la lista por ti: quien escribe nunca ve sus propios huecos.
+8. **Revisa con la lista de verificación.** Abre tu copia de [lista-de-verificacion.md](plantillas/lista-de-verificacion.md). En la cabecera, cambia el propósito, la funcionalidad y la persona responsable de la revisión por los de tu especificación (puedes ser tú). En CHK010 y CHK012, sustituye los ejemplos de ReservaSalas que van entre paréntesis por los de vacaciones (más días de los que hay, fechas pasadas, solapamiento con el equipo). Responde cada pregunta de CHK001 a CHK019 mirando tu texto, y marca `[x]` solo las que cumplan. Dos avisos: CHK019 habla de la constitución, que en este ejercicio no existe, así que márcala si tus requisitos no se contradicen entre sí; y la categoría propia (CHK020 a CHK022) puedes borrarla o cambiarla por preguntas sobre vacaciones. Cada «no» te manda a una sección concreta: arréglala y vuelve a comprobar. Si puedes, pídele a otra persona que pase la lista por ti: quien escribe casi nunca ve sus propios huecos.
 
    Qué deberías tener: la lista con todo marcado o, si queda algo sin marcar, una nota en «Notas» que diga por qué y qué falta.
 
@@ -223,7 +223,7 @@ Si el asistente se desvía (propone bases de datos, reescribe todo, inventa requ
 
 <details><summary>Ver respuestas</summary>
 
-1. Responde QUÉ queremos y POR QUÉ. El CÓMO (tecnología, arquitectura, qué información se guarda y de qué manera) va al plan técnico.
+1. Responde QUÉ queremos y POR QUÉ. El CÓMO (tecnología, arquitectura, de qué manera se guarda la información) va al plan técnico.
 2. Es un comportamiento no deseado, así que patrón «SI…, ENTONCES…»: «SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan.»
 3. Porque la P1 tiene que valer por sí sola y resolver el problema principal: que las peticiones se pierdan por correo. Con solo «pedir días», las solicitudes ya quedan registradas y Marta puede decidir fuera del sistema; la aprobación dentro del sistema es la siguiente mejora, no la primera.
 4. Un número y una forma de medirlo. Por ejemplo: «El 100 % de las solicitudes aprobadas quedan registradas para RRHH sin copiarlas a mano», o «RRHH dedica menos de 1 hora al mes a cuadrar el saldo de vacaciones».

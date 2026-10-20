@@ -117,13 +117,15 @@ Tres observaciones sobre la tabla:
 
 Hazte estas preguntas en orden; la primera que respondas con un «sí» te da el patrón.
 
-1. ¿Es algo que no queremos que pase (un error, un intento no permitido, un límite que se incumple)? → **SI…, ENTONCES**. La respuesta suele ser rechazar, impedir o avisar.
+1. ¿Es algo que no queremos que pase (un error, un intento no permitido, un límite que se incumple)? → **SI…, ENTONCES**. La respuesta suele ser rechazar o avisar.
 2. ¿Ocurre en un momento concreto, porque alguien hace algo o llega una fecha? → **CUANDO**.
-3. ¿Depende de un estado que dura un tiempo (en mantenimiento, pendiente, fuera del horario)? → **MIENTRAS**.
+3. ¿Depende de un estado que dura un tiempo (en mantenimiento, pendiente, de vacaciones)? → **MIENTRAS**.
 4. ¿Solo se aplica a algunos perfiles, sedes o configuraciones? → **DONDE**.
 5. Si no es ninguna de las anteriores, es un requisito ubicuo: **El sistema deberá…**
 
-La duda más frecuente es entre CUANDO y SI. Las dos describen algo que ocurre; la diferencia es la intención. CUANDO es el camino normal (una persona confirma, la manager aprueba); SI es el camino que queremos cortar (se solapa, no quedan días, no tiene permisos). Si la respuesta del sistema es «rechazar» o «impedir», casi siempre es un SI. El [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md) tiene este mismo recorrido dibujado como árbol de decisión.
+La duda más frecuente es entre CUANDO y SI. Las dos describen algo que ocurre; la diferencia es la intención. CUANDO es el camino normal (una persona confirma, la manager aprueba); SI es el camino que queremos cortar (se solapa, no quedan días, no tiene permisos). Si la respuesta del sistema es «rechazar», casi siempre es un SI.
+
+Entre MIENTRAS y SI, fíjate en la duración. Una sala en mantenimiento es un estado que dura días, así que RF-007 es un MIENTRAS aunque su respuesta sea impedir reservas; una franja ocupada es un intento concreto que se rechaza en el momento, así que RF-005 es un SI. El [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md) tiene este mismo recorrido dibujado como árbol de decisión.
 
 ## Reglas de oro
 
@@ -209,7 +211,9 @@ RF-005: SI la franja solicitada se solapa con otra reserva de la misma sala, ENT
 Criterio 3 de la historia 1: **Dado** que Mediterráneo ya está reservada el jueves de 10:30 a 11:30, **cuando** Marta intenta reservarla de 10:00 a 11:00, **entonces** el sistema rechaza la reserva e indica que la sala está ocupada de 10:30 a 11:30.
 ```
 
-Un requisito suele dar lugar a más de un criterio: el caso que sale bien y el que sale mal, y a veces uno por cada límite (RF-006 agrupa cuatro límites, y la historia 1 tiene un criterio para el horario y otro para las 4 horas). Y cada criterio se convierte después, casi palabra por palabra, en una prueba automática: la tarea T013 de ReservaSalas escribe las pruebas de solapamiento a partir de RF-005 y de sus criterios. Por eso un requisito bien escrito ahorra trabajo tres veces: al aclarar, al probar y al corregir.
+Un requisito suele dar lugar a más de un criterio: el caso que sale bien y el que sale mal, y a veces uno por cada límite (RF-006 agrupa cuatro límites, y la historia 1 tiene un criterio para el horario y otro para las 4 horas).
+
+Y cada criterio se convierte después, casi palabra por palabra, en una prueba automática: la tarea T013 de ReservaSalas escribe las pruebas de solapamiento a partir de RF-005 y de sus criterios. Por eso un requisito bien escrito ahorra trabajo tres veces: al aclarar, al probar y al corregir.
 
 ## Ejercicio rápido
 
@@ -222,7 +226,7 @@ Convierte estas tres frases en requisitos EARS. Escribe tu versión antes de abr
 <details><summary>Ver respuestas</summary>
 
 1. Es un límite que queremos impedir, así que **SI…, ENTONCES**: «SI la franja solicitada dura más de 4 horas, ENTONCES el sistema deberá rechazar la reserva e indicar que el máximo son 4 horas.» Fíjate en que «todo el día» se ha convertido en una cifra; esa cifra la tiene que dar Ana, no el asistente. En la especificación canónica este límite está agrupado con otros tres en RF-006, porque la respuesta es la misma para todos.
-2. Ocurre en un momento concreto (el rechazo), así que **CUANDO**: «CUANDO la manager rechaza una solicitud, el sistema deberá pedirle un motivo y mostrárselo a la persona solicitante junto con la decisión.» Si quieres impedir el rechazo sin motivo, añade un SI: «SI la manager intenta rechazar una solicitud sin indicar un motivo, ENTONCES el sistema deberá impedirlo y pedir el motivo.»
+2. Ocurre en un momento concreto (el rechazo), así que **CUANDO**: «CUANDO la manager rechaza una solicitud, el sistema deberá mostrar a la persona solicitante la decisión junto con el motivo del rechazo.» Fíjate en que «que diga por qué» esconde dos cosas: que el motivo se vea (este requisito) y que no se pueda rechazar sin darlo. Lo segundo es algo que queremos impedir, así que va aparte, con un SI: «SI la manager intenta rechazar una solicitud sin indicar un motivo, ENTONCES el sistema deberá impedirlo y pedir el motivo.»
 3. Son dos requisitos escondidos en una frase: uno **DONDE** (quién puede) y uno **SI…, ENTONCES** (qué pasa si lo intenta quien no puede). «DONDE la persona tenga permisos de administración, el sistema deberá permitir cancelar reservas de otras personas.» Y el RF-010 de ReservaSalas: «SI una persona sin permisos de administración intenta cancelar o modificar una reserva de la que no es responsable, ENTONCES el sistema deberá rechazar la operación e indicar quién puede hacerlo.»
 
 </details>
@@ -236,7 +240,7 @@ Convierte estas tres frases en requisitos EARS. Escribe tu versión antes de abr
 - Los doce requisitos de ReservaSalas, con la tabla de qué patrón usa cada uno, están en [spec.md](../ejercicios/soluciones/03-reserva-salas/spec.md).
 
 > [!IMPORTANT]
-> EARS no sustituye a pensar: te obliga a hacerte las preguntas, pero las respuestas las tiene que dar quien conoce el problema. Un requisito con la plantilla perfecta y un límite inventado («máximo 4 horas» cuando Ana nunca lo dijo) es peor que una frase vaga, porque parece cerrado. Si no sabes el dato, deja el marcador `[NECESITA ACLARACIÓN: …]` y pregunta.
+> EARS no sustituye a pensar: te obliga a hacerte las preguntas, pero las respuestas las tiene que dar quien conoce el problema. Un requisito con la plantilla perfecta y un límite inventado («máximo tres reservas por persona y día», cuando Ana nunca ha dicho tal cosa) es peor que una frase vaga, porque parece cerrado. Si no sabes el dato, deja el marcador `[NECESITA ACLARACIÓN: …]` y pregunta.
 
 ## En tres frases
 

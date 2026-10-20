@@ -15,19 +15,19 @@ Léelo entero la primera vez. Después sirve como lista de repaso: antes de empe
 
 ## Doce buenas prácticas
 
-Están agrupadas por el momento del flujo en que más importan. Las cinco primeras son las que una persona no técnica puede aplicar sin ayuda.
+Están agrupadas por el momento del flujo en que más importan. Las seis primeras, las del momento de especificar, son las que una persona no técnica puede aplicar sin ayuda.
 
 ### Al especificar (pasos 0 a 2)
 
-**1. Empieza pequeño.** La primera funcionalidad tiene que caber en uno o dos días de trabajo, incluidas las pruebas. Si la petición es grande, trocéala en varias funcionalidades y especifica solo la primera. Es más fácil aprender el método con algo que termina que con algo que se eterniza.
+**1. Empieza pequeño.** La primera funcionalidad debería caber en uno o dos días de trabajo, incluidas las pruebas. Si la petición es grande, trocéala en varias funcionalidades y especifica solo la primera. Es más fácil aprender el método con algo que termina que con algo que se eterniza.
 
-*En ReservaSalas:* Ana no pidió «la gestión integral de espacios de la empresa». Pidió reservar las 12 salas sin choques. Las reservas recurrentes, el calendario corporativo y las pantallas de las salas quedaron fuera de alcance desde el primer día.
+*En ReservaSalas:* Ana no pidió «la gestión integral de espacios de la empresa». Pidió reservar las 12 salas sin choques. Las reservas recurrentes, el calendario corporativo y las pantallas de las salas quedaron fuera de alcance de la primera versión.
 
 **2. Una especificación por funcionalidad.** Cada funcionalidad tiene su carpeta, su especificación, su plan y sus tareas. Mezclar dos en un documento hace que ninguna de las dos se pueda dar por terminada ni probar por separado.
 
 *En ReservaSalas:* todo vive en `specs/001-reserva-salas/`. Si Ana pide más adelante reservas recurrentes, será otra funcionalidad, con su propia especificación, que parte de la primera en vez de reescribirla.
 
-**3. Prioriza las historias, y que la P1 valga por sí sola.** Cada historia de usuario lleva P1, P2 o P3. La P1 tiene que resolver el problema principal aunque las demás no se hagan nunca: así tienes un producto mínimo viable que enseñar pronto y un orden claro cuando falte tiempo.
+**3. Prioriza las historias, y que la P1 valga por sí sola.** Cada historia de usuario lleva P1, P2 o P3. La P1 tiene que resolver el problema principal aunque las demás no se hagan nunca: así tienes un producto mínimo viable (la versión más pequeña que ya resuelve el problema) que enseñar pronto y un orden claro cuando falte tiempo.
 
 *En ReservaSalas:* P1 es reservar una sala. Solo con eso ya desaparecen los choques de la hoja de cálculo. *En la solicitud de vacaciones:* P1 es pedir días; aprobar o rechazar (P2) y ver el saldo (P3) vienen después.
 
@@ -47,23 +47,23 @@ Están agrupadas por el momento del flujo en que más importan. Las cinco primer
 
 **7. Revisa el plan contra la constitución, principio a principio.** El plan técnico tiene una tabla para eso. No la rellenes con «cumple» en todas las filas: explica cómo. Cada desviación va al registro de complejidad con su justificación y la alternativa más simple que se descartó.
 
-*En ReservaSalas:* el plan cumple los cinco principios y declara una sola desviación de «sencillez primero»: una pequeña API, que la especificación no pide, para que las pruebas de contrato no dependan del HTML. Está escrita, justificada y acotada.
+*En ReservaSalas:* el plan cumple los cinco principios y declara una sola desviación de «sencillez primero»: una pequeña API (una conexión para que otros programas usen la aplicación), que la especificación no pide, para que las pruebas automáticas (las «pruebas de contrato» del plan) no dependan de las pantallas HTML. Está escrita, justificada y acotada.
 
 **8. Tareas pequeñas, con fichero y con un sí o un no al final.** Una tarea cabe en una línea, nombra el fichero que toca y se da por terminada sin discusión. Si una tarea dice «hacer la parte del servidor», no es una tarea; es un plan disfrazado. Comprueba además que cada requisito de la especificación aparece en alguna tarea.
 
 *En ReservaSalas:* 47 tareas, cada una con su ruta (`src/reservasalas/servicios/reservas.py`, `tests/unitarias/test_limites.py`…) y una tabla en la especificación que dice qué requisitos necesita cada historia, para cruzarla con la lista.
 
-**9. Pruebas primero.** En cada historia, las tareas de pruebas van antes que las de implementación, y las pruebas tienen que fallar hasta que la funcionalidad existe. Es la única forma de distinguir «funciona» de «parece que funciona» cuando el código lo ha escrito un asistente de IA.
+**9. Pruebas primero.** En cada historia, las tareas de pruebas van antes que las de implementación, y las pruebas tienen que fallar hasta que la funcionalidad existe. Es la forma más fiable de distinguir «funciona» de «parece que funciona» cuando el código lo ha escrito un asistente de IA.
 
 *En ReservaSalas:* la historia 1 empieza con cinco tareas de pruebas (T013 a T017) y la constitución lo exige en su principio 3. El asistente escribe las pruebas, las ve fallar, implementa y las ve pasar.
 
 ### Al implementar y después (paso 6 y siguientes)
 
-**10. Si el código no hace lo que querías, corrige la especificación y regenera.** Es la regla central del método. Si tocas el código a mano para salir del paso, la especificación deja de contar la verdad y la próxima regeneración borrará tu parche. Reserva la edición a mano para detalles que no cambian el comportamiento.
+**10. Si el código no hace lo que querías, corrige la especificación y regenera.** Es la regla central del método. Si tocas el código a mano para salir del paso, la especificación deja de contar la verdad y la próxima regeneración puede borrar tu parche. Reserva la edición a mano para detalles que no cambian el comportamiento.
 
 *En ReservaSalas:* cuando Ana quiso ampliar la antelación máxima de 30 a 60 días, Luis no buscó el número en el código: cambió RF-006 en la especificación, regeneró el plan y las tareas afectadas y volvió a implementar esa parte.
 
-**11. Guarda todo en el repositorio, junto al código.** Constitución, especificación, aclaraciones, plan, tareas y listas de verificación viven en la misma carpeta que el programa y se versionan con él. Un cambio en la especificación es un cambio en el repositorio, revisable como cualquier otro. Haz *commit* (guarda una versión) antes de regenerar nada, para poder comparar.
+**11. Guarda todo en el repositorio, junto al código.** Constitución, especificación, aclaraciones, plan, tareas y listas de verificación viven en el repositorio (la carpeta compartida donde se guarda el código con su historial de versiones), junto al programa, y se versionan con él. Un cambio en la especificación es un cambio en el repositorio, revisable como cualquier otro. Haz *commit* (guarda una versión) antes de regenerar nada, para poder comparar.
 
 *En ReservaSalas:* `.specify/memory/constitution.md` y `specs/001-reserva-salas/` van en el mismo repositorio que `src/` y `tests/`. Dentro de un año, quien pregunte «¿por qué 4 horas como máximo?» encontrará la respuesta al lado del código.
 
@@ -80,13 +80,13 @@ Cada fila dice cómo reconocer el error, por qué pasa y qué hacer. Varios tien
 
 | # | Error | Cómo se reconoce | Remedio |
 |---|---|---|---|
-| 1 | **Especificación con tecnología** | En la especificación aparecen palabras como «base de datos», «API» (una conexión para que otros programas la usen), el nombre de un lenguaje o de un servicio en la nube | Bórralas y describe el comportamiento que ve la persona. La tecnología va al plan, y la decide quien construye contra la constitución. En ReservaSalas, la especificación dice «el sistema deberá guardarla»; que sea SQLite lo dice el plan |
+| 1 | **Especificación con tecnología** | En la especificación aparecen palabras como «base de datos», «API» (una conexión para que otros programas la usen), el nombre de un lenguaje o de un servicio en la nube | Bórralas y describe el comportamiento que ve la persona. La tecnología va al plan, y la decide quien construye contra la constitución. En ReservaSalas, la especificación dice «el sistema deberá guardarla»; que sea SQLite (una base de datos concreta) lo dice el plan |
 | 2 | **Requisitos vagos** | «Que sea rápido», «fácil de usar», «que funcione bien», «gestionar las reservas». Nadie puede decir si se cumplen | Reescríbelos en EARS con una cifra o una condición concreta. El [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md) entrena justo esto |
 | 3 | **Saltarse el paso de aclarar** | «Ya está todo claro». Las dudas aparecen a mitad de implementación y se resuelven en el chat del asistente, sin tocar la especificación | Ejecuta el paso siempre, aunque solo salga una pregunta. Y cuando una duda surja tarde, vuelve a aclarar y a la especificación, no la resuelvas en el código |
-| 4 | **Un plan de cuarenta páginas** | El plan lo ha generado el asistente, nadie lo ha leído entero y la tabla de comprobación contra la constitución dice «cumple» en todo sin explicar cómo | Pide un plan proporcional al problema. Lee al menos el resumen, el contexto técnico y la tabla de la constitución; si no te caben en veinte minutos, el plan es demasiado grande |
-| 5 | **Tareas gigantes o sin fichero** | «T005 Implementar el servidor». Dos tareas marcadas `[P]` que tocan el mismo fichero. Un requisito que no aparece en ninguna tarea | Regenera las tareas pidiendo tamaño pequeño y rutas concretas. Cruza la lista con los requisitos de la especificación antes de implementar |
-| 6 | **Aceptar código sin leerlo** | Las pruebas pasan, la demo funciona, nadie ha abierto los ficheros. Semanas después nadie sabe explicar una decisión | Lee el código de cada fase antes de dar el punto de control por superado, aunque sea en diagonal. Pregunta al asistente por lo que no entiendas; también sirve para explicar |
-| 7 | **Cambiar el código a mano y no la especificación** | El programa hace algo que la especificación no dice (o al revés). En la siguiente regeneración, el cambio desaparece y nadie sabe por qué | Deshaz el parche, cambia la especificación y regenera. Si el cambio es un detalle sin impacto en el comportamiento, anótalo igualmente en el plan |
+| 4 | **Un plan de cuarenta páginas** | El plan lo ha generado el asistente, nadie lo ha leído entero y la tabla de comprobación contra la constitución dice «cumple» en todo sin explicar cómo | Pide un plan proporcional al problema. Lee al menos el resumen, el contexto técnico y la tabla de la constitución; si no te caben en veinte minutos, probablemente el plan es demasiado grande |
+| 5 | **Tareas gigantes o sin fichero** | «T005 Implementar el servidor». Dos tareas marcadas `[P]` (la marca de las que pueden hacerse en paralelo) que tocan el mismo fichero. Un requisito que no aparece en ninguna tarea | Regenera las tareas pidiendo tamaño pequeño y rutas concretas. Cruza la lista con los requisitos de la especificación antes de implementar |
+| 6 | **Aceptar código sin leerlo** | Las pruebas pasan, la demo funciona, nadie ha abierto los ficheros. Semanas después nadie sabe explicar una decisión | Lee el código de cada fase antes de dar por superado su punto de control (la parada al final de cada fase para probar), aunque sea en diagonal. Pregunta al asistente por lo que no entiendas; también sirve para explicar |
+| 7 | **Cambiar el código a mano y no la especificación** | El programa hace algo que la especificación no dice (o al revés). En la siguiente regeneración, el cambio puede desaparecer sin que nadie sepa por qué | Deshaz el parche, cambia la especificación y regenera. Si el cambio es un detalle sin impacto en el comportamiento, anótalo igualmente en el plan |
 | 8 | **Constitución genérica copiada** | «Código limpio», «buenas prácticas», «calidad». Principios que no prohíben nada y por tanto no sirven para decidir nada | Reescríbela con tu equipo: cada principio tiene que impedir algo concreto y llevar un «por qué». «Datos mínimos: solo nombre, correo y reservas» decide; «respetar la privacidad» no |
 | 9 | **Historias sin prioridad, o una P1 que no sirve sola** | Todas las historias son P1, o la P1 es «configurar el sistema» y no resuelve nada por sí misma | Ordena por valor para la persona. La P1 es lo que, si solo existiera eso, ya justificaría el proyecto |
 | 10 | **Marcar la lista de verificación sin comprobar nada** | Todas las casillas marcadas en dos minutos por la misma persona que escribió la especificación | Que la pase otra persona, leyendo la especificación con cada pregunta delante. Cada «no» es algo que arreglar antes de planificar |
@@ -128,10 +128,10 @@ De arriba abajo: primero se mira la especificación; si no dice lo que quieres, 
 
 Fíjate en que el camino nunca termina en «edita el código a mano y sigue». Esa es la diferencia entre SDD y el parcheo a ciegas.
 
-*En ReservaSalas:* Marta intenta reservar de 19:30 a 20:30 y la aplicación lo permite. ¿La especificación lo dice? Sí: RF-006 rechaza las franjas fuera de 08:00-20:00. ¿Las tareas lo cubren? Sí: T014 y T019. ¿El código lo hace? No: es un fallo de implementación. Luis se lo indica al asistente, este corrige `servicios/reservas.py` y añade el caso a `test_limites.py`. Si en cambio Ana decidiera que el horario pasa a ser de 07:00 a 21:00, el camino sería el primero: cambiar RF-006 y regenerar.
+*En ReservaSalas:* Marta intenta reservar de 19:30 a 20:30 y la aplicación lo permite. ¿La especificación lo dice? Sí: RF-006 rechaza las franjas fuera de 08:00-20:00. ¿Las tareas lo cubren? Sí: T014 y T019. ¿El código lo hace? No: es un fallo de implementación. Luis se lo indica al asistente, este corrige `servicios/reservas.py` y añade a `test_limites.py` el caso que faltaba (una franja que empieza dentro del horario y termina fuera). Si en cambio Ana decidiera que el horario pasa a ser de 07:00 a 21:00, el camino sería el primero: cambiar RF-006 y regenerar.
 
 > [!IMPORTANT]
-> La especificación es la fuente de verdad; el código es su consecuencia. Cada vez que te sorprendas tocando el código para que haga algo que la especificación no dice, para y pregúntate cuál de los dos está equivocado. Casi siempre es la especificación la que hay que cambiar primero.
+> La especificación es la fuente de verdad; el código es su consecuencia. Cada vez que te sorprendas tocando el código para que haga algo que la especificación no dice, para y pregúntate cuál de los dos está equivocado. Si lo que quieres no está escrito en ella, lo que se cambia primero es la especificación.
 
 ## Señales de que lo estás haciendo bien
 

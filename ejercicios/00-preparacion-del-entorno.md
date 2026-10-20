@@ -2,7 +2,7 @@
 
 > **Para quién:** todos los perfiles (vía A) y quien programa (vía B) · **Tiempo de lectura:** ~10 min (hacerlo: de 10 a 45 min según la vía) · **Nivel:** 🟡 intermedio
 
-Este ejercicio no enseña SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): deja listo lo que necesitas para hacer los demás. Hay dos vías. La **vía A** no instala nada y basta para los ejercicios 01, 02, 04 y 05. La **vía B** instala GitHub Spec Kit y un asistente de programación con IA, y hace falta para los ejercicios 03 y 06. Si no programas, haz solo la vía A; tardarás diez minutos.
+Este ejercicio no enseña SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): deja listo lo que necesitas para hacer los demás. Hay dos vías. La **vía A** no instala nada y basta para los ejercicios 01, 02, 04 y 05. La **vía B** instala GitHub Spec Kit y un asistente de programación con IA, y hace falta para los ejercicios 03 y 06. Si no programas, haz solo la vía A: se hace en unos diez minutos.
 
 **Qué vas a encontrar**
 
@@ -114,7 +114,7 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
 
 5. **Instala un asistente de programación con IA.** Elige uno de la tabla de [Qué necesitas](#qué-necesitas) (el que tu empresa tenga autorizado) y sigue las instrucciones de instalación de su web oficial; cada uno tiene las suyas y cambian a menudo, por eso no las copiamos aquí. Al terminar, ábrelo en una carpeta cualquiera y escríbele un saludo.
 
-   Qué deberías ver: el asistente arranca (en la terminal o dentro del editor), te pide iniciar sesión con la cuenta corporativa la primera vez, y responde al saludo. Apunta la **clave** de la tabla (`claude`, `copilot`, `gemini`…): la necesitas en el paso 8.
+   Qué deberías ver: el asistente arranca (en la terminal o dentro del editor), normalmente te pide iniciar sesión la primera vez (usa la cuenta corporativa) y responde al saludo. Apunta la **clave** de la tabla (`claude`, `copilot`, `gemini`…): la necesitas en el paso 8.
 
    - [ ] Mi asistente de IA arranca y responde.
 
@@ -125,9 +125,9 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
    specify version
    ```
 
-   Si en tu empresa se usa `pipx`, vale `pipx install specify-cli`. Si la red corporativa obliga a usar un índice privado de paquetes, antepón la variable que te indique IT: `UV_DEFAULT_INDEX=https://tu-indice/simple/ uv tool install specify-cli` (sin poner credenciales en la dirección).
+   Si en tu empresa se usa `pipx`, vale `pipx install specify-cli`. Si la red corporativa obliga a usar un índice privado de paquetes, pide a IT su dirección y pásala en el comando (vale en cualquier terminal, PowerShell incluida): `uv tool install --default-index https://tu-indice/simple/ specify-cli`. En Linux y macOS también puedes anteponer la variable: `UV_DEFAULT_INDEX=https://tu-indice/simple/ uv tool install specify-cli`. No pongas credenciales en la dirección.
 
-   Qué deberías ver: `specify version` muestra la versión del CLI (1.x en la fecha de este material), la de Python y la plataforma. Si quieres saber si hay una versión más nueva, `specify self check` lo consulta sin tocar nada, y `specify self upgrade` actualiza.
+   Qué deberías ver: `specify version` muestra la versión de `specify` (1.x en la fecha de este material), la de Python y la plataforma. Si quieres saber si hay una versión más nueva, `specify self check` lo consulta sin tocar nada, y `specify self upgrade` actualiza.
 
    - [ ] `specify version` responde con un número de versión.
 
@@ -137,7 +137,7 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
    specify check
    ```
 
-   Qué deberías ver: una lista con todos los asistentes que Spec Kit conoce. Junto a cada uno aparece si está disponible, si no se ha encontrado o la nota «IDE-based, no CLI check» (los que son editores, como Cursor, no tienen ejecutable que comprobar). También busca Visual Studio Code. Termina con «Specify CLI is ready to use!». Tu asistente del paso 5 debería figurar como disponible; si es un editor, como «IDE-based». Si aparece como no encontrado, revisa el paso 5 o usa `--ignore-agent-tools` en el paso siguiente.
+   Qué deberías ver: una lista con todos los asistentes que Spec Kit conoce. Junto a cada uno aparece si está disponible, si no se ha encontrado o la nota «IDE-based, no CLI check» (los que no necesitan ejecutable, como Cursor o GitHub Copilot, no tienen nada que comprobar). También busca Visual Studio Code. Termina con «Specify CLI is ready to use!». Tu asistente del paso 5 debería figurar como disponible o, si en la tabla de [Qué necesitas](#qué-necesitas) pone que Spec Kit no busca su ejecutable, como «IDE-based». Si aparece como no encontrado, revisa el paso 5 o usa `--ignore-agent-tools` en el paso siguiente.
 
    - [ ] `specify check` termina con «Specify CLI is ready to use!» y mi asistente aparece disponible (o como «IDE-based»).
 
@@ -150,7 +150,7 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
 
    Te preguntará el tipo de scripts auxiliares («Choose script type»): pulsa Intro para aceptar el valor por defecto (`sh` en Linux y macOS, `ps` en Windows). Si tu asistente no tiene ejecutable o Spec Kit no lo encuentra, añade `--ignore-agent-tools` al final del comando. Si te equivocas de clave, el error será «Unknown integration»: mira la tabla de [Qué necesitas](#qué-necesitas) (por ejemplo, Kiro es `kiro-cli`, no `kiro`).
 
-   Qué deberías ver: una lista de pasos que se van completando y, al final, un panel «Next Steps» con el orden `constitution → specify → plan → tasks → implement → converge`, seguido de otro panel con los opcionales `clarify`, `analyze` y `checklist`. En la carpeta `prueba-sdd` tendrás algo así (con Claude Code; con otro asistente cambia la última carpeta):
+   Qué deberías ver: una lista de pasos que se van completando y, al final, un panel «Next Steps» con el orden `constitution → specify → plan → tasks → implement → converge`, seguido de otro panel con los opcionales `clarify`, `analyze` y `checklist`. En la carpeta `prueba-sdd` tendrás, entre otros ficheros, algo así (con Claude Code; con otro asistente cambia la última carpeta):
 
    ```text
    prueba-sdd/
@@ -161,7 +161,7 @@ Los comandos de esta vía se escriben en una terminal (en Windows, PowerShell). 
    │   ├── scripts/bash/            # scripts auxiliares (powershell/ en Windows)
    │   └── workflows/               # flujo automatizado "speckit" (no hace falta para los ejercicios)
    └── .claude/
-       └── skills/                  # un comando /speckit-* por fichero (.github/skills/ con Copilot, .gemini/commands/ con Gemini CLI…)
+       └── skills/                  # una carpeta por comando /speckit-* (.github/skills/ con Copilot, .gemini/commands/ con Gemini CLI…)
    ```
 
    `specify init` **no** crea un repositorio Git. Si quieres guardar tu trabajo con Git, ejecuta `git init` dentro de la carpeta; es opcional.
@@ -200,7 +200,7 @@ Dos hábitos más que conviene adquirir desde el primer día: usa siempre la cue
 | `Unknown integration` al hacer `specify init` | La clave del asistente no es la correcta | Usa la clave exacta de la tabla de [Qué necesitas](#qué-necesitas); por ejemplo `kiro-cli`, `cursor-agent` o `copilot` |
 | `specify init` falla diciendo que no encuentra el ejecutable del asistente y muestra una dirección de instalación | El asistente no está instalado o no está en el `PATH` | Instálalo (paso 5) o, si usas un editor, añade `--ignore-agent-tools` |
 | «Permission denied» o «Acceso denegado» al instalar | Intentas instalar en una carpeta del sistema | No uses `sudo` ni la cuenta de administrador: `uv tool install` instala en tu carpeta de usuario. Si tu equipo está bloqueado, habla con IT |
-| La instalación se queda colgada, da «timeout» o error de certificado | Proxy o cortafuegos corporativo | Pregunta a IT por el índice privado de paquetes y usa `UV_DEFAULT_INDEX` (paso 6). Para equipos sin salida a internet, la documentación oficial de Spec Kit (<https://github.github.io/spec-kit/>) tiene una guía de instalación sin conexión |
+| La instalación se queda colgada, da «timeout» o error de certificado | Proxy o cortafuegos corporativo | Pregunta a IT por el índice privado de paquetes y pásalo con `--default-index` o con la variable `UV_DEFAULT_INDEX` (paso 6). Para equipos sin salida a internet, la documentación oficial de Spec Kit (<https://github.github.io/spec-kit/>) tiene una guía de instalación sin conexión |
 | «Template files will be merged with existing content…» | Has ejecutado `specify init` en una carpeta que no está vacía | Responde `n`, crea una carpeta nueva y repite. Solo usa `--force` si sabes qué ficheros va a sobrescribir |
 | Los scripts fallan en Windows | Se instalaron scripts Bash en vez de PowerShell | Repite el `init` en una carpeta nueva con `--script ps` (o acepta el valor por defecto, que en Windows ya es `ps`) |
 | Al escribir `/speckit` el asistente no sugiere nada | El asistente no está abierto en la carpeta del proyecto, o se abrió antes de ejecutar `specify init` | Cierra el asistente, sitúate dentro de `prueba-sdd` y ábrelo de nuevo |
@@ -209,19 +209,17 @@ Dos hábitos más que conviene adquirir desde el primer día: usa siempre la cue
 
 1. ¿Necesitas instalar algo para hacer el ejercicio 01?
 2. ¿Qué comando te dice qué asistentes tiene Spec Kit a su alcance, y cuál te dice si existe una versión más nueva de Spec Kit?
-3. `/speckit.specify`: ¿se escribe en la terminal o en el chat del asistente?
+3. `/speckit.specify`: ¿se escribe en la terminal o en el chat del asistente? Y si tu asistente lo muestra como `/speckit-specify`, ¿qué haces?
 4. ¿`specify init` crea un repositorio Git?
-5. Tu asistente muestra `/speckit-plan` y el material dice `/speckit.plan`. ¿Qué haces?
-6. Quieres probar el asistente con «datos de verdad» y tienes a mano el listado de empleados. ¿Lo pegas?
+5. Quieres probar el asistente con «datos de verdad» y tienes a mano el listado de empleados. ¿Lo pegas?
 
 <details><summary>Ver respuestas</summary>
 
 1. No. El ejercicio 01 se hace con la vía A: una plantilla copiada en un documento y, como mucho, un chat de IA autorizado.
 2. `specify check` mira qué asistentes (ejecutables) tienes instalados, sin usar la red. `specify self check` consulta si hay una versión más nueva de Spec Kit; `specify self upgrade` la instala.
-3. En el chat del asistente de IA. En la terminal solo se ejecutan los comandos que empiezan por `specify` (`init`, `check`, `version`…).
+3. En el chat del asistente de IA; en la terminal solo se ejecutan los comandos que empiezan por `specify` (`init`, `check`, `version`…). Y no haces nada: es la misma orden, cada asistente la escribe a su manera (`/speckit-specify`, `/speckit.specify` o `$speckit-specify`).
 4. No. Solo crea la carpeta `.specify/` y los ficheros de comandos del asistente. Si quieres Git, ejecutas `git init` tú (o instalas la extensión `git` de Spec Kit, que no hace falta para los ejercicios).
-5. Nada: es la misma orden. Cada asistente escribe los comandos a su manera (`/speckit-plan`, `/speckit.plan` o `$speckit-plan`).
-6. No. Ni el listado de empleados ni ningún dato real de personas o clientes en un asistente que la empresa no haya autorizado. Para probar, inventa nombres, como hace todo este repositorio.
+5. No. Ni el listado de empleados ni ningún dato real de personas o clientes en un asistente que la empresa no haya autorizado. Para probar, inventa nombres, como hace todo este repositorio.
 
 </details>
 
@@ -233,7 +231,7 @@ Este ejercicio no tiene fichero de solución: el resultado es tu entorno. Para c
 
 1. Para los ejercicios sin código (01, 02, 04 y 05) no hace falta instalar nada: un documento, las plantillas y, si acaso, un chat de IA autorizado.
 2. Para los ejercicios con código (03 y 06) necesitas Python 3.11 o superior, `uv`, Spec Kit (`uv tool install specify-cli`) y un asistente de programación con IA compatible; `specify check` y `specify init` te confirman que todo encaja.
-3. Los comandos `/speckit.*` viven en el chat del asistente y se escriben con guion, punto o dólar según cuál uses; y en ningún asistente no autorizado se meten datos reales de la empresa.
+3. Los comandos `/speckit.*` viven en el chat del asistente y se escriben con guion, punto o dólar según cuál uses; y los datos reales de la empresa no se meten en un asistente que no esté autorizado.
 
 ## Siguiente paso
 

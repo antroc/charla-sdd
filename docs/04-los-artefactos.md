@@ -196,7 +196,7 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 
 **Qué secciones tiene:**
 
-- Resumen (*Summary*) y Contexto técnico (*Technical Context*): lenguaje y versión, dependencias, almacenamiento, pruebas, plataforma, rendimiento, restricciones, escala.
+- Resumen (*Summary*) y Contexto técnico (*Technical Context*): lenguaje y versión, dependencias (los programas de terceros de los que depende), almacenamiento, pruebas, plataforma, tipo de proyecto, rendimiento, restricciones, escala.
 - Comprobación contra la constitución (*Constitution Check*): principio a principio, si el plan lo cumple y cómo. Es una puerta de calidad.
 - Estructura del proyecto (*Project Structure*): documentación de la funcionalidad y código fuente, con la decisión de estructura.
 - Registro de complejidad (*Complexity Tracking*): cada desviación de la constitución, por qué es necesaria y qué alternativa más simple se descartó.
@@ -216,8 +216,10 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 
 | Desviación | Por qué es necesaria | Alternativa más simple descartada porque |
 |---|---|---|
-| API JSON bajo `/api/` además de las páginas HTML (la especificación solo pide pantallas) | Las pruebas de contrato necesitan respuestas estructuradas para comprobar códigos y mensajes de rechazo (RF-005, RF-006, RF-010) sin depender del HTML. | Probar las páginas HTML directamente: las pruebas se vuelven frágiles y cuesta más saber qué regla ha fallado. |
+| API JSON bajo `/api/` además de las páginas HTML (la especificación solo pide pantallas) | Las pruebas de contrato necesitan respuestas estructuradas para comprobar códigos y mensajes de rechazo (RF-005, RF-006, RF-010) sin depender del HTML. Páginas y API comparten los servicios: no duplican reglas de negocio, solo la capa de entrada. | Probar las páginas HTML directamente: las pruebas se vuelven frágiles (cualquier cambio de maquetación las rompe) y cuesta más saber qué regla ha fallado. |
 ```
+
+No hace falta entender la jerga técnica del extracto; fíjate en la estructura: cada fila dice qué principio se mira, cómo lo cumple el plan y en qué estado queda, y cada desviación lleva su motivo y la alternativa más simple que se descartó.
 
 **Errores típicos.** Un plan de cuarenta páginas que nadie lee entero. Decisiones sin alternativa descartada («usamos X» y punto). Saltarse la tabla de la constitución o rellenarla con «cumple» sin explicar cómo. Y un plan que inventa funcionalidades que la especificación no pide.
 
@@ -229,9 +231,9 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 
 **Qué secciones tiene:**
 
-- Cabecera (*Input, Prerequisites, Tests, Organization*) y leyenda del formato: `- [ ] T001 [P] [HU1] Descripción con ruta de fichero`, donde `[P]` marca lo paralelizable y `[HU1]` la historia; al terminar, `[ ]` pasa a `[X]`.
+- Cabecera (*Input, Prerequisites, Tests, Organization*), leyenda del formato (`- [ ] T001 [P] [HU1] Descripción con ruta de fichero`, donde `[P]` marca lo paralelizable y `[HU1]` la historia; al terminar, `[ ]` pasa a `[X]`) y convenciones de rutas (*Path Conventions*: dónde vive el código).
 - Fase 1: Preparación (*Setup*) y Fase 2: Base compartida (*Foundational*): lo que todas las historias necesitan antes de empezar.
-- Una fase por historia de usuario, en orden de prioridad, con objetivo, prueba independiente, primero las pruebas de la historia y después su implementación, y un punto de control (*Checkpoint*). La primera lleva la marca 🎯 MVP (producto mínimo viable).
+- Una fase por historia de usuario, en orden de prioridad, con objetivo, prueba independiente, primero las pruebas de la historia y después su implementación, y un punto de control (*Checkpoint*). En Spec Kit las pruebas son opcionales (solo si se piden); en ReservaSalas las exige el principio 3 de la constitución, y por eso van primero y tienen que fallar (si fallan es que comprueban algo que todavía no existe). La primera historia lleva la marca 🎯 MVP (producto mínimo viable: lo más pequeño que ya resuelve el problema y se puede enseñar).
 - Fase final: Remate y aspectos transversales (*Polish & Cross-Cutting Concerns*); si se usa `/speckit.converge`, puede añadir una fase de Convergencia.
 - Dependencias y orden de ejecución, ejemplo en paralelo y estrategia de implementación (primero el MVP, entrega incremental).
 
@@ -253,11 +255,13 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 **Punto de control:** la historia 1 funciona de principio a fin y se puede enseñar a Ana. Es el producto mínimo viable.
 ```
 
+Para quien no programa, lo que importa de este extracto es la forma: cada tarea cabe en una línea, dice qué fichero toca y a qué requisito responde (RF-005, CE-002…), y las pruebas van antes que el código.
+
 **Errores típicos.** Tareas gigantes («hacer toda la parte del servidor»). Tareas sin fichero. Fases de historia sin pruebas, o con las pruebas después del código. Dos tareas marcadas `[P]` que tocan el mismo fichero. Y un requisito de la especificación que no aparece en ninguna tarea.
 
 ## La lista de verificación
 
-**Para qué sirve.** Es un control de calidad del texto de la especificación, no del código: preguntas de sí o no sobre si lo escrito es claro, completo, medible y coherente. En Spec Kit la llaman «las pruebas unitarias de la especificación». Cada «no» es algo que hay que arreglar antes de planificar.
+**Para qué sirve.** Es un control de calidad del texto de la especificación, no del código: preguntas de sí o no sobre si lo escrito es claro, completo, medible y coherente. En Spec Kit la llaman «las pruebas unitarias de la especificación» (las pruebas unitarias son las que comprueban cada pieza pequeña del código por separado; aquí, cada frase de lo escrito). Cada «no» es algo que hay que arreglar antes de planificar.
 
 **Quién la escribe y quién la revisa.** Con Spec Kit, `/speckit.specify` crea y evalúa una lista automática (`checklists/requirements.md`) y `/speckit.clarify` la reevalúa. `/speckit.checklist` genera listas por tema (experiencia de uso, seguridad, API…) y en ellas el asistente nunca marca casillas: las marca quien revisa, que idealmente no es quien escribió la especificación. `/speckit.implement` las lee antes de empezar y, si hay ítems sin marcar, pregunta si seguir.
 
@@ -265,7 +269,7 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 
 - Cabecera: propósito, fecha, funcionalidad, responsable de la revisión y significado de las marcas (*Purpose, Created, Feature, Review Ownership, Marker Semantics*).
 - La lista automática tiene tres categorías: Calidad del contenido (*Content Quality*), Completitud de los requisitos (*Requirement Completeness*) y Preparación de la funcionalidad (*Feature Readiness*). Las listas por tema tienen las categorías que pida el tema.
-- Cada ítem lleva identificador `CHK001…`, la pregunta y, entre corchetes, qué aspecto revisa (Completitud, Claridad, Coherencia, Medibilidad, Cobertura), el tipo de fallo que busca (Laguna, Ambigüedad, Conflicto, Supuesto) y dónde mirar (`Spec §RF-005`).
+- Cada ítem lleva la pregunta y, entre corchetes, qué aspecto revisa (Completitud, Claridad, Coherencia, Medibilidad, Cobertura), el tipo de fallo que busca (Laguna, Ambigüedad, Conflicto, Supuesto) y dónde mirar (`Spec §RF-005`). En las listas por tema cada ítem lleva además un identificador `CHK001…`; la automática no los numera (nuestra solución sí, para que coincida con la plantilla).
 - Notas: hallazgos, resultado de cada pasada y qué cambió a raíz de la revisión.
 
 **Extracto de ReservaSalas** ([checklist.md](../ejercicios/soluciones/03-reserva-salas/checklist.md)):
@@ -286,7 +290,7 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 - Resultado tras `/speckit.clarify` (2026-10-07): 23 de 23. Las respuestas sobre alcance (recurrentes, asistencia), antelación (30 días) y permisos (solo administración) cerraron los tres pendientes.
 ```
 
-**Errores típicos.** Marcar casillas sin comprobar nada en el texto. Escribir ítems del tipo «verificar que la aplicación funciona»: eso son pruebas del código y viven en `tests/`. Pasarla la misma persona que escribió la especificación. Y pasarla una sola vez: cada aclaración obliga a repasarla.
+**Errores típicos.** Marcar casillas sin comprobar nada en el texto. Escribir ítems del tipo «verificar que la aplicación funciona»: eso son pruebas del código y viven en `tests/`. Que la pase la misma persona que escribió la especificación. Y pasarla una sola vez: cada aclaración obliga a repasarla.
 
 > [!TIP]
 > Si solo tienes diez minutos para revisar un proyecto ajeno, lee la lista de verificación y la tabla de comprobación contra la constitución del plan. Si las dos están bien hechas, lo demás suele estarlo.
@@ -295,14 +299,14 @@ La segunda respuesta dio lugar al requisito RF-010 (quién puede cancelar una re
 
 Para escribir estos artefactos sin herramientas, o para revisar los que genere tu asistente, tienes una plantilla en castellano por artefacto en [ejercicios/plantillas](../ejercicios/plantillas/README.md): `constitucion.md`, `especificacion.md`, `lista-de-aclaraciones.md`, `plan-tecnico.md`, `tareas.md` y `lista-de-verificacion.md`, con comentarios que explican cada sección y un ejemplo a medio rellenar.
 
-Los seis artefactos de ReservaSalas, completos y coherentes entre sí, están en [la solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md). Es un ejemplo, no la única respuesta correcta: cada asistente redacta distinto y cada equipo decide distinto. La lista completa de buenas prácticas y errores está en [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md).
+Los seis ficheros de ReservaSalas (los cinco artefactos más el registro de aclaraciones), completos y coherentes entre sí, están en [la solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md). Es un ejemplo, no la única respuesta correcta: cada asistente redacta distinto y cada equipo decide distinto. La lista completa de buenas prácticas y errores está en [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md).
 
 > [!IMPORTANT]
 > Los artefactos no son documentación que se escribe al final: son la entrada del paso siguiente. Si cambias el código a mano y no la especificación, el documento deja de ser la fuente de verdad y vuelves al punto de partida.
 
 ## En tres frases
 
-1. SDD produce cinco artefactos (constitución, especificación, plan técnico, lista de tareas y lista de verificación) más el registro de aclaraciones, y cada uno es la entrada del siguiente.
+1. SDD produce cinco artefactos (constitución, especificación, plan técnico, lista de tareas y lista de verificación) más el registro de aclaraciones, y cada uno alimenta al siguiente o comprueba al anterior.
 2. La constitución y la especificación hablan de qué y por qué, y las escribe negocio con ayuda técnica; el plan y las tareas hablan de cómo, y los genera el asistente de IA bajo la revisión de quien construye.
 3. Con Spec Kit viven en sitios fijos (`.specify/memory/constitution.md` y `specs/001-nombre/`); sin herramientas, basta con una carpeta en el repositorio con los mismos nombres y las plantillas de este material.
 

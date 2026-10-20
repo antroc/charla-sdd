@@ -81,8 +81,9 @@ flowchart TD
   q3 -->|"no"| q4["¿Se aplica solo a algunos perfiles, sedes o configuraciones?"]
   q4 -->|"sí"| donde["Opcional: DONDE (característica o perfil), el sistema deberá (respuesta) · RF-009"]
   q4 -->|"no"| ubicuo["Ubicuo: El sistema deberá (respuesta) · RF-001"]
-  cuando -.->|"¿y además depende de un estado?"| complejo["Complejo: MIENTRAS (estado), CUANDO (disparador), el sistema deberá (respuesta)"]
-  mientras -.->|"¿y además hay un disparador?"| complejo
+  mientras -.->|"¿y además hay un disparador?"| complejo["Complejo: MIENTRAS (estado), CUANDO (disparador), el sistema deberá (respuesta)"]
+  %% Enlaces invisibles: solo alinean los patrones en una columna
+  noDeseado ~~~ cuando ~~~ mientras ~~~ complejo
   classDef pregunta fill:#FDF2E9,stroke:#B7791F;
   classDef patronEars fill:#E8F0FE,stroke:#1A56DB;
   classDef neutro fill:#F3F4F6,stroke:#6B7280;
@@ -93,7 +94,7 @@ flowchart TD
 
 De arriba abajo: la primera pregunta es si la frase describe algo que no queremos que pase; si es así, es un comportamiento no deseado (SI…, ENTONCES…). Si no, ¿ocurre en un momento concreto? Es por evento (CUANDO). Si no, ¿depende de un estado que dura un tiempo? Es por estado (MIENTRAS). Si no, ¿se aplica solo a algunos perfiles, sedes o configuraciones? Es opcional (DONDE). Y si no depende de nada, es ubicuo: «El sistema deberá…» a secas.
 
-Las dos flechas punteadas recuerdan que, cuando hacen falta un estado y un disparador a la vez, se combinan en un requisito complejo (MIENTRAS…, CUANDO…).
+La flecha punteada recuerda que, cuando hacen falta un estado y un disparador a la vez, se combinan en un requisito complejo (MIENTRAS…, CUANDO…); lo mismo si partes de un CUANDO y descubres que solo vale durante un estado.
 
 La duda más frecuente es entre CUANDO y SI/ENTONCES, porque los dos describen algo que ocurre. Por eso la pregunta sobre lo que no queremos va la primera: confirmar una reserva es el funcionamiento normal (CUANDO); pedir una franja que ya está ocupada es un intento que hay que rechazar (SI/ENTONCES). Pista: si la respuesta del sistema es «rechazar», casi siempre es un SI. Entre MIENTRAS y SI, fíjate en la duración: una sala en mantenimiento es un estado que dura días (MIENTRAS); una franja ocupada es un intento concreto que se rechaza en el momento (SI).
 
