@@ -94,7 +94,7 @@ De izquierda a derecha: una sala tiene muchas reservas y una persona es responsa
 | Campo | Tipo | Reglas |
 |---|---|---|
 | `id` | entero | clave primaria |
-| `nombre` | texto | único; Mediterráneo, Cantábrico, Atlántico, Báltico, Egeo, Adriático, Jónico, Tirreno, Caribe, Índico, Ártico, Mar del Norte |
+| `nombre` | texto | único; Mediterráneo, Cantábrico, Atlántico, Egeo, Báltico, Adriático, Jónico, Tirreno, Caribe, Índico, Ártico, Mar del Norte |
 | `planta` | entero | 1, 2 o 3 |
 | `aforo` | entero | mayor que 0 |
 | `estado` | texto | `disponible` o `mantenimiento` (RF-007, RF-009) |

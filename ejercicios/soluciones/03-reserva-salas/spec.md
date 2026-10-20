@@ -143,7 +143,7 @@ Qué requisitos necesita cada historia de usuario (HU); sirve para comprobar des
 
 Las «cosas» de las que la aplicación guarda información y qué datos tiene cada una:
 
-- **Sala**: una de las 12 salas de reuniones. Tiene nombre único (Mediterráneo, Cantábrico, Atlántico, Báltico, Egeo, Adriático, Jónico, Tirreno, Caribe, Índico, Ártico, Mar del Norte), planta (1, 2 o 3), aforo (número de personas) y estado (disponible o en mantenimiento).
+- **Sala**: una de las 12 salas de reuniones. Tiene nombre único (Mediterráneo, Cantábrico, Atlántico, Egeo, Báltico, Adriático, Jónico, Tirreno, Caribe, Índico, Ártico, Mar del Norte), planta (1, 2 o 3), aforo (número de personas) y estado (disponible o en mantenimiento).
 - **Reserva**: el uso de una sala por una persona en una franja. Tiene sala, persona responsable, inicio, fin, motivo (opcional, texto corto), estado (activa o cancelada) y quién la canceló o la modificó por última vez. Una reserva pertenece exactamente a una sala y a una persona.
 - **Persona**: cualquier empleado. Tiene nombre, correo corporativo (que la identifica) y rol (empleado o administración). No se guarda ningún otro dato.
 
