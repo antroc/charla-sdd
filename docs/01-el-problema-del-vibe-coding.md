@@ -18,7 +18,9 @@ Este es el primer documento del itinerario. Cuenta qué pasa cuando se construye
 
 ## Qué es el *vibe coding*
 
-Imagina esta escena. Luis, programador junior, abre su asistente de programación con IA y escribe: «Hazme una aplicación para reservar las salas de reuniones de la empresa». Treinta segundos después tiene una pantalla con un calendario, una lista de salas y un botón de «Reservar». Pide un cambio: «que se vea en qué planta está cada sala». Luego otro: «que avise si la sala está ocupada». Luego otro. Cada petición es una frase suelta, escrita según se le ocurre.
+Imagina esta escena. Luis, programador junior, abre su asistente de programación con IA y escribe: «Hazme una aplicación para reservar las salas de reuniones de la empresa». Treinta segundos después tiene una pantalla con un calendario, una lista de salas y un botón de «Reservar».
+
+Pide un cambio: «que se vea en qué planta está cada sala». Luego otro: «que avise si la sala está ocupada». Luego otro. Cada petición es una frase suelta, escrita según se le ocurre.
 
 Eso es el *vibe coding*: programar a golpe de instrucciones sueltas, improvisando con el asistente de IA. Se pide lo que apetece en cada momento, se mira si «parece que funciona» y se sigue pidiendo. No existe ningún texto que diga qué tiene que hacer el sistema, para quién, con qué límites ni por qué.
 
@@ -39,7 +41,7 @@ Y hay un cuarto motivo, más serio: por primera vez, alguien que no programa pue
 
 ## Qué pasa después
 
-La semana uno es magnífica. El problema aparece hacia la semana tres, cuando la aplicación ya la usa gente de verdad.
+La semana uno es magnífica. El problema suele aparecer hacia la tercera semana, cuando la aplicación ya la usa gente de verdad.
 
 ### La «demo bonita» que no aguanta
 
@@ -47,11 +49,11 @@ La pantalla que impresionó en la reunión funcionaba con tres salas y dos reser
 
 ### El código que nadie entiende
 
-El asistente ha escrito cientos de líneas en un orden que solo tenía sentido en la conversación de aquel día. Luis no las leyó a fondo (iba rápido) y nadie más estaba. Cuando algo falla, la única opción es volver a preguntarle al asistente, que tampoco recuerda aquella conversación.
+El asistente ha escrito cientos de líneas de código en un orden que solo tenía sentido en la conversación de aquel día. Luis no las leyó a fondo (iba rápido) y nadie más las ha visto. Cuando algo falla, la única opción es volver a preguntarle al asistente, que tampoco recuerda aquella conversación.
 
 ### Cada corrección rompe otra cosa
 
-Se pide «arregla que dos personas puedan reservar la misma sala» y, de paso, el asistente cambia cómo se guardan las horas. Ahora el solapamiento está resuelto, pero las reservas de más de una hora han dejado de funcionar. Se arregla eso y se rompe la lista de «mis reservas». Cada parche se apoya en el anterior, y nadie tiene una lista de lo que no debe romperse.
+Se pide «evita que dos personas puedan reservar la misma sala a la misma hora» y, de paso, el asistente cambia cómo se guardan las horas. Ahora el solapamiento está resuelto, pero las reservas de más de una hora han dejado de funcionar. Se arregla eso y se rompe la lista de «mis reservas». Cada parche se apoya en el anterior, y nadie tiene una lista de lo que no debe romperse.
 
 ### Nadie sabe qué debía hacer el sistema
 
@@ -75,10 +77,10 @@ ReservaSalas es el ejemplo que acompaña a todo este repositorio: una pequeña a
 
 Nada de esto es culpa de Luis ni del asistente. Lo que faltaba cabe en una lista corta:
 
-- **Un texto que dijera qué tenía que hacer la aplicación**: salas con nombre único, horario de 08:00 a 20:00, máximo 4 horas, dos reservas de la misma sala no pueden solaparse, toda reserva tiene un responsable visible. Esa es, muy resumida, la [especificación de ReservaSalas](../ejercicios/soluciones/03-reserva-salas/spec.md) que verás más adelante.
-- **Unas reglas del juego acordadas antes de empezar**: qué datos se guardan y cuáles no, y que nada se da por hecho sin una prueba automática. Eso es la constitución del proyecto.
-- **Una lista de lo que no debía romperse**, para comprobarla después de cada cambio. Eso son las pruebas automáticas, que se escriben a partir de la especificación.
-- **Un sitio donde quedaran las decisiones** («bloques de una hora», «horario de 09:00 a 18:00»), en vez de en un chat que desaparece.
+- **Un texto que dijera qué tenía que hacer la aplicación**: salas con nombre único, horario de 08:00 a 20:00, máximo 4 horas, dos reservas de la misma sala no pueden solaparse, toda reserva tiene un responsable visible. Esa es, muy resumida, la [especificación](../ejercicios/soluciones/03-reserva-salas/spec.md) (`spec.md`) de ReservaSalas que verás más adelante.
+- **Unas reglas del juego acordadas antes de empezar**: qué datos se guardan y cuáles no, y que nada se da por hecho sin una prueba automática. Eso es la constitución del proyecto (`constitution.md`).
+- **Una lista de lo que no debía romperse**, para comprobarla después de cada cambio. Eso son las pruebas automáticas (pequeños programas que comprueban solos, después de cada cambio, que la aplicación sigue haciendo lo que debe), y se escriben a partir de la especificación.
+- **Un sitio donde quedaran las decisiones** («bloques de una hora», «solo se reserva a partir de las 09:00»), en vez de en un chat que desaparece.
 
 Los documentos siguientes explican cómo se consigue cada una de estas cuatro cosas.
 
