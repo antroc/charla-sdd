@@ -24,7 +24,6 @@ Se generan automáticamente a partir de los ficheros de [diagramas/](../README.m
 | [06-mapa-del-repositorio-3.png](06-mapa-del-repositorio-3.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Escribir y revisar lo que pides](../06-mapa-del-repositorio.md#escribir-y-revisar-lo-que-pides) |
 | [06-mapa-del-repositorio-4.png](06-mapa-del-repositorio-4.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Construir con SDD desde cero](../06-mapa-del-repositorio.md#construir-con-sdd-desde-cero) |
 | [06-mapa-del-repositorio-5.png](06-mapa-del-repositorio-5.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Ir al grano si ya trabajas con un asistente de IA](../06-mapa-del-repositorio.md#ir-al-grano-si-ya-trabajas-con-un-asistente-de-ia) |
-| [06-mapa-del-repositorio-6.png](06-mapa-del-repositorio-6.png) | [Mapa del repositorio](../06-mapa-del-repositorio.md) | [Dar la charla o un taller](../06-mapa-del-repositorio.md#dar-la-charla-o-un-taller) |
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~8 min · **Nivel:** 🟢 básico
 
-Este repositorio es el material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Tiene cinco partes y unos cincuenta ficheros, pero nadie tiene que leerlos todos: según lo que quieras hacer, hay un camino distinto. Esta página es el plano del edificio: primero un mapa con todo lo que hay, después los cinco itinerarios de lectura y, al final, una tabla con cada fichero, de qué va, para quién es y cuánto se tarda. Si acabas de llegar, lo más cómodo es empezar por la [portada](../README.md), que tiene estos mismos itinerarios en forma de enlaces.
+Este repositorio es el material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Tiene cuatro partes y unos cuarenta y cinco ficheros, pero nadie tiene que leerlos todos: según lo que quieras hacer, hay un camino distinto. Esta página es el plano del edificio: primero un mapa con todo lo que hay, después los cuatro itinerarios de lectura y, al final, una tabla con cada fichero, de qué va, para quién es y cuánto se tarda. Si acabas de llegar, lo más cómodo es empezar por la [portada](../README.md), que tiene estos mismos itinerarios en forma de enlaces.
 
 **Qué vas a encontrar**
 
@@ -12,7 +12,7 @@ Este repositorio es el material de formación interno sobre SDD (*Spec-Driven De
 
 ## El repositorio de un vistazo
 
-El mapa mental muestra el repositorio entero: en el centro, su nombre; alrededor, cinco partes (la raíz y las cuatro carpetas de contenido: `docs/`, `diagramas/`, `ejercicios/` y `charla/`), y dentro de cada parte sus ficheros con el nombre abreviado.
+El mapa mental muestra el repositorio entero: en el centro, su nombre; alrededor, cuatro partes (la raíz y las tres carpetas de contenido: `docs/`, `diagramas/` y `ejercicios/`), y dentro de cada parte sus ficheros con el nombre abreviado.
 
 ```mermaid
 mindmap
@@ -59,18 +59,15 @@ mindmap
         02 requisitos EARS resueltos
         03 ReservaSalas ejemplo completo
         05 especificación arreglada
-    charla
-      Guion de 20 minutos
-      Guía del facilitador
 ```
 
-De dentro hacia fuera: la raíz tiene la portada (`README.md`) y la guía para proponer mejoras (`CONTRIBUIR.md`). `docs/` es la teoría, en diez documentos numerados que se leen en orden (aunque, según tu itinerario, puedes saltarte algunos): van desde el problema del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) hasta el glosario. `diagramas/` cuenta lo mismo en dibujos; esta página es el último. `ejercicios/` es la práctica: siete ejercicios, las plantillas de los artefactos listas para copiar y las soluciones, entre ellas el ejemplo completo de ReservaSalas: los seis ficheros que produce el flujo y un README que explica cómo se generaron. `charla/` es para quien tiene que contárselo a los demás.
+De dentro hacia fuera: la raíz tiene la portada (`README.md`) y la guía para proponer mejoras (`CONTRIBUIR.md`). `docs/` es la teoría, en diez documentos numerados que se leen en orden (aunque, según tu itinerario, puedes saltarte algunos): van desde el problema del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) hasta el glosario. `diagramas/` cuenta lo mismo en dibujos; esta página es el último. `ejercicios/` es la práctica: siete ejercicios, las plantillas de los artefactos listas para copiar y las soluciones, entre ellas el ejemplo completo de ReservaSalas: los seis ficheros que produce el flujo y un README que explica cómo se generaron.
 
 Para no recargar el mapa no aparecen los índices: cada carpeta (también `plantillas/`, `soluciones/` y `soluciones/03-reserva-salas/`) tiene su propio `README.md`, y los encontrarás todos en la tabla del final. `diagramas/svg/` y `diagramas/png/` guardan una exportación automática de cada diagrama (SVG para PowerPoint y documentos; PNG para Google Slides o el correo), útil para pegarlo en una presentación; no se editan a mano.
 
 ## Itinerarios por perfil
 
-Hay cinco, según lo que quieras hacer. Cada diagrama es un camino de lectura: empiezas por la izquierda y sigues las flechas. Cada recuadro dice de qué carpeta es (doc, diagrama, ejercicio o charla) y debajo tienes los enlaces en el mismo orden. Los tiempos son aproximados; los exactos están en la cabecera de cada fichero.
+Hay cuatro, según lo que quieras hacer. Cada diagrama es un camino de lectura: empiezas por la izquierda y sigues las flechas. Cada recuadro dice de qué carpeta es (doc, diagrama o ejercicio) y debajo tienes los enlaces en el mismo orden. Los tiempos son aproximados; los exactos están en la cabecera de cada fichero.
 
 ### Entender SDD y decidir si tu equipo lo prueba
 
@@ -82,11 +79,10 @@ flowchart LR
   b --> c["doc 06: roles, quién hace qué"]
   c --> d["docs 08 y 09: buenas prácticas y preguntas frecuentes"]
   d --> e["ejercicio 01: tu primera especificación sin código"]
-  e --> f["charla: el guion de 20 minutos"]
-  f --> g["ejercicio 04: la dinámica de 20 minutos, con tu equipo"]
+  e --> f["ejercicio 04: la dinámica de 20 minutos, con tu equipo"]
 ```
 
-De izquierda a derecha: empiezas por [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md); los ves dibujados en [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) y [Flujo completo de SDD](02-flujo-completo-sdd.md); en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) encuentras tu papel, y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) y [Preguntas frecuentes](../docs/09-preguntas-frecuentes.md) te preparan para las dudas del equipo. Escribes una especificación sin código en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md); si quieres contárselo a tu equipo, tienes el [guion de 20 minutos](../charla/guion-20-minutos.md), y terminas probándolo con ellos en la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md).
+De izquierda a derecha: empiezas por [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md); los ves dibujados en [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) y [Flujo completo de SDD](02-flujo-completo-sdd.md); en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) encuentras tu papel, y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) y [Preguntas frecuentes](../docs/09-preguntas-frecuentes.md) te preparan para las dudas del equipo. Escribes una especificación sin código en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), y terminas probándolo con tu equipo en la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md).
 
 ### Escribir y revisar lo que pides
 
@@ -134,21 +130,6 @@ flowchart LR
 
 De izquierda a derecha: [Qué es SDD](../docs/02-que-es-sdd.md) fija el vocabulario; [El flujo paso a paso](../docs/03-el-flujo-paso-a-paso.md) y [Los artefactos](../docs/04-los-artefactos.md) son el núcleo, y [Flujo completo de SDD](02-flujo-completo-sdd.md) y [Artefactos y relaciones](03-artefactos-y-relaciones.md) los resumen en dos diagramas; [Herramientas](../docs/07-herramientas.md) y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) te dicen qué instalar y qué evitar. Después construyes ReservaSalas en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), comparas con la [solución canónica](../ejercicios/soluciones/03-reserva-salas/README.md) y aplicas el flujo a un problema real en el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md).
 
-### Dar la charla o un taller
-
-Si vas a presentar SDD o a dirigir un taller, lo tuyo es la carpeta `charla/`, la dinámica en grupo y todos los diagramas para proyectar; la primera vez, prepararlo lleva unas 2 horas.
-
-```mermaid
-flowchart LR
-  a["charla: README de la carpeta"] --> b["charla: guion de 20 minutos"]
-  b --> c["charla: guía del facilitador"]
-  c --> d["ejercicio 04: dinámica de equipo de 20 minutos"]
-  d --> e["diagramas 01 a 06, para proyectar"]
-  e --> f["diagramas en SVG y PNG, para las diapositivas"]
-```
-
-De izquierda a derecha: el [índice de `charla/`](../charla/README.md) te dice qué hay; el [guion de 20 minutos](../charla/guion-20-minutos.md) es la charla minuto a minuto, y la [guía del facilitador](../charla/guia-del-facilitador.md) explica cómo montar un taller de dos horas o un itinerario de autoformación. La [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) es el ejercicio en grupo sin ordenador; los seis [diagramas](README.md) sirven para proyectar y sus versiones en [`svg/`](svg/) y [`png/`](png/) para pegarlas en las diapositivas. Las mejoras que te sugiera el público se recogen como explica [CONTRIBUIR.md](../CONTRIBUIR.md).
-
 ## Todos los ficheros, uno por línea
 
 La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero: de qué va en una línea, a quién le interesa y el tiempo con su nivel (🟢 básico, 🟡 intermedio, 🔴 avanzado), tal como figuran en su cabecera; en los ejercicios, el tiempo es el de hacerlos. «Consulta» quiere decir que es material de referencia: se abre cuando hace falta, no se lee de principio a fin.
@@ -175,14 +156,14 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 | [diagramas/04-roles-y-participacion.md](04-roles-y-participacion.md) | Quién lidera y quién revisa en cada paso, con la matriz rol × paso | Todos | ~7 min · 🟢 |
 | [diagramas/05-anatomia-de-un-requisito-ears.md](05-anatomia-de-un-requisito-ears.md) | Un requisito EARS pieza a pieza y el árbol de decisión para elegir patrón | Quien vaya a escribir o revisar una especificación | ~6 min · 🟢 |
 | [diagramas/06-mapa-del-repositorio.md](06-mapa-del-repositorio.md) | Esta página: el mapa del repositorio, los itinerarios de lectura y esta tabla | Todos | ~8 min · 🟢 |
-| [diagramas/svg/](svg/) | Exportación automática de cada diagrama en SVG (PowerPoint, documentos), lista para pegar en una presentación; no se edita a mano | Quien vaya a dar la charla o un taller, o a preparar diapositivas | ~1 min · 🟢 |
-| [diagramas/png/](png/) | La misma exportación en PNG (Google Slides, correo, chats); no se edita a mano | Quien vaya a dar la charla o un taller, o a preparar diapositivas | ~1 min · 🟢 |
+| [diagramas/svg/](svg/) | Exportación automática de cada diagrama en SVG (PowerPoint, documentos), lista para pegar en una presentación; no se edita a mano | Quien vaya a preparar una presentación o un documento | ~1 min · 🟢 |
+| [diagramas/png/](png/) | La misma exportación en PNG (Google Slides, correo, chats); no se edita a mano | Quien vaya a preparar una presentación o un documento | ~1 min · 🟢 |
 | [ejercicios/README.md](../ejercicios/README.md) | Índice de ejercicios, niveles, por cuáles empezar y cómo usarlos | Todos | ~4 min · 🟢 |
 | [ejercicios/00-preparacion-del-entorno.md](../ejercicios/00-preparacion-del-entorno.md) | Preparar el entorno: vía A sin instalar nada y vía B con Git, un asistente de IA y Spec Kit | Todos (vía A) y quien vaya a usar Spec Kit (vía B) | 10-45 min · 🟡 |
 | [ejercicios/01-tu-primera-especificacion-sin-codigo.md](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) | Escribir la especificación de «Solicitud de vacaciones» con la plantilla, sin código | Quien vaya a escribir o revisar una especificación | 60-90 min · 🟢 |
 | [ejercicios/02-practicar-requisitos-ears.md](../ejercicios/02-practicar-requisitos-ears.md) | Reescribir doce frases vagas en EARS, clasificar patrones y cazar errores | Quien vaya a escribir o revisar requisitos | 30 min · 🟢 |
 | [ejercicios/03-reserva-salas-paso-a-paso.md](../ejercicios/03-reserva-salas-paso-a-paso.md) | Construir ReservaSalas de principio a fin con Spec Kit y un asistente de IA; el ejercicio central | Quien vaya a construir con SDD | 90-120 min · 🟡 |
-| [ejercicios/04-dinamica-de-equipo-20-minutos.md](../ejercicios/04-dinamica-de-equipo-20-minutos.md) | Taller en grupo sin ordenador: de una petición vaga a historias, requisitos y preguntas | Quien vaya a dar la charla o un taller; todos como participantes | 20 min · 🟢 |
+| [ejercicios/04-dinamica-de-equipo-20-minutos.md](../ejercicios/04-dinamica-de-equipo-20-minutos.md) | Dinámica en grupo sin ordenador: de una petición vaga a historias, requisitos y preguntas | Quien dirija una reunión de equipo; todos como participantes | 20 min · 🟢 |
 | [ejercicios/05-arreglar-una-especificacion-mala.md](../ejercicios/05-arreglar-una-especificacion-mala.md) | Detectar diez problemas en una especificación mala de ReservaSalas y reescribirla | Quien haya hecho el 02 | 30-40 min · 🟡 |
 | [ejercicios/06-reto-final-tu-propio-proyecto.md](../ejercicios/06-reto-final-tu-propio-proyecto.md) | Recorrer el flujo completo con un problema real tuyo, con rúbrica de autoevaluación | Quien ha terminado el 03 | 3-4 h · 🔴 |
 | [ejercicios/plantillas/README.md](../ejercicios/plantillas/README.md) | Qué plantillas hay y cómo usarlas con y sin Spec Kit | Todos | ~6 min · 🟢 |
@@ -203,14 +184,11 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 | [ejercicios/soluciones/03-reserva-salas/tasks.md](../ejercicios/soluciones/03-reserva-salas/tasks.md) | La lista de tareas por fases e historias de usuario, con las marcas `[P]` y `[HUn]` | Quien construye | Consulta |
 | [ejercicios/soluciones/03-reserva-salas/checklist.md](../ejercicios/soluciones/03-reserva-salas/checklist.md) | La lista de verificación de calidad de la especificación, ya pasada y marcada | Todos | Consulta |
 | [ejercicios/soluciones/05-especificacion-arreglada.md](../ejercicios/soluciones/05-especificacion-arreglada.md) | Lista numerada de problemas con su explicación y la especificación corregida | Quien haya hecho el 05 | ~15 min · 🟡 |
-| [charla/README.md](../charla/README.md) | Índice de la carpeta: qué hay para presentar SDD o para facilitar un taller | Quien vaya a dar la charla o un taller | ~3 min · 🟢 |
-| [charla/guion-20-minutos.md](../charla/guion-20-minutos.md) | Guion minuto a minuto de la charla de 20 minutos: qué decir, qué mostrar y posibles preguntas | Quien presenta SDD a la empresa | ~15 min · 🟢 |
-| [charla/guia-del-facilitador.md](../charla/guia-del-facilitador.md) | Cómo formar a un equipo con este material: formatos, agendas, adaptación al público y cómo medir si ha funcionado | Quien organiza un taller o un itinerario | ~15 min · 🟢 |
 
 ## En tres frases
 
-1. El repositorio tiene cinco partes: la portada y la guía de contribución en la raíz, la teoría en `docs/`, los dibujos en `diagramas/`, la práctica en `ejercicios/` y el material para presentarlo en `charla/`.
-2. No hace falta leerlo todo: hay cinco itinerarios según lo que quieras hacer, desde unas tres horas para entender SDD o escribir lo que pides hasta varios días de práctica para construir con SDD desde cero, y los diagramas de esta página los recorren paso a paso con sus enlaces.
+1. El repositorio tiene cuatro partes: la portada y la guía de contribución en la raíz, la teoría en `docs/`, los dibujos en `diagramas/` y la práctica en `ejercicios/`.
+2. No hace falta leerlo todo: hay cuatro itinerarios según lo que quieras hacer, desde unas tres horas para entender SDD o escribir lo que pides hasta varios días de práctica para construir con SDD desde cero, y los diagramas de esta página los recorren paso a paso con sus enlaces.
 3. Cuando dudes de qué fichero abrir, la tabla final te dice de qué va cada uno, para quién es y cuánto se tarda.
 
 ## Siguiente paso

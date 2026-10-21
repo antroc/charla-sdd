@@ -1,8 +1,8 @@
-# Charla SDD: desarrollo guiado por especificaciones
+# SDD: desarrollo guiado por especificaciones
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~5 min · **Nivel:** 🟢 básico
 
-Este repositorio es material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), una forma de trabajar con asistentes de IA en la que primero se escribe qué queremos y por qué, en lenguaje natural, y después se construye. Está pensado para que lo entienda cualquiera, sepa programar o no. Trae documentación, diagramas, ejercicios guiados paso a paso y el guion de una charla de 20 minutos.
+Este repositorio es el material complementario de la charla sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), una forma de trabajar con asistentes de IA en la que primero se escribe qué queremos y por qué, en lenguaje natural, y después se construye. Aquí tienes, con calma, lo que se cuenta en la charla y ejercicios para practicarlo. Está pensado para que lo entienda cualquiera, sepa programar o no: trae documentación, diagramas y ejercicios guiados paso a paso.
 
 ```mermaid
 flowchart LR
@@ -46,7 +46,6 @@ Lo bueno es que la especificación se escribe en lenguaje natural. Por eso cualq
 | 🧭 Entender SDD y decidir si tu equipo lo prueba | [El problema del *vibe coding*](docs/01-el-problema-del-vibe-coding.md) | [Roles: quién hace qué](docs/06-roles-quien-hace-que.md) y la [dinámica de equipo](ejercicios/04-dinamica-de-equipo-20-minutos.md) |
 | ✍️ Escribir y revisar lo que pides | [El problema del *vibe coding*](docs/01-el-problema-del-vibe-coding.md) | [Escribir requisitos claros (EARS)](docs/05-escribir-requisitos-claros-ears.md) y el [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) |
 | 🛠️ Construir con SDD desde cero | [Qué es SDD](docs/02-que-es-sdd.md) | El [ejercicio 00](ejercicios/00-preparacion-del-entorno.md) para preparar el entorno y el [ejercicio 03](ejercicios/03-reserva-salas-paso-a-paso.md) para construir ReservaSalas |
-| 🎤 Dar la charla o un taller | [La carpeta de la charla](charla/README.md) | El [guion de 20 minutos](charla/guion-20-minutos.md) y la [guía del facilitador](charla/guia-del-facilitador.md) |
 
 Si solo tienes cinco minutos, lee [SDD en un minuto](#sdd-en-un-minuto) y mira [*Vibe coding* frente a SDD](diagramas/01-vibe-coding-vs-sdd.md).
 
@@ -56,11 +55,10 @@ No hace falta leerlo todo. Elige tu camino según lo que quieras hacer:
 
 | Ruta | Qué leer y hacer, en este orden | Tiempo |
 |---|---|---|
-| Entender SDD y decidir si tu equipo lo prueba | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → diagramas [01](diagramas/01-vibe-coding-vs-sdd.md) y [02](diagramas/02-flujo-completo-sdd.md) → doc [06](docs/06-roles-quien-hace-que.md) → docs [08](docs/08-buenas-practicas-y-errores-comunes.md) y [09](docs/09-preguntas-frecuentes.md) → [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) → [guion de la charla](charla/guion-20-minutos.md) → [dinámica de 20 minutos](ejercicios/04-dinamica-de-equipo-20-minutos.md) con tu equipo | Unas 3 h, en dos o tres ratos |
+| Entender SDD y decidir si tu equipo lo prueba | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → diagramas [01](diagramas/01-vibe-coding-vs-sdd.md) y [02](diagramas/02-flujo-completo-sdd.md) → doc [06](docs/06-roles-quien-hace-que.md) → docs [08](docs/08-buenas-practicas-y-errores-comunes.md) y [09](docs/09-preguntas-frecuentes.md) → [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) → [dinámica de 20 minutos](ejercicios/04-dinamica-de-equipo-20-minutos.md) con tu equipo | Unas 3 h, en dos o tres ratos |
 | Escribir y revisar lo que pides | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → [diagrama 01](diagramas/01-vibe-coding-vs-sdd.md) → docs [05](docs/05-escribir-requisitos-claros-ears.md) y [06](docs/06-roles-quien-hace-que.md) → ejercicios [01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [02](ejercicios/02-practicar-requisitos-ears.md), con el [glosario](docs/10-glosario.md) a mano | Unas 3 h, en dos o tres ratos |
 | Construir con SDD desde cero | Docs [01 a 10](docs/README.md) → diagramas [01 a 06](diagramas/README.md) → ejercicios [00](ejercicios/00-preparacion-del-entorno.md), [02](ejercicios/02-practicar-requisitos-ears.md), [03](ejercicios/03-reserva-salas-paso-a-paso.md), [05](ejercicios/05-arreglar-una-especificacion-mala.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 10-12 h, en varios días |
 | Ir al grano si ya trabajas con un asistente de IA | Doc [02](docs/02-que-es-sdd.md) → docs [03](docs/03-el-flujo-paso-a-paso.md) y [04](docs/04-los-artefactos.md) → diagramas [02](diagramas/02-flujo-completo-sdd.md) y [03](diagramas/03-artefactos-y-relaciones.md) → docs [07](docs/07-herramientas.md) y [08](docs/08-buenas-practicas-y-errores-comunes.md) → ejercicios [03](ejercicios/03-reserva-salas-paso-a-paso.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 6-8 h |
-| Dar la charla o un taller | [Carpeta de la charla](charla/README.md) → [guion](charla/guion-20-minutos.md) → [guía del facilitador](charla/guia-del-facilitador.md) → [ejercicio 04](ejercicios/04-dinamica-de-equipo-20-minutos.md) → [diagramas](diagramas/README.md) | Unas 2 h de preparación la primera vez |
 
 Las mismas rutas, dibujadas paso a paso, están en el [mapa del repositorio](diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil).
 
@@ -74,11 +72,10 @@ charla-sdd/
 ├── diagramas/              lo mismo, con dibujos
 │   ├── svg/                cada diagrama en SVG, para presentaciones y documentos
 │   └── png/                cada diagrama en PNG, para Google Slides o el correo
-├── ejercicios/             la práctica: siete ejercicios guiados
-│   ├── plantillas/         los documentos de SDD en blanco, listos para copiar
-│   └── soluciones/         respuestas de los ejercicios
-│       └── 03-reserva-salas/   el ejemplo completo de ReservaSalas
-└── charla/                 guion de la charla de 20 minutos y guía del facilitador
+└── ejercicios/             la práctica: siete ejercicios guiados
+    ├── plantillas/         los documentos de SDD en blanco, listos para copiar
+    └── soluciones/         respuestas de los ejercicios
+        └── 03-reserva-salas/   el ejemplo completo de ReservaSalas
 ```
 
 El [mapa del repositorio](diagramas/06-mapa-del-repositorio.md) dibuja todas las carpetas con sus ficheros.
@@ -120,11 +117,6 @@ Todos están también como imagen en [svg/](diagramas/svg/README.md) y [png/](di
 6. [Reto final: tu propio proyecto](ejercicios/06-reto-final-tu-propio-proyecto.md): un problema real tuyo, de principio a fin (3-4 h).
 
 Además: las [plantillas](ejercicios/plantillas/README.md) de los seis documentos de SDD y las [soluciones](ejercicios/soluciones/README.md), con el [ejemplo completo de ReservaSalas](ejercicios/soluciones/03-reserva-salas/README.md).
-
-### Charla ([charla/](charla/README.md))
-
-- [Guion de la charla de 20 minutos](charla/guion-20-minutos.md): qué decir, qué enseñar y cuándo, minuto a minuto.
-- [Guía del facilitador](charla/guia-del-facilitador.md): cómo formar a un equipo con este material (charla, taller de dos horas o autoformación en dos semanas).
 
 ## El ejemplo de todo el material: ReservaSalas
 

@@ -20,7 +20,7 @@ Esta carpeta cuenta con dibujos lo mismo que la [documentación](../docs/README.
 | 03 | [Artefactos y relaciones](03-artefactos-y-relaciones.md) | Cómo se alimentan los documentos de SDD entre sí, cómo se sigue un requisito hasta el código y dónde vive cada fichero | Quien vaya a construir con SDD o a usar Spec Kit, y quien quiera saber «qué fichero es cada cosa» | [docs 04](../docs/04-los-artefactos.md) |
 | 04 | [Roles y participación](04-roles-y-participacion.md) | Quién lidera y quién revisa en cada paso, y la matriz de responsabilidades | Todos | [docs 06](../docs/06-roles-quien-hace-que.md) |
 | 05 | [Anatomía de un requisito EARS](05-anatomia-de-un-requisito-ears.md) | Las piezas de un requisito bien escrito y cómo elegir la plantilla adecuada | Todos | [docs 05](../docs/05-escribir-requisitos-claros-ears.md) |
-| 06 | [Mapa del repositorio](06-mapa-del-repositorio.md) | Todas las carpetas y ficheros del repositorio, y los cinco itinerarios de lectura | Todos | [Portada](../README.md) |
+| 06 | [Mapa del repositorio](06-mapa-del-repositorio.md) | Todas las carpetas y ficheros del repositorio, y los cuatro itinerarios de lectura | Todos | [Portada](../README.md) |
 
 Si solo vas a mirar uno, que sea el [02, el flujo completo](02-flujo-completo-sdd.md): resume el método entero en una imagen.
 

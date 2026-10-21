@@ -1,6 +1,6 @@
 # Ejercicio 04: dinámica de equipo de 20 minutos
 
-> **Para quién:** quien facilita una charla o una reunión de equipo; como participante, cualquier persona, sepa programar o no · **Tiempo de lectura:** ~8 min (hacerlo: 20 min) · **Nivel:** 🟢 básico
+> **Para quién:** quien dirige una reunión de equipo; como participante, cualquier persona, sepa programar o no · **Tiempo de lectura:** ~8 min (hacerlo: 20 min) · **Nivel:** 🟢 básico
 
 Veinte minutos, grupos de tres o cuatro personas, una petición vaga por grupo y ningún ordenador. Cada grupo convierte una frase del tipo «una app para reservar plazas de parking» en tres historias de usuario, cinco requisitos y una lista de preguntas; después lee un requisito en voz alta y el resto de la sala caza sus vaguedades. Es SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) en miniatura: la parte que no necesita herramientas y que cualquier persona de la empresa puede hacer.
 
@@ -237,7 +237,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 ## Variantes
 
 - **Versión de 10 minutos (reunión corta o taller con poco tiempo).** Una sola tarjeta para toda la sala (la 1, parking: todo el mundo entiende el problema sin explicaciones), que quien facilita lee en voz alta o proyecta, y parejas en vez de grupos; cada pareja escribe en los apartados 2 y 3 de la plantilla o en un folio. Las reglas del paso 1 se dicen antes de poner en marcha el reloj. Se salta el apartado 1: 4 minutos para tres requisitos EARS, 2 minutos para dos preguntas, 3 minutos de lectura (quien facilita pide tres requisitos a mano alzada y la sala caza vaguedades) y 1 minuto de cierre.
-- **Versión de 4 minutos (la de la charla de 20 minutos).** Sin hojas ni grupos. Quien facilita proyecta la frase de la tarjeta 1 y, debajo, tres frases vagas: «que se vea qué plazas hay», «que no se pueda coger una plaza ocupada» y «que Oficina pueda bloquear plazas». Para cada una pide a la sala, a mano alzada, un requisito EARS, lo escribe tal cual y la sala caza una vaguedad en 20 segundos: un minuto por frase. El cuarto minuto es el cierre, con la idea 3 del paso 6. Es la que usa el [guion de la charla](../charla/guion-20-minutos.md).
+- **Versión de 4 minutos (dentro de una presentación).** Sin hojas ni grupos. Quien facilita proyecta la frase de la tarjeta 1 y, debajo, tres frases vagas: «que se vea qué plazas hay», «que no se pueda coger una plaza ocupada» y «que Oficina pueda bloquear plazas». Para cada una pide a la sala, a mano alzada, un requisito EARS, lo escribe tal cual y la sala caza una vaguedad en 20 segundos: un minuto por frase. El cuarto minuto es el cierre, con la idea 3 del paso 6.
 - **En línea.** Prepara antes de la reunión un documento compartido por grupo, con su tarjeta pegada arriba y la hoja de trabajo debajo (con letra de ancho fijo, o reconstruida como lista: lo que importa son los apartados). Usa las salas pequeñas de la herramienta de reuniones, una por grupo, y fija su duración en la propia herramienta (casi todas avisan y cierran las salas al acabar el tiempo); los avisos de «un minuto» mándalos como mensaje a todas las salas, porque dentro de ellas nadie ve tu pantalla. Cada cambio de sala cuesta medio minuto: recorta el apartado 3 a dos preguntas o cuenta con 25 minutos en vez de 20. En el paso 5, ya en la sala principal, cada portavoz pega su requisito en el chat general y el resto responde en el chat con el tipo de vaguedad («adjetivo sin cifra») en vez de hablar: así participa todo el mundo y queda registro.
 - **Con un asistente de IA (opcional, después de la dinámica).** Si la empresa tiene un chat de IA autorizado, cada grupo puede pegar su hoja con este *prompt* (la instrucción que le escribes al asistente) y comparar lo que el asistente encuentra con lo que cazó la sala:
 
@@ -320,7 +320,7 @@ Fíjate en que se parece mucho a la [especificación canónica de ReservaSalas](
 
 ## Siguiente paso
 
-Continúa con [Arreglar una especificación mala](05-arreglar-una-especificacion-mala.md), donde harás la misma caza de vaguedades, pero sobre una especificación completa de ReservaSalas. Si vas a facilitar la charla o un taller, tienes el [guion de 20 minutos](../charla/guion-20-minutos.md) y la [guía del facilitador](../charla/guia-del-facilitador.md).
+Continúa con [Arreglar una especificación mala](05-arreglar-una-especificacion-mala.md), donde harás la misma caza de vaguedades, pero sobre una especificación completa de ReservaSalas.
 
 ---
 

@@ -61,7 +61,6 @@ De izquierda a derecha, del 01 al 10. Los recuadros verdes son de nivel básico 
 | Escribir y revisar lo que pides | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [05](05-escribir-requisitos-claros-ears.md) → [06](06-roles-quien-hace-que.md), y el [glosario](10-glosario.md) a mano | ~40 min |
 | Construir con SDD desde cero | Todos, del [01](01-el-problema-del-vibe-coding.md) al [10](10-glosario.md) | ~2 h |
 | Ir al grano si ya trabajas con un asistente de IA | [02](02-que-es-sdd.md) → [03](03-el-flujo-paso-a-paso.md) → [04](04-los-artefactos.md) → [07](07-herramientas.md) → [08](08-buenas-practicas-y-errores-comunes.md) | ~1 h |
-| Dar la charla o un taller | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [03](03-el-flujo-paso-a-paso.md) → [05](05-escribir-requisitos-claros-ears.md) → [06](06-roles-quien-hace-que.md), y después la carpeta [charla](../charla/README.md) | ~55 min |
 
 Son solo los documentos. Cada ruta completa, con sus diagramas y ejercicios, está dibujada en el [mapa del repositorio](../diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil).
 
@@ -69,7 +68,6 @@ Son solo los documentos. Cada ruta completa, con sus diagramas y ejercicios, est
 
 - [Diagramas](../diagramas/README.md): lo mismo que aquí, contado con dibujos. Útiles para proyectar o para entenderlo de un vistazo.
 - [Ejercicios](../ejercicios/README.md): práctica guiada paso a paso, desde una especificación sin ordenador hasta construir ReservaSalas con un asistente de IA.
-- [Charla](../charla/README.md): el guion de la charla de 20 minutos y la guía para quien quiera formar a su equipo.
 
 ## Siguiente paso
 

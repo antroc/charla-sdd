@@ -237,9 +237,9 @@ Antes de empezar, pregunta a IT qué asistente está autorizado y pide un reposi
 
 ### ¿Cómo lo presento a mi equipo?
 
-Hay material listo para usar. Para contarlo a mucha gente, el [guion de la charla de 20 minutos](../charla/guion-20-minutos.md). Para que un equipo lo pruebe sin ordenadores, la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md), que puede dirigir cualquiera con su guion minuto a minuto, también en línea. Y para formatos más largos, como un taller, la [guía del facilitador](../charla/guia-del-facilitador.md).
+Para que un equipo lo pruebe sin ordenadores, la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md), que puede dirigir cualquiera con su guion minuto a minuto, también en línea. Para que cada persona siga a su ritmo, comparte la [portada](../README.md): tiene una ruta de lectura para cada necesidad.
 
-*Para saber más:* [variantes de la dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes) · [itinerario para dar la charla o un taller](../diagramas/06-mapa-del-repositorio.md#dar-la-charla-o-un-taller)
+*Para saber más:* [variantes de la dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes) · [rutas de lectura](../README.md#rutas-de-lectura-por-perfil)
 
 ## En tres frases
 
