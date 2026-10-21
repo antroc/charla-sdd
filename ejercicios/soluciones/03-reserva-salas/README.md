@@ -1,6 +1,6 @@
 # Solución del ejercicio 03: ReservaSalas con Spec Kit
 
-> **Para quién:** programadores junior y cualquier persona que quiera ver un ejemplo completo · **Tiempo de lectura:** ~25 min · **Nivel:** 🟡 intermedio
+> **Para quién:** cualquier persona que quiera ver un ejemplo completo · **Tiempo de lectura:** ~25 min · **Nivel:** 🟡 intermedio
 
 Esta carpeta contiene el **ejemplo canónico de ReservaSalas**: los artefactos que produce una sesión completa y bien hecha de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con GitHub Spec Kit (<https://github.com/github/spec-kit>), traducidos al castellano. Es el resultado de seguir el [ejercicio 03](../../03-reserva-salas-paso-a-paso.md) de principio a fin, y es el ejemplo que usan todos los documentos de este repositorio. Si en el paso 9 del ejercicio pides un cambio, tus ficheros irán un paso por delante de estos.
 

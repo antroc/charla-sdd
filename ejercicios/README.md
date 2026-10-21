@@ -1,6 +1,6 @@
 # Ejercicios
 
-> **Para quién:** todos los perfiles (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~4 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~4 min · **Nivel:** 🟢 básico
 
 Esta carpeta es la práctica del repositorio. Son siete ejercicios guiados paso a paso, desde escribir una especificación con papel y bolígrafo hasta construir una aplicación con un asistente de IA siguiendo SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Cada ejercicio dice qué necesitas, qué tienes que hacer en cada paso y qué deberías ver. Incluye una casilla para marcar lo que vas terminando, una tabla de errores frecuentes, unas preguntas de autoevaluación y, casi siempre, una solución para comparar.
 
@@ -24,7 +24,7 @@ Esta carpeta es la práctica del repositorio. Son siete ejercicios guiados paso 
 | 05 | [Arreglar una especificación mala](05-arreglar-una-especificacion-mala.md) | Encontrar los problemas de una especificación escrita con prisa y reescribir sus requisitos y criterios de éxito | 🟡 | 30-40 min | No | [Especificación arreglada](soluciones/05-especificacion-arreglada.md) |
 | 06 | [Reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md) | Llevar un problema real de tu día a día por todo el flujo, hasta una aplicación pequeña que funciona | 🔴 | 3-4 h, en dos o tres sesiones | Sí (vía B) | Sin solución: rúbrica de autoevaluación y ejemplos de buen resultado |
 
-🟢 básico: no hace falta ningún conocimiento técnico. 🟡 intermedio: ayuda saber qué es un repositorio y haber visto código. 🔴 avanzado: para quien programa habitualmente.
+🟢 básico: no hace falta ningún conocimiento técnico. 🟡 intermedio: ayuda saber qué es un repositorio y haber visto código. 🔴 avanzado: hace falta soltura con la terminal y con el código.
 
 ## Las dos vías: con o sin herramientas
 
@@ -53,20 +53,20 @@ De izquierda a derecha: el ejercicio 00 te dice qué vía necesitas. Por la vía
 
 ## Qué ejercicios hacer según tu perfil
 
-| Si eres… | Haz | Por qué |
+| Si quieres… | Haz | Por qué |
 |---|---|---|
-| Manager o responsable de equipo | [01](01-tu-primera-especificacion-sin-codigo.md), y el [04](04-dinamica-de-equipo-20-minutos.md) con tu equipo | Para saber qué pedir y cómo revisar lo que te entreguen |
-| RRHH o perfil de negocio | [01](01-tu-primera-especificacion-sin-codigo.md) → [02](02-practicar-requisitos-ears.md), y el [05](05-arreglar-una-especificacion-mala.md) si quieres ir más allá | Para escribir peticiones que no se puedan malinterpretar |
-| Programador junior | [00](00-preparacion-del-entorno.md) (vía B) → [02](02-practicar-requisitos-ears.md) → [03](03-reserva-salas-paso-a-paso.md) → [05](05-arreglar-una-especificacion-mala.md) → [06](06-reto-final-tu-propio-proyecto.md) | El recorrido completo, de la práctica guiada a un proyecto propio |
-| Programador con experiencia | [00](00-preparacion-del-entorno.md) (vía B, si aún no tienes Spec Kit) → [03](03-reserva-salas-paso-a-paso.md) → [06](06-reto-final-tu-propio-proyecto.md) | Ver el flujo con una herramienta real y aplicarlo a algo tuyo |
-| Quien facilita una charla o un taller | [04](04-dinamica-de-equipo-20-minutos.md), y el [01](01-tu-primera-especificacion-sin-codigo.md) y el [02](02-practicar-requisitos-ears.md) para prepararlo | Es la dinámica que se usa en la charla y en el taller |
+| Entender SDD y decidir si tu equipo lo prueba | [01](01-tu-primera-especificacion-sin-codigo.md), y el [04](04-dinamica-de-equipo-20-minutos.md) con tu equipo | Para saber qué pedir y cómo revisar lo que te entreguen |
+| Escribir y revisar lo que pides | [01](01-tu-primera-especificacion-sin-codigo.md) → [02](02-practicar-requisitos-ears.md), y el [05](05-arreglar-una-especificacion-mala.md) si quieres ir más allá | Para escribir peticiones que no se puedan malinterpretar |
+| Construir con SDD desde cero | [00](00-preparacion-del-entorno.md) (vía B) → [02](02-practicar-requisitos-ears.md) → [03](03-reserva-salas-paso-a-paso.md) → [05](05-arreglar-una-especificacion-mala.md) → [06](06-reto-final-tu-propio-proyecto.md) | El recorrido completo, de la práctica guiada a un proyecto propio |
+| Ir al grano si ya trabajas con un asistente de IA | [00](00-preparacion-del-entorno.md) (vía B, si aún no tienes Spec Kit) → [03](03-reserva-salas-paso-a-paso.md) → [06](06-reto-final-tu-propio-proyecto.md) | Ver el flujo con una herramienta real y aplicarlo a algo tuyo |
+| Dar la charla o un taller | [04](04-dinamica-de-equipo-20-minutos.md), y el [01](01-tu-primera-especificacion-sin-codigo.md) y el [02](02-practicar-requisitos-ears.md) para prepararlo | Es la dinámica que se usa en la charla y en el taller |
 
-El itinerario completo de cada perfil, con documentos y diagramas, está en el [mapa del repositorio](../diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil).
+El itinerario completo de cada ruta, con documentos y diagramas, está en el [mapa del repositorio](../diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil).
 
 ## Cómo usarlos
 
 - **Por tu cuenta.** Cada paso termina con una casilla: márcala cuando veas lo que el ejercicio dice que deberías ver. Si te atascas, mira la tabla de errores frecuentes del final antes de abrir la solución.
-- **En pareja.** Funciona muy bien una persona de negocio con una que programa: una escribe la especificación y la otra la revisa, y luego al revés. Es lo que pasa en un proyecto real.
+- **En pareja.** Funciona muy bien una persona que encarga proyectos con una que los construye: una escribe la especificación y la otra la revisa, y luego al revés. Es lo que pasa en un proyecto real.
 - **En grupo.** El [ejercicio 04](04-dinamica-de-equipo-20-minutos.md) está pensado para hacerlo en una reunión de equipo o en la charla. La [guía del facilitador](../charla/guia-del-facilitador.md) explica cómo montar un taller de dos horas con varios ejercicios.
 
 Haz primero el ejercicio y compara después con la solución. Las soluciones son ejemplos: si tu respuesta es distinta pero cumple lo que pide el ejercicio, también vale.
@@ -78,7 +78,7 @@ Haz primero el ejercicio y compara después con la solución. Las soluciones son
 
 ## Siguiente paso
 
-Si no programas, empieza por el [ejercicio 01](01-tu-primera-especificacion-sin-codigo.md). Si programas, empieza por el [ejercicio 00](00-preparacion-del-entorno.md) para preparar el entorno.
+Si vas a hacerlo sin instalar nada, empieza por el [ejercicio 01](01-tu-primera-especificacion-sin-codigo.md). Si vas a usar Spec Kit, empieza por el [ejercicio 00](00-preparacion-del-entorno.md) para preparar el entorno.
 
 ---
 

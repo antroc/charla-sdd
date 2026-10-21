@@ -1,6 +1,6 @@
 # Ejercicio 04: dinámica de equipo de 20 minutos
 
-> **Para quién:** quien facilita una charla o una reunión de equipo; managers, RRHH y perfiles de negocio como participantes · **Tiempo de lectura:** ~8 min (hacerlo: 20 min) · **Nivel:** 🟢 básico
+> **Para quién:** quien facilita una charla o una reunión de equipo; como participante, cualquier persona, sepa programar o no · **Tiempo de lectura:** ~8 min (hacerlo: 20 min) · **Nivel:** 🟢 básico
 
 Veinte minutos, grupos de tres o cuatro personas, una petición vaga por grupo y ningún ordenador. Cada grupo convierte una frase del tipo «una app para reservar plazas de parking» en tres historias de usuario, cinco requisitos y una lista de preguntas; después lee un requisito en voz alta y el resto de la sala caza sus vaguedades. Es SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) en miniatura: la parte que no necesita herramientas y que cualquier persona de la empresa puede hacer.
 
@@ -24,7 +24,7 @@ Al terminar, cada participante habrá vivido en pequeño dos pasos del flujo SDD
 
 ## Qué necesitas
 
-- Entre 6 y 24 personas, en 2 a 6 grupos (hay seis tarjetas, y en el paso 5 caben cinco o seis lecturas): de 3 personas hasta 18 participantes y de 4 a partir de ahí; si no salen exactos, algún grupo tendrá una persona más o una menos. Mezcla perfiles: en cada grupo, si puedes, alguien de negocio y alguien técnico. Con más de 24 personas, monta dos dinámicas en paralelo, cada una con quien la facilite.
+- Entre 6 y 24 personas, en 2 a 6 grupos (hay seis tarjetas, y en el paso 5 caben cinco o seis lecturas): de 3 personas hasta 18 participantes y de 4 a partir de ahí; si no salen exactos, algún grupo tendrá una persona más o una menos. Mezcla a la gente: en cada grupo, si puedes, alguien que suela encargar proyectos y alguien que suela construirlos. Con más de 24 personas, monta dos dinámicas en paralelo, cada una con quien la facilite.
 - Una persona que facilita. Puedes ser tú: no hace falta saber programar, solo seguir el [guion minuto a minuto](#guion-minuto-a-minuto-para-quien-facilita).
 - Una sala con mesas separadas, o una reunión en línea con salas pequeñas (ver [Variantes](#variantes)).
 - Impreso, de la sección [Materiales imprimibles](#materiales-imprimibles): una tarjeta de petición por grupo (recortada) y una plantilla de una página por grupo. Bolígrafos. Un cronómetro visible (el móvil vale).
@@ -140,7 +140,7 @@ ______________________________________________________________________
 
 ## Pasos
 
-1. **Prepara el material y forma los grupos (10 minutos antes).** Imprime y recorta una tarjeta por grupo y una plantilla por grupo; si tienes menos de seis grupos, elige las tarjetas que más se parezcan a los problemas de tu equipo. Forma grupos de 3 o 4 personas mezclando perfiles, sin pasar de seis grupos (con más de 18 participantes, de 4). En cada grupo, pide que elijan quién escribe y quién será portavoz. Reparte a cada grupo una tarjeta boca abajo y una plantilla. Explica las reglas en un minuto, con estas palabras o parecidas:
+1. **Prepara el material y forma los grupos (10 minutos antes).** Imprime y recorta una tarjeta por grupo y una plantilla por grupo; si tienes menos de seis grupos, elige las tarjetas que más se parezcan a los problemas de tu equipo. Forma grupos de 3 o 4 personas, mezclando a quien suele encargar proyectos con quien suele construirlos, sin pasar de seis grupos (con más de 18 participantes, de 4). En cada grupo, pide que elijan quién escribe y quién será portavoz. Reparte a cada grupo una tarjeta boca abajo y una plantilla. Explica las reglas en un minuto, con estas palabras o parecidas:
 
    ```text
    La tarjeta es todo lo que sabéis del encargo. No podéis preguntarme nada: lo que no sepáis
@@ -210,7 +210,7 @@ ______________________________________________________________________
       resolver inventando. Cada una es un error que se evita antes de que exista.
    ```
 
-   Recoge las hojas (o fotografíalas): sirven para la variante con asistente de IA y para que quien programe en el equipo las use como punto de partida.
+   Recoge las hojas (o fotografíalas): sirven para la variante con asistente de IA y para que quien vaya a usar Spec Kit en el equipo las use como punto de partida.
 
    Qué deberías obtener: una hoja por grupo con los cuatro apartados rellenos (aunque alguno esté a medias) y al menos una línea en «Fuera de alcance».
 
@@ -253,7 +253,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
   [pega aquí el contenido de la hoja]
   ```
 
-  Qué es razonable esperar: una lista con un veredicto por requisito y dos o tres preguntas nuevas; a veces el asistente propondrá tecnología o inventará cifras, y ese es justo el momento de recordar que la última palabra es de las personas. Si alguien del grupo programa, la hoja es también la descripción que le daría a Spec Kit en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) o en el [reto final](06-reto-final-tu-propio-proyecto.md).
+  Qué es razonable esperar: una lista con un veredicto por requisito y dos o tres preguntas nuevas; a veces el asistente propondrá tecnología o inventará cifras, y ese es justo el momento de recordar que la última palabra es de las personas. Si alguien del grupo va a usar Spec Kit, la hoja es también la descripción que le daría a la herramienta en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) o en el [reto final](06-reto-final-tu-propio-proyecto.md).
 
 ## Errores frecuentes
 
@@ -263,7 +263,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 | Los grupos te preguntan «¿y esto cuenta?», «¿cuántas plazas hay?». | Quieren que decidas tú. | «Yo no soy quien lo pide. Apuntadlo en el apartado 3.» |
 | Todos los requisitos empiezan por «el usuario». | El sujeto es la persona, no el sistema. | Dar la vuelta a la frase: qué hace el sistema cuando la persona hace algo. |
 | Se van los cinco minutos y solo hay una historia. | Perfeccionismo en la P1. | Corta a tiempo: una P1 clara vale más que tres historias a medias. |
-| El grupo técnico mete «base de datos», «API» (una conexión entre programas) o un lenguaje. | Costumbre. | Cuenta como vaguedad de tipo «tecnología» en el paso 5; lo cazará la sala. |
+| Un grupo mete «base de datos», «API» (una conexión entre programas) o un lenguaje. | Costumbre. | Cuenta como vaguedad de tipo «tecnología» en el paso 5; lo cazará la sala. |
 | En el paso 5 nadie encuentra nada. | Vergüenza o requisito de verdad bueno. | Pregunta tú: «¿con qué cifra lo comprobaríais?», «¿qué pasa si falla?». |
 | Un grupo se ríe de la tarjeta 2 («un bot de nóminas») y no la toma en serio. | La petición es realista pero suena a broma. | Recuérdales que así llegan las peticiones de verdad: su trabajo es convertirla en algo construible. |
 
@@ -272,14 +272,14 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 1. ¿Por qué la regla de la dinámica es «no se puede preguntar a quien facilita»?
 2. Un grupo escribe «RF-2: El sistema deberá ser fácil de usar para reservar la plaza». ¿Qué tipo de vaguedad es y cómo la arreglarías en la hoja?
 3. ¿Qué paso del flujo SDD representa el apartado 3 de la hoja, y qué pasaría en un proyecto real si se saltara?
-4. ¿Por qué se mezclan perfiles de negocio y técnicos en cada grupo?
+4. ¿Por qué se mezcla en cada grupo a quien suele encargar proyectos con quien suele construirlos?
 
 <details><summary>Ver respuestas</summary>
 
 1. Porque en un proyecto real quien pide el sistema no está sentado al lado cuando se escribe la especificación, y mucho menos cuando el asistente de IA genera código. La regla obliga a hacer visible lo que no se sabe (las preguntas) en vez de rellenarlo con suposiciones. Es la diferencia entre «aclarar» e «inventar».
 2. Adjetivo sin cifra («fácil de usar»). Se arregla de dos formas: convirtiéndolo en un criterio de éxito medible («el 90 % de las personas reservan una plaza sin ayuda la primera vez») o sustituyéndolo por un requisito concreto («CUANDO una persona elige un día, el sistema deberá mostrar las plazas libres de ese día sin pedirle ningún otro dato»). En la hoja se apunta en el apartado 4 como «adjetivo sin cifra».
-3. El paso 2, aclarar. Si se salta, las dudas no desaparecen: las resuelve quien programa (o el asistente de IA) sin consultar, y el error se descubre cuando el sistema ya está hecho, que es cuando más cuesta corregirlo.
-4. Porque la especificación la escribe negocio con ayuda de quien construye, y se lee en los dos sentidos: la persona de negocio sabe qué cifras y qué perfiles importan; la técnica detecta antes las lagunas y los casos límite. En la dinámica se nota: los grupos mixtos escriben mejores preguntas.
+3. El paso 2, aclarar. Si se salta, las dudas no desaparecen: las resuelve quien construye (o el asistente de IA) sin consultar, y el error se descubre cuando el sistema ya está hecho, que es cuando más cuesta corregirlo.
+4. Porque la especificación la escribe quien encarga con ayuda de quien construye, y se lee en los dos sentidos: quien encarga sabe qué cifras y qué perfiles importan; quien construye detecta antes las lagunas y los casos límite. En la dinámica se nota: los grupos mixtos escriben mejores preguntas.
 
 </details>
 

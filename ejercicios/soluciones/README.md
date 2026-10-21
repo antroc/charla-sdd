@@ -29,7 +29,7 @@ La carpeta [03-reserva-salas/](03-reserva-salas/README.md) es la referencia de t
 5. [plan.md](03-reserva-salas/plan.md): cómo se va a construir.
 6. [tasks.md](03-reserva-salas/tasks.md): en qué orden y con qué pruebas.
 
-Si no programas, con los tres primeros (y las aclaraciones) tienes de sobra: son los que hablan del qué y del porqué.
+Si no vas a construirla, con los tres primeros (y las aclaraciones) tienes de sobra: son los que hablan del qué y del porqué.
 
 ## Siguiente paso
 

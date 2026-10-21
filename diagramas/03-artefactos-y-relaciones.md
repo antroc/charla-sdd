@@ -1,6 +1,6 @@
 # Artefactos y relaciones
 
-> **Para quién:** programadores junior y perfiles técnicos; también para quien quiera saber «qué fichero es cada cosa» · **Tiempo de lectura:** ~8 min · **Nivel:** 🟡 intermedio
+> **Para quién:** quien vaya a construir con SDD o a usar Spec Kit; también para quien quiera saber «qué fichero es cada cosa» · **Tiempo de lectura:** ~8 min · **Nivel:** 🟡 intermedio
 
 El SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) produce un puñado de documentos, los **artefactos**, y cada uno se alimenta de los anteriores. Este diagrama muestra el mapa: qué artefactos hay, en qué fichero vive cada uno y qué flecha une a cada uno con los demás. Lo que contiene cada artefacto por dentro lo cuenta [Los artefactos](../docs/04-los-artefactos.md); los pasos del flujo, [el diagrama anterior](02-flujo-completo-sdd.md).
 

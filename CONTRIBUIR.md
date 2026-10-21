@@ -2,7 +2,7 @@
 
 > **Para quién:** cualquier persona de la empresa que quiera mejorar este material · **Tiempo de lectura:** ~7 min · **Nivel:** 🟢 básico
 
-Este repositorio es material vivo: lo usamos para formar a gente de perfiles muy distintos, y mejora cada vez que alguien avisa de algo que no se entiende, de un ejemplo que falta o de un comando que ha cambiado. No hace falta saber programar para contribuir. Una errata señalada a tiempo vale tanto como un ejercicio nuevo.
+Este repositorio es material vivo: lo usamos para formar a gente de toda la empresa, y mejora cada vez que alguien avisa de algo que no se entiende, de un ejemplo que falta o de un comando que ha cambiado. No hace falta saber programar para contribuir. Una errata señalada a tiempo vale tanto como un ejercicio nuevo.
 
 **Qué vas a encontrar**
 

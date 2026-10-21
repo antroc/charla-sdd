@@ -13,7 +13,7 @@
 
 ## Principios fundamentales
 
-> *Qué se escribe: entre tres y siete principios (cinco suele bastar), numerados y con un nombre corto; cada uno, con una regla de 2-4 líneas y un «por qué». · Para quién: para quien tome decisiones durante el proyecto (negocio y equipo técnico) y para el asistente de IA, que los consulta antes de planificar y de implementar. · Consejo: redáctalos como reglas («cada funcionalidad tiene al menos una prueba»), no como deseos («intentaremos probar»).*
+> *Qué se escribe: entre tres y siete principios (cinco suele bastar), numerados y con un nombre corto; cada uno, con una regla de 2-4 líneas y un «por qué». · Para quién: para quien tome decisiones durante el proyecto (quien encarga y quien construye) y para el asistente de IA, que los consulta antes de planificar y de implementar. · Consejo: redáctalos como reglas («cada funcionalidad tiene al menos una prueba»), no como deseos («intentaremos probar»).*
 
 ### Principio 1: [Sencillez primero]
 
@@ -57,7 +57,7 @@
 
 ## Restricciones adicionales
 
-> *Qué se escribe: límites que no son principios pero tampoco se negocian: tecnología impuesta por la empresa, normas de seguridad, plazos, presupuesto, dónde se instala (equivale a la segunda sección de la plantilla oficial de Spec Kit). · Para quién: sobre todo para quien escriba el plan técnico, y para que negocio sepa qué no va a cambiar por mucho que se pida. · Consejo: si no hay restricciones reales, escribe «Ninguna por ahora»; inventarlas solo complica el plan.*
+> *Qué se escribe: límites que no son principios pero tampoco se negocian: tecnología impuesta por la empresa, normas de seguridad, plazos, presupuesto, dónde se instala (equivale a la segunda sección de la plantilla oficial de Spec Kit). · Para quién: sobre todo para quien escriba el plan técnico, y para que quien encarga sepa qué no va a cambiar por mucho que se pida. · Consejo: si no hay restricciones reales, escribe «Ninguna por ahora»; inventarlas solo complica el plan.*
 
 - [Solo accesible desde la red de la empresa; sin acceso desde fuera en la primera versión.]
 - [Sin integración con el calendario corporativo en la primera versión.]
@@ -65,7 +65,7 @@
 
 ## Flujo de trabajo y puertas de calidad
 
-> *Qué se escribe: cómo trabajamos y qué hay que cumplir para pasar de un paso al siguiente: quién revisa, quién aprueba y qué pruebas tienen que pasar (equivale a la tercera sección de la plantilla oficial). · Para quién: para el equipo que construye y para quien revisa; aquí se decide, por ejemplo, que negocio aprueba la especificación antes de planificar. · Consejo: nombra roles, no personas («la responsable de Oficina», no «Ana»): la gente cambia de puesto y el proyecto sigue.*
+> *Qué se escribe: cómo trabajamos y qué hay que cumplir para pasar de un paso al siguiente: quién revisa, quién aprueba y qué pruebas tienen que pasar (equivale a la tercera sección de la plantilla oficial). · Para quién: para el equipo que construye y para quien revisa; aquí se decide, por ejemplo, que quien encarga aprueba la especificación antes de planificar. · Consejo: nombra roles, no personas («la responsable de Oficina», no «Ana»): la gente cambia de puesto y el proyecto sigue.*
 
 - [Ninguna especificación pasa a plan sin que la persona que encarga el proyecto la haya leído y aprobado.]
 - [El plan técnico se comprueba contra estos principios antes de trocearlo en tareas.]

@@ -1,6 +1,6 @@
 # Roles y participación
 
-> **Para quién:** managers, RRHH, perfiles de negocio y quien programa · **Tiempo de lectura:** ~7 min · **Nivel:** 🟢 básico
+> **Para quién:** cualquier persona que participe en un proyecto con SDD, sepa programar o no · **Tiempo de lectura:** ~7 min · **Nivel:** 🟢 básico
 
 Cuando alguien oye hablar por primera vez de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) suele preguntar lo mismo: «¿y yo qué pinto ahí?». Este diagrama lo responde con ReservaSalas: Ana (responsable de Oficina) encarga la aplicación, Luis (programador junior) la construye con un asistente de IA, y Marta (manager de un equipo) y Jorge (RRHH) la van a usar. Lo que hace cada rol, explicado con calma, está en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md); los pasos del flujo, en [el diagrama 02](02-flujo-completo-sdd.md).
 

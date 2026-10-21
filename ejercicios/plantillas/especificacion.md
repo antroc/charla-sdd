@@ -1,6 +1,6 @@
 # Plantilla: especificación
 
-> *Qué es: el contrato entre quien pide el software y quien lo construye, y la fuente de verdad: si el código no hace lo que dice aquí, se corrige el código (o se corrige esto y se regenera). · Para quién: la escribe quien pide (negocio, RRHH, un manager) con ayuda de quien construye; la lee todo el mundo, incluido el asistente de IA. · Consejo: escríbela para la persona menos técnica del equipo; si ella la entiende, el asistente también.*
+> *Qué es: el contrato entre quien pide el software y quien lo construye, y la fuente de verdad: si el código no hace lo que dice aquí, se corrige el código (o se corrige esto y se regenera). · Para quién: la escribe quien pide el software con ayuda de quien construye; la lee todo el mundo, incluido el asistente de IA. · Consejo: escríbela para la persona menos técnica del equipo; si ella la entiende, el asistente también.*
 
 > [!TIP]
 > Copia este fichero, renómbralo `spec.md` (en Spec Kit vive en `specs/001-nombre-corto/spec.md`), rellena los corchetes y borra este aviso; el título pasa a ser `# Especificación: [nombre de la funcionalidad]`.
@@ -71,7 +71,7 @@
 
 ### Casos límite
 
-> *Qué se escribe: las situaciones raras o incómodas, como preguntas «¿qué pasa si…?», una por línea; son las que más errores producen cuando nadie las piensa. · Para quién: las propone quien conoce los casos reales (negocio) y las completa quien construye. · Consejo: piensa en extremos: cero, demasiado, al mismo tiempo, fuera de horario, sin permisos.*
+> *Qué se escribe: las situaciones raras o incómodas, como preguntas «¿qué pasa si…?», una por línea; son las que más errores producen cuando nadie las piensa. · Para quién: las propone quien conoce los casos reales (quien encarga) y las completa quien construye. · Consejo: piensa en extremos: cero, demasiado, al mismo tiempo, fuera de horario, sin permisos.*
 
 - [¿Qué pasa si la franja pedida se solapa solo en parte con otra (10:00-11:00 frente a 10:30-11:30)?]
 - [¿Qué pasa si alguien pide una reserva fuera del horario de oficina (08:00-20:00)?]
@@ -101,7 +101,7 @@
 
 ## Requisitos *(obligatorio)*
 
-> *Qué se escribe: la lista numerada de lo que el sistema tiene que hacer, una cosa comprobable por frase. · Para quién: la escribe negocio con ayuda de quien construye; es el contrato que luego se convierte en pruebas. · Consejo: usa EARS (Easy Approach to Requirements Syntax, una forma sencilla y estructurada de redactar requisitos), con una de estas cinco plantillas de frase; se pueden combinar («MIENTRAS…, CUANDO…, el sistema deberá…»), siempre con las palabras clave en mayúsculas y el verbo «deberá».*
+> *Qué se escribe: la lista numerada de lo que el sistema tiene que hacer, una cosa comprobable por frase. · Para quién: la escribe quien encarga con ayuda de quien construye; es el contrato que luego se convierte en pruebas. · Consejo: usa EARS (Easy Approach to Requirements Syntax, una forma sencilla y estructurada de redactar requisitos), con una de estas cinco plantillas de frase; se pueden combinar («MIENTRAS…, CUANDO…, el sistema deberá…»), siempre con las palabras clave en mayúsculas y el verbo «deberá».*
 >
 > *Ubicuo (siempre se cumple): «El sistema deberá [respuesta].» · Por evento (algo ocurre): «CUANDO [disparador], el sistema deberá [respuesta].» · Por estado (dura un tiempo): «MIENTRAS [estado], el sistema deberá [respuesta].» · Comportamiento no deseado: «SI [condición], ENTONCES el sistema deberá [respuesta].» · Opcional (solo en algunos casos): «DONDE [característica o perfil], el sistema deberá [respuesta].»*
 
@@ -131,7 +131,7 @@
 
 ## Criterios de éxito *(obligatorio)*
 
-> *Qué se escribe: cómo sabremos que ha funcionado, con números y sin tecnología; se miran meses después para decidir si mereció la pena. · Para quién: los fija negocio; son lo que un manager puede comprobar sin leer una línea de código. · Consejo: tiempo, porcentaje, cantidad o tasa. «Que sea rápido» no es un criterio; «en menos de 2 segundos» sí.*
+> *Qué se escribe: cómo sabremos que ha funcionado, con números y sin tecnología; se miran meses después para decidir si mereció la pena. · Para quién: los fija quien encarga; son lo que cualquiera puede comprobar sin leer una línea de código. · Consejo: tiempo, porcentaje, cantidad o tasa. «Que sea rápido» no es un criterio; «en menos de 2 segundos» sí.*
 
 ### Resultados medibles
 

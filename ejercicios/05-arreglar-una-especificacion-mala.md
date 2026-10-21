@@ -1,6 +1,6 @@
 # Ejercicio 05: arreglar una especificación mala
 
-> **Para quién:** programadores junior y cualquier persona de negocio que haya hecho el ejercicio 02 · **Tiempo de lectura:** ~8 min (hacerlo: 30-40 min) · **Nivel:** 🟡 intermedio
+> **Para quién:** cualquier persona que vaya a revisar especificaciones y haya hecho el ejercicio 02 · **Tiempo de lectura:** ~8 min (hacerlo: 30-40 min) · **Nivel:** 🟡 intermedio
 
 Luis tenía prisa. Un viernes a última hora escribió la especificación de ReservaSalas «para salir del paso» y la dejó marcada como lista para implementar. Tu trabajo es el de la persona que la revisa el lunes: encontrar todo lo que falla, decir por qué y dejar los requisitos y los criterios de éxito como deberían estar. Es exactamente lo que harás cada vez que un asistente de IA te genere una especificación.
 
@@ -26,7 +26,7 @@ Al terminar sabrás leer una especificación con ojo crítico: detectar tecnolog
 - Las plantillas de [especificación](plantillas/especificacion.md) (para consultar qué secciones debería tener una buena) y de [lista de verificación](plantillas/lista-de-verificacion.md) (la pasarás en el paso 5).
 - Tiempo: entre 30 y 40 minutos (unos 5 para leer, 10 para marcar problemas, 10 para reescribir, 5 para la lista de verificación y 5-10 para comparar). La segunda revisión con un asistente de IA, si la haces, va aparte.
 - Dónde trabajar. Elige una opción:
-  - **Opción 1: solo papel o documento.** Imprime o copia la especificación del paso 1 a un documento compartido y trabaja sobre ella con bolígrafo o con comentarios. Vale para todos los perfiles.
+  - **Opción 1: solo papel o documento.** Imprime o copia la especificación del paso 1 a un documento compartido y trabaja sobre ella con bolígrafo o con comentarios. Vale para cualquier persona.
   - **Opción 2: con un chat de IA autorizado.** Lo mismo que en la opción 1 y, además, el chat de IA genérico que tenga autorizado la empresa, para pedir una segunda revisión en el paso 6. No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu ojo, no la herramienta.
 
 > [!IMPORTANT]
@@ -185,7 +185,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
    Pistas:
 
    - Para cada requisito, pregúntate «¿cómo demostraría que se cumple?»; si no lo sabes, es vago o no es comprobable.
-   - Si una palabra solo la entendería quien programa (React, Node.js, API REST, PostgreSQL, «tabla»), es tecnología y sobra: no hace falta saber qué es cada cosa para marcarla.
+   - Si una palabra solo se entiende sabiendo programar (React, Node.js, API REST, PostgreSQL, «tabla»), es tecnología y sobra: no hace falta saber qué es cada cosa para marcarla.
    - Para cada afirmación, pregúntate si choca con otra línea (horarios, duraciones, lo que queda fuera de alcance) o con la constitución: sus cinco principios (sencillez, accesible y en castellano, pruebas, datos mínimos, transparencia) y sus «Restricciones adicionales» (un único servidor, sin calendario corporativo ni más sistemas que el acceso y el correo corporativos que ya existen).
    - Mira lo que falta, no solo lo que sobra: prioridades P1/P2/P3, criterios de aceptación (los ejemplos Dado/Cuando/Entonces de cada historia), casos límite, responsable de cada reserva, la pregunta pendiente de la línea 61.
    - No te saltes la cabecera (línea 03) ni las notas del final (líneas 89-93): también cuentan.
@@ -296,7 +296,7 @@ De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan
 
 1. Porque la especificación es el contrato de qué hace el sistema y por qué, y tiene que seguir siendo válida aunque cambie la tecnología. Las decisiones técnicas van al plan técnico, donde se justifican contra la constitución y se pueden cambiar sin tocar los requisitos. Lo que está mal no es la elección, es el sitio.
 2. Un requisito vago describe un comportamiento sin que se pueda comprobar («rápido»); se arregla poniéndole cifra o moviéndolo a criterios de éxito. Un criterio de éxito no medible describe un resultado sin número («la gente estará más contenta»); se arregla fijando qué se mide y cuánto («el 90 % completa una reserva sin ayuda la primera vez»). Los dos fallan por lo mismo, la falta de medida, pero viven en sitios distintos.
-3. La resuelve quien encarga el sistema (Ana), no quien programa ni el asistente de IA. La respuesta se registra en la sección «Aclaraciones» de la especificación (con Spec Kit, `/speckit.clarify` la añade como una línea «Q: … → A: …», que en este repositorio traducimos por «P: … → R: …») y se corrige el requisito afectado. En el ejemplo canónico no hizo falta preguntarlo: Ana ya había fijado en su petición el máximo de 4 horas, sin excepciones, y así lo recoge RF-006.
+3. La resuelve quien encarga el sistema (Ana), no quien lo construye ni el asistente de IA. La respuesta se registra en la sección «Aclaraciones» de la especificación (con Spec Kit, `/speckit.clarify` la añade como una línea «Q: … → A: …», que en este repositorio traducimos por «P: … → R: …») y se corrige el requisito afectado. En el ejemplo canónico no hizo falta preguntarlo: Ana ya había fijado en su petición el máximo de 4 horas, sin excepciones, y así lo recoge RF-006.
 4. Porque la constitución fija reglas que la especificación no repite pero debe respetar. Ejemplos: las reservas anónimas (línea 52) chocan con el principio 5, transparencia; los datos de la entidad Usuario (líneas 68-69) chocan con el principio 4, datos mínimos; «se probará a mano al final» (línea 92) choca con el principio 3; «todo el mundo usará Chrome en un portátil» (línea 82) choca con el principio 2, porque exige un navegador y un dispositivo concretos para poder usar la aplicación, y además es una decisión técnica que no va en la especificación.
 5. «Ver estadísticas» no resuelve el problema (choques, salas vacías, reservas fantasma): se baja de prioridad o se deja fuera de la primera versión; en el ejemplo canónico ni siquiera aparece, porque Ana no la pidió, y si las gráficas permitieran ver quién usa qué sala chocaría además con el principio 4 (datos mínimos: nada de informes sobre personas). «Proyector y café» es otra funcionalidad mezclada en la historia P1: se saca de la historia y va a «Fuera de alcance» (el ejemplo canónico lo deja ahí como «reserva de equipamiento»); si algún día se quiere, será su propia especificación.
 
@@ -314,7 +314,7 @@ La lista completa de problemas, numerada y explicada, y la especificación corre
 
 ## Siguiente paso
 
-Continúa con el [reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md), donde escribirás una especificación desde cero y la revisarás tú con esta misma lista. Si no programas, el [ejercicio 04](04-dinamica-de-equipo-20-minutos.md) te sirve para practicar en grupo la caza de vaguedades en requisitos escritos por otras personas.
+Continúa con el [reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md), donde escribirás una especificación desde cero y la revisarás tú con esta misma lista. Si prefieres seguir sin instalar nada, el [ejercicio 04](04-dinamica-de-equipo-20-minutos.md) te sirve para practicar en grupo la caza de vaguedades en requisitos escritos por otras personas.
 
 ---
 

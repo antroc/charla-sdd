@@ -1,6 +1,6 @@
 # Solución del ejercicio 05: la especificación arreglada
 
-> **Para quién:** programadores junior y personas de negocio que han hecho el ejercicio 05 · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
+> **Para quién:** cualquier persona que haya hecho el ejercicio 05 · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
 Esta es la revisión resuelta de la especificación (`spec.md`) que Luis escribió con prisas en el [ejercicio 05](../05-arreglar-una-especificacion-mala.md). Tiene dos partes: la lista numerada de problemas, cada uno con su línea, su tipo y su arreglo, y la versión corregida de lo que pide reescribir el ejercicio: los requisitos funcionales, en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), y los criterios de éxito.
 

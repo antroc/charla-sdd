@@ -1,6 +1,6 @@
 # Plantilla: lista de verificación
 
-> *Qué es: una lista de preguntas de sí o no sobre la calidad de la especificación; un control de calidad del texto, no del código (en Spec Kit la llaman «las pruebas unitarias de la especificación»). · Para quién: la pasa quien no escribió la especificación (otra persona del equipo, negocio o, como primera pasada, el asistente de IA): cuatro ojos ven más que dos. · Consejo: cita siempre la sección o el requisito que motiva cada pregunta ([Completitud, Spec §RF-005]); así se encuentra rápido.*
+> *Qué es: una lista de preguntas de sí o no sobre la calidad de la especificación; un control de calidad del texto, no del código (en Spec Kit la llaman «las pruebas unitarias de la especificación»). · Para quién: la pasa quien no escribió la especificación (otra persona del equipo, quien encarga o, como primera pasada, el asistente de IA): cuatro ojos ven más que dos. · Consejo: cita siempre la sección o el requisito que motiva cada pregunta ([Completitud, Spec §RF-005]); así se encuentra rápido.*
 
 > [!TIP]
 > Copia este fichero junto a la especificación, renómbralo `checklist.md` (en Spec Kit, `checklists/requirements.md` o `checklists/[tema].md`), responde cada pregunta y marca `[x]` solo las que cumplan. Borra este aviso al terminar.
@@ -21,7 +21,7 @@
 
 ## Calidad del contenido
 
-> *Qué se escribe: ¿la especificación habla de qué y por qué, y la entiende alguien de negocio? · Para quién: cualquiera. · Consejo: haz que la lea la persona menos técnica del equipo y pregúntale qué no ha entendido.*
+> *Qué se escribe: ¿la especificación habla de qué y por qué, y la entiende alguien que no programa? · Para quién: cualquiera. · Consejo: haz que la lea la persona menos técnica del equipo y pregúntale qué no ha entendido.*
 
 - [ ] CHK001 ¿La especificación está libre de tecnología: lenguajes, bases de datos, herramientas o nombres de API (la conexión entre dos programas)? [Completitud, Spec §toda]
 - [ ] CHK002 ¿Está centrada en lo que las personas necesitan y en el valor para la empresa, no en cómo se construye? [Claridad]
@@ -43,7 +43,7 @@
 
 ## Preparación de la funcionalidad
 
-> *Qué se escribe: ¿historias, criterios de aceptación y criterios de éxito encajan entre sí? · Para quién: negocio y quien construye, juntos. · Consejo: coge un requisito al azar y busca en qué historia y en qué criterio de éxito se refleja; si no lo encuentras, hay una laguna.*
+> *Qué se escribe: ¿historias, criterios de aceptación y criterios de éxito encajan entre sí? · Para quién: quien encarga y quien construye, juntos. · Consejo: coge un requisito al azar y busca en qué historia y en qué criterio de éxito se refleja; si no lo encuentras, hay una laguna.*
 
 - [ ] CHK013 ¿Cada historia tiene prioridad (P1, P2, P3), un «por qué» y se puede probar por separado? [Completitud, Spec §Historias]
 - [ ] CHK014 ¿La historia P1, ella sola, ya resolvería el problema principal? [Coherencia, Spec §Historia 1]

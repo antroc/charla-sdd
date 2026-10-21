@@ -1,6 +1,6 @@
 # Especificación: Solicitud de vacaciones
 
-> **Para quién:** managers, RRHH y perfiles de negocio · **Tiempo de lectura:** ~12 min · **Nivel:** 🟢 básico
+> **Para quién:** cualquier persona que haya hecho el ejercicio 01; no hace falta programar · **Tiempo de lectura:** ~12 min · **Nivel:** 🟢 básico
 
 Esta es la especificación completa de «Solicitud de vacaciones» que pide el [ejercicio 01](../../01-tu-primera-especificacion-sin-codigo.md), escrita con la [plantilla de especificación](../../plantillas/especificacion.md) y sin una línea de código. Sigue el mismo orden de secciones que la plantilla y los ocho pasos del ejercicio, para que puedas comparar la tuya sección por sección. Cubre los pasos 1 (especificar) y 2 (aclarar) del flujo de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): dice **qué** queremos y **por qué**; el **cómo** no aparece.
 

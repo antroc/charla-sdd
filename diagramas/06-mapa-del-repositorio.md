@@ -1,8 +1,8 @@
 # Mapa del repositorio
 
-> **Para quién:** todos los perfiles (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~8 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~8 min · **Nivel:** 🟢 básico
 
-Este repositorio es el material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Tiene cinco partes y unos cincuenta ficheros, pero nadie tiene que leerlos todos: cada perfil tiene su propio camino. Esta página es el plano del edificio: primero un mapa con todo lo que hay, después el itinerario de cada perfil y, al final, una tabla con cada fichero, de qué va, para quién es y cuánto se tarda. Si acabas de llegar, lo más cómodo es empezar por la [portada](../README.md), que tiene estos mismos itinerarios en forma de enlaces.
+Este repositorio es el material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Tiene cinco partes y unos cincuenta ficheros, pero nadie tiene que leerlos todos: según lo que quieras hacer, hay un camino distinto. Esta página es el plano del edificio: primero un mapa con todo lo que hay, después los cinco itinerarios de lectura y, al final, una tabla con cada fichero, de qué va, para quién es y cuánto se tarda. Si acabas de llegar, lo más cómodo es empezar por la [portada](../README.md), que tiene estos mismos itinerarios en forma de enlaces.
 
 **Qué vas a encontrar**
 
@@ -64,17 +64,17 @@ mindmap
       Guía del facilitador
 ```
 
-De dentro hacia fuera: la raíz tiene la portada (`README.md`) y la guía para proponer mejoras (`CONTRIBUIR.md`). `docs/` es la teoría, en diez documentos numerados que se leen en orden (aunque cada perfil puede saltarse algunos): van desde el problema del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) hasta el glosario. `diagramas/` cuenta lo mismo en dibujos; esta página es el último. `ejercicios/` es la práctica: siete ejercicios, las plantillas de los artefactos listas para copiar y las soluciones, entre ellas el ejemplo completo de ReservaSalas: los seis ficheros que produce el flujo y un README que explica cómo se generaron. `charla/` es para quien tiene que contárselo a los demás.
+De dentro hacia fuera: la raíz tiene la portada (`README.md`) y la guía para proponer mejoras (`CONTRIBUIR.md`). `docs/` es la teoría, en diez documentos numerados que se leen en orden (aunque, según tu itinerario, puedes saltarte algunos): van desde el problema del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) hasta el glosario. `diagramas/` cuenta lo mismo en dibujos; esta página es el último. `ejercicios/` es la práctica: siete ejercicios, las plantillas de los artefactos listas para copiar y las soluciones, entre ellas el ejemplo completo de ReservaSalas: los seis ficheros que produce el flujo y un README que explica cómo se generaron. `charla/` es para quien tiene que contárselo a los demás.
 
 Para no recargar el mapa no aparecen los índices: cada carpeta (también `plantillas/`, `soluciones/` y `soluciones/03-reserva-salas/`) tiene su propio `README.md`, y los encontrarás todos en la tabla del final. `diagramas/svg/` y `diagramas/png/` guardan una exportación automática de cada diagrama (SVG para PowerPoint y documentos; PNG para Google Slides o el correo), útil para pegarlo en una presentación; no se editan a mano.
 
 ## Itinerarios por perfil
 
-Cada diagrama es un camino de lectura: empiezas por la izquierda y sigues las flechas. Cada recuadro dice de qué carpeta es (doc, diagrama, ejercicio o charla) y debajo tienes los enlaces en el mismo orden. Los tiempos son aproximados; los exactos están en la cabecera de cada fichero.
+Hay cinco, según lo que quieras hacer. Cada diagrama es un camino de lectura: empiezas por la izquierda y sigues las flechas. Cada recuadro dice de qué carpeta es (doc, diagrama, ejercicio o charla) y debajo tienes los enlaces en el mismo orden. Los tiempos son aproximados; los exactos están en la cabecera de cada fichero.
 
-### Manager o responsable de equipo (unas 3 horas)
+### Entender SDD y decidir si tu equipo lo prueba
 
-Este camino te da lo justo para decidir si tu equipo prueba SDD y saber qué te va a pedir: el problema, la idea, tu papel y lo que suele salir mal.
+En unas 3 horas, este camino te da lo justo para decidir si tu equipo prueba SDD y saber qué te va a pedir: el problema, la idea, tu papel y lo que suele salir mal.
 
 ```mermaid
 flowchart LR
@@ -88,9 +88,9 @@ flowchart LR
 
 De izquierda a derecha: empiezas por [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md); los ves dibujados en [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) y [Flujo completo de SDD](02-flujo-completo-sdd.md); en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) encuentras tu papel, y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) y [Preguntas frecuentes](../docs/09-preguntas-frecuentes.md) te preparan para las dudas del equipo. Escribes una especificación sin código en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md); si quieres contárselo a tu equipo, tienes el [guion de 20 minutos](../charla/guion-20-minutos.md), y terminas probándolo con ellos en la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md).
 
-### RRHH y perfiles de negocio (unas 3 horas)
+### Escribir y revisar lo que pides
 
-Si pides software o lo usas, este camino te enseña a escribir lo que necesitas de forma que no se pueda malinterpretar.
+Si pides software o lo usas, este camino de unas 3 horas te enseña a escribir lo que necesitas de forma que no se pueda malinterpretar.
 
 ```mermaid
 flowchart LR
@@ -103,9 +103,9 @@ flowchart LR
 
 De izquierda a derecha: [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md) explican de qué va esto, y [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) lo resume en dos dibujos. [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) es la pieza clave para ti: cómo pedir las cosas de forma comprobable; [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) te dice en qué pasos participas. Lo practicas con el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md), y el [glosario](../docs/10-glosario.md) queda a mano para cualquier término que se te resista.
 
-### Programador junior (10-12 horas, en varios días)
+### Construir con SDD desde cero
 
-Es el itinerario completo: toda la teoría, todos los diagramas y los ejercicios con herramientas, hasta construir ReservaSalas y un proyecto propio.
+Es el itinerario completo (10-12 horas, en varios días): toda la teoría, todos los diagramas y los ejercicios con herramientas, hasta construir ReservaSalas y un proyecto propio.
 
 ```mermaid
 flowchart LR
@@ -119,9 +119,9 @@ flowchart LR
 
 De izquierda a derecha: lees los diez documentos de [`docs/`](../docs/README.md) en orden, desde [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) hasta el [glosario](../docs/10-glosario.md), y después los seis [diagramas](README.md). Luego la práctica: instalas lo necesario en el [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md) (vía B), afinas los requisitos en el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md), construyes ReservaSalas con Spec Kit en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), entrenas el ojo crítico en el [ejercicio 05](../ejercicios/05-arreglar-una-especificacion-mala.md) y cierras con un proyecto tuyo en el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md).
 
-### Programador con experiencia (6-8 horas)
+### Ir al grano si ya trabajas con un asistente de IA
 
-Si ya programas con un asistente de IA, puedes saltarte la motivación e ir directamente al flujo, los artefactos y las herramientas.
+Si ya trabajas con un asistente de IA, este camino de 6-8 horas te permite saltarte la motivación e ir directamente al flujo, los artefactos y las herramientas.
 
 ```mermaid
 flowchart LR
@@ -134,9 +134,9 @@ flowchart LR
 
 De izquierda a derecha: [Qué es SDD](../docs/02-que-es-sdd.md) fija el vocabulario; [El flujo paso a paso](../docs/03-el-flujo-paso-a-paso.md) y [Los artefactos](../docs/04-los-artefactos.md) son el núcleo, y [Flujo completo de SDD](02-flujo-completo-sdd.md) y [Artefactos y relaciones](03-artefactos-y-relaciones.md) los resumen en dos diagramas; [Herramientas](../docs/07-herramientas.md) y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) te dicen qué instalar y qué evitar. Después construyes ReservaSalas en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), comparas con la [solución canónica](../ejercicios/soluciones/03-reserva-salas/README.md) y aplicas el flujo a un problema real en el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md).
 
-### Facilitador de la charla o del taller
+### Dar la charla o un taller
 
-Si vas a presentar SDD o a dirigir un taller, lo tuyo es la carpeta `charla/`, la dinámica en grupo y todos los diagramas para proyectar. La primera vez, prepararlo lleva unas 2 horas.
+Si vas a presentar SDD o a dirigir un taller, lo tuyo es la carpeta `charla/`, la dinámica en grupo y todos los diagramas para proyectar; la primera vez, prepararlo lleva unas 2 horas.
 
 ```mermaid
 flowchart LR
@@ -155,21 +155,21 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 
 | Fichero | De qué va | Para quién | Tiempo y nivel |
 |---|---|---|---|
-| [README.md](../README.md) | Portada: qué es el repositorio, para quién es y por dónde empezar según tu perfil | Todos | ~5 min · 🟢 |
+| [README.md](../README.md) | Portada: qué es el repositorio, para quién es y por dónde empezar según lo que quieras hacer | Todos | ~5 min · 🟢 |
 | [CONTRIBUIR.md](../CONTRIBUIR.md) | Cómo proponer mejoras al material, la guía de estilo resumida y qué no incluir | Todos | ~7 min · 🟢 |
-| [docs/README.md](../docs/README.md) | Índice detallado de la documentación con las rutas de lectura por perfil | Todos | ~3 min · 🟢 |
+| [docs/README.md](../docs/README.md) | Índice detallado de la documentación con las rutas de lectura | Todos | ~3 min · 🟢 |
 | [docs/01-el-problema-del-vibe-coding.md](../docs/01-el-problema-del-vibe-coding.md) | Qué es el *vibe coding*, por qué engancha y lo que le cuesta a la empresa después | Todos | ~8 min · 🟢 |
 | [docs/02-que-es-sdd.md](../docs/02-que-es-sdd.md) | Qué es SDD en una frase, qué cambia respecto a antes y qué no es | Todos | ~10 min · 🟢 |
-| [docs/03-el-flujo-paso-a-paso.md](../docs/03-el-flujo-paso-a-paso.md) | Los siete pasos del flujo: qué entra, qué sale y qué puede salir mal en cada uno | Junior y quien quiera el detalle de cada paso | ~15 min · 🟡 |
-| [docs/04-los-artefactos.md](../docs/04-los-artefactos.md) | Los cinco artefactos (constitución, especificación, plan técnico, tareas y lista de verificación) con extractos de ReservaSalas | Junior y quien vaya a escribir o revisar una especificación | ~15 min · 🟡 |
+| [docs/03-el-flujo-paso-a-paso.md](../docs/03-el-flujo-paso-a-paso.md) | Los siete pasos del flujo: qué entra, qué sale y qué puede salir mal en cada uno | Quien vaya a construir con SDD y quien quiera el detalle de cada paso | ~15 min · 🟡 |
+| [docs/04-los-artefactos.md](../docs/04-los-artefactos.md) | Los cinco artefactos (constitución, especificación, plan técnico, tareas y lista de verificación) con extractos de ReservaSalas | Quien vaya a escribir o revisar una especificación, o a construir con SDD | ~15 min · 🟡 |
 | [docs/05-escribir-requisitos-claros-ears.md](../docs/05-escribir-requisitos-claros-ears.md) | Cómo escribir requisitos claros con EARS: patrones, reglas de oro y ejemplos antes y después | Todos | ~12 min · 🟢 |
 | [docs/06-roles-quien-hace-que.md](../docs/06-roles-quien-hace-que.md) | Quién lidera, revisa o consulta en cada paso, incluidas las personas que no programan | Todos | ~10 min · 🟢 |
-| [docs/07-herramientas.md](../docs/07-herramientas.md) | Spec Kit, Kiro y la vía sin herramientas: qué hace falta instalar (o no) según tu perfil | Junior y quien decida qué instalar | ~12 min · 🟡 |
+| [docs/07-herramientas.md](../docs/07-herramientas.md) | Spec Kit, Kiro y la vía sin herramientas: qué hace falta instalar (o no) según lo que vayas a hacer | Quien vaya a usar Spec Kit y quien decida qué instalar | ~12 min · 🟡 |
 | [docs/08-buenas-practicas-y-errores-comunes.md](../docs/08-buenas-practicas-y-errores-comunes.md) | Buenas prácticas, errores comunes con su remedio y señales de que vas bien | Todos, sobre todo quien encarga, lidera o revisa | ~12 min · 🟡 |
-| [docs/09-preguntas-frecuentes.md](../docs/09-preguntas-frecuentes.md) | Preguntas frecuentes agrupadas por perfil, con enlace al documento que amplía cada respuesta | Todos | ~10 min · 🟢 |
+| [docs/09-preguntas-frecuentes.md](../docs/09-preguntas-frecuentes.md) | Preguntas frecuentes agrupadas por necesidad, con enlace al documento que amplía cada respuesta | Todos | ~10 min · 🟢 |
 | [docs/10-glosario.md](../docs/10-glosario.md) | Glosario: los términos del material explicados en lenguaje llano, con enlaces | Todos | ~15 min o consulta · 🟢 |
 | [diagramas/README.md](README.md) | Índice de los diagramas, cómo verlos en GitHub, cómo editarlos y dónde están los SVG | Todos | ~3 min · 🟢 |
-| [diagramas/01-vibe-coding-vs-sdd.md](01-vibe-coding-vs-sdd.md) | Los dos caminos, uno al lado del otro: el bucle de parches frente al flujo con especificación | Managers, RRHH, negocio y junior | ~6 min · 🟢 |
+| [diagramas/01-vibe-coding-vs-sdd.md](01-vibe-coding-vs-sdd.md) | Los dos caminos, uno al lado del otro: el bucle de parches frente al flujo con especificación | Todos | ~6 min · 🟢 |
 | [diagramas/02-flujo-completo-sdd.md](02-flujo-completo-sdd.md) | El diagrama principal: los siete pasos, sus ficheros, quién participa y los bucles de vuelta | Junior, managers y quien quiera ver el proceso entero | ~10 min · 🟡 |
 | [diagramas/03-artefactos-y-relaciones.md](03-artefactos-y-relaciones.md) | Cómo se alimentan los artefactos entre sí y qué fichero es cada cosa | Junior y perfiles técnicos | ~8 min · 🟡 |
 | [diagramas/04-roles-y-participacion.md](04-roles-y-participacion.md) | Quién lidera y quién revisa en cada paso, con la matriz rol × paso | Todos | ~7 min · 🟢 |

@@ -1,6 +1,6 @@
 # Ejercicio 02 resuelto: requisitos EARS
 
-> **Para quién:** RRHH, perfiles de negocio, managers y programadores junior · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
+> **Para quién:** cualquier persona que haya hecho el ejercicio 02; no hace falta programar · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
 
 Esta es la solución comentada del [ejercicio 02: practicar requisitos EARS](../02-practicar-requisitos-ears.md), con su misma numeración y agrupación: las doce reescrituras (F01 a F12, en los bloques A, B y C), la clasificación «al revés» (R1 a R4) y el «caza el error» (E1 a E4). Todos los requisitos están escritos con EARS (*Easy Approach to Requirements Syntax*): una forma sencilla y estructurada de redactar requisitos.
 

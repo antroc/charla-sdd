@@ -1,6 +1,6 @@
 # *Vibe coding* frente a SDD
 
-> **Para quién:** managers, RRHH, perfiles de negocio y programadores junior · **Tiempo de lectura:** ~6 min · **Nivel:** 🟢 básico
+> **Para quién:** cualquier persona, sepa programar o no · **Tiempo de lectura:** ~6 min · **Nivel:** 🟢 básico
 
 Esta página pone uno al lado del otro los dos caminos para construir software con un asistente de IA. El primero es el *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). El segundo es SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): escribir primero qué queremos y por qué, y dejar que el código sea la consecuencia.
 
@@ -85,7 +85,7 @@ Aquí también hay un bucle, pero con dos diferencias: tiene una salida clara (�
 
 ## Siguiente paso
 
-Si vienes de los documentos 01 y 02, sigue con el [Flujo completo de SDD](02-flujo-completo-sdd.md) (ruta de managers) o con [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) (ruta de RRHH y negocio). Si empiezas aquí, lee antes [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md).
+Si vienes de los documentos 01 y 02, sigue con el [Flujo completo de SDD](02-flujo-completo-sdd.md) (ruta «Entender SDD y decidir si tu equipo lo prueba») o con [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) (ruta «Escribir y revisar lo que pides»). Si empiezas aquí, lee antes [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md).
 
 ---
 

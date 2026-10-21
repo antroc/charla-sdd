@@ -1,6 +1,6 @@
 # Anatomía de un requisito EARS
 
-> **Para quién:** managers, RRHH, perfiles de negocio y programadores junior · **Tiempo de lectura:** ~6 min · **Nivel:** 🟢 básico
+> **Para quién:** quien vaya a escribir o revisar una especificación, sepa programar o no · **Tiempo de lectura:** ~6 min · **Nivel:** 🟢 básico
 
 En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) la especificación (`spec.md`) recoge, entre otras cosas, los requisitos: qué tiene que hacer el sistema. En este material los escribimos en EARS (*Easy Approach to Requirements Syntax*), una forma sencilla y estructurada de redactar requisitos propuesta por Alistair Mavin y otros en 2009. La idea es que cada requisito sea una sola frase, con las mismas piezas siempre en el mismo orden, para que cualquiera pueda leerla y comprobar si se cumple.
 

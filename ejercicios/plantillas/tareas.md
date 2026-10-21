@@ -1,6 +1,6 @@
 # Plantilla: tareas
 
-> *Qué es: la lista ordenada y troceada de todo lo que hay que hacer para construir lo que dice el plan, agrupada por historia de usuario. · Para quién: la ejecuta quien construye (o el asistente de IA, tarea a tarea) y la revisa quien quiera saber cuánto queda; negocio puede seguir el avance por los títulos de fase y los puntos de control. · Consejo: si una tarea no cabe en una línea, son dos tareas.*
+> *Qué es: la lista ordenada y troceada de todo lo que hay que hacer para construir lo que dice el plan, agrupada por historia de usuario. · Para quién: la ejecuta quien construye (o el asistente de IA, tarea a tarea) y la revisa quien quiera saber cuánto queda; quien encarga puede seguir el avance por los títulos de fase y los puntos de control. · Consejo: si una tarea no cabe en una línea, son dos tareas.*
 
 > [!TIP]
 > Copia este fichero junto al plan, renómbralo `tasks.md`, rellena los corchetes y borra este aviso; el título pasa a ser `# Tareas: [nombre de la funcionalidad]`.
@@ -53,7 +53,7 @@
 
 ## Fase 3: Historia de usuario 1 - [Reservar una sala] (Prioridad: P1) 🎯 MVP
 
-> *Qué se escribe: todo lo necesario para que la historia P1 funcione sola: primero sus pruebas, luego la implementación. · Para quién: quien construye; negocio puede probar al llegar al punto de control. · Consejo: cuando esta fase termina ya tienes algo que enseñar; enséñalo antes de seguir.*
+> *Qué se escribe: todo lo necesario para que la historia P1 funcione sola: primero sus pruebas, luego la implementación. · Para quién: quien construye; quien encarga puede probar al llegar al punto de control. · Consejo: cuando esta fase termina ya tienes algo que enseñar; enséñalo antes de seguir.*
 
 **Objetivo:** [ver salas libres en una franja, elegir una y confirmar] · **Prueba independiente:** [reservar la sala Mediterráneo el jueves de 10:00 a 11:00 y comprobar que aparece ocupada]
 

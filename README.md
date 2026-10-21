@@ -1,6 +1,6 @@
 # Charla SDD: desarrollo guiado por especificaciones
 
-> **Para quién:** toda la empresa (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~5 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~5 min · **Nivel:** 🟢 básico
 
 Este repositorio es material de formación interno sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), una forma de trabajar con asistentes de IA en la que primero se escribe qué queremos y por qué, en lenguaje natural, y después se construye. Está pensado para que lo entienda cualquiera, sepa programar o no. Trae documentación, diagramas, ejercicios guiados paso a paso y el guion de una charla de 20 minutos.
 
@@ -37,30 +37,30 @@ Con un asistente de IA es muy fácil pedir «hazme una aplicación de reservas»
 
 SDD cambia el orden. Primero se escribe una especificación: qué tiene que hacer el sistema, para quién y cómo sabremos que funciona, sin hablar de tecnología. Con ella, el asistente de IA propone el plan técnico, lo divide en tareas pequeñas y escribe el código, y una persona revisa cada paso. La especificación es la fuente de verdad: si hay que cambiar algo, se cambia ahí.
 
-Lo bueno es que la especificación se escribe en lenguaje natural. Por eso negocio, RRHH o un manager pueden escribirla o revisarla sin saber programar. Lo cuenta con calma [Qué es SDD](docs/02-que-es-sdd.md).
+Lo bueno es que la especificación se escribe en lenguaje natural. Por eso cualquier persona puede escribirla o revisarla sin saber programar. Lo cuenta con calma [Qué es SDD](docs/02-que-es-sdd.md).
 
 ## Empieza por aquí
 
-| Si eres… | Empieza por | Y sigue con |
+| Si quieres… | Empieza por | Y sigue con |
 |---|---|---|
-| 👔 Manager o responsable de equipo | [El problema del *vibe coding*](docs/01-el-problema-del-vibe-coding.md) | [Roles: quién hace qué](docs/06-roles-quien-hace-que.md) y la [dinámica de equipo](ejercicios/04-dinamica-de-equipo-20-minutos.md) |
-| 🧑‍💼 RRHH o perfil de negocio | [El problema del *vibe coding*](docs/01-el-problema-del-vibe-coding.md) | [Escribir requisitos claros (EARS)](docs/05-escribir-requisitos-claros-ears.md) y el [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) |
-| 👩‍💻 Programo | [Qué es SDD](docs/02-que-es-sdd.md) | El [ejercicio 00](ejercicios/00-preparacion-del-entorno.md) para preparar el entorno y el [ejercicio 03](ejercicios/03-reserva-salas-paso-a-paso.md) para construir ReservaSalas |
-| 🎤 Voy a dar la charla o un taller | [La carpeta de la charla](charla/README.md) | El [guion de 20 minutos](charla/guion-20-minutos.md) y la [guía del facilitador](charla/guia-del-facilitador.md) |
+| 🧭 Entender SDD y decidir si tu equipo lo prueba | [El problema del *vibe coding*](docs/01-el-problema-del-vibe-coding.md) | [Roles: quién hace qué](docs/06-roles-quien-hace-que.md) y la [dinámica de equipo](ejercicios/04-dinamica-de-equipo-20-minutos.md) |
+| ✍️ Escribir y revisar lo que pides | [El problema del *vibe coding*](docs/01-el-problema-del-vibe-coding.md) | [Escribir requisitos claros (EARS)](docs/05-escribir-requisitos-claros-ears.md) y el [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) |
+| 🛠️ Construir con SDD desde cero | [Qué es SDD](docs/02-que-es-sdd.md) | El [ejercicio 00](ejercicios/00-preparacion-del-entorno.md) para preparar el entorno y el [ejercicio 03](ejercicios/03-reserva-salas-paso-a-paso.md) para construir ReservaSalas |
+| 🎤 Dar la charla o un taller | [La carpeta de la charla](charla/README.md) | El [guion de 20 minutos](charla/guion-20-minutos.md) y la [guía del facilitador](charla/guia-del-facilitador.md) |
 
 Si solo tienes cinco minutos, lee [SDD en un minuto](#sdd-en-un-minuto) y mira [*Vibe coding* frente a SDD](diagramas/01-vibe-coding-vs-sdd.md).
 
 ## Rutas de lectura por perfil
 
-No hace falta leerlo todo. Cada perfil tiene su camino:
+No hace falta leerlo todo. Elige tu camino según lo que quieras hacer:
 
-| Perfil | Qué leer y hacer, en este orden | Tiempo |
+| Ruta | Qué leer y hacer, en este orden | Tiempo |
 |---|---|---|
-| Manager o responsable de equipo | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → diagramas [01](diagramas/01-vibe-coding-vs-sdd.md) y [02](diagramas/02-flujo-completo-sdd.md) → doc [06](docs/06-roles-quien-hace-que.md) → docs [08](docs/08-buenas-practicas-y-errores-comunes.md) y [09](docs/09-preguntas-frecuentes.md) → [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) → [guion de la charla](charla/guion-20-minutos.md) → [dinámica de 20 minutos](ejercicios/04-dinamica-de-equipo-20-minutos.md) con tu equipo | Unas 3 h, en dos o tres ratos |
-| RRHH o perfil de negocio | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → [diagrama 01](diagramas/01-vibe-coding-vs-sdd.md) → docs [05](docs/05-escribir-requisitos-claros-ears.md) y [06](docs/06-roles-quien-hace-que.md) → ejercicios [01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [02](ejercicios/02-practicar-requisitos-ears.md), con el [glosario](docs/10-glosario.md) a mano | Unas 3 h, en dos o tres ratos |
-| Programador junior | Docs [01 a 10](docs/README.md) → diagramas [01 a 06](diagramas/README.md) → ejercicios [00](ejercicios/00-preparacion-del-entorno.md), [02](ejercicios/02-practicar-requisitos-ears.md), [03](ejercicios/03-reserva-salas-paso-a-paso.md), [05](ejercicios/05-arreglar-una-especificacion-mala.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 10-12 h, en varios días |
-| Programador con experiencia | Doc [02](docs/02-que-es-sdd.md) → docs [03](docs/03-el-flujo-paso-a-paso.md) y [04](docs/04-los-artefactos.md) → diagramas [02](diagramas/02-flujo-completo-sdd.md) y [03](diagramas/03-artefactos-y-relaciones.md) → docs [07](docs/07-herramientas.md) y [08](docs/08-buenas-practicas-y-errores-comunes.md) → ejercicios [03](ejercicios/03-reserva-salas-paso-a-paso.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 6-8 h |
-| Quien facilita la charla o un taller | [Carpeta de la charla](charla/README.md) → [guion](charla/guion-20-minutos.md) → [guía del facilitador](charla/guia-del-facilitador.md) → [ejercicio 04](ejercicios/04-dinamica-de-equipo-20-minutos.md) → [diagramas](diagramas/README.md) | Unas 2 h de preparación la primera vez |
+| Entender SDD y decidir si tu equipo lo prueba | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → diagramas [01](diagramas/01-vibe-coding-vs-sdd.md) y [02](diagramas/02-flujo-completo-sdd.md) → doc [06](docs/06-roles-quien-hace-que.md) → docs [08](docs/08-buenas-practicas-y-errores-comunes.md) y [09](docs/09-preguntas-frecuentes.md) → [ejercicio 01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) → [guion de la charla](charla/guion-20-minutos.md) → [dinámica de 20 minutos](ejercicios/04-dinamica-de-equipo-20-minutos.md) con tu equipo | Unas 3 h, en dos o tres ratos |
+| Escribir y revisar lo que pides | Docs [01](docs/01-el-problema-del-vibe-coding.md) y [02](docs/02-que-es-sdd.md) → [diagrama 01](diagramas/01-vibe-coding-vs-sdd.md) → docs [05](docs/05-escribir-requisitos-claros-ears.md) y [06](docs/06-roles-quien-hace-que.md) → ejercicios [01](ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [02](ejercicios/02-practicar-requisitos-ears.md), con el [glosario](docs/10-glosario.md) a mano | Unas 3 h, en dos o tres ratos |
+| Construir con SDD desde cero | Docs [01 a 10](docs/README.md) → diagramas [01 a 06](diagramas/README.md) → ejercicios [00](ejercicios/00-preparacion-del-entorno.md), [02](ejercicios/02-practicar-requisitos-ears.md), [03](ejercicios/03-reserva-salas-paso-a-paso.md), [05](ejercicios/05-arreglar-una-especificacion-mala.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 10-12 h, en varios días |
+| Ir al grano si ya trabajas con un asistente de IA | Doc [02](docs/02-que-es-sdd.md) → docs [03](docs/03-el-flujo-paso-a-paso.md) y [04](docs/04-los-artefactos.md) → diagramas [02](diagramas/02-flujo-completo-sdd.md) y [03](diagramas/03-artefactos-y-relaciones.md) → docs [07](docs/07-herramientas.md) y [08](docs/08-buenas-practicas-y-errores-comunes.md) → ejercicios [03](ejercicios/03-reserva-salas-paso-a-paso.md) y [06](ejercicios/06-reto-final-tu-propio-proyecto.md) | 6-8 h |
+| Dar la charla o un taller | [Carpeta de la charla](charla/README.md) → [guion](charla/guion-20-minutos.md) → [guía del facilitador](charla/guia-del-facilitador.md) → [ejercicio 04](ejercicios/04-dinamica-de-equipo-20-minutos.md) → [diagramas](diagramas/README.md) | Unas 2 h de preparación la primera vez |
 
 Las mismas rutas, dibujadas paso a paso, están en el [mapa del repositorio](diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil).
 
@@ -92,10 +92,10 @@ El [mapa del repositorio](diagramas/06-mapa-del-repositorio.md) dibuja todas las
 3. [El flujo paso a paso](docs/03-el-flujo-paso-a-paso.md): los siete pasos, quién participa y qué deja escrito cada uno.
 4. [Los artefactos](docs/04-los-artefactos.md): los documentos que produce SDD y para qué sirve cada uno.
 5. [Escribir requisitos claros (EARS)](docs/05-escribir-requisitos-claros-ears.md): cinco plantillas de frase para que un requisito no se pueda malinterpretar.
-6. [Roles: quién hace qué](docs/06-roles-quien-hace-que.md): qué hace cada perfil en cada paso.
+6. [Roles: quién hace qué](docs/06-roles-quien-hace-que.md): qué hace cada rol en cada paso.
 7. [Herramientas](docs/07-herramientas.md): Spec Kit, Kiro o sin herramientas.
 8. [Buenas prácticas y errores comunes](docs/08-buenas-practicas-y-errores-comunes.md): lo que funciona y lo que suele salir mal.
-9. [Preguntas frecuentes](docs/09-preguntas-frecuentes.md): 27 preguntas agrupadas por perfil.
+9. [Preguntas frecuentes](docs/09-preguntas-frecuentes.md): 27 preguntas agrupadas por tema.
 10. [Glosario](docs/10-glosario.md): 62 términos en lenguaje llano.
 
 ### Diagramas ([diagramas/](diagramas/README.md))
@@ -130,7 +130,7 @@ Además: las [plantillas](ejercicios/plantillas/README.md) de los seis documento
 
 Todos los documentos usan el mismo caso, para que lo reconozcas de uno a otro. La empresa tiene doce salas de reuniones repartidas en tres plantas, con nombres de mares (Mediterráneo, Cantábrico, Atlántico…). Hoy se reservan en una hoja de cálculo compartida y hay choques, salas que se quedan vacías y reservas que nadie sabe de quién son. Ana, responsable de Oficina, encarga una pequeña aplicación interna; Luis, programador junior, la construye con un asistente de IA siguiendo SDD; Marta, manager, y Jorge, de RRHH, son quienes la usan y la revisan.
 
-Para quien no programa hay un segundo ejemplo sin código: la solicitud de vacaciones (una persona pide días, su manager aprueba o rechaza y RRHH lo registra). Todos los personajes y datos son ficticios.
+Hay además un segundo ejemplo sin código: la solicitud de vacaciones (una persona pide días, su manager aprueba o rechaza y RRHH lo registra). Todos los personajes y datos son ficticios.
 
 ## Cómo ver los diagramas
 

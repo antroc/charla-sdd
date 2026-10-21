@@ -1,6 +1,6 @@
 # Ejercicio 06: reto final, tu propio proyecto
 
-> **Para quién:** quien programa (junior o con experiencia) y ha terminado el ejercicio 03; si te han pedido hacer de «Ana», lee el aviso para managers de [Qué necesitas](#qué-necesitas) · **Tiempo de lectura:** ~15 min (hacerlo: 3-4 h, en dos o tres sesiones) · **Nivel:** 🔴 avanzado
+> **Para quién:** quien vaya a usar Spec Kit y haya terminado el ejercicio 03; si te han pedido hacer de «Ana», lee en [Qué necesitas](#qué-necesitas) el aviso para quien encarga el proyecto · **Tiempo de lectura:** ~15 min (hacerlo: 3-4 h, en dos o tres sesiones) · **Nivel:** 🔴 avanzado
 
 Hasta ahora has seguido un guion: ReservaSalas, con los principios de Ana, sus respuestas y la tecnología de Luis. En este reto el problema lo eliges tú, las respuestas las da alguien de tu entorno y el resultado lo entregas a tu equipo. Es la prueba de que sabes aplicar SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) sin red: elegir un problema pequeño y real, recorrer el flujo completo con GitHub Spec Kit y un asistente de programación con IA, puntuarte con una rúbrica y compartir el resultado para que otras personas lo revisen.
 
@@ -24,7 +24,7 @@ No hay solución: cada proyecto es distinto. Hay, en cambio, una lista de verifi
 
 ## Objetivo
 
-Al terminar habrás llevado un problema real de tu día a día desde una petición en lenguaje natural hasta una aplicación pequeña que funciona, pasando por la constitución (`constitution.md`), la especificación (`spec.md`), las aclaraciones, el plan técnico (`plan.md`) y la lista de tareas (`tasks.md`), sin que nadie te dicte los pasos. Sabrás decidir qué cabe en una primera versión y qué no, hacer de puente entre quien pide y el asistente de IA, puntuar tu propio trabajo con una rúbrica y presentarlo de forma que alguien de negocio pueda revisarlo sin abrir el código.
+Al terminar habrás llevado un problema real de tu día a día desde una petición en lenguaje natural hasta una aplicación pequeña que funciona, pasando por la constitución (`constitution.md`), la especificación (`spec.md`), las aclaraciones, el plan técnico (`plan.md`) y la lista de tareas (`tasks.md`), sin que nadie te dicte los pasos. Sabrás decidir qué cabe en una primera versión y qué no, hacer de puente entre quien pide y el asistente de IA, puntuar tu propio trabajo con una rúbrica y presentarlo de forma que quien lo encargó pueda revisarlo sin abrir el código.
 
 ## Qué necesitas
 
@@ -35,13 +35,13 @@ Al terminar habrás llevado un problema real de tu día a día desde una petici�
 - **Asistente:** el mismo del ejercicio 03. Escribimos los comandos como `/speckit.specify`; en tu asistente pueden aparecer como `/speckit-specify` o `$speckit-specify`. Es la misma orden: si es tu caso, cambia solo la primera palabra de cada bloque. Con Kiro CLI, el texto que va detrás del comando no le llega: si te pide la descripción, pégasela en el mensaje siguiente.
 
 > [!NOTE]
-> **Si no programas**, hay un reto reducido sin instalar nada: haz los pasos 1, 3, 4 y 5 con las [plantillas](plantillas/README.md) y un chat de IA autorizado por la empresa. Los *prompts* (las instrucciones que le escribes al asistente) de los pasos 3 y 4 funcionan en cualquier chat si le pegas antes la plantilla correspondiente y quitas la primera palabra del bloque (el comando `/speckit.…`). Para aclarar sin Spec Kit, usa el *prompt* de la [variante con asistente del ejercicio 01](01-tu-primera-especificacion-sin-codigo.md#variante-con-asistente-de-ia-opcional-entre-los-pasos-7-y-8) cambiando «Solicitud de vacaciones» por el nombre de tu proyecto: hace el papel de `/speckit.clarify`. Después pasa la [lista de verificación](plantillas/lista-de-verificacion.md) y presenta la especificación con los puntos 1 a 3 del [guion de cinco puntos](#cómo-compartirlo-con-el-equipo). De la [rúbrica](#rúbrica-de-autoevaluación) te aplican los criterios 1 y 2 (donde dice `checklists/requirements.md`, lee la lista de verificación de las plantillas) y, del 5, solo la parte que no depende del plan: que cada principio prohíba algo concreto.
+> **Si vas a hacerlo sin instalar nada**, hay un reto reducido: haz los pasos 1, 3, 4 y 5 con las [plantillas](plantillas/README.md) y un chat de IA autorizado por la empresa. Los *prompts* (las instrucciones que le escribes al asistente) de los pasos 3 y 4 funcionan en cualquier chat si le pegas antes la plantilla correspondiente y quitas la primera palabra del bloque (el comando `/speckit.…`). Para aclarar sin Spec Kit, usa el *prompt* de la [variante con asistente del ejercicio 01](01-tu-primera-especificacion-sin-codigo.md#variante-con-asistente-de-ia-opcional-entre-los-pasos-7-y-8) cambiando «Solicitud de vacaciones» por el nombre de tu proyecto: hace el papel de `/speckit.clarify`. Después pasa la [lista de verificación](plantillas/lista-de-verificacion.md) y presenta la especificación con los puntos 1 a 3 del [guion de cinco puntos](#cómo-compartirlo-con-el-equipo). De la [rúbrica](#rúbrica-de-autoevaluación) te aplican los criterios 1 y 2 (donde dice `checklists/requirements.md`, lee la lista de verificación de las plantillas) y, del 5, solo la parte que no depende del plan: que cada principio prohíba algo concreto.
 
 > [!WARNING]
 > El problema es real; los datos, no. Inventa nombres, correos y cifras como hace todo este repositorio, y no pegues listados, nóminas ni contratos en el asistente. Y si el proyecto gusta y alguien quiere usarlo de verdad, antes de ponerlo en marcha habla con IT y con seguridad: este reto es formación, no una puesta en producción.
 
 > [!TIP]
-> **Si eres manager o de negocio y alguien de tu equipo te pide hacer de «Ana»**, esto es lo que te va a pedir, en ratos cortos a lo largo de dos o tres sesiones: leer y corregir su petición (10 min); escuchar sus principios y decirle si los entiendes (5 min); responder a sus preguntas de aclaración, como mucho ocho y casi siempre con opciones para elegir (20 min); ver funcionar la primera historia y pedirle un cambio (15 min) y, al final, leer la especificación y contestar «¿es esto lo que pedí?» (20 min). En total, algo más de una hora. Lo que decidas tiene que quedar por escrito, porque es lo que el asistente de IA va a construir; en ningún momento hace falta abrir el código.
+> **Si alguien de tu equipo te pide hacer de «Ana», es decir, encargar el proyecto**, esto es lo que te va a pedir, en ratos cortos a lo largo de dos o tres sesiones: leer y corregir su petición (10 min); escuchar sus principios y decirle si los entiendes (5 min); responder a sus preguntas de aclaración, como mucho ocho y casi siempre con opciones para elegir (20 min); ver funcionar la primera historia y pedirle un cambio (15 min) y, al final, leer la especificación y contestar «¿es esto lo que pedí?» (20 min). En total, algo más de una hora. Lo que decidas tiene que quedar por escrito, porque es lo que el asistente de IA va a construir; en ningún momento hace falta abrir el código.
 
 ## Ocho ideas de proyecto
 
@@ -98,7 +98,7 @@ Cada paso dice qué hacer, qué deberías ver y qué revisar antes de seguir, co
 
     Después pídele a tu Ana que la lea y la corrija: es su petición, no la tuya.
 
-    Si haces los dos papeles, la regla es esta: cada decisión de negocio la escribes en `peticion.md` o en la sección de aclaraciones antes de usarla, y nunca la tomas sobre la marcha en el chat del asistente. Lo que no está escrito no existe.
+    Si haces los dos papeles, la regla es esta: cada decisión de quien encarga la escribes en `peticion.md` o en la sección de aclaraciones antes de usarla, y nunca la tomas sobre la marcha en el chat del asistente. Lo que no está escrito no existe.
 
     Qué deberías tener: una petición de media página que otra persona entiende sin preguntarte nada, con el visto bueno de quien encarga.
 
@@ -257,7 +257,7 @@ Puntúa cada criterio del 1 al 4 leyendo la fila entera: el nivel es el más alt
 
 | Criterio | 1 · Inicial | 2 · En marcha | 3 · Sólido | 4 · Ejemplar |
 |---|---|---|---|---|
-| **Claridad de la especificación** | Mezcla qué y cómo; historias sin prioridad; alguien de negocio no la entiende | Historias con prioridad, pero la P1 no vale sola; quedan frases vagas o algún marcador de aclaración sin resolver | Sin tecnología; P1 que vale sola; criterios Dado/Cuando/Entonces; casos límite y «Fuera de alcance» escritos; `checklists/requirements.md` completa | Además, quien encarga la ha leído entera y ha corregido algo en ella, y una persona ajena al proyecto la entiende sin preguntarte (ninguna jerga sin explicar) |
+| **Claridad de la especificación** | Mezcla qué y cómo; historias sin prioridad; quien encarga no la entiende | Historias con prioridad, pero la P1 no vale sola; quedan frases vagas o algún marcador de aclaración sin resolver | Sin tecnología; P1 que vale sola; criterios Dado/Cuando/Entonces; casos límite y «Fuera de alcance» escritos; `checklists/requirements.md` completa | Además, quien encarga la ha leído entera y ha corregido algo en ella, y una persona ajena al proyecto la entiende sin preguntarte (ninguna jerga sin explicar) |
 | **Calidad de los requisitos EARS** | La mayoría sin patrón, con dos cosas en una frase o con adjetivos sin cifra | La mayoría sigue EARS, pero alguno mezcla dos cosas, lleva un adjetivo sin cifra o tecnología, o hay repetidos o huecos en la numeración | Todos siguen uno de los cinco patrones, numerados sin huecos, con una sola cosa comprobable cada uno | Además, cada requisito se comprueba en al menos un criterio de aceptación y una tabla relaciona cada historia con sus requisitos, como en la [especificación canónica](soluciones/03-reserva-salas/spec.md) |
 | **Coherencia especificación-plan-tareas** | No se ejecutó `analyze`, o se implementó con incidencias críticas pendientes | `analyze` se ejecutó, pero se implementó con incidencias altas pendientes o con algún requisito sin tarea | El último `analyze` antes de implementar salió sin incidencias críticas ni altas y con cobertura del 100 %, y las correcciones se hicieron en la especificación, el plan o las tareas | Además, el modelo de datos solo tiene las entidades de la especificación y `converge` respondió «Converged» tras el cambio pedido desde la especificación |
 | **Pruebas y verificación** | No hay pruebas automáticas, o no pasan | Hay pruebas, pero se escribieron después del código o no cubren las reglas de negocio | Pruebas antes que implementación en cada historia; todas pasan; las reglas de negocio (límites, permisos) tienen pruebas propias | Además, otra persona ha arrancado y probado la P1 siguiendo `quickstart.md` sin tu ayuda |
@@ -317,15 +317,15 @@ En la reunión de equipo, con el guion de arriba y tres cosas abiertas: `spec.md
 2. Haces los dos papeles. ¿Qué regla evita que aclarar sea una conversación contigo mismo en la cabeza?
 3. `/speckit.analyze` sale limpio y las pruebas están en verde, pero al probar la P1 la aplicación hace algo que tu Ana no quería. ¿Dónde está el error, probablemente, y qué tocas?
 4. ¿Qué diferencia un 3 de un 4 en «fidelidad a la constitución»?
-5. ¿Qué tiene que contener la descripción de la *pull request* para que alguien de negocio pueda revisarla sin abrir el código?
+5. ¿Qué tiene que contener la descripción de la *pull request* para que quien encarga pueda revisarla sin abrir el código?
 
 <details><summary>Ver respuestas</summary>
 
 1. Porque el objetivo es aprender el método con algo que termina: con una P1 pequeña recorres los siete pasos, ves funcionar la aplicación y te queda tiempo para el cambio desde la especificación y para la entrega. Un proyecto grande se queda en una especificación a medias. La aplicación grande se trocea: su primera funcionalidad es este reto; las demás, especificaciones nuevas.
-2. Cada decisión de negocio se escribe (en `peticion.md` o en la sección de aclaraciones) antes de usarla, y nunca se toma sobre la marcha en el chat. Lo que no está escrito no existe. Y si hay alguien a quien preguntar, se pregunta.
+2. Cada decisión de quien encarga se escribe (en `peticion.md` o en la sección de aclaraciones) antes de usarla, y nunca se toma sobre la marcha en el chat. Lo que no está escrito no existe. Y si hay alguien a quien preguntar, se pregunta.
 3. Si la coherencia y las pruebas están bien, lo más probable es que la especificación no diga lo que tu Ana quería: las pruebas comprueban lo escrito, no lo deseado. Tocas `spec.md` (y el plan si recogía el dato), anotas la decisión en aclaraciones y regeneras con `converge` e `implement`. No tocas el código.
 4. Un 3 es una constitución concreta que el plan cumple y explica. Un 4 añade pruebas de que la constitución sirvió para decidir: frenó una propuesta (está anotado dónde: por ejemplo, en `research.md` como alternativa descartada, o en las aclaraciones) y nada del código la contradice. En el 4 la constitución se usó; en el 3 se describió.
-5. El guion de cinco puntos (problema y quién lo pidió; la P1 con dos requisitos y un criterio con cifra; una aclaración que cambió algo; el plan contra la constitución con la demostración; el cambio desde la especificación y lo aprendido) y enlaces directos a `spec.md`, `plan.md`, `tasks.md` y `docs/autoevaluacion.md`. Quien revisa desde negocio lee la especificación y contesta «¿es esto lo que pedí?».
+5. El guion de cinco puntos (problema y quién lo pidió; la P1 con dos requisitos y un criterio con cifra; una aclaración que cambió algo; el plan contra la constitución con la demostración; el cambio desde la especificación y lo aprendido) y enlaces directos a `spec.md`, `plan.md`, `tasks.md` y `docs/autoevaluacion.md`. Quien encargó el proyecto lee la especificación y contesta «¿es esto lo que pedí?».
 
 </details>
 
@@ -350,13 +350,13 @@ Este reto no tiene solución: cada proyecto es distinto y el tuyo lo juzgan la l
 - **El cambio llegó solo:** al ver la aplicación, el responsable pidió que los intercambios entre personas del mismo nivel no necesiten aprobación. Se cambió `spec.md`, luego `plan.md`, después `converge` e `implement`; `git log` muestra ese orden.
 - **Autoevaluación:** 16 de 20. El 3 en claridad es honesto: la jerga «nivel 1 / nivel 2» no está explicada y alguien de fuera del equipo no la entiende; va en «Tres cosas que haría distinto». Presentación de cinco minutos con el guion; dos preguntas del público quedaron apuntadas como aclaraciones para la versión 2.
 
-Qué tienen en común: una P1 que vale sola, una persona distinta de quien programa que decide, cada decisión escrita en un fichero, el análisis usado para corregir antes de implementar, un cambio que empezó por la especificación y una autoevaluación que dice lo que falta. Eso es un buen resultado; que el código sea bonito es secundario.
+Qué tienen en común: una P1 que vale sola, una persona distinta de quien construye que decide, cada decisión escrita en un fichero, el análisis usado para corregir antes de implementar, un cambio que empezó por la especificación y una autoevaluación que dice lo que falta. Eso es un buen resultado; que el código sea bonito es secundario.
 
 ## En tres frases
 
 1. El reto es el flujo completo sin guion: un problema pequeño y real, una persona que decide, la constitución, la especificación sin tecnología, las aclaraciones por escrito, el plan contra la constitución, las tareas con pruebas primero, el análisis, la implementación y un cambio pedido desde la especificación.
 2. Un buen resultado no es un proyecto perfecto: es uno en el que cada fichero de la lista de entrega existe y cumple lo suyo, la rúbrica está puntuada con honestidad y cualquiera puede seguir la pista de cada decisión.
-3. Compartirlo, con una *pull request* o con cinco minutos y el guion, convierte el ejercicio en práctica de equipo: la revisión de negocio y la técnica son las primeras aclaraciones de la versión 2.
+3. Compartirlo, con una *pull request* o con cinco minutos y el guion, convierte el ejercicio en práctica de equipo: la revisión de quien encarga y la técnica son las primeras aclaraciones de la versión 2.
 
 ## Siguiente paso
 

@@ -1,6 +1,6 @@
 # Ejercicio 02: practicar requisitos EARS
 
-> **Para quién:** RRHH, perfiles de negocio, managers y programadores junior · **Tiempo de lectura:** ~5 min (hacerlo: 30 min, con la comparación) · **Nivel:** 🟢 básico
+> **Para quién:** quien vaya a escribir o revisar requisitos, sepa programar o no · **Tiempo de lectura:** ~5 min (hacerlo: 30 min, con la comparación) · **Nivel:** 🟢 básico
 
 Doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro para cazar el error. Es el entrenamiento práctico de [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md): si no lo has leído, échale un vistazo antes (unos 12 minutos) o apóyate en la tabla del paso 1. No hace falta saber programar ni instalar nada.
 
@@ -24,7 +24,7 @@ Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si
 - Haber leído [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md), o al menos tener a mano la tabla de patrones del paso 1.
 - Tiempo: unos 30 minutos: 20 para hacerlo (5 por cada bloque de frases y 5 para clasificar y cazar errores) y 10 para comparar con la solución.
 - Dónde escribir. Elige una opción:
-  - **Opción 1: solo papel o documento.** Papel y bolígrafo, o un documento compartido. Es la opción recomendada para quien no programa y perfectamente válida para quien sí.
+  - **Opción 1: solo papel o documento.** Papel y bolígrafo, o un documento compartido. Es la opción recomendada, sepas programar o no.
   - **Opción 2: con un chat de IA autorizado.** Lo mismo que en la opción 1 y, además, el chat de IA genérico que tenga autorizado la empresa. Lo usarás solo al final, para que revise lo que tú has escrito (paso 7). No hace falta Spec Kit (la herramienta de línea de comandos que se usa en el ejercicio 03): aquí se entrena tu criterio, y en el [ejercicio 03](03-reserva-salas-paso-a-paso.md) verás cómo la herramienta genera estos requisitos y cómo los revisas tú.
 - Opcional, para el paso 7: la [especificación canónica de ReservaSalas](soluciones/03-reserva-salas/spec.md), para comparar al final tus frases de ReservaSalas con las del ejemplo. Las pistas citan sus requisitos funcionales (RF-001, RF-005…; «RF» quiere decir requisito funcional) y sus criterios de éxito (CE-003, CE-004) para que sepas con qué comparar después, no para que los mires antes.
 
@@ -231,7 +231,7 @@ Las doce reescrituras, la clasificación y el «caza el error», comentados uno 
 
 ## Siguiente paso
 
-Continúa con [ReservaSalas paso a paso](03-reserva-salas-paso-a-paso.md), donde verás cómo el asistente de IA genera estos requisitos a partir de una descripción y cómo los revisas tú. Si no programas, pasa a la [dinámica de equipo de 20 minutos](04-dinamica-de-equipo-20-minutos.md) o directamente a [arreglar una especificación mala](05-arreglar-una-especificacion-mala.md).
+Continúa con [ReservaSalas paso a paso](03-reserva-salas-paso-a-paso.md), donde verás cómo el asistente de IA genera estos requisitos a partir de una descripción y cómo los revisas tú. Si vas a hacerlo sin instalar nada, pasa a la [dinámica de equipo de 20 minutos](04-dinamica-de-equipo-20-minutos.md) o directamente a [arreglar una especificación mala](05-arreglar-una-especificacion-mala.md).
 
 ---
 

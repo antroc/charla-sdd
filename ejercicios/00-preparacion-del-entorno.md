@@ -1,8 +1,8 @@
 # Ejercicio 00: preparación del entorno
 
-> **Para quién:** todos los perfiles (vía A) y quien programa (vía B) · **Tiempo de lectura:** ~10 min (hacerlo: de 10 a 45 min según la vía) · **Nivel:** 🟡 intermedio
+> **Para quién:** cualquier persona (vía A, sin instalar nada) y quien vaya a usar Spec Kit (vía B; hace falta saber usar una terminal) · **Tiempo de lectura:** ~10 min (hacerlo: de 10 a 45 min según la vía) · **Nivel:** 🟡 intermedio
 
-Este ejercicio no enseña SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): deja listo lo que necesitas para hacer los demás. Hay dos vías. La **vía A** no instala nada y basta para los ejercicios 01, 02, 04 y 05. La **vía B** instala GitHub Spec Kit y un asistente de programación con IA, y hace falta para los ejercicios 03 y 06. Si no programas, haz solo la vía A: se hace en unos diez minutos.
+Este ejercicio no enseña SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): deja listo lo que necesitas para hacer los demás. Hay dos vías. La **vía A** no instala nada y basta para los ejercicios 01, 02, 04 y 05. La **vía B** instala GitHub Spec Kit y un asistente de programación con IA, y hace falta para los ejercicios 03 y 06. Si no vas a hacer el 03 ni el 06, haz solo la vía A: se hace en unos diez minutos.
 
 **Qué vas a encontrar**
 
@@ -236,7 +236,7 @@ Este ejercicio no tiene fichero de solución: el resultado es tu entorno. Para c
 
 ## Siguiente paso
 
-Continúa con [Ejercicio 01: tu primera especificación sin código](01-tu-primera-especificacion-sin-codigo.md). Si programas y tienes prisa por ver el flujo completo, puedes saltar al [Ejercicio 03: ReservaSalas paso a paso](03-reserva-salas-paso-a-paso.md), pero haz antes al menos el [02](02-practicar-requisitos-ears.md): se hace en media hora y te ahorrará errores en el 03.
+Continúa con [Ejercicio 01: tu primera especificación sin código](01-tu-primera-especificacion-sin-codigo.md). Si vas a usar Spec Kit y tienes prisa por ver el flujo completo, puedes saltar al [Ejercicio 03: ReservaSalas paso a paso](03-reserva-salas-paso-a-paso.md), pero haz antes al menos el [02](02-practicar-requisitos-ears.md): se hace en media hora y te ahorrará errores en el 03.
 
 ---
 

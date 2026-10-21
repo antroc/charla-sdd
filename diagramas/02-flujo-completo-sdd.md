@@ -1,6 +1,6 @@
 # Flujo completo de SDD
 
-> **Para quién:** programadores junior, managers y cualquier persona que quiera ver el proceso entero de un vistazo · **Tiempo de lectura:** ~10 min · **Nivel:** 🟡 intermedio
+> **Para quién:** cualquier persona que quiera ver el proceso entero de un vistazo · **Tiempo de lectura:** ~10 min · **Nivel:** 🟡 intermedio
 
 Este es el diagrama principal del repositorio: el flujo de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con sus siete pasos, numerados del 0 al 6, los ficheros que van saliendo por el camino y quién participa. Frente al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), aquí el código es lo último que aparece.
 
@@ -131,7 +131,7 @@ Fíjate en dónde está cada persona: Ana solo habla en lenguaje natural (descri
 
 ## Siguiente paso
 
-Si sigues la ruta de manager, continúa con [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md). Si programas, sigue con el diagrama siguiente, [Artefactos y relaciones](03-artefactos-y-relaciones.md). Y si quieres cada paso en detalle, con lo que entra, lo que sale y lo que puede salir mal, lee [El flujo paso a paso](../docs/03-el-flujo-paso-a-paso.md).
+Si sigues la ruta «Entender SDD y decidir si tu equipo lo prueba», continúa con [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md). Si vas a construir con SDD, sigue con el diagrama siguiente, [Artefactos y relaciones](03-artefactos-y-relaciones.md). Y si quieres cada paso en detalle, con lo que entra, lo que sale y lo que puede salir mal, lee [El flujo paso a paso](../docs/03-el-flujo-paso-a-paso.md).
 
 ---
 

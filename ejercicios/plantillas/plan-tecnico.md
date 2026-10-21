@@ -1,6 +1,6 @@
 # Plantilla: plan técnico
 
-> *Qué es: **cómo** vamos a construir lo que pide la especificación (tecnología, estructura, datos, contratos y riesgos); sale de la especificación, nunca al revés. · Para quién: lo escribe quien construye (con el asistente de IA) y lo revisa alguien con experiencia técnica; negocio solo necesita leer el resumen y la comprobación contra la constitución. · Consejo: si una sección no aplica, bórrala; un plan corto que se lee entero vale más que uno largo que nadie abre.*
+> *Qué es: **cómo** vamos a construir lo que pide la especificación (tecnología, estructura, datos, contratos y riesgos); sale de la especificación, nunca al revés. · Para quién: lo escribe quien construye (con el asistente de IA) y lo revisa alguien con experiencia técnica; quien encarga solo necesita leer el resumen y la comprobación contra la constitución. · Consejo: si una sección no aplica, bórrala; un plan corto que se lee entero vale más que uno largo que nadie abre.*
 
 > [!TIP]
 > Copia este fichero junto a la especificación, renómbralo `plan.md`, rellena los corchetes y borra este aviso; el título pasa a ser `# Plan técnico: [nombre de la funcionalidad]`.
@@ -15,7 +15,7 @@
 
 ## Resumen
 
-> *Qué se escribe: en 3-5 líneas, el requisito principal y el enfoque técnico elegido. · Para quién: para todo el mundo. · Consejo: que un manager lo entienda sin ayuda.*
+> *Qué se escribe: en 3-5 líneas, el requisito principal y el enfoque técnico elegido. · Para quién: para todo el mundo. · Consejo: que lo entienda sin ayuda alguien que no programa.*
 
 [Aplicación web sencilla para ver salas libres, reservar y cancelar. Una sola aplicación en Python con páginas HTML generadas en el servidor y una base de datos en un fichero; sin interfaz compleja y sin más servicio externo que el correo corporativo para los avisos, porque la constitución pide sencillez y la primera versión la usarán unas 200 personas con unas decenas de reservas al día.]
 
@@ -36,7 +36,7 @@
 
 ## Comprobación contra la constitución
 
-> *Qué se escribe: principio por principio, si el plan lo cumple y cómo. Es una puerta de calidad: si algo no cumple, no se pasa al paso siguiente; o se cambia el plan o se justifica en «Registro de complejidad». · Para quién: para quien revisa, técnico o no; negocio puede leer esta tabla y decir «esto no es lo que acordamos». · Consejo: hazla antes de decidir la tecnología y repítela cuando el diseño esté cerrado.*
+> *Qué se escribe: principio por principio, si el plan lo cumple y cómo. Es una puerta de calidad: si algo no cumple, no se pasa al paso siguiente; o se cambia el plan o se justifica en «Registro de complejidad». · Para quién: para quien revisa, técnico o no; quien encarga puede leer esta tabla y decir «esto no es lo que acordamos». · Consejo: hazla antes de decidir la tecnología y repítela cuando el diseño esté cerrado.*
 
 | Principio | ¿Cumple? | Cómo |
 |---|---|---|

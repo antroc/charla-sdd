@@ -1,6 +1,6 @@
 # Diagramas
 
-> **Para quién:** todos los perfiles (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~3 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~3 min · **Nivel:** 🟢 básico
 
 Esta carpeta cuenta con dibujos lo mismo que la [documentación](../docs/README.md): qué problema resuelve SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), cómo es el flujo, qué documentos produce, quién hace qué y cómo se escribe un buen requisito. Cada fichero explica sus diagramas con texto, para que se entiendan aunque no los veas.
 
@@ -17,10 +17,10 @@ Esta carpeta cuenta con dibujos lo mismo que la [documentación](../docs/README.
 |---|---|---|---|---|
 | 01 | [*Vibe coding* frente a SDD](01-vibe-coding-vs-sdd.md) | Los dos caminos, uno al lado del otro: el bucle de parches frente a especificar primero, y una tabla que los compara | Todos | [docs 01](../docs/01-el-problema-del-vibe-coding.md) y [02](../docs/02-que-es-sdd.md) |
 | 02 | [Flujo completo de SDD](02-flujo-completo-sdd.md) | El diagrama principal: los siete pasos, el fichero que deja cada uno, quién participa y los bucles de vuelta; y una conversación entre Ana, Luis y el asistente de IA | Todos | [docs 03](../docs/03-el-flujo-paso-a-paso.md) |
-| 03 | [Artefactos y relaciones](03-artefactos-y-relaciones.md) | Cómo se alimentan los documentos de SDD entre sí, cómo se sigue un requisito hasta el código y dónde vive cada fichero | Perfiles técnicos y quien quiera saber «qué fichero es cada cosa» | [docs 04](../docs/04-los-artefactos.md) |
+| 03 | [Artefactos y relaciones](03-artefactos-y-relaciones.md) | Cómo se alimentan los documentos de SDD entre sí, cómo se sigue un requisito hasta el código y dónde vive cada fichero | Quien vaya a construir con SDD o a usar Spec Kit, y quien quiera saber «qué fichero es cada cosa» | [docs 04](../docs/04-los-artefactos.md) |
 | 04 | [Roles y participación](04-roles-y-participacion.md) | Quién lidera y quién revisa en cada paso, y la matriz de responsabilidades | Todos | [docs 06](../docs/06-roles-quien-hace-que.md) |
 | 05 | [Anatomía de un requisito EARS](05-anatomia-de-un-requisito-ears.md) | Las piezas de un requisito bien escrito y cómo elegir la plantilla adecuada | Todos | [docs 05](../docs/05-escribir-requisitos-claros-ears.md) |
-| 06 | [Mapa del repositorio](06-mapa-del-repositorio.md) | Todas las carpetas y ficheros del repositorio, y el itinerario de lectura de cada perfil | Todos | [Portada](../README.md) |
+| 06 | [Mapa del repositorio](06-mapa-del-repositorio.md) | Todas las carpetas y ficheros del repositorio, y los cinco itinerarios de lectura | Todos | [Portada](../README.md) |
 
 Si solo vas a mirar uno, que sea el [02, el flujo completo](02-flujo-completo-sdd.md): resume el método entero en una imagen.
 
