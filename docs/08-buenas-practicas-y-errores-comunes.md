@@ -1,8 +1,8 @@
 # Buenas prácticas y errores comunes
 
-> **Para quién:** todos los perfiles; en especial quien vaya a encargar, liderar o revisar un proyecto con SDD · **Tiempo de lectura:** ~12 min · **Nivel:** 🟡 intermedio
+> **Para quién:** toda la empresa; en especial quien vaya a encargar, liderar o revisar un proyecto con SDD · **Tiempo de lectura:** ~12 min · **Nivel:** 🟡 intermedio
 
-Este documento recoge lo que, en nuestra experiencia, hace que SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) funcione y lo que suele estropearlo. No añade pasos nuevos: son los mismos siete de [El flujo paso a paso](03-el-flujo-paso-a-paso.md), vistos desde los tropiezos. Los ejemplos son de ReservaSalas y, para quien no programa, de la «Solicitud de vacaciones».
+Este documento recoge lo que, en nuestra experiencia, hace que SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) funcione y lo que suele estropearlo. No añade pasos nuevos: son los mismos siete de [El flujo paso a paso](03-el-flujo-paso-a-paso.md), vistos desde los tropiezos. Los ejemplos son de ReservaSalas y, para un caso sin código, de la «Solicitud de vacaciones».
 
 Léelo entero la primera vez. Después sirve como lista de repaso: antes de empezar un proyecto, las buenas prácticas; cuando algo chirría, la tabla de errores.
 
@@ -67,7 +67,7 @@ Están agrupadas por el momento del flujo en que más importan. Las seis primera
 
 *En ReservaSalas:* `.specify/memory/constitution.md` y `specs/001-reserva-salas/` van en el mismo repositorio que `src/` y `tests/`. Dentro de un año, quien pregunte «¿por qué 4 horas como máximo?» encontrará la respuesta al lado del código.
 
-**12. Revisa en pareja: negocio y desarrollo.** La especificación la lee quien la pidió y quien la va a construir, juntos, antes de planificar. La lista de verificación la pasa alguien que no la escribió. El producto mínimo se enseña a quien encarga antes de seguir con la siguiente historia.
+**12. Revisa en pareja: quien encarga y quien construye.** La especificación la lee quien la pidió y quien la va a construir, juntos, antes de planificar. La lista de verificación la pasa alguien que no la escribió. El producto mínimo se enseña a quien encarga antes de seguir con la siguiente historia.
 
 *En ReservaSalas:* Ana aprueba la especificación, Luis revisa el plan con alguien con experiencia técnica y, en cuanto la historia 1 funciona, se la enseña a Ana antes de empezar la 2.
 
@@ -137,7 +137,7 @@ Fíjate en que el camino nunca termina en «edita el código a mano y sigue». E
 
 No hace falta una auditoría. Si reconoces la mayoría de estas señales en tu proyecto, vas por buen camino:
 
-- Alguien de negocio ha leído la especificación entera y ha corregido algo en ella.
+- Quien encargó el proyecto ha leído la especificación entera y ha corregido algo en ella.
 - Puedes señalar la P1 y explicar en una frase por qué vale sola.
 - Cada criterio de éxito tiene una cifra y sabes cómo lo vas a medir.
 - La sección de aclaraciones no está vacía, y cada respuesta cambió algo en la especificación.

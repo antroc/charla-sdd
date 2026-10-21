@@ -1,20 +1,20 @@
 # Preguntas frecuentes
 
-> **Para quién:** todos los perfiles (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
 
-Este documento reúne las dudas que más se repiten cuando alguien oye hablar por primera vez de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Están agrupadas por perfil, pero merece la pena leer también las de los demás: la pregunta de un manager suele ser la que tiene en la cabeza quien programa, y al revés.
+Este documento reúne las dudas que más se repiten cuando alguien oye hablar por primera vez de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Están agrupadas por tema, pero merece la pena leer también las de los demás grupos: la pregunta de quien dirige un equipo suele ser la que tiene en la cabeza quien construye, y al revés.
 
 Las respuestas son cortas a propósito. Cada una termina con un enlace al documento, diagrama o ejercicio donde el tema se explica con calma. Los ejemplos son los de siempre: ReservaSalas, la aplicación para reservar las 12 salas de reuniones de la empresa, y la «Solicitud de vacaciones». Si una palabra no te suena, búscala en el [glosario](10-glosario.md).
 
 **Qué vas a encontrar**
 
-- [Para managers](#para-managers): si es más lento, quién responde cuando algo falla, cómo encaja con lo que ya hace tu equipo y cómo justificarlo ante dirección.
-- [Para negocio y RRHH](#para-negocio-y-rrhh): si hace falta saber programar, qué te va a tocar hacer y si sirve para procesos sin código.
-- [Para quien programa](#para-quien-programa): proyectos que ya existen, qué cambia en tu trabajo y qué hacer cuando el asistente se equivoca.
+- [Para decidir si lo probáis](#para-decidir-si-lo-probáis): si es más lento, quién responde cuando algo falla, cómo encaja con lo que ya hace tu equipo y cómo justificarlo ante dirección.
+- [Para escribir y revisar especificaciones](#para-escribir-y-revisar-especificaciones): si hace falta saber programar, qué te va a tocar hacer y si sirve para procesos sin código.
+- [Para construir con SDD](#para-construir-con-sdd): proyectos que ya existen, qué cambia en tu trabajo y qué hacer cuando el asistente se equivoca.
 - [Sobre herramientas](#sobre-herramientas): si Spec Kit es obligatorio, qué asistente necesitas, cuánto cuesta y qué hacer si un comando no funciona.
 - [Sobre cómo empezar en la empresa](#sobre-cómo-empezar-en-la-empresa): por dónde empezar mañana, qué datos no meter en un asistente, cómo montar un piloto y cómo llevarlo a tu equipo.
 
-## Para managers
+## Para decidir si lo probáis
 
 ### ¿Esto es más lento que pedirle directamente al asistente?
 
@@ -48,11 +48,11 @@ Lo que SDD añade es rastro. Si la especificación no decía lo que se quería, 
 
 *Para saber más:* [quién escribe y quién aprueba cada artefacto](../diagramas/03-artefactos-y-relaciones.md#quién-escribe-y-quién-aprueba-cada-artefacto) · [cuando algo falla: qué se corrige](08-buenas-practicas-y-errores-comunes.md#cuando-algo-falla-qué-se-corrige)
 
-### ¿Qué tengo que hacer yo, como manager, para que funcione?
+### ¿Qué tengo que hacer yo, si dirijo el equipo, para que funcione?
 
 Tres cosas, y ninguna exige saber programar. Proteger el tiempo de los pasos poco vistosos (aclarar dudas y analizar la coherencia), que son los que más tienta saltarse. Asegurarte de que la persona que decide está identificada y disponible cuando se la necesita. Y no premiar la prisa: si quien se salta la especificación es quien entrega «más rápido», el equipo entero aprende a saltársela.
 
-¿Cómo sabes si va bien? Sin auditorías: mira unas pocas señales, como que alguien de negocio haya leído y corregido la especificación, o que el último cambio del programa empezara por un cambio en ella.
+¿Cómo sabes si va bien? Sin auditorías: mira unas pocas señales, como que quien encarga haya leído y corregido la especificación, o que el último cambio del programa empezara por un cambio en ella.
 
 *Para saber más:* [dos riesgos que conviene conocer](06-roles-quien-hace-que.md#dos-riesgos-que-conviene-conocer) · [señales de que lo estás haciendo bien](08-buenas-practicas-y-errores-comunes.md#señales-de-que-lo-estás-haciendo-bien)
 
@@ -64,7 +64,7 @@ Añade los riesgos que reduce (depender de una sola persona, rehacer trabajo, gu
 
 *Para saber más:* [cómo montar un piloto](#cómo-monto-un-piloto-en-mi-equipo) · [lo que le cuesta a la empresa no tener especificación](01-el-problema-del-vibe-coding.md#lo-que-le-cuesta-a-la-empresa) · [cuánto cuesta](#cuánto-cuesta)
 
-## Para negocio y RRHH
+## Para escribir y revisar especificaciones
 
 ### ¿Tengo que saber programar para escribir una especificación?
 
@@ -82,13 +82,13 @@ Son horas, no semanas: Ana, la responsable de Oficina que encargó ReservaSalas,
 
 *Para saber más:* [si no eres técnico: lo que puedes hacer desde mañana](06-roles-quien-hace-que.md#si-no-eres-técnico-lo-que-puedes-hacer-desde-mañana) · [el papel de quien encarga el proyecto](06-roles-quien-hace-que.md#quien-encarga-el-proyecto-ana)
 
-### Soy de RRHH: ¿qué pinto yo en un proyecto de software?
+### No trabajo en tecnología: ¿qué pinto yo en un proyecto de software?
 
-Aportas lo que nadie más sabe: qué datos de las personas existen ya, cuáles no deben guardarse y quién tiene qué rol. En ReservaSalas, esa frontera la marca el principio «Datos mínimos» de la constitución (`constitution.md`, las reglas innegociables del proyecto): solo nombre, correo corporativo y reservas.
+Aportas lo que nadie más sabe de tu área: por ejemplo, qué datos de las personas existen ya, cuáles no deben guardarse y quién tiene qué rol. En ReservaSalas, esa frontera la marca el principio «Datos mínimos» de la constitución (`constitution.md`, las reglas innegociables del proyecto): solo nombre, correo corporativo y reservas.
 
 Y puedes ir más allá: escribir tú la especificación de un proceso de tu área. La «Solicitud de vacaciones» (una persona pide días, su manager aprueba o rechaza con motivo y RRHH lo registra) es exactamente eso.
 
-*Para saber más:* [RRHH y otros perfiles de negocio](06-roles-quien-hace-que.md#rrhh-y-otros-perfiles-de-negocio-jorge) · [la especificación resuelta de la solicitud de vacaciones](../ejercicios/soluciones/01-solicitud-de-vacaciones/especificacion.md)
+*Para saber más:* [el papel de Jorge en ReservaSalas](06-roles-quien-hace-que.md#rrhh-y-otros-perfiles-de-negocio-jorge) · [la especificación resuelta de la solicitud de vacaciones](../ejercicios/soluciones/01-solicitud-de-vacaciones/especificacion.md)
 
 ### ¿Sirve para cosas que no son software?
 
@@ -114,7 +114,7 @@ Para ir más a fondo está la lista de verificación (o *checklist*): preguntas 
 
 *Para saber más:* [la lista de verificación](04-los-artefactos.md#la-lista-de-verificación) · [su plantilla](../ejercicios/plantillas/lista-de-verificacion.md) · [ejercicio 05: arreglar una especificación mala](../ejercicios/05-arreglar-una-especificacion-mala.md)
 
-## Para quien programa
+## Para construir con SDD
 
 ### ¿Qué pasa con proyectos que ya existen?
 
@@ -168,11 +168,11 @@ Las tres producen lo mismo: una especificación que es la fuente de verdad, y un
 
 ### ¿Qué asistente necesito?
 
-Depende de lo que vayas a hacer. Si no programas, ninguno: bastan las plantillas y, si quieres, el chat de IA genérico que tenga autorizado la empresa. Si programas con Spec Kit, un asistente de programación con IA compatible: en la fecha de este material, Spec Kit reconoce 41, más una integración genérica para el resto. Claude Code, GitHub Copilot, Cursor o Gemini CLI son ejemplos de asistentes compatibles.
+Depende de lo que vayas a hacer. Si no vas a construir software, ninguno: bastan las plantillas y, si quieres, el chat de IA genérico que tenga autorizado la empresa. Si vas a construir con Spec Kit, un asistente de programación con IA compatible: en la fecha de este material, Spec Kit reconoce 41, más una integración genérica para el resto. Claude Code, GitHub Copilot, Cursor o Gemini CLI son ejemplos de asistentes compatibles.
 
 Cuál usar no es una elección personal: lo decide la empresa. Pregunta cuál está autorizado antes de instalar ninguno.
 
-*Para saber más:* [asistentes compatibles](07-herramientas.md#asistentes-compatibles) · [qué necesitas según tu perfil](07-herramientas.md#qué-necesitas-según-tu-perfil)
+*Para saber más:* [asistentes compatibles](07-herramientas.md#asistentes-compatibles) · [qué necesitas según lo que vayas a hacer](07-herramientas.md#qué-necesitas-según-tu-perfil)
 
 ### ¿Cuánto cuesta?
 
@@ -194,10 +194,10 @@ Si aun así falla, sospecha de la versión: Spec Kit cambia deprisa, y un error 
 
 ### ¿Cómo empiezo mañana?
 
-Con algo pequeño, según tu perfil:
+Con algo pequeño, según lo que vayas a hacer:
 
-- **Si no programas:** haz el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), la especificación de la «Solicitud de vacaciones», en una hora u hora y media y sin instalar nada.
-- **Si programas:** prepara el entorno con la vía B del [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md) y recorre el flujo completo en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md).
+- **Si vas a escribir o revisar especificaciones:** haz el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), la especificación de la «Solicitud de vacaciones», en una hora u hora y media y sin instalar nada.
+- **Si vas a construir con SDD:** prepara el entorno con la vía B del [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md) y recorre el flujo completo en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md).
 - **Si diriges un equipo:** lleva la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) a tu próxima reunión; no hace falta ningún ordenador.
 
 *Para saber más:* [itinerarios por perfil](../diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil) · [índice de documentación](README.md)
@@ -231,7 +231,7 @@ Y si gusta y alguien quiere usarlo de verdad, habla antes con IT y con seguridad
 
 Elige una funcionalidad pequeña cuya historia P1 quepa en uno o dos días de trabajo. Nombra a tres personas: quien encarga y decide; quien construye con un asistente autorizado (si en tu equipo nadie programa, pídeselo al equipo técnico que os da servicio), y quien revisa sin haber escrito la especificación.
 
-Antes de empezar, pregunta a IT qué asistente está autorizado y pide un repositorio donde negocio pueda leer los documentos. Dale un plazo corto (en nuestra experiencia, de dos a cuatro semanas bastan para recorrer el flujo y hacer algún cambio) y, al final, repasa las señales de que lo estás haciendo bien (¿negocio corrigió la especificación?, ¿el último cambio empezó por ella?) y decide: seguir, ajustar o parar.
+Antes de empezar, pregunta a IT qué asistente está autorizado y pide un repositorio donde quien encarga pueda leer los documentos. Dale un plazo corto (en nuestra experiencia, de dos a cuatro semanas bastan para recorrer el flujo y hacer algún cambio) y, al final, repasa las señales de que lo estás haciendo bien (¿quien encarga corrigió la especificación?, ¿el último cambio empezó por ella?) y decide: seguir, ajustar o parar.
 
 *Para saber más:* [quién hace qué en cada paso](06-roles-quien-hace-que.md#quién-hace-qué-en-cada-paso) · [señales de que lo estás haciendo bien](08-buenas-practicas-y-errores-comunes.md#señales-de-que-lo-estás-haciendo-bien) · [cómo justificarlo ante dirección](#cómo-se-lo-justifico-a-dirección)
 
@@ -239,13 +239,13 @@ Antes de empezar, pregunta a IT qué asistente está autorizado y pide un reposi
 
 Hay material listo para usar. Para contarlo a mucha gente, el [guion de la charla de 20 minutos](../charla/guion-20-minutos.md). Para que un equipo lo pruebe sin ordenadores, la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md), que puede dirigir cualquiera con su guion minuto a minuto, también en línea. Y para formatos más largos, como un taller, la [guía del facilitador](../charla/guia-del-facilitador.md).
 
-*Para saber más:* [variantes de la dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes) · [itinerario de quien facilita](../diagramas/06-mapa-del-repositorio.md#facilitador-de-la-charla-o-del-taller)
+*Para saber más:* [variantes de la dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes) · [itinerario para dar la charla o un taller](../diagramas/06-mapa-del-repositorio.md#dar-la-charla-o-un-taller)
 
 ## En tres frases
 
 1. SDD pide más tiempo al principio, para escribir y aclarar la especificación, a cambio de que cada cambio posterior parta de un texto que todo el mundo puede leer; el método y Spec Kit son gratuitos, y el asistente de IA es el que autorice la empresa.
 2. No hace falta saber programar para escribir o revisar una especificación; las personas deciden y responden de cada paso, y el asistente redacta y ejecuta, pero no aprueba nada.
-3. Para empezar, algo pequeño (el ejercicio 01 si no programas, el 00 y el 03 si programas, la dinámica de 20 minutos si diriges un equipo) y ningún dato real en un asistente que la empresa no haya autorizado.
+3. Para empezar, algo pequeño (el ejercicio 01 si vas a escribir o revisar especificaciones, el 00 y el 03 si vas a construir con SDD, la dinámica de 20 minutos si diriges un equipo) y ningún dato real en un asistente que la empresa no haya autorizado.
 
 ## Siguiente paso
 

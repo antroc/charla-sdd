@@ -1,10 +1,10 @@
 # Glosario
 
-> **Para quién:** todos los perfiles, en especial managers, RRHH y negocio · **Tiempo de lectura:** ~15 min de principio a fin (o consulta puntual) · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, para consultar cualquier palabra que no te suene · **Tiempo de lectura:** ~15 min de principio a fin (o consulta puntual) · **Nivel:** 🟢 básico
 
 [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [J](#j) · [K](#k) · [L](#l) · [M](#m) · [P](#p) · [Q](#q) · [R](#r) · [S](#s) · [T](#t) · [U](#u) · [V](#v)
 
-Este glosario recoge las palabras del repositorio que pueden extrañar si no programas, y algunas que, aunque programes, aquí tienen un sentido concreto. Cada una lleva una definición corta en lenguaje llano y, tras «Ver», el documento, diagrama o ejercicio donde se explica con calma.
+Este glosario recoge las palabras del repositorio que pueden extrañar si no las usas a diario, y algunas que, aunque las uses, aquí tienen un sentido concreto. Cada una lleva una definición corta en lenguaje llano y, tras «Ver», el documento, diagrama o ejercicio donde se explica con calma.
 
 Casi todas giran alrededor de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), la alternativa al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), y de sus documentos: constitución (`constitution.md`), especificación (`spec.md`), plan técnico (`plan.md`), lista de tareas (`tasks.md`) y lista de verificación.
 

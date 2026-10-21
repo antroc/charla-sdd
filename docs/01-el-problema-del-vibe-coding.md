@@ -1,6 +1,6 @@
 # El problema del *vibe coding*
 
-> **Para quién:** todos los perfiles (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~8 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~8 min · **Nivel:** 🟢 básico
 
 Este es el primer documento del itinerario. Cuenta qué pasa cuando se construye software con un asistente de IA sin un texto claro que diga qué tiene que hacer, y por qué eso acaba costando tiempo y dinero a la empresa. No hace falta saber programar para seguirlo: basta con haber pedido alguna vez que te hicieran algo.
 
@@ -86,7 +86,7 @@ Los documentos siguientes explican cómo se consigue cada una de estas cuatro co
 
 ## La reforma sin plano
 
-Si no programas, la analogía más útil es una reforma en casa.
+Para verlo sin tecnicismos, la analogía más útil es una reforma en casa.
 
 Imagina que encargas la reforma de la cocina a un albañil rapidísimo y muy voluntarioso, sin plano y sin presupuesto. Le dices «quiero la cocina más grande» y el lunes ya ha tirado un tabique.
 

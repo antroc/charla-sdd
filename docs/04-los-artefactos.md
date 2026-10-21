@@ -1,6 +1,6 @@
 # Los artefactos
 
-> **Para quién:** programadores junior y cualquier persona que vaya a escribir o revisar una especificación · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
+> **Para quién:** quien vaya a construir con SDD y cualquier persona que vaya a escribir o revisar una especificación · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
 En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) cada paso del flujo deja un documento. A esos documentos los llamamos artefactos. Son cinco: la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y la lista de verificación (o *checklist*; en Spec Kit, `checklists/requirements.md`; en nuestra solución, `checklist.md`). A ellos se suma el registro de aclaraciones, que en Spec Kit no es un fichero aparte sino una sección dentro de la especificación.
 
@@ -120,7 +120,7 @@ Ninguna funcionalidad se considera terminada sin al menos una prueba automática
 
 **Para qué sirve.** Es el contrato entre quien pide el software y quien lo construye, y la fuente de verdad de todo lo demás: si el código no hace lo que dice aquí, se corrige el código o se corrige esto y se regenera. Habla de qué queremos y por qué, en lenguaje natural, y nunca de tecnología.
 
-**Quién la escribe y quién la revisa.** La escribe quien pide (negocio, RRHH, un manager), con ayuda de quien construye; el asistente de IA la redacta a partir de la petición. La lee todo el equipo, incluido el asistente en cada paso posterior. Es el artefacto donde una persona no técnica aporta más.
+**Quién la escribe y quién la revisa.** La escribe quien pide, con ayuda de quien construye; el asistente de IA la redacta a partir de la petición. La lee todo el equipo, incluido el asistente en cada paso posterior. Es el artefacto donde una persona no técnica aporta más.
 
 **Qué secciones tiene:**
 
@@ -225,7 +225,7 @@ No hace falta entender la jerga técnica del extracto; fíjate en la estructura:
 
 ## La lista de tareas
 
-**Para qué sirve.** Es el plan troceado en trabajo pequeño, ordenado y comprobable. El asistente de IA la ejecuta tarea a tarea y va marcando; negocio puede seguir el avance por los puntos de control. Una buena tarea cabe en una línea, toca un fichero concreto y se da por terminada con un sí o un no.
+**Para qué sirve.** Es el plan troceado en trabajo pequeño, ordenado y comprobable. El asistente de IA la ejecuta tarea a tarea y va marcando; quien encarga puede seguir el avance por los puntos de control. Una buena tarea cabe en una línea, toca un fichero concreto y se da por terminada con un sí o un no.
 
 **Quién la escribe y quién la revisa.** La genera el asistente a partir del plan y la especificación; la revisa quien construye. Una comprobación útil: coger cada RF de la especificación y buscar en qué tarea aparece.
 
@@ -255,7 +255,7 @@ No hace falta entender la jerga técnica del extracto; fíjate en la estructura:
 **Punto de control:** la historia 1 funciona de principio a fin y se puede enseñar a Ana. Es el producto mínimo viable.
 ```
 
-Para quien no programa, lo que importa de este extracto es la forma: cada tarea cabe en una línea, dice qué fichero toca y a qué requisito responde (RF-005, CE-002…), y las pruebas van antes que el código.
+Sin entrar en el código, lo que importa de este extracto es la forma: cada tarea cabe en una línea, dice qué fichero toca y a qué requisito responde (RF-005, CE-002…), y las pruebas van antes que el código.
 
 **Errores típicos.** Tareas gigantes («hacer toda la parte del servidor»). Tareas sin fichero. Fases de historia sin pruebas, o con las pruebas después del código. Dos tareas marcadas `[P]` que tocan el mismo fichero. Y un requisito de la especificación que no aparece en ninguna tarea.
 
@@ -307,7 +307,7 @@ Los seis ficheros de ReservaSalas (los cinco artefactos más el registro de acla
 ## En tres frases
 
 1. SDD produce cinco artefactos (constitución, especificación, plan técnico, lista de tareas y lista de verificación) más el registro de aclaraciones, y cada uno alimenta al siguiente o comprueba al anterior.
-2. La constitución y la especificación hablan de qué y por qué, y las escribe negocio con ayuda técnica; el plan y las tareas hablan de cómo, y los genera el asistente de IA bajo la revisión de quien construye.
+2. La constitución y la especificación hablan de qué y por qué, y las escribe quien encarga, con ayuda técnica; el plan y las tareas hablan de cómo, y los genera el asistente de IA bajo la revisión de quien construye.
 3. Con Spec Kit viven en sitios fijos (`.specify/memory/constitution.md` y `specs/001-nombre/`); sin herramientas, basta con una carpeta en el repositorio con los mismos nombres y las plantillas de este material.
 
 ## Siguiente paso

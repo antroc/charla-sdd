@@ -1,6 +1,6 @@
 # Herramientas
 
-> **Para quién:** programadores junior y cualquier persona que quiera saber qué hace falta instalar (o no) para hacer SDD · **Tiempo de lectura:** ~12 min · **Nivel:** 🟡 intermedio
+> **Para quién:** quien vaya a usar Spec Kit y cualquier persona que quiera saber qué hace falta instalar (o no) para hacer SDD · **Tiempo de lectura:** ~12 min · **Nivel:** 🟡 intermedio
 
 SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un método, no un programa. Se puede seguir con una herramienta que lo automatiza, con un editor que lo lleva integrado o con unas plantillas y un chat de IA. Este documento describe las tres opciones sin vender ninguna: qué instalan, qué piden y para quién tienen sentido.
 
@@ -20,7 +20,7 @@ Si lo que buscas son los pasos de instalación uno a uno, con lo que deberías v
 
 - **GitHub Spec Kit.** Una herramienta de línea de comandos (se maneja escribiendo órdenes en la terminal, la ventana de texto del ordenador, en vez de con botones), gratuita y de código abierto (cualquiera puede ver y usar su código). Prepara el proyecto y añade al asistente de programación con IA que ya uses una serie de comandos que recorren el flujo paso a paso. Es la que usamos en los ejercicios 03 y 06.
 - **Kiro, de AWS.** Un editor de código con el flujo de especificación, diseño y tareas integrado. No necesita Spec Kit: trae el suyo.
-- **Sin herramientas.** Las plantillas de este repositorio, un documento compartido y, si quieres, un chat de IA autorizado por la empresa. Es la vía de los ejercicios 01, 02, 04 y 05 y la única que necesita un perfil no técnico.
+- **Sin herramientas.** Las plantillas de este repositorio, un documento compartido y, si quieres, un chat de IA autorizado por la empresa. Es la vía de los ejercicios 01, 02, 04 y 05 y la única que necesitas si no vas a construir software.
 
 El diagrama resume cómo elegir. Depende de dos cosas: si vas a construir software y qué asistente de IA tiene autorizado tu empresa.
 
@@ -211,7 +211,7 @@ No hace falta instalar nada para hacer SDD. Hace falta escribir una especificaci
 | 5. Analizar | Pasas `lista-de-verificacion.md`; alguien que no escribió la especificación la lee en voz alta |
 | 6. Implementar | Si es software, quien construye lo hace con su asistente habitual, tarea a tarea, y revisa contra la especificación. Si es un proceso, se pone en marcha y se mide contra los criterios de éxito |
 
-Es la vía natural para los perfiles no técnicos y para lo que no es software. La «Solicitud de vacaciones» del [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) se escribe así: Jorge, de RRHH, rellena la plantilla, usa el chat para que le haga preguntas de aclaración (los *prompts*, las instrucciones exactas que se le escriben al chat, están en el ejercicio) y pasa la lista de verificación. Nunca abre una terminal.
+Es la vía natural para quien solo va a escribir o revisar la especificación, y para lo que no es software. La «Solicitud de vacaciones» del [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) se escribe así: Jorge, de RRHH, rellena la plantilla, usa el chat para que le haga preguntas de aclaración (los *prompts*, las instrucciones exactas que se le escriben al chat, están en el ejercicio) y pasa la lista de verificación. Nunca abre una terminal.
 
 También es una buena vía para equipos de programación que todavía no tienen un asistente compatible autorizado: la especificación, la constitución y el plan se escriben igual, y cuando llegue la herramienta, los ficheros ya están.
 
@@ -224,7 +224,7 @@ También es una buena vía para equipos de programación que todavía no tienen 
 | **Requisitos** | Python 3.11 o superior, `uv` (o `pipx`/`pip`), un asistente compatible y saber usar una terminal | Instalar el editor; el resto, en su documentación | Saber escribir un documento |
 | **Asistente de IA** | El que ya uses, si es compatible (más de cuarenta) | El del propio editor | Cualquier chat genérico autorizado, o ninguno |
 | **Qué automatiza** | Generar y mantener los artefactos (constitución, especificación con sus aclaraciones, plan técnico, lista de tareas y listas de verificación) en ficheros fijos, con puertas de calidad (aclarar, listas de verificación, análisis) y la implementación tarea a tarea | Un flujo del mismo tipo dentro del editor, con sus propios nombres (no lo hemos verificado para este material) | Nada: tú escribes, el chat ayuda a redactar y a preguntar |
-| **Para quién** | Quien programa y ya trabaja con un asistente de IA | Quien programa y prefiere un entorno cerrado con todo dentro | Perfiles no técnicos, procesos que no son software, y equipos que todavía no tienen herramienta |
+| **Para quién** | Quien construye software y ya trabaja con un asistente de IA | Quien construye software y prefiere un entorno cerrado con todo dentro | Quien vaya a escribir o revisar una especificación, procesos que no son software, y equipos que todavía no tienen herramienta |
 | **Qué hay que pedir antes** | Autorización del asistente de IA que vayas a usar y permisos para instalar Python, `uv` y Spec Kit (o ayuda de IT) | Autorización e instalación del editor, según las condiciones de AWS | Nada; si quieres usar un chat de IA, que esté autorizado por la empresa |
 | **Dónde se usa aquí** | Ejercicios 03 y 06 | No se usa; se cita como alternativa | Ejercicios 01, 02, 04 y 05 |
 
@@ -232,13 +232,13 @@ Las tres producen lo mismo: una especificación que es la fuente de verdad y un 
 
 ## Qué necesitas según tu perfil
 
-| Perfil | Qué necesitas | Qué no necesitas | Por dónde empezar |
+| Si quieres… | Qué necesitas | Qué no necesitas | Por dónde empezar |
 |---|---|---|---|
-| Manager o responsable de equipo | Nada que instalar. Leer especificaciones y planes, y responder aclaraciones | Terminal, Spec Kit, un asistente de programación | [Ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) con las plantillas; [ejercicio 04](../ejercicios/04-dinamica-de-equipo-20-minutos.md) con tu equipo |
-| RRHH y perfiles de negocio | Nada que instalar. Un documento compartido, las plantillas y, si quieres, el chat de IA autorizado | Lo mismo | [Ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md) |
-| Programador junior | Un asistente de programación con IA compatible y autorizado, Python 3.11 o superior, `uv` y Spec Kit | Git es opcional para Spec Kit, aunque conviene tenerlo | [Ejercicio 00](../ejercicios/00-preparacion-del-entorno.md), vía B (la instalación completa), y después el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md) |
-| Programador con experiencia | Lo mismo que el junior. Además, leer las plantillas de `.specify/templates/` para saber qué le pide Spec Kit al asistente | Ni extensiones, ni *presets* ni flujos automatizados: el núcleo basta | [Ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md) y después el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md) con un problema real |
-| Quien facilita la charla o el taller | Nada que instalar para la charla; para el taller de 2 horas, un ordenador con la instalación completa (vía B del ejercicio 00) preparada para enseñar el flujo en vivo | Que todos los asistentes al taller instalen algo | [Guía del facilitador](../charla/guia-del-facilitador.md) |
+| Entender SDD y decidir si tu equipo lo prueba | Nada que instalar. Leer especificaciones y planes, y responder aclaraciones | Terminal, Spec Kit, un asistente de programación | [Ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) con las plantillas; [ejercicio 04](../ejercicios/04-dinamica-de-equipo-20-minutos.md) con tu equipo |
+| Escribir y revisar lo que pides | Nada que instalar. Un documento compartido, las plantillas y, si quieres, el chat de IA autorizado | Lo mismo | [Ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md) |
+| Construir con SDD desde cero | Un asistente de programación con IA compatible y autorizado, Python 3.11 o superior, `uv` y Spec Kit | Git es opcional para Spec Kit, aunque conviene tenerlo | [Ejercicio 00](../ejercicios/00-preparacion-del-entorno.md), vía B (la instalación completa), y después el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md) |
+| Ir al grano si ya trabajas con un asistente de IA | Lo mismo que en la fila anterior. Además, leer las plantillas de `.specify/templates/` para saber qué le pide Spec Kit al asistente | Ni extensiones, ni *presets* ni flujos automatizados: el núcleo basta | [Ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md) y después el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md) con un problema real |
+| Dar la charla o un taller | Nada que instalar para la charla; para el taller de 2 horas, un ordenador con la instalación completa (vía B del ejercicio 00) preparada para enseñar el flujo en vivo | Que todos los asistentes al taller instalen algo | [Guía del facilitador](../charla/guia-del-facilitador.md) |
 
 > [!WARNING]
 > Elijas la herramienta que elijas: nunca metas datos reales de clientes ni de empleados en un asistente de IA que la empresa no haya autorizado expresamente. Todos los ejemplos de este repositorio usan datos ficticios por esa razón.
@@ -260,7 +260,7 @@ Tres consecuencias prácticas:
 
 1. SDD se puede hacer con GitHub Spec Kit (una herramienta de terminal gratuita que añade los comandos `/speckit.*` a tu asistente de IA), con Kiro (un editor de AWS con el flujo integrado) o sin herramientas, con las plantillas de este repositorio y un chat de IA autorizado.
 2. Con Spec Kit todo empieza con `specify init` en la terminal y sigue en el chat del asistente con nueve comandos, del `constitution` al `converge`, que crean los artefactos en sitios fijos; es compatible con más de cuarenta asistentes, y la empresa decide cuál.
-3. Los perfiles no técnicos no necesitan instalar nada; quien programa necesita un asistente compatible, Python, `uv` y Spec Kit; y todos deben recordar que las herramientas cambian cada pocos meses y el método no.
+3. Para escribir y revisar especificaciones no hace falta instalar nada; para construir con Spec Kit hace falta un asistente compatible, Python, `uv` y Spec Kit; y todos deben recordar que las herramientas cambian cada pocos meses y el método no.
 
 ## Siguiente paso
 

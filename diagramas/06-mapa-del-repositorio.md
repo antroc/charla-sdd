@@ -170,21 +170,21 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 | [docs/10-glosario.md](../docs/10-glosario.md) | Glosario: los términos del material explicados en lenguaje llano, con enlaces | Todos | ~15 min o consulta · 🟢 |
 | [diagramas/README.md](README.md) | Índice de los diagramas, cómo verlos en GitHub, cómo editarlos y dónde están los SVG | Todos | ~3 min · 🟢 |
 | [diagramas/01-vibe-coding-vs-sdd.md](01-vibe-coding-vs-sdd.md) | Los dos caminos, uno al lado del otro: el bucle de parches frente al flujo con especificación | Todos | ~6 min · 🟢 |
-| [diagramas/02-flujo-completo-sdd.md](02-flujo-completo-sdd.md) | El diagrama principal: los siete pasos, sus ficheros, quién participa y los bucles de vuelta | Junior, managers y quien quiera ver el proceso entero | ~10 min · 🟡 |
-| [diagramas/03-artefactos-y-relaciones.md](03-artefactos-y-relaciones.md) | Cómo se alimentan los artefactos entre sí y qué fichero es cada cosa | Junior y perfiles técnicos | ~8 min · 🟡 |
+| [diagramas/02-flujo-completo-sdd.md](02-flujo-completo-sdd.md) | El diagrama principal: los siete pasos, sus ficheros, quién participa y los bucles de vuelta | Quien quiera ver el proceso entero | ~10 min · 🟡 |
+| [diagramas/03-artefactos-y-relaciones.md](03-artefactos-y-relaciones.md) | Cómo se alimentan los artefactos entre sí y qué fichero es cada cosa | Quien vaya a construir con SDD o a usar Spec Kit | ~8 min · 🟡 |
 | [diagramas/04-roles-y-participacion.md](04-roles-y-participacion.md) | Quién lidera y quién revisa en cada paso, con la matriz rol × paso | Todos | ~7 min · 🟢 |
-| [diagramas/05-anatomia-de-un-requisito-ears.md](05-anatomia-de-un-requisito-ears.md) | Un requisito EARS pieza a pieza y el árbol de decisión para elegir patrón | Managers, RRHH, negocio y junior | ~6 min · 🟢 |
-| [diagramas/06-mapa-del-repositorio.md](06-mapa-del-repositorio.md) | Esta página: el mapa del repositorio, los itinerarios por perfil y esta tabla | Todos | ~8 min · 🟢 |
-| [diagramas/svg/](svg/) | Exportación automática de cada diagrama en SVG (PowerPoint, documentos), lista para pegar en una presentación; no se edita a mano | Facilitadores y quien prepare diapositivas | ~1 min · 🟢 |
-| [diagramas/png/](png/) | La misma exportación en PNG (Google Slides, correo, chats); no se edita a mano | Facilitadores y quien prepare diapositivas | ~1 min · 🟢 |
-| [ejercicios/README.md](../ejercicios/README.md) | Índice de ejercicios, niveles, itinerarios por perfil y cómo usarlos | Todos | ~4 min · 🟢 |
-| [ejercicios/00-preparacion-del-entorno.md](../ejercicios/00-preparacion-del-entorno.md) | Preparar el entorno: vía A sin instalar nada y vía B con Git, un asistente de IA y Spec Kit | Todos (vía A) y quien programa (vía B) | 10-45 min · 🟡 |
-| [ejercicios/01-tu-primera-especificacion-sin-codigo.md](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) | Escribir la especificación de «Solicitud de vacaciones» con la plantilla, sin código | Managers, RRHH y negocio | 60-90 min · 🟢 |
-| [ejercicios/02-practicar-requisitos-ears.md](../ejercicios/02-practicar-requisitos-ears.md) | Reescribir doce frases vagas en EARS, clasificar patrones y cazar errores | RRHH, negocio, managers y junior | 30 min · 🟢 |
-| [ejercicios/03-reserva-salas-paso-a-paso.md](../ejercicios/03-reserva-salas-paso-a-paso.md) | Construir ReservaSalas de principio a fin con Spec Kit y un asistente de IA; el ejercicio central | Junior y cualquiera que programe | 90-120 min · 🟡 |
-| [ejercicios/04-dinamica-de-equipo-20-minutos.md](../ejercicios/04-dinamica-de-equipo-20-minutos.md) | Taller en grupo sin ordenador: de una petición vaga a historias, requisitos y preguntas | Facilitadores; todos como participantes | 20 min · 🟢 |
-| [ejercicios/05-arreglar-una-especificacion-mala.md](../ejercicios/05-arreglar-una-especificacion-mala.md) | Detectar diez problemas en una especificación mala de ReservaSalas y reescribirla | Junior y negocio que haya hecho el 02 | 30-40 min · 🟡 |
-| [ejercicios/06-reto-final-tu-propio-proyecto.md](../ejercicios/06-reto-final-tu-propio-proyecto.md) | Recorrer el flujo completo con un problema real tuyo, con rúbrica de autoevaluación | Quien programa y ha terminado el 03 | 3-4 h · 🔴 |
+| [diagramas/05-anatomia-de-un-requisito-ears.md](05-anatomia-de-un-requisito-ears.md) | Un requisito EARS pieza a pieza y el árbol de decisión para elegir patrón | Quien vaya a escribir o revisar una especificación | ~6 min · 🟢 |
+| [diagramas/06-mapa-del-repositorio.md](06-mapa-del-repositorio.md) | Esta página: el mapa del repositorio, los itinerarios de lectura y esta tabla | Todos | ~8 min · 🟢 |
+| [diagramas/svg/](svg/) | Exportación automática de cada diagrama en SVG (PowerPoint, documentos), lista para pegar en una presentación; no se edita a mano | Quien vaya a dar la charla o un taller, o a preparar diapositivas | ~1 min · 🟢 |
+| [diagramas/png/](png/) | La misma exportación en PNG (Google Slides, correo, chats); no se edita a mano | Quien vaya a dar la charla o un taller, o a preparar diapositivas | ~1 min · 🟢 |
+| [ejercicios/README.md](../ejercicios/README.md) | Índice de ejercicios, niveles, por cuáles empezar y cómo usarlos | Todos | ~4 min · 🟢 |
+| [ejercicios/00-preparacion-del-entorno.md](../ejercicios/00-preparacion-del-entorno.md) | Preparar el entorno: vía A sin instalar nada y vía B con Git, un asistente de IA y Spec Kit | Todos (vía A) y quien vaya a usar Spec Kit (vía B) | 10-45 min · 🟡 |
+| [ejercicios/01-tu-primera-especificacion-sin-codigo.md](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) | Escribir la especificación de «Solicitud de vacaciones» con la plantilla, sin código | Quien vaya a escribir o revisar una especificación | 60-90 min · 🟢 |
+| [ejercicios/02-practicar-requisitos-ears.md](../ejercicios/02-practicar-requisitos-ears.md) | Reescribir doce frases vagas en EARS, clasificar patrones y cazar errores | Quien vaya a escribir o revisar requisitos | 30 min · 🟢 |
+| [ejercicios/03-reserva-salas-paso-a-paso.md](../ejercicios/03-reserva-salas-paso-a-paso.md) | Construir ReservaSalas de principio a fin con Spec Kit y un asistente de IA; el ejercicio central | Quien vaya a construir con SDD | 90-120 min · 🟡 |
+| [ejercicios/04-dinamica-de-equipo-20-minutos.md](../ejercicios/04-dinamica-de-equipo-20-minutos.md) | Taller en grupo sin ordenador: de una petición vaga a historias, requisitos y preguntas | Quien vaya a dar la charla o un taller; todos como participantes | 20 min · 🟢 |
+| [ejercicios/05-arreglar-una-especificacion-mala.md](../ejercicios/05-arreglar-una-especificacion-mala.md) | Detectar diez problemas en una especificación mala de ReservaSalas y reescribirla | Quien haya hecho el 02 | 30-40 min · 🟡 |
+| [ejercicios/06-reto-final-tu-propio-proyecto.md](../ejercicios/06-reto-final-tu-propio-proyecto.md) | Recorrer el flujo completo con un problema real tuyo, con rúbrica de autoevaluación | Quien ha terminado el 03 | 3-4 h · 🔴 |
 | [ejercicios/plantillas/README.md](../ejercicios/plantillas/README.md) | Qué plantillas hay y cómo usarlas con y sin Spec Kit | Todos | ~6 min · 🟢 |
 | [ejercicios/plantillas/constitucion.md](../ejercicios/plantillas/constitucion.md) | Plantilla de constitución: principios numerados con su porqué, restricciones y proceso de cambio | Quien encarga y quien construye, juntos | Consulta |
 | [ejercicios/plantillas/especificacion.md](../ejercicios/plantillas/especificacion.md) | Plantilla de especificación: historias priorizadas, casos límite, requisitos EARS y criterios de éxito | Quien pide el software, con ayuda de quien construye | Consulta |
@@ -195,22 +195,22 @@ La tabla recorre el repositorio en el mismo orden que el mapa. Para cada fichero
 | [ejercicios/soluciones/README.md](../ejercicios/soluciones/README.md) | Índice de soluciones y recordatorio de que son ejemplos, no la única respuesta correcta | Todos | ~2 min · 🟢 |
 | [ejercicios/soluciones/01-solicitud-de-vacaciones/especificacion.md](../ejercicios/soluciones/01-solicitud-de-vacaciones/especificacion.md) | Especificación completa y ejemplar de «Solicitud de vacaciones», la del ejercicio 01 | Quien haya hecho el 01 | ~12 min · 🟢 |
 | [ejercicios/soluciones/02-requisitos-ears-resueltos.md](../ejercicios/soluciones/02-requisitos-ears-resueltos.md) | Las doce reescrituras, la clasificación por patrón y el «caza el error», comentados | Quien haya hecho el 02 | ~10 min · 🟢 |
-| [ejercicios/soluciones/03-reserva-salas/README.md](../ejercicios/soluciones/03-reserva-salas/README.md) | Qué contiene el ejemplo canónico de ReservaSalas, en qué orden leerlo y cómo se generó | Junior y quien quiera un ejemplo completo | ~25 min · 🟡 |
+| [ejercicios/soluciones/03-reserva-salas/README.md](../ejercicios/soluciones/03-reserva-salas/README.md) | Qué contiene el ejemplo canónico de ReservaSalas, en qué orden leerlo y cómo se generó | Quien vaya a construir con SDD y quien quiera un ejemplo completo | ~25 min · 🟡 |
 | [ejercicios/soluciones/03-reserva-salas/constitution.md](../ejercicios/soluciones/03-reserva-salas/constitution.md) | La constitución de ReservaSalas: sus cinco principios | Todos | Consulta |
 | [ejercicios/soluciones/03-reserva-salas/spec.md](../ejercicios/soluciones/03-reserva-salas/spec.md) | La especificación de referencia: historias P1-P3, requisitos RF-001 a RF-012 en EARS y criterios de éxito | Todos | Consulta |
 | [ejercicios/soluciones/03-reserva-salas/aclaraciones.md](../ejercicios/soluciones/03-reserva-salas/aclaraciones.md) | Las cinco preguntas del asistente de IA y las respuestas de Ana | Todos | Consulta |
-| [ejercicios/soluciones/03-reserva-salas/plan.md](../ejercicios/soluciones/03-reserva-salas/plan.md) | El plan técnico: tecnología elegida, estructura, modelo de datos, contratos y decisiones justificadas | Perfiles técnicos | Consulta |
-| [ejercicios/soluciones/03-reserva-salas/tasks.md](../ejercicios/soluciones/03-reserva-salas/tasks.md) | La lista de tareas por fases e historias de usuario, con las marcas `[P]` y `[HUn]` | Perfiles técnicos | Consulta |
+| [ejercicios/soluciones/03-reserva-salas/plan.md](../ejercicios/soluciones/03-reserva-salas/plan.md) | El plan técnico: tecnología elegida, estructura, modelo de datos, contratos y decisiones justificadas | Quien construye | Consulta |
+| [ejercicios/soluciones/03-reserva-salas/tasks.md](../ejercicios/soluciones/03-reserva-salas/tasks.md) | La lista de tareas por fases e historias de usuario, con las marcas `[P]` y `[HUn]` | Quien construye | Consulta |
 | [ejercicios/soluciones/03-reserva-salas/checklist.md](../ejercicios/soluciones/03-reserva-salas/checklist.md) | La lista de verificación de calidad de la especificación, ya pasada y marcada | Todos | Consulta |
 | [ejercicios/soluciones/05-especificacion-arreglada.md](../ejercicios/soluciones/05-especificacion-arreglada.md) | Lista numerada de problemas con su explicación y la especificación corregida | Quien haya hecho el 05 | ~15 min · 🟡 |
-| [charla/README.md](../charla/README.md) | Índice de la carpeta: qué hay para presentar SDD o para facilitar un taller | Facilitadores | ~3 min · 🟢 |
+| [charla/README.md](../charla/README.md) | Índice de la carpeta: qué hay para presentar SDD o para facilitar un taller | Quien vaya a dar la charla o un taller | ~3 min · 🟢 |
 | [charla/guion-20-minutos.md](../charla/guion-20-minutos.md) | Guion minuto a minuto de la charla de 20 minutos: qué decir, qué mostrar y posibles preguntas | Quien presenta SDD a la empresa | ~15 min · 🟢 |
 | [charla/guia-del-facilitador.md](../charla/guia-del-facilitador.md) | Cómo formar a un equipo con este material: formatos, agendas, adaptación al público y cómo medir si ha funcionado | Quien organiza un taller o un itinerario | ~15 min · 🟢 |
 
 ## En tres frases
 
 1. El repositorio tiene cinco partes: la portada y la guía de contribución en la raíz, la teoría en `docs/`, los dibujos en `diagramas/`, la práctica en `ejercicios/` y el material para presentarlo en `charla/`.
-2. No hace falta leerlo todo: cada perfil tiene su itinerario, desde unas tres horas para managers, RRHH y negocio hasta varios días de práctica para quien programa, y los diagramas de esta página lo recorren paso a paso con sus enlaces.
+2. No hace falta leerlo todo: hay cinco itinerarios según lo que quieras hacer, desde unas tres horas para entender SDD o escribir lo que pides hasta varios días de práctica para construir con SDD desde cero, y los diagramas de esta página los recorren paso a paso con sus enlaces.
 3. Cuando dudes de qué fichero abrir, la tabla final te dice de qué va cada uno, para quién es y cuánto se tarda.
 
 ## Siguiente paso

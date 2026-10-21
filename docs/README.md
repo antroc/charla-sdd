@@ -55,13 +55,13 @@ De izquierda a derecha, del 01 al 10. Los recuadros verdes son de nivel básico 
 
 ## Rutas de lectura por perfil
 
-| Si eres… | Lee, en este orden | Tiempo de lectura |
+| Si quieres… | Lee, en este orden | Tiempo de lectura |
 |---|---|---|
-| Manager o responsable de equipo | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [06](06-roles-quien-hace-que.md) → [08](08-buenas-practicas-y-errores-comunes.md) → [09](09-preguntas-frecuentes.md) | ~50 min |
-| RRHH o perfil de negocio | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [05](05-escribir-requisitos-claros-ears.md) → [06](06-roles-quien-hace-que.md), y el [glosario](10-glosario.md) a mano | ~40 min |
-| Programador junior | Todos, del [01](01-el-problema-del-vibe-coding.md) al [10](10-glosario.md) | ~2 h |
-| Programador con experiencia | [02](02-que-es-sdd.md) → [03](03-el-flujo-paso-a-paso.md) → [04](04-los-artefactos.md) → [07](07-herramientas.md) → [08](08-buenas-practicas-y-errores-comunes.md) | ~1 h |
-| Quien va a dar la charla o un taller | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [03](03-el-flujo-paso-a-paso.md) → [05](05-escribir-requisitos-claros-ears.md) → [06](06-roles-quien-hace-que.md), y después la carpeta [charla](../charla/README.md) | ~55 min |
+| Entender SDD y decidir si tu equipo lo prueba | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [06](06-roles-quien-hace-que.md) → [08](08-buenas-practicas-y-errores-comunes.md) → [09](09-preguntas-frecuentes.md) | ~50 min |
+| Escribir y revisar lo que pides | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [05](05-escribir-requisitos-claros-ears.md) → [06](06-roles-quien-hace-que.md), y el [glosario](10-glosario.md) a mano | ~40 min |
+| Construir con SDD desde cero | Todos, del [01](01-el-problema-del-vibe-coding.md) al [10](10-glosario.md) | ~2 h |
+| Ir al grano si ya trabajas con un asistente de IA | [02](02-que-es-sdd.md) → [03](03-el-flujo-paso-a-paso.md) → [04](04-los-artefactos.md) → [07](07-herramientas.md) → [08](08-buenas-practicas-y-errores-comunes.md) | ~1 h |
+| Dar la charla o un taller | [01](01-el-problema-del-vibe-coding.md) → [02](02-que-es-sdd.md) → [03](03-el-flujo-paso-a-paso.md) → [05](05-escribir-requisitos-claros-ears.md) → [06](06-roles-quien-hace-que.md), y después la carpeta [charla](../charla/README.md) | ~55 min |
 
 Son solo los documentos. Cada ruta completa, con sus diagramas y ejercicios, está dibujada en el [mapa del repositorio](../diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil).
 

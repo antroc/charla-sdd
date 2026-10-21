@@ -1,6 +1,6 @@
 # Qué es SDD
 
-> **Para quién:** todos los perfiles (managers, RRHH, negocio y quien programa) · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
 
 El [documento anterior](01-el-problema-del-vibe-coding.md) terminaba con un diagnóstico: cuando el software se hace a golpe de instrucciones sueltas, lo que falta es un contrato claro. Este documento explica qué es ese contrato, cómo se llama el método que lo pone en el centro y qué cambia cuando se trabaja así. Como en el anterior, no hace falta saber programar para seguirlo.
 
@@ -123,7 +123,7 @@ No es casualidad: la [constitución de ReservaSalas](../ejercicios/soluciones/03
 
 Es el mensaje central de todo el repositorio: **la especificación es la fuente de verdad; el código es su consecuencia.** Si algo está mal, se corrige la especificación y se regenera; no se parchea el código a ciegas.
 
-Para quien no programa, esto tiene una consecuencia práctica: lo que revisas y apruebas es un texto, no código. Ni siquiera hace falta saber editar ficheros: basta con pedir el cambio por escrito y revisar y aprobar el texto nuevo, en la vista de GitHub o en el documento que te pase quien construye. Y cuando algo falla, la primera pregunta deja de ser «¿quién tocó el código?» y pasa a ser «¿qué dice la especificación?». Quien programe lo vivirá en primera persona en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md): su momento clave es pedir un cambio tocando la especificación y no el código.
+Para quien encarga el software, esto tiene una consecuencia práctica: lo que revisas y apruebas es un texto, no código. Ni siquiera hace falta saber editar ficheros: basta con pedir el cambio por escrito y revisar y aprobar el texto nuevo, en la vista de GitHub o en el documento que te pase quien construye. Y cuando algo falla, la primera pregunta deja de ser «¿quién tocó el código?» y pasa a ser «¿qué dice la especificación?». Quien vaya a usar Spec Kit lo vivirá en primera persona en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md): su momento clave es pedir un cambio tocando la especificación y no el código.
 
 > [!IMPORTANT]
 > SDD no es magia. El asistente puede entender mal una frase, y una especificación puede ser ambigua o estar equivocada. Por eso el método incluye pasos para aclarar dudas, analizar la coherencia entre documentos y comprobar con pruebas automáticas, y por eso una persona revisa cada resultado. SDD reduce los riesgos del *vibe coding*; no los elimina.
@@ -143,8 +143,8 @@ Tampoco es una herramienta concreta. Hay herramientas que lo facilitan mucho, pe
 
 SDD interesa a dos grupos de personas que hasta ahora hablaban poco entre sí.
 
-- **Si pides software** (negocio, managers, RRHH, responsables de un proceso): la especificación se escribe en tu idioma. Puedes redactarla, revisarla, responder a las preguntas de aclaración y comprobar los criterios de éxito sin leer una línea de código. Una especificación bien escrita sustituye a muchos correos y reuniones de «yo pensaba que...».
-- **Si lo construyes** (programadores junior y con experiencia): tecleas menos y piensas más. Tu trabajo pasa a ser dirigir al asistente, revisar lo que genera, decidir la tecnología y vigilar que el resultado cumple lo escrito. Para alguien que empieza, el método da una estructura que antes solo daba la experiencia.
+- **Si pides software** (sea cual sea tu área): la especificación se escribe en tu idioma. Puedes redactarla, revisarla, responder a las preguntas de aclaración y comprobar los criterios de éxito sin leer una línea de código. Una especificación bien escrita sustituye a muchos correos y reuniones de «yo pensaba que...».
+- **Si lo construyes** (empieces ahora o tengas experiencia): tecleas menos y piensas más. Tu trabajo pasa a ser dirigir al asistente, revisar lo que genera, decidir la tecnología y vigilar que el resultado cumple lo escrito. Para alguien que empieza, el método da una estructura que antes solo daba la experiencia.
 
 Quién hace qué en cada paso, con una tabla por rol, está en [Roles: quién hace qué](06-roles-quien-hace-que.md).
 

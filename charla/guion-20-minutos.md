@@ -23,7 +23,7 @@ Este es el guion de una charla pensada para un *Pizza Day*, un formato informal:
 
 **Objetivo.** Que al salir cualquier persona sepa explicar en una frase qué es SDD, por qué reduce los problemas de pedirle código a un asistente de IA sin nada escrito, y qué puede hacer ella desde mañana según su rol. Nadie tiene que salir sabiendo usar una herramienta: eso es cosa de los talleres.
 
-**Público.** Toda la empresa a la vez, en una sala o en línea: managers, RRHH, perfiles de negocio y quien programa. La charla está pensada para quien no ha escrito nunca una línea de código; quien programa encontrará los detalles en el repositorio.
+**Público.** Toda la empresa a la vez, en una sala o en línea, sepa programar o no. La charla está pensada para quien no ha escrito nunca una línea de código; quien quiera el detalle técnico lo encontrará en el repositorio.
 
 **Quién presenta.** Una persona que haya leído [El problema del *vibe coding*](../docs/01-el-problema-del-vibe-coding.md), [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), y que haya ensayado el mini-ejercicio con alguien (la lista completa está en [Prepara la charla](README.md#prepara-la-charla)). No hace falta que programe. Si puedes, busca una segunda persona que lleve el tiempo y escriba en la pizarra durante el mini-ejercicio.
 
@@ -59,7 +59,7 @@ Abre estas pestañas, en este orden, antes de empezar:
 
 ## Minutos 0-2: el gancho
 
-Elige una de las dos versiones. La reforma funciona mejor si la mayoría del público no es técnico; la demo que se rompe, si hay mucha gente que programa. Ninguna necesita pantalla.
+Elige una de las dos versiones. La reforma funciona mejor si la mayoría del público no es técnico; la demo que se rompe, si mucha gente construye software a diario. Ninguna necesita pantalla.
 
 **Qué dices (versión A, la reforma sin plano):**
 
@@ -228,9 +228,9 @@ Para cada frase tienes la respuesta típica de la sala, que también es tu plan 
 >
 > Si encargas algo, como Ana, lideras los tres primeros pasos: dictas los principios, describes qué quieres y por qué, y respondes a las aclaraciones; en ReservaSalas fue una reunión de quince minutos. Al final pruebas la aplicación con la especificación en la mano. Sin leer código ni instalar nada.
 >
-> Si diriges un equipo que va a usar la aplicación, como Marta, aportas el uso real: qué es «rápido» para ti y qué te molesta hoy. Si eres de RRHH o de negocio, como Jorge, sabes qué datos de las personas se pueden guardar y cuáles no, y puedes escribir tú la especificación de un proceso de tu área, como una solicitud de vacaciones.
+> Si diriges un equipo que va a usar la aplicación, como Marta, aportas el uso real: qué es «rápido» para ti y qué te molesta hoy. Si trabajas con datos de personas, como Jorge, sabes cuáles se pueden guardar y cuáles no, y puedes escribir tú la especificación de un proceso de tu área, como una solicitud de vacaciones.
 >
-> Si programas, como Luis, vas a teclear menos y a decidir y revisar más: eliges la tecnología y la justificas, compruebas que cada requisito tiene su tarea y, cuando algo falla, corriges la especificación, no el código. Y el asistente de IA redacta, pregunta y ejecuta, pero no lidera ningún paso ni aprueba nada.
+> Si construyes la aplicación, como Luis, vas a teclear menos y a decidir y revisar más: eliges la tecnología y la justificas, compruebas que cada requisito tiene su tarea y, cuando algo falla, corriges la especificación, no el código. Y el asistente de IA redacta, pregunta y ejecuta, pero no lidera ningún paso ni aprueba nada.
 
 **Qué muestras:** pestaña 6, [`../diagramas/04-roles-y-participacion.md`](../diagramas/04-roles-y-participacion.md#matriz-de-roles-y-pasos), «Matriz de roles y pasos». Señala tres cosas: las L (lidera) de Ana en los pasos 0 a 2, las L de Luis en los pasos 3 a 6 y la fila del asistente, que no tiene ninguna.
 
@@ -242,25 +242,26 @@ Para cada frase tienes la respuesta típica de la sala, que también es tu plan 
 
 > Si os quedáis con una sola frase, que sea esta: primero el qué y el porqué, por escrito; el código, lo último. *[Con la versión A del gancho: «El asistente de IA es el albañil más rápido del mundo; el plano lo ponemos nosotros».]*
 >
-> Mañana, una cosa cada uno. Si no programas, haz el ejercicio de la solicitud de vacaciones: una hora larga y sin instalar nada. Si diriges un equipo, lleva la dinámica de veinte minutos a tu próxima reunión. Si programas, prepara el entorno y recorre ReservaSalas de principio a fin.
+> Mañana, una cosa cada uno. Si quieres escribir lo que pides, haz el ejercicio de la solicitud de vacaciones: una hora larga y sin instalar nada. Si quieres probarlo con tu equipo, lleva la dinámica de veinte minutos a tu próxima reunión. Si quieres construir con SDD, prepara el entorno y recorre ReservaSalas de principio a fin.
 >
-> Todo está en el repositorio, con una ruta de lectura para cada perfil. Y hay talleres: *[fecha y lugar del próximo taller de dos horas]* y *[fecha de la sesión práctica para quien programa]*. El enlace está en pantalla. ¿Preguntas?
+> Todo está en el repositorio, con cinco rutas de lectura según lo que quieras hacer. Y hay talleres: *[fecha y lugar del próximo taller de dos horas]* y *[fecha de la sesión práctica con Spec Kit]*. El enlace está en pantalla. ¿Preguntas?
 
-**Qué muestras:** pestaña 7, la diapositiva de cierre. Su texto, con el primer paso y la ruta de lectura de cada perfil:
+**Qué muestras:** pestaña 7, la diapositiva de cierre. Su texto, con un primer paso para cada necesidad y las cinco rutas de lectura:
 
 ```text
 SDD: primero el qué y el porqué, por escrito. El código, lo último.
 
 Empieza mañana:
-  Si no programas       → ejercicio 01: Solicitud de vacaciones (60-90 min)
-  Si diriges un equipo  → ejercicio 04: la dinámica de 20 minutos
-  Si programas          → ejercicios 00 (entorno) y 03 (ReservaSalas)
+  Si quieres escribir lo que pides   → ejercicio 01: Solicitud de vacaciones (60-90 min)
+  Si quieres probarlo con tu equipo  → ejercicio 04: la dinámica de 20 minutos
+  Si quieres construir con SDD       → ejercicios 00 (entorno) y 03 (ReservaSalas)
 
 Rutas de lectura (con sus ejercicios):
-  Manager o responsable de equipo   docs 01, 02, 06, 08 y 09     unas 3 h
-  RRHH y perfiles de negocio        docs 01, 02, 05, 06 y 10     unas 3 h
-  Programador junior                todos los docs y diagramas   10-12 h, en varios días
-  Programador con experiencia       docs 02, 03, 04, 07 y 08     6-8 h
+  Entender SDD y decidir si tu equipo lo prueba       docs 01, 02, 06, 08 y 09     unas 3 h
+  Escribir y revisar lo que pides                     docs 01, 02, 05, 06 y 10     unas 3 h
+  Construir con SDD desde cero                        todos los docs y diagramas   10-12 h, en varios días
+  Ir al grano si ya trabajas con un asistente de IA   docs 02, 03, 04, 07 y 08     6-8 h
+  Dar la charla o un taller                           guion, guía y ejercicio 04   unas 2 h
 
 Repositorio:        [enlace al repositorio]
 Próximos talleres:  [fecha, lugar o enlace de inscripción]

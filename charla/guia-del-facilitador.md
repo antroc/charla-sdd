@@ -1,6 +1,6 @@
 # Guía del facilitador
 
-> **Para quién:** quien va a formar a un equipo con este repositorio: managers, RRHH, responsables de formación o cualquier persona que facilite (no hace falta programar) · **Tiempo de lectura:** ~15 min · **Nivel:** 🟢 básico
+> **Para quién:** quien va a formar a un equipo con este repositorio: dar la charla, un taller o un itinerario de autoformación (no hace falta programar) · **Tiempo de lectura:** ~15 min · **Nivel:** 🟢 básico
 
 Esta guía explica cómo usar el repositorio para enseñar a un equipo SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): escribir primero qué se quiere y por qué, en vez de recurrir al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). Hay tres formatos (una charla de 20 minutos, un taller de 2 horas y un itinerario de autoformación de 2 semanas) y, para cada uno, tienes la agenda y los ficheros de cada tramo.
 
@@ -36,7 +36,7 @@ Tres reglas que valen para cualquier formato:
 
 Los artefactos que enseñarás están resueltos en la [solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md): la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`) y la lista de tareas (`tasks.md`) de ReservaSalas.
 
-Antes de facilitar por primera vez, recorre el [itinerario de quien facilita](../diagramas/06-mapa-del-repositorio.md#facilitador-de-la-charla-o-del-taller), unas 2 horas la primera vez: esta carpeta, la [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) y los seis diagramas. Para la charla, la lista paso a paso está en [Prepara la charla](README.md#prepara-la-charla). Y haz tú los ejercicios que vayas a dirigir: es la única forma de saber dónde se atasca la gente.
+Antes de facilitar por primera vez, recorre el itinerario [Dar la charla o un taller](../diagramas/06-mapa-del-repositorio.md#dar-la-charla-o-un-taller), unas 2 horas la primera vez: esta carpeta, la [dinámica de equipo de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md) y los seis diagramas. Para la charla, la lista paso a paso está en [Prepara la charla](README.md#prepara-la-charla). Y haz tú los ejercicios que vayas a dirigir: es la única forma de saber dónde se atasca la gente.
 
 ## Tres formatos
 
@@ -45,7 +45,7 @@ Antes de facilitar por primera vez, recorre el [itinerario de quien facilita](..
 | **Duración** | 20 minutos | 2 horas | 2 semanas, de 30 a 90 minutos al día |
 | **Para quién** | Toda la empresa a la vez | Un equipo de 6 a 24 personas | Quien quiera profundizar, a su ritmo |
 | **Objetivo** | Entender qué es SDD y por qué importa | Practicar especificar, aclarar y revisar | Recorrer todo el material y aplicarlo a algo propio |
-| **Ordenador** | Solo quien presenta | No hace falta (salvo en la variante técnica) | Sí; quien programa, con herramientas instaladas |
+| **Ordenador** | Solo quien presenta | No hace falta (salvo en la variante técnica) | Sí; quien vaya a usar Spec Kit, con las herramientas instaladas |
 | **Material principal** | [Guion de 20 minutos](guion-20-minutos.md) | Ejercicios 04, 02 y 05 | Todo el repositorio |
 
 Los formatos se encadenan. Este diagrama muestra cómo elegir el primero y cómo pasar de uno a otro.
@@ -57,11 +57,11 @@ flowchart LR
   inicio -->|"un rato al día, 2 semanas"| itinerario["Itinerario de autoformación"]
   charla -.->|"quien quiera más"| taller
   taller -.->|"quien quiera más"| itinerario
-  itinerario --> negocio["Si no programas: especifica un problema real de tu equipo"]
-  itinerario --> tecnico["Si programas: reto final con tu propio proyecto"]
+  itinerario --> sinHerramientas["Sin instalar nada: especifica un problema real de tu equipo"]
+  itinerario --> conSpecKit["Con Spec Kit: reto final con tu propio proyecto"]
 ```
 
-De izquierda a derecha: el tiempo disponible decide el formato. La charla despierta el interés de toda la empresa; quien quiere más pasa al taller, y del taller, al itinerario. El itinerario termina con algo propio: la especificación de un problema real del equipo si no programas, o el reto final del [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md) si programas.
+De izquierda a derecha: el tiempo disponible decide el formato. La charla despierta el interés de toda la empresa; quien quiere más pasa al taller, y del taller, al itinerario. El itinerario termina con algo propio: la especificación de un problema real del equipo, sin instalar nada, o el reto final del [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md), con Spec Kit.
 
 ### Formato 1: charla de 20 minutos
 
@@ -83,7 +83,7 @@ Lleva preparadas las fechas del próximo taller para la diapositiva de cierre: s
 
 **Objetivo.** Al terminar, cada participante habrá escrito requisitos con EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), habrá formulado preguntas de aclaración y habrá revisado una especificación con ojo crítico. Es la parte de SDD que no necesita herramientas y en la que participa todo el equipo.
 
-**Público.** De 6 a 24 personas, en grupos de 3 o 4 para la dinámica y en parejas para los ejercicios, mezclando perfiles.
+**Público.** De 6 a 24 personas, en grupos de 3 o 4 para la dinámica y en parejas para los ejercicios, mezclando experiencias.
 
 **Preparación (la víspera):**
 
@@ -113,9 +113,9 @@ Lleva preparadas las fechas del próximo taller para la diapositiva de cierre: s
 
 ### Formato 3: itinerario de autoformación de 2 semanas
 
-Diez días laborables, de 30 a 90 minutos al día, cada persona a su ritmo. Funciona mejor con dos encuentros cortos del grupo (días 5 y 10) y un canal de chat del equipo para las dudas. La columna «Leer» es para todos; la tarea práctica cambia según programes o no.
+Diez días laborables, de 30 a 90 minutos al día, cada persona a su ritmo. Funciona mejor con dos encuentros cortos del grupo (días 5 y 10) y un canal de chat del equipo para las dudas. La columna «Leer» es para todos; la tarea práctica cambia según la vía que sigas: la A, sin instalar nada, o la B, con Spec Kit y un asistente de IA.
 
-| Día | Tema | Leer | Si no programas | Si programas | Tiempo (aprox.) |
+| Día | Tema | Leer | Vía A, sin instalar nada | Vía B, con Spec Kit | Tiempo (aprox.) |
 |---|---|---|---|---|---|
 | 1 | El problema | [Docs 01](../docs/01-el-problema-del-vibe-coding.md), [diagrama 01](../diagramas/01-vibe-coding-vs-sdd.md) | Aplica las [tres preguntas](../docs/01-el-problema-del-vibe-coding.md#tres-preguntas-antes-de-aceptar-una-demo) a una herramienta que uses | Lo mismo | 25 min |
 | 2 | Qué es SDD | [Docs 02](../docs/02-que-es-sdd.md), [diagrama 06](../diagramas/06-mapa-del-repositorio.md) | [Ejercicio 00](../ejercicios/00-preparacion-del-entorno.md), vía A | Ejercicio 00, vía B | 30-60 min |
@@ -131,10 +131,10 @@ Diez días laborables, de 30 a 90 minutos al día, cada persona a su ritmo. Func
 - **Encuentro del día 5 (30 minutos):** cada persona lee en voz alta un requisito suyo del ejercicio 02 y el resto le caza una vaguedad, como en la dinámica. Después, dudas abiertas.
 - **Encuentro del día 10 (45 minutos):** cada persona enseña en dos minutos su historia P1 o el avance de su reto final; después, la encuesta de cierre y qué hace el equipo a partir de ahora.
 
-El orden difiere un poco de la ruta del programador junior de los [itinerarios por perfil](../diagramas/06-mapa-del-repositorio.md#itinerarios-por-perfil): aquí el ejercicio 05 va antes que el 03, para que todo el equipo lo haga la misma semana y antes de leer entera la especificación de la solución, que contiene sus respuestas.
+El orden difiere un poco del itinerario [Construir con SDD desde cero](../diagramas/06-mapa-del-repositorio.md#construir-con-sdd-desde-cero) del mapa del repositorio: aquí el ejercicio 05 va antes que el 03, para que todo el equipo lo haga la misma semana y antes de leer entera la especificación de la solución, que contiene sus respuestas.
 
 > [!IMPORTANT]
-> Antes del día 2, quien programe tiene que confirmar con IT que puede instalar Spec Kit y qué asistente de IA está autorizado ([preguntas frecuentes](../docs/09-preguntas-frecuentes.md#puedo-instalar-spec-kit-en-el-ordenador-del-trabajo)). Si no se puede, sigue la vía A y hace los días 7 y 8 como quien no programa.
+> Antes del día 2, quien vaya a seguir la vía B tiene que confirmar con IT que puede instalar Spec Kit y qué asistente de IA está autorizado ([preguntas frecuentes](../docs/09-preguntas-frecuentes.md#puedo-instalar-spec-kit-en-el-ordenador-del-trabajo)). Si no se puede, sigue la vía A y hace también por esa vía los días 7 y 8.
 
 ## Preparar la sala o la sesión en línea
 
@@ -142,7 +142,7 @@ El orden difiere un poco de la ruta del programador junior de los [itinerarios p
 
 - [ ] El proyector, probado con tu portátil; el navegador al 125-150 % de zoom y las pestañas abiertas en el orden del guion.
 - [ ] Un plan B sin conexión: capturas de los diagramas y de los fragmentos que vas a enseñar. Para las diapositivas tienes todos los diagramas exportados en [`diagramas/svg/`](../diagramas/svg/README.md) (PowerPoint, Keynote) y [`diagramas/png/`](../diagramas/png/README.md) (Google Slides).
-- [ ] Mesas separadas para grupos de 3 o 4 personas, con los perfiles ya mezclados, si vas a hacer la dinámica.
+- [ ] Mesas separadas para grupos de 3 o 4 personas, ya hechos y con experiencias mezcladas, si vas a hacer la dinámica.
 - [ ] El material impreso: tarjetas y plantillas de la dinámica (con letra de ancho fijo), la especificación del ejercicio 05 si toca, y bolígrafos.
 - [ ] Una pizarra o un rotafolio para la caza de vaguedades, y un cronómetro visible.
 - [ ] Llegas 15 minutos antes. Si alguien se conecta en remoto, pruebas el micrófono con esa persona.
@@ -164,19 +164,19 @@ El orden difiere un poco de la ruta del programador junior de los [itinerarios p
 
 El material es el mismo para todos; lo que cambia es dónde pones el énfasis y qué ejercicio eliges.
 
-| | Managers | RRHH y negocio | Quien programa |
+| | Si el grupo tiene que decidir si lo prueba | Si el grupo no tiene experiencia técnica | Si el grupo construye software a diario |
 |---|---|---|---|
 | **Qué les preocupa** | Plazos, riesgo, dependencia de una sola persona, retrabajo | Si hace falta saber programar, qué les tocará hacer y cuánto tiempo, qué pasa con los datos de las personas | Si van a dejar de programar, si es más lento, qué herramientas, qué pasa con lo que ya existe |
 | **Qué enfatizar** | La velocidad a los tres meses frente a la del primer día; las tres preguntas antes de aceptar una demo; su papel al aclarar y al validar los criterios de éxito | Que la especificación se escribe en castellano y sin tecnología; EARS como plantillas de frase; la Solicitud de vacaciones; el principio de datos mínimos | El plan y las tareas; las pruebas antes que el código; corregir la especificación, no el código; los comandos de Spec Kit |
 | **Qué evitar** | Comandos y detalles de instalación | El plan técnico y la lista de tareas en detalle | Presentarlo como burocracia o como sustituto de su criterio |
 | **Ficheros estrella** | [Docs 01](../docs/01-el-problema-del-vibe-coding.md#tres-preguntas-antes-de-aceptar-una-demo), [diagrama 01](../diagramas/01-vibe-coding-vs-sdd.md), [diagrama 04](../diagramas/04-roles-y-participacion.md) | [Docs 05](../docs/05-escribir-requisitos-claros-ears.md), ejercicios [01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y [02](../ejercicios/02-practicar-requisitos-ears.md) | [Docs 03](../docs/03-el-flujo-paso-a-paso.md), [docs 07](../docs/07-herramientas.md), [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md) |
-| **Sus preguntas frecuentes** | [Para managers](../docs/09-preguntas-frecuentes.md#para-managers) | [Para negocio y RRHH](../docs/09-preguntas-frecuentes.md#para-negocio-y-rrhh) | [Para quien programa](../docs/09-preguntas-frecuentes.md#para-quien-programa) |
+| **Sus preguntas frecuentes** | [Para decidir si lo probáis](../docs/09-preguntas-frecuentes.md#para-decidir-si-lo-probáis) | [Para escribir y revisar especificaciones](../docs/09-preguntas-frecuentes.md#para-escribir-y-revisar-especificaciones) | [Para construir con SDD](../docs/09-preguntas-frecuentes.md#para-construir-con-sdd) |
 
-Con un grupo mixto, que es lo más habitual:
+Si el grupo es mixto, que es lo más habitual:
 
-- Mezcla perfiles en cada grupo: al menos una persona de negocio y una técnica.
-- Que escriba la hoja y haga de portavoz alguien de negocio; quien programa vigila que no se cuele tecnología y propone casos límite («¿y si dos personas reservan a la vez?»).
-- Pon los ejemplos en el rol mayoritario de la sala: con muchos managers, habla de Marta; con mucha gente de RRHH, de Jorge.
+- Mezcla experiencias en cada grupo: al menos una persona sin experiencia técnica y otra que construya software.
+- Que escriba la hoja y haga de portavoz alguien sin experiencia técnica; quien construye software vigila que no se cuele tecnología y propone casos límite («¿y si dos personas reservan a la vez?»).
+- Pon los ejemplos en el rol mayoritario de la sala: si casi todos dirigen un equipo, habla de Marta; si casi todos trabajan con datos de personas, de Jorge.
 
 ## Medir si ha funcionado
 
@@ -184,12 +184,12 @@ Mide dos cosas: lo que la gente se lleva al salir, con la encuesta, y lo que hac
 
 ### Encuesta de cierre (5 preguntas)
 
-Dos minutos al final de la sesión, anónima. Cópiala en la herramienta de formularios de la empresa o imprímela. Los datos de la cabecera no puntúan: sirven para leer los resultados por formato y por perfil.
+Dos minutos al final de la sesión, anónima. Cópiala en la herramienta de formularios de la empresa o imprímela. Los datos de la cabecera no puntúan: sirven para leer los resultados por formato y por rol.
 
 ```text
 ENCUESTA DE CIERRE · Formación en SDD                      (anónima, 2 minutos)
 Formato: [charla / taller / itinerario]   Fecha: [fecha]
-Perfil:  [manager / RRHH o negocio / programo / otro]
+Rol:     [encargo software / lo uso / lo construyo / otro]
 
 Escala: 1 = nada de acuerdo · 2 = poco · 3 = a medias · 4 = bastante ·
         5 = totalmente de acuerdo
@@ -217,7 +217,7 @@ Calcula la media de cada pregunta. Como referencia orientativa, una media por de
 | 2. La especificación, antes que el código | El gancho no conectó con el público | Prueba la otra versión del gancho: la reforma o la demo que se rompe |
 | 3. Requisito EARS | El ejercicio fue corto o participó poca gente | Protege sus minutos; en el taller, no recortes el ejercicio 02 |
 | 4. Mi papel | El bloque de roles fue genérico | Pon ejemplos del rol mayoritario y enseña la [matriz de roles](../diagramas/04-roles-y-participacion.md#matriz-de-roles-y-pasos) |
-| 5. Voy a probar algo | La llamada a la acción no fue concreta | Da un primer paso por perfil, con su enlace y su tiempo («una hora larga, sin instalar nada») |
+| 5. Voy a probar algo | La llamada a la acción no fue concreta | Da un primer paso para cada necesidad, con su enlace y su tiempo («una hora larga, sin instalar nada») |
 
 ### Dos a cuatro semanas después
 
@@ -225,7 +225,7 @@ La encuesta mide intenciones; lo que cuenta es lo que pasa después. No hace fal
 
 - Repite la pregunta 5 en pasado, por el canal del equipo: «He probado algo de lo visto».
 - ¿Algún equipo ha usado la dinámica de 20 minutos en una reunión?
-- ¿Hay alguna especificación nueva en un repositorio del equipo, revisada por alguien de negocio?
+- ¿Hay alguna especificación nueva en un repositorio del equipo, revisada por quien la encargó?
 - ¿El último cambio de comportamiento de alguna aplicación empezó por un cambio en su especificación?
 
 Para los equipos que ya trabajan con SDD, la lista de [señales de que lo estás haciendo bien](../docs/08-buenas-practicas-y-errores-comunes.md#señales-de-que-lo-estás-haciendo-bien) es el siguiente nivel. Y si un equipo quiere pasar de la formación a un proyecto real, lo que se mide es su piloto: cómo montarlo y qué mirar al final está en [¿Cómo monto un piloto en mi equipo?](../docs/09-preguntas-frecuentes.md#cómo-monto-un-piloto-en-mi-equipo).
@@ -236,7 +236,7 @@ Para los equipos que ya trabajan con SDD, la lista de [señales de que lo estás
 |---|---|
 | Llegas al minuto 12 de la charla sin haber empezado el mini-ejercicio. | Recorta con la tabla [Qué recortar si vas tarde](guion-20-minutos.md#qué-recortar-si-vas-tarde). El ejercicio no se toca. |
 | La sesión se convierte en una demo de comandos y de instalación. | Las herramientas se nombran; los comandos son para el ejercicio 03 o para un taller técnico. Al público general le basta el qué y el porqué. |
-| Quien programa acapara su grupo y escribe la hoja. | Pide que escriba y haga de portavoz alguien de negocio; dale a quien programa el papel de cazar tecnología y casos límite. |
+| La persona más técnica acapara su grupo y escribe la hoja. | Pide que escriba y haga de portavoz alguien sin experiencia técnica; dale a quien construye software el papel de cazar tecnología y casos límite. |
 | Nadie levanta la mano en el mini-ejercicio. | Espera cinco segundos; luego dicta tú la respuesta típica del guion y pide a la sala que la cace. En línea, pide el requisito por el chat. |
 | Alguien dice «esto es la cascada de siempre» o «más burocracia». | No discutas. Cuenta que la especificación de ReservaSalas se lee en diez minutos y que cada funcionalidad recorre el flujo en horas o en un par de días ([respuesta larga](../docs/09-preguntas-frecuentes.md#no-es-volver-a-escribir-documentos-que-nadie-lee)). |
 | Te hacen una pregunta que no sabes responder. | «No lo sé; lo consulto y os respondo por escrito». Búscala en las preguntas frecuentes y, si no está, propón añadirla (ver la sección siguiente). |
@@ -269,7 +269,7 @@ Propuesta:         [texto nuevo o cambio concreto]
 ## En tres frases
 
 1. El repositorio se usa en tres formatos que se encadenan: una charla de 20 minutos para toda la empresa, un taller de 2 horas para un equipo y un itinerario de 2 semanas para quien quiera profundizar.
-2. En todos, la gente practica más de lo que escucha, con un solo ejemplo (ReservaSalas) y datos ficticios, y el énfasis se adapta a managers, a RRHH y negocio o a quien programa.
+2. En todos, la gente practica más de lo que escucha, con un solo ejemplo (ReservaSalas) y datos ficticios, y el énfasis se adapta a la experiencia del grupo y a lo que necesita.
 3. La encuesta de cinco preguntas y las señales de uso de las semanas siguientes dicen qué ha funcionado, y lo que falla se convierte en una mejora del material.
 
 ## Siguiente paso

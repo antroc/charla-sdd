@@ -1,6 +1,6 @@
 # Escribir requisitos claros (EARS)
 
-> **Para quién:** managers, RRHH, perfiles de negocio y quien programa · **Tiempo de lectura:** ~12 min · **Nivel:** 🟢 básico
+> **Para quién:** cualquier persona que vaya a escribir o revisar requisitos, sepa programar o no · **Tiempo de lectura:** ~12 min · **Nivel:** 🟢 básico
 
 En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) la especificación (`spec.md`) es la fuente de verdad: el asistente de IA la lee y de ella salen el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y el código. Dentro de la especificación, la parte de la que más depende todo son los requisitos. Un requisito ambiguo puede convertirse en código ambiguo en cuestión de minutos.
 

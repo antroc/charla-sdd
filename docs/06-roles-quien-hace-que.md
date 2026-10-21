@@ -1,6 +1,6 @@
 # Roles: quién hace qué
 
-> **Para quién:** managers, RRHH, perfiles de negocio y quien programa · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
+> **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
 
 Cuando alguien oye hablar de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) por primera vez, la pregunta que llega antes que ninguna es «¿y yo qué pinto ahí?». La respuesta corta: más de lo que pintabas antes. Como la especificación se escribe en lenguaje natural, negocio entra en la conversación desde el principio, y no al final, cuando ya solo queda decir «esto no es lo que pedí».
 
@@ -208,9 +208,9 @@ Cómo evitarlo:
 
 Depende de tu ruta de lectura:
 
-- **Si sigues la ruta de manager**, continúa con [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md).
-- **Si eres de RRHH o negocio**, continúa con el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y escribe tu primera especificación.
-- **Si lees los documentos en orden o programas**, continúa con [Herramientas](07-herramientas.md), que explica qué necesita cada perfil para trabajar así (quien no programa, nada; quien programa, un asistente de IA y GitHub Spec Kit o unas plantillas).
+- **Si quieres entender SDD y decidir si tu equipo lo prueba**, continúa con [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md).
+- **Si quieres escribir y revisar lo que pides**, continúa con el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y escribe tu primera especificación.
+- **Si lees los documentos en orden o vas a construir con SDD**, continúa con [Herramientas](07-herramientas.md), que explica qué hace falta en cada caso para trabajar así (para escribir y revisar especificaciones, nada; para construir, un asistente de IA y GitHub Spec Kit o unas plantillas).
 
 Para ver los roles dibujados paso a paso, está el [diagrama 04](../diagramas/04-roles-y-participacion.md).
 

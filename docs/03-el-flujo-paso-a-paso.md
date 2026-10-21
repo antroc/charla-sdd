@@ -1,6 +1,6 @@
 # El flujo paso a paso
 
-> **Para quién:** programadores junior y cualquier persona que quiera saber qué pasa en cada paso · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
+> **Para quién:** quien vaya a construir con SDD y cualquier persona que quiera saber qué pasa en cada paso · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
 SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un flujo de siete pasos, numerados del 0 al 6. Cada paso deja algo escrito (un documento casi siempre; un informe, en el paso de analizar) que el siguiente necesita como entrada. Aquí recorremos los siete con el mismo ejemplo de siempre, ReservaSalas: qué es cada paso, quién participa, qué entra y qué sale, cuánto suele durar y qué puede salir mal.
 
@@ -70,7 +70,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué es.** Escribir qué queremos y por qué, en lenguaje natural y sin decidir tecnología. La especificación recoge historias de usuario (lo que cada tipo de persona quiere conseguir, contado en unas líneas) ordenadas por prioridad (P1 es lo imprescindible), criterios de aceptación (situaciones concretas que se comprueban con un sí o un no, en formato Dado/Cuando/Entonces), requisitos funcionales redactados en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos), casos límite (las situaciones raras o incómodas), criterios de éxito medibles y supuestos. Es el paso imprescindible: sin especificación no hay nada que planificar ni construir.
 
-**Quién participa.** Lidera quien pide el software (negocio), con ayuda de quien lo construye. El asistente de IA convierte la descripción en una especificación completa. La revisan quien la va a construir y QA; las personas que la usarán (como Marta o Jorge) la consultan y aportan.
+**Quién participa.** Lidera quien pide el software, con ayuda de quien lo construye. El asistente de IA convierte la descripción en una especificación completa. La revisan quien la va a construir y QA; las personas que la usarán (como Marta o Jorge) la consultan y aportan.
 
 **Qué entra y qué sale.** Entra la petición en lenguaje natural. Sale la especificación (`spec.md`); en Spec Kit, `specs/001-reserva-salas/spec.md`, junto con una lista de verificación automática (`checklists/requirements.md`). Si al asistente le falta un dato importante, lo marca con `[NECESITA ACLARACIÓN: …]` (tres como máximo); en Spec Kit, `/speckit.specify` te pregunta esas dudas antes de terminar, con opciones, y sustituye cada marcador por tu respuesta. Los demás huecos los busca el paso siguiente.
 
@@ -95,7 +95,7 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 **Qué puede salir mal.** Responder por correo o de palabra y no reflejarlo en la especificación: para el asistente, lo que no está en `spec.md` no existe. Saltarse el paso por prisa y descubrir la duda cuando el código ya está hecho. Y dejar que se cuelen preguntas de tecnología, que pertenecen al plan.
 
 > [!TIP]
-> Si no programas, hasta aquí el flujo es exactamente el mismo para un proceso sin código, como la «Solicitud de vacaciones» del [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md): describir, especificar y aclarar. Los pasos 3 a 6 son los que necesitan a alguien que construya.
+> Hasta aquí, el flujo es exactamente el mismo para un proceso sin código, como la «Solicitud de vacaciones» del [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md): describir, especificar y aclarar. Los pasos 3 a 6 son los que necesitan a alguien que construya.
 
 ## Paso 3: Planificar
 
@@ -164,9 +164,9 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 | Paso | Qué entra | Qué sale (fichero) | Quién lidera | Quién revisa |
 |---|---|---|---|---|
 | 0. Constitución | Principios en lenguaje natural | Constitución (`constitution.md`) | Quien encarga y quien construye | Quien encarga aprueba |
-| 1. Especificar | Petición en lenguaje natural | Especificación (`spec.md`) y lista de verificación automática | Negocio, con quien construye | Todo el equipo |
+| 1. Especificar | Petición en lenguaje natural | Especificación (`spec.md`) y lista de verificación automática | Quien encarga, con quien construye | Todo el equipo |
 | 2. Aclarar | La especificación | La especificación actualizada (sección de aclaraciones) | El asistente de IA pregunta | Quien encarga responde |
-| 3. Planificar | Especificación, constitución y tecnología elegida | Plan técnico (`plan.md`) y ficheros de apoyo | Quien construye | Alguien con experiencia técnica; negocio lee el resumen |
+| 3. Planificar | Especificación, constitución y tecnología elegida | Plan técnico (`plan.md`) y ficheros de apoyo | Quien construye | Alguien con experiencia técnica; quien encarga lee el resumen |
 | 4. Trocear en tareas | Plan y especificación | Lista de tareas (`tasks.md`) | Quien construye | Programador senior y QA |
 | 5. Analizar | Especificación, plan, tareas y constitución | Informe de coherencia y listas de verificación | El asistente de IA | Quien construye y quien encarga deciden |
 | 6. Implementar | Tareas y plan | Código con pruebas; tareas marcadas | El asistente de IA ejecuta | Quien construye revisa; quien encarga prueba |
