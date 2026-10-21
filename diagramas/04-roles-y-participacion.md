@@ -8,12 +8,12 @@ Iconos que usamos: 👤 negocio (quien encarga o usa la aplicación), 👩‍�
 
 **Qué vas a encontrar**
 
-- [Pasos 0 a 2: pensar, lidera negocio](#pasos-0-a-2-pensar-lidera-negocio)
-- [Pasos 3 a 6: construir, lidera quien programa](#pasos-3-a-6-construir-lidera-quien-programa)
+- [Pasos 0 a 2: pensar, lidera quien encarga](#pasos-0-a-2-pensar-lidera-quien-encarga)
+- [Pasos 3 a 6: construir, lidera quien construye](#pasos-3-a-6-construir-lidera-quien-construye)
 - [Cómo vive cada paso cada persona](#cómo-vive-cada-paso-cada-persona)
 - [Matriz de roles y pasos](#matriz-de-roles-y-pasos)
 
-## Pasos 0 a 2: pensar, lidera negocio
+## Pasos 0 a 2: pensar, lidera quien encarga
 
 El diagrama muestra, para cada uno de los tres primeros pasos del flujo, quién lidera y quién revisa: cada casilla lo dice con su primera palabra, y el color es naranja cuando lidera o revisa negocio (aunque le acompañe alguien técnico) y azul cuando lo hace solo quien programa.
 
@@ -45,7 +45,7 @@ De arriba abajo: la constitución (`constitution.md`) la fijan juntos quien enca
 
 En aclarar, el asistente hace las preguntas, Ana responde y Luis se ocupa de que las respuestas acaben dentro de la especificación; a Marta, Jorge y QA se les consulta si alguna respuesta les afecta. En estos tres pasos nadie programa nada.
 
-## Pasos 3 a 6: construir, lidera quien programa
+## Pasos 3 a 6: construir, lidera quien construye
 
 El diagrama sigue con los cuatro pasos restantes, con el mismo esquema: una casilla «Lidera» y otra «Revisa» por paso, naranja cuando lidera o revisa negocio (aunque le acompañe alguien técnico) y azul cuando lo hace solo quien programa.
 
@@ -116,7 +116,7 @@ La tabla resume la participación de cada rol en cada paso. **L** = lidera (es r
 | QA (calidad y pruebas) | — | R | C | C | R | R | R |
 | 🤖 Asistente de IA | redacta | redacta | pregunta | diseña | trocea | informa | ejecuta |
 
-Dos formas de leer la tabla. Por filas: si eres de negocio, estás en la primera mitad (pensar), liderando o aportando información, y vuelves al final para revisar el análisis y probar la aplicación, siempre sin tocar código; Marta y Jorge prueban y cuentan qué han visto (por eso llevan una C), y el visto bueno es de Ana. Si programas, participas en los siete pasos y lideras los cuatro últimos. Por columnas: ningún paso tiene como único participante al asistente de IA, y ningún paso lo lidera él.
+Dos formas de leer la tabla. Por filas: quien encarga el software o lo va a usar está en la primera mitad (pensar), liderando o aportando información, y vuelve al final para revisar el análisis y probar la aplicación, siempre sin tocar código; Marta y Jorge prueban y cuentan qué han visto (por eso llevan una C), y el visto bueno es de Ana. Quien construye participa en los siete pasos y lidera los cuatro últimos. Por columnas: ningún paso tiene como único participante al asistente de IA, y ningún paso lo lidera él.
 
 > [!TIP]
 > Si en tu equipo no hay QA ni programador senior, sus casillas las cubre otra persona del equipo que **no** haya escrito el artefacto que revisa. Lo importante es que haya cuatro ojos, no el cargo.
