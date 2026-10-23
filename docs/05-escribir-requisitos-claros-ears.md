@@ -64,19 +64,19 @@ No dice cómo se guarda ni dónde aparece el mensaje: dice qué tiene que pasar 
 Para qué sirve tanta disciplina lo muestra el diagrama: es el recorrido de una frase vaga de Ana hasta el código, con el requisito en el centro.
 
 ```mermaid
-flowchart TD
-  V["Frase vaga: que no haya líos con las salas"]
-  Q["Preguntas: qué lío, cuándo ocurre, qué debe pasar"]
-  R["Requisito EARS (RF-005): SI la franja se solapa, ENTONCES rechazar e indicar la franja ocupada"]
-  C["Criterio de aceptación: Mediterráneo ocupada de 10:30 a 11:30, Marta pide de 10:00 a 11:00, se rechaza"]
-  T["Prueba automática: test_solapamiento.py (tarea T013)"]
-  K["Código que cumple la regla"]
-  V --> Q --> R --> C --> T --> K
-  K -.->|"si falla, se corrige el requisito, no el código a ciegas"| R
-  classDef vago fill:#FDECEA,stroke:#B42318;
-  classDef claro fill:#E6F4EA,stroke:#1E7E34;
-  class V vago;
-  class R,C,T,K claro;
+flowchart TB
+  V["Petición vaga"] --> Q["Preguntar y concretar"]
+  Q --> R["Requisito EARS"]
+  R --> C["Criterio de aceptación"]
+  C --> T["Prueba"]
+  T --> K["Código"]
+
+  K -.->|"si cambia la necesidad"| R
+
+  classDef weak fill:#FFF0F0,stroke:#C65353,stroke-width:1.5px,color:#5A2020;
+  classDef clear fill:#EAF7ED,stroke:#5E8C61,stroke-width:1.5px,color:#29472B;
+  class V weak;
+  class R,C,T,K clear;
 ```
 
 De arriba abajo: la frase vaga («que no haya líos») provoca preguntas; las respuestas se escriben como un requisito EARS (RF-005); del requisito sale un criterio de aceptación con datos concretos (una sala, dos franjas, un rechazo); del criterio, una prueba automática (un pequeño programa que comprueba la regla por sí solo cada vez que cambia el código); y de la prueba, el código que la hace pasar. La flecha discontinua de vuelta es la regla de SDD: si el código no hace lo que debe, se revisa el requisito y se regenera, no se parchea a ciegas. Todo lo que hay por debajo del requisito depende de que el requisito esté bien escrito.
