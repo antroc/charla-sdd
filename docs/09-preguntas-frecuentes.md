@@ -2,9 +2,9 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
 
-Este documento reúne las dudas que más se repiten cuando alguien oye hablar por primera vez de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Están agrupadas por tema, pero merece la pena leer también las de los demás grupos: la pregunta de quien dirige un equipo suele ser la que tiene en la cabeza quien construye, y al revés.
+Aquí están las preguntas que suelen aparecer cuando la idea de SDD pasa de «suena bien» a «vale, ¿y esto cómo encaja en un proyecto de verdad?».
 
-Las respuestas son cortas a propósito. Cada una termina con un enlace al documento, diagrama o ejercicio donde el tema se explica con calma. Los ejemplos son los de siempre: ReservaSalas, la aplicación para reservar las 12 salas de reuniones de la empresa, y la «Solicitud de vacaciones». Si una palabra no te suena, búscala en el [glosario](10-glosario.md).
+Las respuestas van al grano y enlazan al capítulo donde se desarrolla cada tema. Si te encuentras un término que no conoces, el [glosario](10-glosario.md) está pensado justo para eso.
 
 **Qué vas a encontrar**
 
@@ -18,9 +18,9 @@ Las respuestas son cortas a propósito. Cada una termina con un enlace al docume
 
 ### ¿Esto es más lento que pedirle directamente al asistente?
 
-El primer día, sí. Pedir el código directamente da una demo en una tarde; con SDD, esa tarde se va en escribir y aclarar la especificación (`spec.md`), el texto que dice qué debe hacer el sistema y por qué. En nuestra experiencia, una funcionalidad pequeña como ReservaSalas recorre los siete pasos en uno o dos días.
+Al principio suele exigir más disciplina que pedir código directamente, porque hay que escribir y revisar antes de implementar. Esa inversión tiene sentido cuando el software va a durar, va a cambiar o lo va a mantener más de una persona.
 
-La diferencia llega después. Con *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), cada cambio obliga a releer código que nadie entiende; con SDD, el cambio empieza por editar un texto y hay una referencia escrita contra la que comprobarlo.
+Para un prototipo desechable, ir directo al código puede ser perfectamente razonable. SDD empieza a aportar valor cuando necesitas conservar las decisiones y comprobar que los cambios siguen respetando lo que se había acordado.
 
 *Para saber más:* [los dos caminos, cara a cara](../diagramas/01-vibe-coding-vs-sdd.md#los-dos-caminos-cara-a-cara) · [el flujo de un vistazo](03-el-flujo-paso-a-paso.md#el-flujo-de-un-vistazo)
 
@@ -30,7 +30,7 @@ No debería serlo. Una especificación describe una funcionalidad, no un sistema
 
 Tampoco es la «cascada» de antes, con meses de documentos antes de ver nada funcionando: cada funcionalidad recorre el flujo entero en horas o en un par de días. Si una sección no cambia lo que se construye, sobra.
 
-*Para saber más:* [qué no es SDD](02-que-es-sdd.md#qué-no-es-sdd) · [la especificación es el programa fuente](02-que-es-sdd.md#qué-cambia-la-especificación-es-el-programa-fuente)
+*Para saber más:* [qué no es SDD](02-que-es-sdd.md#qué-no-es-sdd) · [la especificación como referencia viva](02-que-es-sdd.md#qué-cambia-la-especificación-deja-de-ser-documentación-decorativa)
 
 ### ¿Sustituye a las historias de usuario que ya tenemos en nuestro gestor de tareas?
 

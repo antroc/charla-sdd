@@ -4,11 +4,9 @@
 
 [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [J](#j) · [K](#k) · [L](#l) · [M](#m) · [P](#p) · [Q](#q) · [R](#r) · [S](#s) · [T](#t) · [U](#u) · [V](#v)
 
-Este glosario recoge las palabras del repositorio que pueden extrañar si no las usas a diario, y algunas que, aunque las uses, aquí tienen un sentido concreto. Cada una lleva una definición corta en lenguaje llano y, tras «Ver», el documento, diagrama o ejercicio donde se explica con calma.
+Este glosario es para consultar, no para leerlo como un capítulo. Recoge los términos que aparecen por el curso y explica qué significan aquí, con un enlace al lugar donde se usan con más contexto.
 
-Casi todas giran alrededor de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), la alternativa al *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), y de sus documentos: constitución (`constitution.md`), especificación (`spec.md`), plan técnico (`plan.md`), lista de tareas (`tasks.md`) y lista de verificación.
-
-Los ejemplos son de ReservaSalas, la aplicación para reservar salas de reuniones que acompaña a todo el material, con sus requisitos escritos en EARS (*Easy Approach to Requirements Syntax*), una forma sencilla y estructurada de redactar requisitos. Las palabras inglesas habituales en el sector van en cursiva.
+Los ejemplos siguen siendo los de ReservaSalas. Las palabras inglesas habituales en el sector van en cursiva y los nombres de ficheros o comandos aparecen como código.
 
 > [!TIP]
 > Si una palabra no aparece como entrada, búscala con la búsqueda del navegador (Ctrl+F, o Cmd+F en Mac): muchas definiciones explican de paso otras palabras, como *prueba unitaria*, *Dado / Cuando / Entonces* o `specify init`.
@@ -53,7 +51,7 @@ Los ejemplos son de ReservaSalas, la aplicación para reservar salas de reunione
 ## F
 
 - **FastAPI** — Pieza de programación en Python (un lenguaje de programación) que sirve las páginas web de una aplicación y atiende lo que envía quien la usa. Es una de las tecnologías que eligió Luis en el plan técnico de ReservaSalas; no hace falta conocerla para seguir el método. Ver [Roles: quién hace qué](06-roles-quien-hace-que.md#qué-cambia-en-el-trabajo-de-quien-programa).
-- **Fuente de verdad** — El documento que manda cuando el código y lo escrito no coinciden. En SDD es la especificación: si el código no hace lo que dice, se corrige el código, o se corrige la especificación y se regenera, pero nunca se deja que cada uno diga una cosa. Ver [Qué es SDD](02-que-es-sdd.md#qué-cambia-la-especificación-es-el-programa-fuente).
+- **Fuente de verdad** — La referencia que usamos para decidir qué comportamiento se espera del sistema. En el enfoque de este curso ese papel lo tiene la especificación: si cambia la necesidad, se actualiza allí; si la especificación sigue siendo correcta y el código no la cumple, el fallo está en la implementación. Ver [Qué es SDD](02-que-es-sdd.md#qué-cambia-la-especificación-deja-de-ser-documentación-decorativa).
 - **Fuera de alcance** — Sección de la especificación con lo que se decide expresamente no hacer en esta versión: en ReservaSalas, las reservas recurrentes o el control de asistencia. Dejarlo escrito evita que alguien lo construya «por si acaso» o lo dé por incluido. Ver [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md#al-especificar-pasos-0-a-2).
 
 ## G
@@ -108,7 +106,7 @@ Los ejemplos son de ReservaSalas, la aplicación para reservar salas de reunione
 ## R
 
 - **Rama** — Línea de trabajo paralela dentro de un repositorio Git: permite hacer cambios sin tocar la versión principal hasta que se revisan, normalmente con una *pull request*. Spec Kit no crea ramas salvo que instales su extensión `git`. Ver [Ejercicio 06: reto final](../ejercicios/06-reto-final-tu-propio-proyecto.md#pasos).
-- **Regenerar** — Volver a pedir al asistente de IA que genere la parte afectada (plan, tareas, código) después de cambiar la especificación, en vez de retocar el código a mano. Es la regla central de SDD. Con Spec Kit, la lista de tareas no se rehace entera: `/speckit.converge` añade las que faltan y `/speckit.implement` las ejecuta. Ver [Qué es SDD](02-que-es-sdd.md#qué-cambia-la-especificación-es-el-programa-fuente) y el paso 9 del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md#pasos).
+- **Regenerar** — Pedir al asistente que vuelva a producir la parte afectada después de un cambio en la especificación. No significa que todo cambio de código tenga que hacerse así: un bug de implementación puede corregirse directamente y cubrirse con una prueba. Con Spec Kit, `/speckit.converge` detecta trabajo pendiente y `/speckit.implement` ejecuta las tareas. Ver [Qué es SDD](02-que-es-sdd.md#qué-cambia-la-especificación-deja-de-ser-documentación-decorativa) y el paso 9 del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md#pasos).
 - **Registro de complejidad** — Tabla del plan técnico donde se apunta, con su porqué, cada desviación de la constitución (casi siempre, algo que se sale de la regla de sencillez), junto con la alternativa más simple que se descartó (en inglés, *Complexity Tracking*). En ReservaSalas recoge la pequeña API que necesitan las pruebas de contrato. Ver [Los artefactos](04-los-artefactos.md#el-plan-técnico).
 - **Repositorio** — Carpeta compartida donde se guarda un proyecto (código, documentos y artefactos) junto con su historial de versiones. En SDD, la especificación y el resto de artefactos viven en el repositorio, al lado del código. Ver [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md#al-implementar-y-después-paso-6-y-siguientes).
 - **Requisito (funcional y no funcional)** — Lo que el sistema tiene que hacer o cumplir. El funcional dice qué hace en una situación concreta, en una frase comprobable (RF-001, RF-002…); el no funcional, cómo de bien lo hace (rapidez, accesibilidad), y aquí suele escribirse como criterio de éxito con cifra o como principio de la constitución. Ver [Escribir requisitos claros (EARS)](05-escribir-requisitos-claros-ears.md#reglas-de-oro).

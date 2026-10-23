@@ -2,9 +2,9 @@
 
 > **Para quién:** quien vaya a usar Spec Kit y cualquier persona que quiera saber qué hace falta instalar (o no) para hacer SDD · **Tiempo de lectura:** ~12 min · **Nivel:** 🟡 intermedio
 
-SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un método, no un programa. Se puede seguir con una herramienta que lo automatiza, con un editor que lo lleva integrado o con unas plantillas y un chat de IA. Este documento describe las tres opciones sin vender ninguna: qué instalan, qué piden y para quién tienen sentido.
+No necesitas una herramienta concreta para trabajar con SDD. Puedes hacerlo con Spec Kit, con un editor que lleve el flujo integrado o simplemente con las plantillas del repositorio y un asistente autorizado.
 
-Si lo que buscas son los pasos de instalación uno a uno, con lo que deberías ver en cada momento, eso está en el [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md). Aquí está el panorama y la referencia de comandos.
+Esta página sirve para elegir y para consultar comandos. Si ya has decidido usar Spec Kit y solo quieres instalarlo, ve directamente al [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md).
 
 **Qué vas a encontrar**
 
@@ -49,7 +49,7 @@ De arriba abajo: si no vas a construir software con un asistente, trabaja sin he
 
 Spec Kit (<https://github.com/github/spec-kit>; documentación en <https://github.github.io/spec-kit/>) es un conjunto de herramientas de código abierto publicado por GitHub, con licencia MIT (una licencia que permite usarlo gratis, también en empresas). No es un asistente de IA: es lo que le da al asistente que ya tienes un proceso, unas plantillas y unos ficheros de salida fijos. Se instala como una herramienta de terminal llamada `specify`, y a partir de ahí todo el trabajo se hace en el chat del asistente con los comandos `/speckit.*`.
 
-La versión actual, en la fecha de este material (octubre de 2026), es la 1.x. Incluye además extensiones (funciones añadidas opcionales), *presets* (configuraciones predefinidas) y flujos automatizados; para lo que explicamos aquí solo importa el núcleo: `specify init` y los nueve comandos del asistente.
+Al revisar este material, en octubre de 2026, la versión más reciente es la 1.2.2. Spec Kit ya incluye extensiones, *presets* y flujos automatizados, pero para este curso nos quedamos con el núcleo: `specify init` y los comandos del flujo SDD.
 
 ### Qué necesitas
 

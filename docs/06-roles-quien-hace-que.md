@@ -2,9 +2,9 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
 
-Cuando alguien oye hablar de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) por primera vez, la pregunta que llega antes que ninguna es «¿y yo qué pinto ahí?». La respuesta corta: más de lo que pintabas antes. Como la especificación se escribe en lenguaje natural, negocio entra en la conversación desde el principio, y no al final, cuando ya solo queda decir «esto no es lo que pedí».
+La pregunta aparece enseguida: con un asistente capaz de redactar especificaciones, proponer planes y escribir código, ¿qué le queda por hacer a cada persona?
 
-Este documento recorre el flujo rol a rol con ReservaSalas: Ana (responsable de Oficina) encarga la aplicación, Luis (programador junior) la construye con un asistente de IA, Marta (manager) y Jorge (RRHH) la usarán, y un programador senior y QA (la persona o el equipo de calidad y pruebas) revisan. Los siete pasos del flujo están explicados en [El flujo paso a paso](03-el-flujo-paso-a-paso.md); aquí solo importa quién hace qué en cada uno.
+Bastante. SDD cambia el reparto del trabajo, pero no elimina la responsabilidad humana. En ReservaSalas, Ana decide qué problema hay que resolver, Luis dirige la construcción, Marta y Jorge aportan el uso real, y el equipo técnico revisa lo que se va generando. Aquí nos centramos en ese reparto; el flujo completo está en [El flujo paso a paso](03-el-flujo-paso-a-paso.md).
 
 **Qué vas a encontrar**
 
@@ -18,9 +18,9 @@ Este documento recorre el flujo rol a rol con ReservaSalas: Ana (responsable de 
 
 ## Negocio entra desde el principio
 
-En la forma habitual de pedir software, negocio participa dos veces: al principio, en una reunión en la que cuenta lo que quiere, y al final, en una demo. Entre medias, el equipo técnico traduce, interpreta y decide; y cuando algo se entendió mal, se descubre en la demo, que es el peor momento posible.
+En muchos proyectos, quien pide el software explica la necesidad al principio y vuelve a verla cuando ya existe una demo. Entre medias se toman decisiones que no siempre llegan de vuelta a negocio.
 
-Con SDD la traducción desaparece, o casi. La especificación (`spec.md`) está escrita en castellano, con historias de usuario, requisitos y criterios de éxito que cualquiera puede leer. Eso cambia tres cosas:
+Con SDD intentamos acortar esa distancia. La especificación (`spec.md`) está escrita para que la entiendan tanto quien pide como quien construye. Eso cambia tres cosas:
 
 - **Lo que negocio aprueba es lo que el asistente de IA usa para construir, y contra lo que se comprueba el resultado.** No hay un documento técnico intermedio que negocio no entiende. Ana lee la especificación de ReservaSalas entera; el asistente lee exactamente la misma.
 - **Las dudas se resuelven antes de construir, por escrito.** El paso de aclarar hace preguntas concretas («¿quién puede cancelar una reserva ajena?») y la respuesta queda en la especificación, no en un correo.
