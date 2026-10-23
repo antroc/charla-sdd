@@ -118,7 +118,7 @@ Ninguna funcionalidad se considera terminada sin al menos una prueba automática
 
 ## La especificación
 
-**Para qué sirve.** Es el contrato entre quien pide el software y quien lo construye, y la fuente de verdad de todo lo demás: si el código no hace lo que dice aquí, se corrige el código o se corrige esto y se regenera. Habla de qué queremos y por qué, en lenguaje natural, y nunca de tecnología.
+**Para qué sirve.** Describe el comportamiento esperado: qué queremos y por qué, en lenguaje natural y sin decidir tecnología. Si cambia la necesidad, el cambio empieza aquí; si el texto sigue siendo correcto y el código lo contradice, el problema está en la implementación.
 
 **Quién la escribe y quién la revisa.** La escribe quien pide, con ayuda de quien construye; el asistente de IA la redacta a partir de la petición. La lee todo el equipo, incluido el asistente en cada paso posterior. Es el artefacto donde una persona no técnica aporta más.
 
@@ -302,7 +302,7 @@ Para escribir estos artefactos sin herramientas, o para revisar los que genere t
 Los seis ficheros de ReservaSalas (los cinco artefactos más el registro de aclaraciones), completos y coherentes entre sí, están en [la solución del ejercicio 03](../ejercicios/soluciones/03-reserva-salas/README.md). Es un ejemplo, no la única respuesta correcta: cada asistente redacta distinto y cada equipo decide distinto. La lista completa de buenas prácticas y errores está en [Buenas prácticas y errores comunes](08-buenas-practicas-y-errores-comunes.md).
 
 > [!IMPORTANT]
-> Los artefactos no son documentación que se escribe al final: son la entrada del paso siguiente. Si cambias el código a mano y no la especificación, el documento deja de ser la fuente de verdad y vuelves al punto de partida.
+> Estos documentos no se escriben al final para justificar lo construido: forman parte del trabajo. Un cambio funcional debe quedar reflejado en la especificación; un bug de implementación, en cambio, se corrige en el código y se protege con una prueba.
 
 ## En tres frases
 

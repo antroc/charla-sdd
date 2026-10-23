@@ -64,7 +64,7 @@ Los ejemplos siguen siendo los de ReservaSalas. Las palabras inglesas habituales
 
 ## I
 
-- **Implementar** — Paso 6 del flujo: el asistente de IA ejecuta las tareas una a una y escribe el código y sus pruebas, mientras la persona lee, prueba y, si algo no cuadra, corrige la especificación y regenera. En Spec Kit, `/speckit.implement` y después `/speckit.converge`, que comprueba que no falte nada. Ver [El flujo paso a paso](03-el-flujo-paso-a-paso.md#paso-6-implementar).
+- **Implementar** — Paso 6 del flujo: el asistente ejecuta tareas y escribe código y pruebas mientras una persona revisa y prueba el resultado. Los cambios funcionales vuelven a la especificación; los bugs contra una especificación correcta se corrigen en la implementación y se cubren con pruebas. En Spec Kit, `/speckit.implement` ejecuta las tareas y `/speckit.converge` ayuda a detectar trabajo pendiente. Ver [El flujo paso a paso](03-el-flujo-paso-a-paso.md#paso-6-implementar).
 - **Iteración** — Cada vuelta de un ciclo corto de trabajo: especificar algo pequeño, construirlo, probarlo y corregir lo aprendido antes de seguir. SDD avanza así, funcionalidad a funcionalidad, en vez de planificarlo todo de golpe al principio. Ver [Qué es SDD](02-que-es-sdd.md#qué-no-es-sdd).
 
 ## J
@@ -137,7 +137,7 @@ Los ejemplos siguen siendo los de ReservaSalas. Las palabras inglesas habituales
 
 1. Este glosario reúne, en orden alfabético, sesenta y dos palabras del repositorio con una definición en lenguaje llano y un enlace al documento, diagrama o ejercicio donde se explican con calma.
 2. Las palabras centrales son pocas: SDD, especificación (la fuente de verdad), constitución, plan técnico, lista de tareas, lista de verificación, aclarar, analizar, implementar y regenerar; casi todas las demás son piezas de estas.
-3. Los nombres de herramientas (Spec Kit, Kiro, FastAPI, SQLite, pytest, `uv`) cambian con el tiempo; el método no: escribir primero qué queremos y por qué, y corregir la especificación, no el código, cuando algo falla.
+3. Los nombres de herramientas cambian; la idea central es más estable: hacer explícito el comportamiento esperado y corregir cada problema en el nivel donde realmente nace.
 
 ## Siguiente paso
 

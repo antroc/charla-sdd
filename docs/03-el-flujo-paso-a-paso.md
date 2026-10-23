@@ -41,7 +41,8 @@ flowchart TD
   OK["Funcionalidad terminada"]
   P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> R
   R -->|"sí"| OK
-  R -->|"no: se corrige la especificación y se regenera"| P1
+  R -->|"cambió la necesidad"| P1
+  R -->|"es un bug"| P6
   P2 -->|"las respuestas afinan la especificación"| P1
   P5 -->|"hay incoherencias: se corrige el plan o la especificación"| P3
   classDef artefacto fill:#E8F0FE,stroke:#1A56DB;
@@ -50,7 +51,7 @@ flowchart TD
   class P5,R control;
 ```
 
-De arriba abajo: primero la constitución, después la especificación, que se afina con las aclaraciones; de ahí salen el plan y las tareas, que se analizan antes de implementar. Al final se revisa el resultado contra la especificación: si cuadra, la funcionalidad está terminada; si no, se corrige la especificación y se regenera lo que haga falta. Nunca se parchea el código a ciegas.
+De arriba abajo: primero fijamos las reglas del proyecto y el comportamiento que esperamos; después decidimos cómo construirlo, lo convertimos en tareas y lo implementamos. Al revisar el resultado hay dos caminos distintos: si ha cambiado la necesidad, volvemos a la especificación; si la necesidad sigue bien descrita y el programa no la cumple, corregimos la implementación.
 
 Una versión más detallada de este diagrama, con quién participa en cada paso, está en [el diagrama del flujo completo](../diagramas/02-flujo-completo-sdd.md).
 
@@ -62,7 +63,6 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué entra y qué sale.** Entran entre tres y siete principios en lenguaje natural. Sale la constitución (`constitution.md`); en Spec Kit, `.specify/memory/constitution.md`.
 
-**Cuánto suele durar.** Una conversación de media hora o una hora. Después casi no se toca.
 
 **ReservaSalas.** Ana dicta cinco principios: sencillez primero, accesible y en castellano, pruebas antes de dar algo por hecho, datos mínimos y transparencia (toda reserva tiene un responsable visible). Luis se los pasa al asistente con `/speckit.constitution` y aparece la constitución en su versión 1.0.0, con una sección de restricciones (solo red interna, sin integración con el calendario corporativo) y otra que dice cómo se cambia.
 
@@ -76,7 +76,6 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué entra y qué sale.** Entra la petición en lenguaje natural. Sale la especificación (`spec.md`); en Spec Kit, `specs/001-reserva-salas/spec.md`, junto con una lista de verificación automática (`checklists/requirements.md`). Si al asistente le falta un dato importante, lo marca con `[NECESITA ACLARACIÓN: …]` (tres como máximo); en Spec Kit, `/speckit.specify` te pregunta esas dudas antes de terminar, con opciones, y sustituye cada marcador por tu respuesta. Los demás huecos los busca el paso siguiente.
 
-**Cuánto suele durar.** Una o dos horas: describir, generar y, sobre todo, leer con calma lo generado.
 
 **ReservaSalas.** Ana escribe su petición: 12 salas en 3 plantas, hoy se reservan en una hoja de cálculo, hay choques y reservas fantasma; cualquier empleado tiene que ver qué salas están libres, reservar, cancelar y ver sus reservas; horario de 08:00 a 20:00 y máximo 4 horas. Luis ejecuta `/speckit.specify` con ese texto. La especificación resultante tiene tres historias (P1 reservar una sala, P2 cancelar o modificar, P3 ver mis reservas y las de hoy), requisitos como RF-005 («SI la franja solicitada se solapa con otra reserva de la misma sala, ENTONCES el sistema deberá rechazar la reserva e indicar qué franja está ocupada») y criterios de éxito como CE-001 (reservar lleva menos de 1 minuto).
 
@@ -90,7 +89,6 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué entra y qué sale.** Entra la especificación recién generada. Sale la misma especificación, actualizada: en Spec Kit, `/speckit.clarify` hace hasta cinco preguntas por sesión y añade a `spec.md` la sección `## Clarifications` con una línea por pregunta (`- Q: … → A: …`), además de retocar las secciones afectadas y reevaluar la lista de verificación automática.
 
-**Cuánto suele durar.** Una reunión de 15 a 30 minutos con la persona que decide.
 
 **ReservaSalas.** El asistente hace cinco preguntas y Ana responde: ¿reservas recurrentes? No en la primera versión. ¿Quién puede cancelar una reserva ajena? Solo administración. ¿Hay que avisar por correo? Sí: un correo al confirmar, al modificar y al cancelar, para que sirva de comprobante. ¿Antelación máxima? 30 días. ¿Qué pasa si nadie aparece? Fuera de alcance. Resultado: dos requisitos nuevos (RF-010 permisos y RF-011 correo), el límite de 30 días en RF-006 y dos puntos más en «Fuera de alcance». Está contado paso a paso en [aclaraciones.md](../ejercicios/soluciones/03-reserva-salas/aclaraciones.md).
 
@@ -107,7 +105,6 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué entra y qué sale.** Entran la especificación, la constitución y las indicaciones de tecnología. Sale el plan técnico (`plan.md`). En Spec Kit, `/speckit.plan` genera además ficheros de apoyo: `research.md` (decisiones y alternativas), `data-model.md`, `contracts/` y `quickstart.md`. No genera la lista de tareas: eso es el paso siguiente.
 
-**Cuánto suele durar.** Alrededor de una hora entre generar y revisar.
 
 **ReservaSalas.** Luis indica al asistente la tecnología: Python 3.12 con FastAPI, SQLite y páginas HTML con Jinja2, pruebas con pytest y sin una interfaz compleja (son nombres de herramientas de programación; no hace falta conocerlos para seguir el flujo). El plan describe un único servicio web, tres tablas de datos (sala, persona, reserva), seis operaciones (las «rutas») y una tabla de comprobación contra la constitución con una sola desviación justificada: una pequeña API, la conexión para otros programas que ha salido en el paso 1, que aquí sirve para que las pruebas automáticas no dependan de las pantallas. Puedes leerlo en [plan.md](../ejercicios/soluciones/03-reserva-salas/plan.md).
 
@@ -121,7 +118,6 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué entra y qué sale.** Entran el plan y la especificación (y los ficheros de apoyo del plan, si existen). Sale la lista de tareas (`tasks.md`); en Spec Kit, `/speckit.tasks`.
 
-**Cuánto suele durar.** Generarla lleva minutos; revisarla, de 20 a 30 minutos bien empleados.
 
 **ReservaSalas.** La lista tiene 47 tareas en seis fases, 20 de ellas paralelizables. La fase de la historia 1 empieza con cinco pruebas (T013 a T017) que tienen que fallar antes de implementar nada (si fallan es que de verdad comprueban algo que todavía no existe), y termina con un punto de control: «la historia 1 funciona de principio a fin y se puede enseñar a Ana». Es el producto mínimo viable: lo más pequeño que ya resuelve el problema y se puede enseñar. Está completa en [tasks.md](../ejercicios/soluciones/03-reserva-salas/tasks.md).
 
@@ -135,7 +131,6 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 **Qué entra y qué sale.** Entran la especificación, el plan, las tareas y la constitución. En Spec Kit, `/speckit.analyze` devuelve un informe en el chat y no modifica ningún fichero: propone remedios para que los apruebes. `/speckit.checklist` genera listas por tema en `checklists/[dominio].md` (por ejemplo, `ux.md`) y nunca marca casillas: eso lo hace quien revisa.
 
-**Cuánto suele durar.** De 15 a 30 minutos.
 
 **ReservaSalas.** La lista de verificación de la especificación pasa de 20 a 23 comprobaciones superadas después de aclarar (el alcance, la antelación máxima y los permisos eran los tres huecos). El informe de `/speckit.analyze` no encuentra incidencias CRITICAL ni HIGH y la cobertura es del 100 %: cada RF aparece en alguna tarea, y las pruebas van antes que el código, como exige el principio 3. La lista de verificación está en [checklist.md](../ejercicios/soluciones/03-reserva-salas/checklist.md); el informe de `/speckit.analyze` no deja fichero.
 
@@ -146,17 +141,16 @@ Una versión más detallada de este diagrama, con quién participa en cada paso,
 
 ## Paso 6: Implementar
 
-**Qué es.** El asistente de IA ejecuta las tareas una a una, fase a fase, y va marcando las hechas. La persona supervisa: lee el código, ejecuta las pruebas, arranca la aplicación y la prueba. Si el resultado no es lo que se quería, se corrige la especificación y se regenera la parte afectada; el código a mano se toca solo para detalles.
+**Qué es.** El asistente ejecuta las tareas y la persona supervisa: revisa el código, lanza las pruebas y prueba la aplicación. Si aparece un cambio funcional, se actualiza primero la especificación. Si aparece un bug contra una especificación correcta, se corrige la implementación y se añade una prueba que lo cubra.
 
 **Quién participa.** Ejecuta el asistente; supervisa quien construye; quien encarga prueba la aplicación en cada punto de control.
 
 **Qué entra y qué sale.** Entran la lista de tareas y el plan. Sale el código del proyecto, con sus pruebas, y `tasks.md` con cada tarea terminada marcada como `[X]`. En Spec Kit, `/speckit.implement` comprueba antes las listas de verificación (si hay ítems sin marcar, pregunta si seguir) y respeta las marcas `[P]`. Después, `/speckit.converge` compara el código con la especificación, el plan y las tareas: si falta algo, añade tareas nuevas; si no, responde que ha convergido.
 
-**Cuánto suele durar.** Es el paso más largo: varias horas, repartidas por fases, con paradas para probar.
 
 **ReservaSalas.** Tras las fases de preparación y base compartida, el asistente escribe las pruebas de la historia 1 (fallan), implementa los servicios de disponibilidad y reserva, las rutas y la página principal, y las pruebas pasan. Luis arranca la aplicación, abre `http://localhost:8000` (la dirección de la aplicación en su propio ordenador) y reserva la sala Mediterráneo; se la enseña a Ana antes de seguir con las historias 2 y 3. Semanas después Ana decide ampliar la antelación máxima de 30 a 60 días y se lo pide a Luis. Luis no busca el número en el código: cambia RF-006 en la especificación y Ana relee el texto nuevo y lo aprueba. Después Luis actualiza el plan, deja que `/speckit.converge` añada a `tasks.md` las tareas que faltan y las ejecuta con `/speckit.implement` (es el paso 9 del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md)). No relanza `/speckit.tasks`, que rehace la lista entera.
 
-**Qué puede salir mal.** Aceptar código sin leerlo. Corregir el código a mano en vez de la especificación, con lo que el documento deja de ser la fuente de verdad. Tener una demo bonita sin pruebas que la respalden. Y dar por terminada una fase con tareas sin marcar.
+**Qué puede salir mal.** Aceptar código sin leerlo, dejar cambios funcionales solo en la implementación, tener una demo bonita sin pruebas o dar por terminada una fase sin haber comprobado sus tareas.
 
 > [!IMPORTANT]
 > El asistente de IA no acierta siempre. SDD no elimina los errores; los hace visibles antes, porque cada paso deja un documento que se puede leer, discutir y corregir. Las pruebas automáticas y la revisión humana siguen siendo imprescindibles.
@@ -195,17 +189,15 @@ Kiro, de AWS (<https://kiro.dev>), integra un flujo parecido dentro de su editor
 
 ## Por qué el orden importa
 
-Cada paso existe porque el siguiente lo necesita como entrada. No se puede planificar lo que no está especificado: el plan decidiría tecnología para un problema que nadie ha descrito. No se puede trocear en tareas lo que no está planificado: las tareas dirían «hacer la aplicación». Y no se implementa sin tareas: el asistente escribiría código de un tirón, sin pruebas y sin puntos de control, que es justo el *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) del que queríamos salir.
+El orden importa porque cada paso reduce una incertidumbre distinta. Si planificamos antes de saber qué queremos, el plan rellena huecos que no le corresponden. Si generamos tareas antes de tener plan, salen tareas demasiado grandes o arbitrarias. Y si pedimos código sin esas capas intermedias, volvemos al mismo bucle de instrucciones sueltas del que queríamos salir.
 
-El orden tampoco es una «cascada» (el modelo antiguo: meses de documentos antes de ver nada funcionando). Se recorre entero para cada funcionalidad pequeña, en horas o en un par de días, y los bucles de vuelta son cortos: una aclaración cambia una línea de la especificación, un análisis devuelve una incoherencia al plan, una prueba fallida devuelve una duda a la especificación.
-
-Lo que no cambia es la dirección: la especificación es la fuente de verdad y el código es su consecuencia. Si al final algo está mal, se corrige el documento y se regenera; no se parchea el programa a ciegas.
+No es una cascada rígida. Se puede volver atrás en cualquier momento. Lo importante es volver al nivel correcto: una duda funcional vuelve a la especificación; una decisión técnica, al plan; un bug de implementación, al código y a sus pruebas.
 
 ## En tres frases
 
 1. SDD son siete pasos, del 0 al 6: constitución, especificar, aclarar, planificar, trocear en tareas, analizar e implementar; cada uno deja algo escrito que el siguiente necesita.
 2. Quien encarga lidera los pasos 0 a 2 (qué y por qué) con ayuda técnica; quien construye lidera los pasos 3 a 6 (cómo), con el asistente de IA generando y la persona revisando.
-3. El orden importa porque cada paso es la entrada del siguiente; cuando algo falla, se vuelve a la especificación y se regenera, nunca se parchea el código a ciegas.
+3. Cuando algo falla, se corrige en el nivel donde nació: necesidad en la especificación, decisión técnica en el plan y bug en la implementación.
 
 ## Siguiente paso
 
