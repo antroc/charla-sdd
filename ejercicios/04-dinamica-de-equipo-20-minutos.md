@@ -2,7 +2,9 @@
 
 > **Para quién:** quien dirige una reunión de equipo; como participante, cualquier persona, sepa programar o no · **Tiempo de lectura:** ~8 min (hacerlo: 20 min) · **Nivel:** 🟢 básico
 
-Veinte minutos, grupos de tres o cuatro personas, una petición vaga por grupo y ningún ordenador. Cada grupo convierte una frase del tipo «una app para reservar plazas de parking» en tres historias de usuario, cinco requisitos y una lista de preguntas; después lee un requisito en voz alta y el resto de la sala caza sus vaguedades. Es SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) en miniatura: la parte que no necesita herramientas y que cualquier persona de la empresa puede hacer.
+La dinámica dura veinte minutos y no necesita ordenador. Cada grupo recibe una petición vaga, la convierte en historias, requisitos y preguntas de aclaración, y después otra gente intenta encontrarle los agujeros.
+
+Es una forma rápida de comprobar algo importante: escribir «lo que queremos» parece fácil hasta que otra persona intenta interpretarlo.
 
 **Qué vas a encontrar**
 

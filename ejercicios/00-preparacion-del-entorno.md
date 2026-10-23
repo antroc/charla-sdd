@@ -2,7 +2,9 @@
 
 > **Para quién:** cualquier persona (vía A, sin instalar nada) y quien vaya a usar Spec Kit (vía B; hace falta saber usar una terminal) · **Tiempo de lectura:** ~10 min (hacerlo: de 10 a 45 min según la vía) · **Nivel:** 🟡 intermedio
 
-Este ejercicio no enseña SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): deja listo lo que necesitas para hacer los demás. Hay dos vías. La **vía A** no instala nada y basta para los ejercicios 01, 02, 04 y 05. La **vía B** instala GitHub Spec Kit y un asistente de programación con IA, y hace falta para los ejercicios 03 y 06. Si no vas a hacer el 03 ni el 06, haz solo la vía A: se hace en unos diez minutos.
+Aquí solo vamos a preparar el terreno. Si quieres practicar sin instalar nada, usa la **vía A**. Si vas a recorrer el flujo completo con Spec Kit en los ejercicios 03 y 06, necesitas la **vía B**.
+
+No compliques el entorno más de la cuenta: si no vas a usar Spec Kit, no lo instales.
 
 **Qué vas a encontrar**
 

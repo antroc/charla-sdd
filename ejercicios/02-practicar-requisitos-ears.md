@@ -2,7 +2,9 @@
 
 > **Para quién:** quien vaya a escribir o revisar requisitos, sepa programar o no · **Tiempo de lectura:** ~5 min (hacerlo: 30 min, con la comparación) · **Nivel:** 🟢 básico
 
-Doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro para cazar el error. Es el entrenamiento práctico de [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md): si no lo has leído, échale un vistazo antes (unos 12 minutos) o apóyate en la tabla del paso 1. No hace falta saber programar ni instalar nada.
+Este ejercicio va directo al músculo que más se usa al especificar: coger una frase ambigua y convertirla en algo que se pueda comprobar. Hay doce frases para reescribir, cuatro requisitos para clasificar y cuatro errores que encontrar.
+
+Si no has leído [Escribir requisitos claros con EARS](../docs/05-escribir-requisitos-claros-ears.md), puedes tenerlo abierto al lado. No necesitas instalar nada.
 
 **Qué vas a encontrar**
 
@@ -17,7 +19,7 @@ Doce frases vagas para reescribir, cuatro requisitos para clasificar y cuatro pa
 
 ## Objetivo
 
-Al terminar sabrás convertir una petición dicha «a lo bruto» («que avise si hay choque») en un requisito con una sola lectura posible, usando EARS (*Easy Approach to Requirements Syntax*): una forma sencilla y estructurada de redactar requisitos. También sabrás reconocer el patrón de un requisito ya escrito y detectar los cuatro fallos más habituales: tecnología, dos cosas en una, vaguedad y falta de disparador. Es la habilidad que más se usa en SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), porque la especificación es la fuente de verdad y un requisito ambiguo acaba en código ambiguo.
+Al terminar deberías ser capaz de transformar algo como «que avise si hay choque» en un requisito que diga cuándo ocurre el problema y qué tiene que hacer el sistema. También practicarás cuatro fallos muy comunes: meter tecnología donde no toca, juntar dos cosas en una frase, usar términos vagos y olvidar el disparador.
 
 ## Qué necesitas
 

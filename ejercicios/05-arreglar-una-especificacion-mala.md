@@ -2,7 +2,9 @@
 
 > **Para quién:** cualquier persona que vaya a revisar especificaciones y haya hecho el ejercicio 02 · **Tiempo de lectura:** ~8 min (hacerlo: 30-40 min) · **Nivel:** 🟡 intermedio
 
-Luis tenía prisa. Un viernes a última hora escribió la especificación de ReservaSalas «para salir del paso» y la dejó marcada como lista para implementar. Tu trabajo es el de la persona que la revisa el lunes: encontrar todo lo que falla, decir por qué y dejar los requisitos y los criterios de éxito como deberían estar. Es exactamente lo que harás cada vez que un asistente de IA te genere una especificación.
+Luis dejó una especificación de ReservaSalas hecha con prisas y marcada como lista para implementar. Tu trabajo es revisarla antes de que llegue al plan: encontrar qué no cuadra, explicar por qué y reescribir lo que haga falta.
+
+La gracia del ejercicio no es detectar erratas. Es aprender a desconfiar de una especificación que suena razonable pero todavía deja demasiadas decisiones abiertas.
 
 **Qué vas a encontrar**
 
@@ -17,7 +19,7 @@ Luis tenía prisa. Un viernes a última hora escribió la especificación de Res
 
 ## Objetivo
 
-Al terminar sabrás leer una especificación con ojo crítico: detectar tecnología donde no toca, requisitos vagos o dobles, contradicciones, historias sin prioridad, criterios de éxito que no se pueden medir y choques con la constitución. Y sabrás reescribir la parte que más importa, los requisitos en EARS (*Easy Approach to Requirements Syntax*, una forma sencilla y estructurada de redactar requisitos) y los criterios de éxito, hasta que pasen la lista de verificación. En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) esta revisión ocurre antes de que nada pase al plan técnico, y es el momento más barato para encontrar un error: corregir una línea aquí cuesta minutos; corregirla cuando ya hay código suele costar días.
+Al terminar deberías detectar tecnología donde no toca, requisitos vagos o dobles, contradicciones, prioridades dudosas y criterios de éxito imposibles de medir. Después reescribirás requisitos y criterios hasta que puedan revisarse con un sí o un no.
 
 ## Qué necesitas
 

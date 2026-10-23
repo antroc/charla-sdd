@@ -2,7 +2,7 @@
 
 > **Para quién:** quien vaya a escribir o revisar una especificación (y cualquiera que empiece con SDD); no hace falta programar · **Tiempo de lectura:** ~10 min (hacerlo: 60-90 min, en una o dos sesiones) · **Nivel:** 🟢 básico
 
-En este ejercicio vas a escribir una especificación completa sin una sola línea de código. La especificación es el documento central del SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): dice **qué** queremos y **por qué**, en lenguaje natural, y de ella se derivan después el plan técnico, las tareas y el código. El caso es «Solicitud de vacaciones», un proceso que conoce todo el mundo, para que puedas concentrarte en el método y no en el problema.
+Vas a escribir tu primera especificación sin tocar una línea de código. Usaremos «Solicitud de vacaciones» porque el proceso es familiar y así podemos concentrarnos en lo importante: decidir qué debe ocurrir, qué casos pueden dar problemas y cómo sabremos que el resultado es correcto.
 
 **Qué vas a encontrar**
 

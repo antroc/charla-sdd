@@ -2,9 +2,9 @@
 
 > **Para quién:** quien vaya a usar Spec Kit y quiera ver el flujo completo con una herramienta real (hace falta saber usar una terminal) · **Tiempo de lectura:** ~20 min (hacerlo: 90-120 min) · **Nivel:** 🟡 intermedio
 
-Este es el ejercicio central del repositorio. Vas a construir ReservaSalas, la aplicación interna para reservar las 12 salas de reuniones de la empresa, siguiendo de principio a fin el flujo de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con GitHub Spec Kit y un asistente de programación con IA. Tú no escribirás código: escribirás la constitución, la especificación, las respuestas a las aclaraciones y la tecnología del plan. El asistente hará el resto, y tú revisarás cada artefacto antes de pasar al siguiente.
+Aquí recorres el flujo completo con una herramienta real. Construirás ReservaSalas con GitHub Spec Kit y un asistente de programación: tú decides y revisas; el asistente genera buena parte de los artefactos y del código.
 
-El ejercicio reproduce la sesión que hizo Luis (programador junior) con el encargo de Ana (responsable de Oficina). El resultado de esa sesión, traducido y comentado, está en [la solución canónica](soluciones/03-reserva-salas/README.md); en cada paso te diremos con qué fichero compararte.
+El caso reproduce el trabajo de Luis a partir del encargo de Ana. En cada paso podrás comparar lo que obtengas con [la solución de referencia](soluciones/03-reserva-salas/README.md).
 
 **Qué vas a encontrar**
 
@@ -20,7 +20,7 @@ El ejercicio reproduce la sesión que hizo Luis (programador junior) con el enca
 
 ## Objetivo
 
-Al terminar habrás creado un proyecto con Spec Kit y recorrido en él los siete pasos del flujo SDD con una herramienta real: dictar la constitución (`constitution.md`), escribir la especificación (`spec.md`) sin tecnología, aclarar, pedir el plan técnico (`plan.md`) indicando la tecnología, trocear en una lista de tareas (`tasks.md`), analizar e implementar. Sabrás leer cada artefacto que genera el asistente y qué comprobar en él antes de seguir. Y habrás vivido el momento que resume todo el método: pedir un cambio tocando la especificación, no el código.
+Al terminar habrás recorrido los siete pasos de principio a fin y sabrás qué revisar antes de pasar de uno al siguiente. También harás un cambio funcional empezando por la especificación y verás cómo se propaga al resto del trabajo.
 
 ## Qué necesitas
 

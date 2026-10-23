@@ -2,9 +2,9 @@
 
 > **Para quién:** quien vaya a usar Spec Kit y haya terminado el ejercicio 03; si te han pedido hacer de «Ana», lee en [Qué necesitas](#qué-necesitas) el aviso para quien encarga el proyecto · **Tiempo de lectura:** ~15 min (hacerlo: 3-4 h, en dos o tres sesiones) · **Nivel:** 🔴 avanzado
 
-Hasta ahora has seguido un guion: ReservaSalas, con los principios de Ana, sus respuestas y la tecnología de Luis. En este reto el problema lo eliges tú, las respuestas las da alguien de tu entorno y el resultado lo entregas a tu equipo. Es la prueba de que sabes aplicar SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) sin red: elegir un problema pequeño y real, recorrer el flujo completo con GitHub Spec Kit y un asistente de programación con IA, puntuarte con una rúbrica y compartir el resultado para que otras personas lo revisen.
+Hasta aquí has trabajado con un caso preparado. Ahora toca elegir un problema pequeño de tu día a día y recorrer el flujo sin que el ejercicio tome las decisiones por ti.
 
-No hay solución: cada proyecto es distinto. Hay, en cambio, una lista de verificación de entrega, una rúbrica y dos ejemplos de cómo se ve un buen resultado.
+No hay una solución correcta con la que comparar al final. Hay una rúbrica, una lista de entrega y ejemplos de referencia. Lo importante es que puedas justificar qué decidiste, qué dejaste fuera y cómo comprobaste el resultado.
 
 **Qué vas a encontrar**
 
@@ -24,7 +24,7 @@ No hay solución: cada proyecto es distinto. Hay, en cambio, una lista de verifi
 
 ## Objetivo
 
-Al terminar habrás llevado un problema real de tu día a día desde una petición en lenguaje natural hasta una aplicación pequeña que funciona, pasando por la constitución (`constitution.md`), la especificación (`spec.md`), las aclaraciones, el plan técnico (`plan.md`) y la lista de tareas (`tasks.md`), sin que nadie te dicte los pasos. Sabrás decidir qué cabe en una primera versión y qué no, hacer de puente entre quien pide y el asistente de IA, puntuar tu propio trabajo con una rúbrica y presentarlo de forma que quien lo encargó pueda revisarlo sin abrir el código.
+Al terminar habrás llevado un problema real desde la petición inicial hasta una aplicación pequeña que funciona. Tendrás que acotar la primera versión, resolver dudas con quien conoce el problema, revisar lo que genere el asistente y explicar el resultado sin apoyarte en el código.
 
 ## Qué necesitas
 
