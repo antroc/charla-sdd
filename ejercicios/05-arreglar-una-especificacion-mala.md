@@ -39,12 +39,17 @@ Al terminar deberías detectar tecnología donde no toca, requisitos vagos o dob
 El ejercicio sigue el mismo bucle que una revisión real. Este diagrama lo resume:
 
 ```mermaid
-flowchart LR
-    leer["1. Leer de un tirón"] --> marcar["2. Marcar cada problema con su línea"]
-    marcar --> reescribir["3 y 4. Reescribir requisitos y criterios de éxito"]
-    reescribir --> checklist["5. Pasar la lista de verificación"]
-    checklist -->|"algún no en lo reescrito"| marcar
-    checklist -->|"lo reescrito, todo marcado"| comparar["6 y 7. Segunda opinión y comparar con la solución"]
+flowchart TB
+  leer["1 · Leer"] --> marcar["2 · Marcar problemas"]
+  marcar --> reescribir["3–4 · Reescribir"]
+  reescribir --> checklist{"5 · ¿Pasa el checklist?"}
+  checklist -->|"no"| marcar
+  checklist -->|"sí"| comparar["6–7 · Segunda opinión<br/>y comparar"]
+
+  classDef step fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  classDef question fill:#FFF4D6,stroke:#B8872D,stroke-width:1.8px,color:#5A4315;
+  class leer,marcar,reescribir,comparar step;
+  class checklist question;
 ```
 
 De izquierda a derecha: primero se lee entera sin tocar nada; después se marcan los problemas línea a línea; con esa lista se reescriben los requisitos y los criterios de éxito; se pasa la lista de verificación y, si en lo que has reescrito queda algún «no», se vuelve a marcar y corregir. Cuando lo reescrito está todo marcado (lo que no has reescrito, como las historias, se deja anotado como pendiente), se pide una segunda opinión y se compara con la solución.

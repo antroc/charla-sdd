@@ -65,19 +65,30 @@ Las seis tarjetas del [ejercicio 04](04-dinamica-de-equipo-20-minutos.md#tarjeta
 El diagrama muestra los siete pasos del flujo tal como los vas a recorrer, con el bucle de analizar y el paso final de entrega.
 
 ```mermaid
-flowchart TD
-    c["0. Constitución (constitution.md)"] --> e["1. Especificar (spec.md)"]
-    e --> a["2. Aclarar (respuestas de quien encarga)"]
-    a --> p["3. Planificar (plan.md)"]
-    p --> t["4. Trocear en tareas (tasks.md)"]
-    t --> z["5. Analizar (informe de coherencia)"]
-    z -->|"hay incidencias"| e
-    z -->|"todo coherente"| i["6. Implementar y converger (código y pruebas)"]
-    i --> s["7. Autoevaluar y compartir (pull request o cinco minutos)"]
-    classDef artefacto fill:#E8F0FE,stroke:#1A56DB;
-    classDef entrega fill:#FEF3E2,stroke:#B45309;
-    class c,e,p,t artefacto;
-    class s entrega;
+flowchart TB
+  subgraph definir["Definir"]
+    direction LR
+    c["0 · Constitución"] --> e["1 · Especificar"] --> a["2 · Aclarar"]
+  end
+
+  subgraph disenar["Diseñar"]
+    direction LR
+    p["3 · Planificar"] --> t["4 · Tareas"] --> z["5 · Analizar"]
+  end
+
+  subgraph entregar["Construir y entregar"]
+    direction LR
+    i["6 · Implementar"] --> s["7 · Autoevaluar y compartir"]
+  end
+
+  a --> p
+  z -->|"coherente"| i
+  z -.->|"incidencias"| e
+
+  classDef step fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  classDef finish fill:#EAF7ED,stroke:#5E8C61,stroke-width:1.8px,color:#29472B;
+  class c,e,a,p,t,z,i step;
+  class s finish;
 ```
 
 De arriba abajo: dictas la constitución y especificas; aclaras con quien encarga; planificas y troceas en tareas (los cuatro artefactos en azul); analizas y, si hay incidencias, vuelves atrás a corregir la especificación, el plan o las tareas (la flecha que sube). Cuando todo es coherente, implementas y converges hasta que el código cubre lo escrito. El último paso (en naranja) es nuevo respecto al ejercicio 03: autoevaluarte y compartirlo.

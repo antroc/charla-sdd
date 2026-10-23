@@ -29,26 +29,38 @@ Los tiempos son orientativos. En una funcionalidad pequeña algunos pasos duran 
 El diagrama muestra los siete pasos en orden, el fichero que produce cada uno y los tres bucles de vuelta: aclarar cambia la especificación, analizar puede devolverte al plan, e implementar termina siempre con una pregunta: ¿hace lo que dice la especificación?
 
 ```mermaid
-flowchart TD
-  P0["Paso 0: Constitución (constitution.md)"]
-  P1["Paso 1: Especificar (spec.md)"]
-  P2["Paso 2: Aclarar (preguntas y respuestas dentro de spec.md)"]
-  P3["Paso 3: Planificar (plan.md)"]
-  P4["Paso 4: Trocear en tareas (tasks.md)"]
-  P5["Paso 5: Analizar (informe de coherencia y listas de verificación)"]
-  P6["Paso 6: Implementar (código y pruebas)"]
-  R["Revisar: ¿hace lo que dice la especificación?"]
-  OK["Funcionalidad terminada"]
-  P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> R
-  R -->|"sí"| OK
-  R -->|"cambió la necesidad"| P1
-  R -->|"es un bug"| P6
-  P2 -->|"las respuestas afinan la especificación"| P1
-  P5 -->|"hay incoherencias: se corrige el plan o la especificación"| P3
-  classDef artefacto fill:#E8F0FE,stroke:#1A56DB;
-  classDef control fill:#FFF4E5,stroke:#B45309;
-  class P0,P1,P2,P3,P4,P6 artefacto;
-  class P5,R control;
+flowchart TB
+  subgraph definir["1 · Definir qué queremos"]
+    direction LR
+    P0["0 · Constitución"] --> P1["1 · Especificar"] --> P2["2 · Aclarar"]
+  end
+
+  subgraph disenar["2 · Decidir cómo construirlo"]
+    direction LR
+    P3["3 · Planificar"] --> P4["4 · Tareas"] --> P5["5 · Analizar"]
+  end
+
+  subgraph construir["3 · Construir y comprobar"]
+    direction LR
+    P6["6 · Implementar"] --> R{"¿Cumple?"}
+    R -->|"sí"| OK["Terminado"]
+  end
+
+  P2 --> P3
+  P5 -->|"coherente"| P6
+
+  P2 -.->|"respuestas"| P1
+  P5 -.->|"problema funcional"| P1
+  P5 -.->|"problema técnico"| P3
+  R -.->|"cambió la necesidad"| P1
+  R -.->|"bug"| P6
+
+  classDef step fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  classDef check fill:#FFF4D6,stroke:#B8872D,stroke-width:2px,color:#5A4315;
+  classDef done fill:#EAF7ED,stroke:#5E8C61,stroke-width:2px,color:#29472B;
+  class P0,P1,P2,P3,P4,P5,P6 step;
+  class R check;
+  class OK done;
 ```
 
 De arriba abajo: primero fijamos las reglas del proyecto y el comportamiento que esperamos; después decidimos cómo construirlo, lo convertimos en tareas y lo implementamos. Al revisar el resultado hay dos caminos distintos: si ha cambiado la necesidad, volvemos a la especificación; si la necesidad sigue bien descrita y el programa no la cumple, corregimos la implementación.

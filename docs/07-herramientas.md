@@ -25,22 +25,27 @@ Esta página sirve para elegir y para consultar comandos. Si ya has decidido usa
 El diagrama resume cómo elegir. Depende de dos cosas: si vas a construir software y qué asistente de IA tiene autorizado tu empresa.
 
 ```mermaid
-flowchart TD
-  Q1["¿Vas a construir software con un asistente de programación con IA?"]
-  SIN["Sin herramientas: plantillas de este repositorio y un chat de IA autorizado"]
-  Q2["¿Tu equipo ya usa un asistente compatible con Spec Kit?"]
-  SK["GitHub Spec Kit con ese asistente"]
-  Q3["¿Prefieres un editor con el flujo ya integrado?"]
-  KIRO["Kiro, de AWS"]
-  SK2["GitHub Spec Kit con un asistente compatible que autorice la empresa"]
+flowchart TB
+  Q1{"¿Vas a construir software?"}
+  Q2{"¿Tu equipo usa<br/>un asistente compatible?"}
+  Q3{"¿Prefieres un editor<br/>con el flujo integrado?"}
+
+  SIN["Plantillas + chat autorizado"]
+  SK["GitHub Spec Kit"]
+  KIRO["Kiro"]
+  OTRO["Spec Kit + asistente autorizado"]
+
   Q1 -->|"no"| SIN
   Q1 -->|"sí"| Q2
   Q2 -->|"sí"| SK
   Q2 -->|"no"| Q3
   Q3 -->|"sí"| KIRO
-  Q3 -->|"no"| SK2
-  classDef opcion fill:#E8F0FE,stroke:#1A56DB;
-  class SIN,SK,KIRO,SK2 opcion;
+  Q3 -->|"no"| OTRO
+
+  classDef question fill:#FFF4D6,stroke:#B8872D,stroke-width:1.8px,color:#5A4315;
+  classDef option fill:#EAF2FF,stroke:#4C78A8,stroke-width:1.5px,color:#1F3B5B;
+  class Q1,Q2,Q3 question;
+  class SIN,SK,KIRO,OTRO option;
 ```
 
 De arriba abajo: si no vas a construir software con un asistente, trabaja sin herramientas. Si sí, y tu equipo ya usa un asistente compatible, añádele Spec Kit. Si no usa ninguno, elige entre un editor con el flujo integrado (Kiro) o Spec Kit con el asistente que autorice la empresa. En los tres casos el método es el mismo.

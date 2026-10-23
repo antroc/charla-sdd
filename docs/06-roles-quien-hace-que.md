@@ -33,28 +33,31 @@ A cambio, pide algo: que negocio esté disponible en los momentos en que se le n
 El diagrama resume la participación de los tres grandes grupos (negocio, quien programa y el asistente de IA) en los siete pasos, agrupados en dos mitades: pensar (pasos 0 a 2) y construir (pasos 3 a 6).
 
 ```mermaid
-flowchart TD
-  N["👤 Negocio: Ana, Marta y Jorge"]
-  D["👩‍💻 Quien programa: Luis, senior y QA"]
-  A["🤖 Asistente de IA"]
-  subgraph pensar ["Pensar (pasos 0 a 2): lidera negocio, revisa quien programa"]
-    s0["0 Constitución"] --> s1["1 Especificar"] --> s2["2 Aclarar"]
+flowchart TB
+  subgraph pensar["Pasos 0–2 · Definir"]
+    direction LR
+    s0["Constitución"] --> s1["Especificar"] --> s2["Aclarar"]
   end
-  subgraph construir ["Construir (pasos 3 a 6): lidera quien programa, negocio valida y prueba"]
-    s3["3 Planificar"] --> s4["4 Trocear en tareas"] --> s5["5 Analizar"] --> s6["6 Implementar"]
+
+  subgraph construir["Pasos 3–6 · Construir"]
+    direction LR
+    s3["Planificar"] --> s4["Tareas"] --> s5["Analizar"] --> s6["Implementar"]
   end
+
   s2 --> s3
-  N -->|"dicta, describe y responde"| s0
-  D -->|"revisa que no haya tecnología ni vaguedades"| s1
-  D -->|"decide, comprueba y supervisa"| s3
-  N -->|"valida criterios y prueba"| s6
-  A -.->|"redacta, pregunta, diseña, trocea, informa y ejecuta, pero nunca aprueba"| s0
-  classDef negocio fill:#FDF2E9,stroke:#B7791F;
-  classDef dev fill:#E8F0FE,stroke:#1A56DB;
-  classDef ia fill:#F3F4F6,stroke:#4B5563;
-  class N negocio;
-  class D dev;
-  class A ia;
+
+  N["Negocio"] -->|"lidera"| s0
+  D["Equipo técnico"] -->|"lidera"| s3
+  A["Asistente IA"] -.->|"apoya"| s0
+  A -.->|"apoya"| s3
+
+  N -.->|"valida"| s6
+  D -.->|"revisa"| s1
+
+  classDef role fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  classDef phase fill:#EAF2FF,stroke:#4C78A8,stroke-width:1.5px,color:#1F3B5B;
+  class N,D,A role;
+  class s0,s1,s2,s3,s4,s5,s6 phase;
 ```
 
 De arriba abajo: negocio (Ana, Marta y Jorge) entra en la mitad de pensar dictando la constitución (Ana, junto con Luis), describiendo lo que quiere y respondiendo a las aclaraciones, y vuelve al final de la mitad de construir para validar los criterios de éxito y probar. Quien programa (Luis, el senior y QA) revisa la primera mitad, vigilando que no se cuele tecnología ni frases vagas, y lidera la segunda: decide, comprueba y supervisa. El asistente de IA, con la flecha discontinua, participa en todos los pasos redactando, preguntando, diseñando, troceando, informando y ejecutando; nunca aprueba.

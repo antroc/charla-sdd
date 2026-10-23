@@ -35,20 +35,30 @@ Todos usan el mismo ejemplo, ReservaSalas, para no cambiar de contexto cada vez 
 Los documentos están numerados en el orden en que se entienden mejor: primero el problema, luego la idea, después cómo se trabaja y, al final, la consulta.
 
 ```mermaid
-flowchart LR
-  d01["01 El problema"] --> d02["02 Qué es SDD"]
-  d02 --> d03["03 El flujo"]
-  d03 --> d04["04 Los artefactos"]
-  d04 --> d05["05 Requisitos EARS"]
-  d05 --> d06["06 Roles"]
-  d06 --> d07["07 Herramientas"]
-  d07 --> d08["08 Buenas prácticas"]
-  d08 --> d09["09 Preguntas frecuentes"]
-  d09 --> d10["10 Glosario"]
-  classDef basico fill:#E8F5E9,stroke:#2E7D32;
-  classDef intermedio fill:#FFF8E1,stroke:#B7791F;
-  class d01,d02,d05,d06,d09,d10 basico;
-  class d03,d04,d07,d08 intermedio;
+flowchart TB
+  subgraph inicio["Empezar"]
+    d01["01 · El problema"] --> d02["02 · Qué es SDD"]
+  end
+
+  subgraph nucleo["Entender el método"]
+    d03["03 · El flujo"] --> d04["04 · Artefactos"]
+    d04 --> d05["05 · Requisitos EARS"]
+    d05 --> d06["06 · Roles"]
+  end
+
+  subgraph practica["Aplicarlo"]
+    d07["07 · Herramientas"] --> d08["08 · Buenas prácticas"]
+    d08 --> d09["09 · Preguntas frecuentes"]
+    d09 --> d10["10 · Glosario"]
+  end
+
+  d02 --> d03
+  d06 --> d07
+
+  classDef basic fill:#EEF7EE,stroke:#5E8C61,stroke-width:1.5px,color:#29472B;
+  classDef mid fill:#FFF7E6,stroke:#B8872D,stroke-width:1.5px,color:#5A4315;
+  class d01,d02,d05,d06,d09,d10 basic;
+  class d03,d04,d07,d08 mid;
 ```
 
 De izquierda a derecha, del 01 al 10. Los recuadros verdes son de nivel básico y los amarillos, de nivel intermedio. Para entender el método basta con los verdes; los amarillos cuentan los detalles de cómo se trabaja.

@@ -37,12 +37,15 @@ Al terminar, cada participante habrá vivido en pequeño dos pasos del flujo SDD
 Este diagrama muestra los cinco bloques de tiempo y su orden.
 
 ```mermaid
-flowchart LR
-    b0["Antes: reparto y reglas"] --> b1["0-5 min: tres historias de usuario"]
-    b1 --> b2["5-10 min: cinco requisitos EARS"]
-    b2 --> b3["10-13 min: preguntas de aclaración"]
-    b3 --> b4["13-18 min: lectura en voz alta y caza de vaguedades"]
-    b4 --> b5["18-20 min: cierre"]
+flowchart TB
+  b0["Antes<br/>reparto y reglas"] --> b1["0–5 min<br/>historias"]
+  b1 --> b2["5–10 min<br/>requisitos EARS"]
+  b2 --> b3["10–13 min<br/>aclaraciones"]
+  b3 --> b4["13–18 min<br/>cazar vaguedades"]
+  b4 --> b5["18–20 min<br/>cierre"]
+
+  classDef step fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  class b0,b1,b2,b3,b4,b5 step;
 ```
 
 De izquierda a derecha: antes de arrancar el reloj se reparten tarjetas y se explican las reglas; después vienen cinco minutos de historias de usuario, cinco de requisitos, tres de preguntas de aclaración, cinco de lectura en voz alta con caza de vaguedades y dos de cierre. En total, veinte minutos de reloj.

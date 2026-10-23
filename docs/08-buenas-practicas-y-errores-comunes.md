@@ -101,27 +101,20 @@ Cada fila dice cómo reconocer el error, por qué pasa y qué hacer. Varios tien
 La pregunta más frecuente de quien empieza es «no funciona, ¿qué toco?». El diagrama ordena las preguntas que hay que hacerse, de la especificación hacia abajo.
 
 ```mermaid
-flowchart TD
-  F["Algo no funciona o no es lo que esperabas"]
-  Q1["¿La especificación dice lo que de verdad quieres?"]
-  S["Corrige la especificación, actualiza el plan y deja que converge añada las tareas que faltan"]
-  Q2["¿El plan y las tareas cumplen la especificación y la constitución?"]
-  P["Corrige el plan o las tareas y vuelve a implementar esa parte"]
-  Q3["¿El código hace lo que dicen las tareas y pasan las pruebas?"]
-  K["Fallo de implementación: el asistente lo corrige y se añade una prueba que lo demuestre"]
-  M["Lo que echas en falta no está escrito en ningún sitio: añádelo a la especificación"]
-  F --> Q1
-  Q1 -->|"no"| S
-  Q1 -->|"sí"| Q2
-  Q2 -->|"no"| P
-  Q2 -->|"sí"| Q3
-  Q3 -->|"no"| K
-  Q3 -->|"sí"| M
+flowchart TB
+  F["Algo no funciona"] --> Q1{"¿La especificación<br/>dice lo que quieres?"}
+  Q1 -->|"no"| S["Corrige la especificación"]
+  Q1 -->|"sí"| Q2{"¿Plan y tareas<br/>son coherentes?"}
+  Q2 -->|"no"| P["Corrige plan o tareas"]
+  Q2 -->|"sí"| Q3{"¿El código cumple<br/>y pasan las pruebas?"}
+  Q3 -->|"no"| K["Corrige el bug<br/>y añade una prueba"]
+  Q3 -->|"sí"| M["Falta una necesidad<br/>que no estaba escrita"]
   M --> S
-  classDef pregunta fill:#FFF4E5,stroke:#B45309;
-  classDef accion fill:#E8F0FE,stroke:#1A56DB;
-  class Q1,Q2,Q3 pregunta;
-  class S,P,K,M accion;
+
+  classDef question fill:#FFF4D6,stroke:#B8872D,stroke-width:1.8px,color:#5A4315;
+  classDef action fill:#EAF2FF,stroke:#4C78A8,stroke-width:1.5px,color:#1F3B5B;
+  class Q1,Q2,Q3 question;
+  class S,P,K,M action;
 ```
 
 De arriba abajo: primero se mira la especificación; si no dice lo que quieres, se corrige (quien encarga aprueba el texto nuevo), se actualiza el plan y `/speckit.converge` añade las tareas que faltan, como en el paso 9 del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md). Si la especificación está bien, se mira si el plan y las tareas la cumplen; si no, se corrigen ellos y se vuelve a implementar esa parte. Si también están bien, se mira si el código hace lo que dicen las tareas: si no, es un fallo de implementación que el asistente corrige y una prueba nueva evita que vuelva. Y si todo cuadra y aun así falta algo, es que ese algo nunca se escribió: vuelve a la especificación.

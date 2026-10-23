@@ -23,30 +23,31 @@ En este curso trabajamos con la constitución (`constitution.md`), la especifica
 Los artefactos no son documentos sueltos: cada uno sale del anterior, y el asistente de IA lee los anteriores antes de dar cada paso. El diagrama muestra quién alimenta a quién.
 
 ```mermaid
-flowchart TD
-  C["Constitución (constitution.md)"]
-  S["Especificación (spec.md)"]
-  A["Registro de aclaraciones (sección dentro de spec.md)"]
-  V["Lista de verificación (checklists/)"]
-  P["Plan técnico (plan.md)"]
-  T["Lista de tareas (tasks.md)"]
-  K["Código y pruebas"]
-  N["Análisis de coherencia (informe en el chat, sin fichero)"]
-  C -->|"marca los límites de todo lo demás"| S
-  C --> P
-  C --> T
-  S -->|"qué y por qué"| P
-  P -->|"cómo"| T
-  T -->|"paso a paso"| K
-  A -->|"las respuestas afinan"| S
-  V -->|"comprueba la calidad de"| S
-  N -.->|"cruza los tres"| S
+flowchart TB
+  C["Constitución"] --> S["Especificación"]
+  S --> P["Plan técnico"]
+  P --> T["Lista de tareas"]
+  T --> K["Código y pruebas"]
+
+  subgraph control["Control de calidad"]
+    direction LR
+    A["Aclaraciones"]
+    V["Checklist"]
+    N["Análisis"]
+  end
+
+  A -.->|"actualiza"| S
+  V -.->|"revisa"| S
+  N -.->|"contrasta"| S
   N -.-> P
   N -.-> T
-  classDef base fill:#E8F0FE,stroke:#1A56DB;
-  classDef control fill:#FFF4E5,stroke:#B45309;
-  class C,S,P,T,K base;
-  class A,V,N control;
+  C -.->|"principios"| P
+  C -.->|"principios"| T
+
+  classDef core fill:#EAF2FF,stroke:#4C78A8,stroke-width:1.8px,color:#1F3B5B;
+  classDef quality fill:#FFF7E6,stroke:#B8872D,stroke-width:1.5px,color:#5A4315;
+  class C,S,P,T,K core;
+  class A,V,N quality;
 ```
 
 De arriba abajo: la constitución marca los límites de la especificación, del plan y de las tareas. La especificación (el qué y el por qué) alimenta al plan (el cómo), el plan a la lista de tareas y las tareas al código. Además, el registro de aclaraciones afina la especificación y la lista de verificación comprueba su calidad; el análisis de coherencia, con líneas discontinuas, cruza especificación, plan y tareas sin modificar ninguno.

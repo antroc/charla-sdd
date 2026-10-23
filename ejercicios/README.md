@@ -33,19 +33,26 @@ No hace falta hacerlos todos ni seguirlos como un examen. La idea es equivocarse
 La mayoría de los ejercicios se hacen sin instalar nada. Solo el 03 y el 06 necesitan herramientas, y el [ejercicio 00](00-preparacion-del-entorno.md) te explica cómo prepararlas.
 
 ```mermaid
-flowchart LR
-  e00["00 Preparar el entorno"]
-  subgraph viaA ["Vía A: sin instalar nada"]
-    e01["01 Primera especificación"] --> e02["02 Requisitos EARS"]
-    e02 --> e05["05 Arreglar una especificación"]
-    e04["04 Dinámica de equipo"]
+flowchart TB
+  e00["00 · Preparar el entorno"]
+
+  subgraph sininstalar["Sin instalar nada"]
+    direction LR
+    e01["01 · Primera especificación"] --> e02["02 · EARS"] --> e05["05 · Revisar una mala spec"]
+    e04["04 · Dinámica de equipo"]
   end
-  subgraph viaB ["Vía B: con Spec Kit y un asistente de IA"]
-    e03["03 ReservaSalas paso a paso"] --> e06["06 Reto final"]
+
+  subgraph conherramientas["Con Spec Kit"]
+    direction LR
+    e03["03 · ReservaSalas"] --> e06["06 · Proyecto propio"]
   end
-  e00 -->|"vía A"| e01
-  e00 -->|"vía B"| e03
-  e02 -.->|"recomendable antes"| e03
+
+  e00 --> e01
+  e00 --> e03
+  e02 -.->|"recomendado"| e03
+
+  classDef base fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  class e00,e01,e02,e03,e04,e05,e06 base;
 ```
 
 De izquierda a derecha: el ejercicio 00 te dice qué vía necesitas. Por la vía A, sin instalar nada, vas de la primera especificación (01) a practicar requisitos (02) y a arreglar una especificación mala (05); la dinámica de equipo (04) se hace en grupo cuando quieras. Por la vía B, con Spec Kit y un asistente de IA, construyes ReservaSalas (03) y después tu propio proyecto (06). Conviene haber hecho el 02 antes del 03, porque en el 03 vas a revisar requisitos escritos así.

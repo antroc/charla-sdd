@@ -39,12 +39,22 @@ Lo que queremos es un proceso con tres pasos claros: una persona pide días; su 
 El diagrama muestra el orden de los ocho pasos del ejercicio y a qué sección de la plantilla alimenta cada uno.
 
 ```mermaid
-flowchart LR
-    p1["1. Problema de hoy (Resumen)"] --> p2["2. Quién la usa"]
-    p2 --> p3["3. Historias por prioridad"] --> p4["4. Casos límite"]
-    p4 --> p5["5. Requisitos EARS"] --> p6["6. Criterios de éxito"]
-    p6 --> p7["7. Dudas y aclaraciones"] --> p8["8. Lista de verificación"]
-    p8 -.->|"cada no te devuelve a su sección"| p3
+flowchart TB
+  subgraph definir["Definir"]
+    direction LR
+    p1["1 · Problema"] --> p2["2 · Usuarios"] --> p3["3 · Historias"] --> p4["4 · Casos límite"]
+  end
+
+  subgraph concretar["Concretar"]
+    direction LR
+    p5["5 · Requisitos EARS"] --> p6["6 · Criterios de éxito"] --> p7["7 · Aclaraciones"] --> p8["8 · Checklist"]
+  end
+
+  p4 --> p5
+  p8 -.->|"si algo no pasa"| p3
+
+  classDef step fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  class p1,p2,p3,p4,p5,p6,p7,p8 step;
 ```
 
 De izquierda a derecha: empiezas por el problema y las personas, sigues con las historias, los casos límite, los requisitos y los criterios de éxito, apuntas las dudas y terminas pasando la lista de verificación. Cada «no» de la lista te devuelve a la sección que hay que arreglar, normalmente a las historias o a los requisitos.

@@ -59,12 +59,18 @@ Los documentos completos del ejemplo están en la [especificación](../ejercicio
 ## Antes y después
 
 ```mermaid
-flowchart LR
+flowchart TB
   A["Necesidad"] --> B["Especificación"]
   B --> C["Plan técnico"]
   C --> D["Tareas y pruebas"]
   D --> E["Código"]
-  E -->|"validar y aprender"| B
+
+  E -.->|"validar y aprender"| B
+
+  classDef main fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  classDef spec fill:#EAF2FF,stroke:#4C78A8,stroke-width:2px,color:#1F3B5B;
+  class B spec;
+  class A,C,D,E main;
 ```
 
 La diferencia importante no es que SDD añada documentos entre la idea y el código. Es que **las decisiones dejan rastro**.

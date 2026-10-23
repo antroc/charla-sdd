@@ -49,15 +49,21 @@ Ejemplos de asistentes compatibles con Spec Kit (hay más de cuarenta; el panora
 El diagrama resume la decisión: depende solo de qué ejercicios quieras hacer.
 
 ```mermaid
-flowchart TD
-    inicio["¿Vas a hacer el ejercicio 03 o el 06?"]
-    viaA["Vía A: sin instalar nada (pasos 1 a 3)"]
-    viaB["Vía B: entorno completo (pasos 1 a 9)"]
-    ejA["Ejercicios 01, 02, 04 y 05"]
-    ejB["Ejercicios 03 y 06, además de los anteriores"]
-    inicio -->|"no"| viaA --> ejA
-    inicio -->|"sí"| viaB --> ejB
-    viaA -.->|"más adelante, si te animas"| viaB
+flowchart TB
+  inicio{"¿Harás los ejercicios<br/>03 o 06?"}
+  viaA["Vía A<br/>sin instalar nada"]
+  viaB["Vía B<br/>entorno completo"]
+  ejA["Ejercicios 01, 02, 04 y 05"]
+  ejB["Ejercicios 03 y 06"]
+
+  inicio -->|"no"| viaA --> ejA
+  inicio -->|"sí"| viaB --> ejB
+  viaA -.->|"más adelante"| viaB
+
+  classDef question fill:#FFF4D6,stroke:#B8872D,stroke-width:1.8px,color:#5A4315;
+  classDef option fill:#EAF2FF,stroke:#4C78A8,stroke-width:1.5px,color:#1F3B5B;
+  class inicio question;
+  class viaA,viaB,ejA,ejB option;
 ```
 
 De arriba abajo: si no vas a hacer el 03 ni el 06, sigue la vía A (pasos 1 a 3) y tendrás lo necesario para los ejercicios 01, 02, 04 y 05. Si vas a hacerlos, sigue la vía B completa (pasos 1 a 9). De la vía A siempre se puede pasar a la B más adelante.

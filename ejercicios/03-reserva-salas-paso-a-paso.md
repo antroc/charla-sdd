@@ -41,22 +41,31 @@ Al terminar habrás recorrido los siete pasos de principio a fin y sabrás qué 
 El diagrama muestra los diez pasos del ejercicio y los dos bucles de vuelta: analizar puede devolverte a la especificación, y el cambio del paso 9 regenera el código sin tocarlo a mano.
 
 ```mermaid
-flowchart TD
-    p1["1. Crear el proyecto (specify init)"] --> p2["2. Constitución (constitution.md)"]
-    p2 --> p3["3. Especificar (spec.md)"]
-    p3 --> p4["4. Aclarar (5 preguntas a Ana)"]
-    p4 --> p5["5. Planificar (plan.md)"]
-    p5 --> p6["6. Trocear en tareas (tasks.md)"]
-    p6 --> p7["7. Analizar (informe de coherencia)"]
-    p7 -->|"hay incidencias"| p3
-    p7 -->|"todo coherente"| p8["8. Implementar y probar la aplicación"]
-    p8 --> p9["9. Pedir un cambio: tocar la especificación, no el código"]
-    p9 -.->|"converge e implement"| p8
-    p9 --> p10["10. Reflexión y limpieza"]
-    classDef artefacto fill:#E8F0FE,stroke:#1A56DB;
-    classDef clave fill:#FEF3E2,stroke:#B45309;
-    class p2,p3,p5,p6 artefacto;
-    class p9 clave;
+flowchart TB
+  subgraph preparar["Preparar"]
+    direction LR
+    p1["1 · Crear proyecto"] --> p2["2 · Constitución"] --> p3["3 · Especificar"] --> p4["4 · Aclarar"]
+  end
+
+  subgraph disenar["Diseñar"]
+    direction LR
+    p5["5 · Planificar"] --> p6["6 · Tareas"] --> p7["7 · Analizar"]
+  end
+
+  subgraph construir["Construir"]
+    direction LR
+    p8["8 · Implementar"] --> p9["9 · Introducir un cambio"] --> p10["10 · Cerrar"]
+  end
+
+  p4 --> p5
+  p7 -->|"coherente"| p8
+  p7 -.->|"incidencias"| p3
+  p9 -.->|"converge + implement"| p8
+
+  classDef step fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  classDef change fill:#FFF4D6,stroke:#B8872D,stroke-width:1.8px,color:#5A4315;
+  class p1,p2,p3,p4,p5,p6,p7,p8,p10 step;
+  class p9 change;
 ```
 
 De arriba abajo: creas el proyecto y dictas la constitución; especificas, aclaras, planificas y troceas en tareas (los cuatro artefactos en azul); analizas, y si hay incidencias vuelves a la especificación. Cuando todo es coherente, implementas y pruebas la aplicación. En el paso 9 (en naranja) pides un cambio editando la especificación y dejas que el asistente regenere el código; terminas con una reflexión y la limpieza.
