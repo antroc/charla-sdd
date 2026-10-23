@@ -7,12 +7,18 @@ Este repositorio es una introducción práctica a **SDD (*Spec-Driven Developmen
 No hace falta saber programar para empezar.
 
 ```mermaid
-flowchart LR
-  A["Necesidad"] --> B["Especificación<br/>qué y por qué"]
-  B --> C["Plan técnico<br/>cómo"]
+flowchart TB
+  A["Necesidad"] --> B["Especificación"]
+  B --> C["Plan técnico"]
   C --> D["Tareas y pruebas"]
   D --> E["Código"]
-  E -->|"cambia la necesidad"| B
+
+  E -.->|"cambia la necesidad"| B
+
+  classDef main fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
+  classDef spec fill:#EAF2FF,stroke:#4C78A8,stroke-width:2px,color:#1F3B5B;
+  class B spec;
+  class A,C,D,E main;
 ```
 
 La idea no es escribir documentación por escribir. Es evitar que las decisiones importantes terminen escondidas en un chat o en una línea de código.
