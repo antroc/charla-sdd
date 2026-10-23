@@ -24,30 +24,55 @@ El diagrama muestra, de arriba abajo, los siete pasos del flujo, el fichero que 
 
 ```mermaid
 flowchart TD
-  p0["0. Constitución 👤 👩‍💻 🤖"] --> f0["constitution.md"]
-  f0 --> p1["1. Especificar 👤 👩‍💻 🤖"]
-  p1 --> f1["spec.md"]
-  f1 --> p2["2. Aclarar: 🤖 pregunta, 👤 responde"]
-  p2 -->|"respuestas incorporadas"| f1
-  f1 --> p3["3. Planificar 👩‍💻 🤖"]
-  f0 -.->|"se comprueba contra los principios"| p3
-  p3 --> f3["plan.md"]
-  f3 --> p4["4. Trocear en tareas 👩‍💻 🤖"]
-  p4 --> f4["tasks.md"]
-  f4 --> p5["5. Analizar: 🤖 informa, 👩‍💻 y 👤 deciden"]
-  f0 -.->|"también se comprueba contra los principios"| p5
-  p5 -->|"incoherencia en la especificación"| f1
-  p5 -->|"incoherencia en el plan"| f3
-  p5 -->|"todo coherente"| p6["6. Implementar: 🤖 ejecuta, 👩‍💻 revisa y prueba"]
-  p6 --> f6["Código y pruebas"]
-  f6 -->|"no hace lo que pide la especificación"| f1
-  f6 -->|"cumple"| fin["Entrega: 👤 valida con la especificación en la mano"]
-  classDef paso fill:#E8F0FE,stroke:#1A56DB;
-  classDef fichero fill:#FFF8E1,stroke:#B7791F;
-  classDef meta fill:#E8F5E9,stroke:#2E7D32;
-  class p0,p1,p2,p3,p4,p5,p6 paso;
-  class f0,f1,f3,f4,f6 fichero;
-  class fin meta;
+  subgraph definir["① DEFINIR EL PROBLEMA"]
+    direction TB
+    p0(["0 · Constitución<br/>👤 + 👩‍💻 + 🤖"])
+    f0["📜 constitution.md"]
+    p1(["1 · Especificar<br/>👤 + 👩‍💻 + 🤖"])
+    f1["📄 spec.md"]
+    p2(["2 · Aclarar<br/>🤖 pregunta · 👤 decide"])
+    p0 --> f0 --> p1 --> f1 --> p2
+    p2 -->|"incorpora respuestas"| f1
+  end
+
+  subgraph construir["② DISEÑAR LA SOLUCIÓN"]
+    direction TB
+    p3(["3 · Planificar<br/>👩‍💻 + 🤖"])
+    f3["🧭 plan.md"]
+    p4(["4 · Trocear<br/>👩‍💻 + 🤖"])
+    f4["✅ tasks.md"]
+    p5(["5 · Analizar<br/>🤖 informa · personas deciden"])
+    p3 --> f3 --> p4 --> f4 --> p5
+  end
+
+  subgraph entregar["③ CONSTRUIR Y VALIDAR"]
+    direction TB
+    p6(["6 · Implementar<br/>🤖 ejecuta · 👩‍💻 revisa"])
+    f6["⚙️ Código + pruebas"]
+    fin(["🎯 Entrega<br/>👤 valida"])
+    p6 --> f6 -->|"cumple"| fin
+  end
+
+  f1 --> p3
+  f0 -.->|"principios"| p3
+  f0 -.->|"principios"| p5
+  p5 -->|"todo coherente"| p6
+  p5 -->|"problema funcional"| f1
+  p5 -->|"problema técnico"| f3
+  f6 -->|"cambió la necesidad"| f1
+  f6 -->|"bug"| p6
+
+  classDef step fill:#F4F1FF,stroke:#8172C9,stroke-width:2px,color:#352D65;
+  classDef file fill:#EEF4FF,stroke:#5D83B3,stroke-width:1.8px,color:#203A59;
+  classDef success fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+
+  class p0,p1,p2,p3,p4,p5,p6 step;
+  class f0,f1,f3,f4,f6 file;
+  class fin success;
+
+  style definir fill:#FFFDF7,stroke:#E2C87A,stroke-width:1px
+  style construir fill:#FAF9FF,stroke:#B8AFE3,stroke-width:1px
+  style entregar fill:#F7FCF8,stroke:#9BC7A5,stroke-width:1px
 ```
 
 De arriba abajo: la constitución (`constitution.md`) fija los principios del proyecto y alimenta todo lo demás. Especificar produce la especificación (`spec.md`); el paso de aclarar la completa con las respuestas de negocio. Planificar produce el plan técnico (`plan.md`), comprobado contra la constitución, y trocear produce la lista de tareas (`tasks.md`).
@@ -80,37 +105,51 @@ En los mensajes verás códigos de la especificación: RF-nnn son los requisitos
 
 ```mermaid
 sequenceDiagram
-  participant Ana as 👤 Ana (responsable de Oficina)
-  participant Luis as 👩‍💻 Luis (programador junior)
-  participant IA as 🤖 Asistente de IA
-  Ana->>Luis: Describe ReservaSalas (12 salas, choques, reservas fantasma) y dicta sus 5 principios
-  Luis->>IA: /speckit.constitution con los 5 principios de Ana
-  IA-->>Luis: constitution.md
-  Luis->>IA: /speckit.specify con la descripción de Ana, sin tecnología
-  IA-->>Luis: spec.md con 3 historias (P1 reservar una sala), requisitos en EARS y CE-001 a CE-004
-  Luis->>IA: /speckit.clarify
-  loop 5 preguntas, de una en una (recurrentes, cancelar ajenas, correo, antelación, asistencia)
-    IA-->>Luis: Pregunta con opción recomendada
-    Luis->>Ana: Le traslada la pregunta (en una misma reunión de 15 minutos)
-    Ana-->>Luis: Respuesta (no, solo administración, sí, 30 días, fuera de alcance)
-    Luis->>IA: Respuesta de Ana
+  autonumber
+  participant Ana as 👤 Ana
+  participant Luis as 👩‍💻 Luis
+  participant IA as 🤖 Asistente
+
+  rect rgb(255,248,230)
+    Ana->>Luis: Necesidad + 5 principios
+    Luis->>IA: /speckit.constitution
+    IA-->>Luis: constitution.md
+    Luis->>IA: /speckit.specify
+    IA-->>Luis: spec.md
   end
-  IA-->>Luis: spec.md actualizado: RF-010, RF-011 y límite de 30 días
-  Luis->>IA: /speckit.plan con Python 3.12, FastAPI, SQLite, Jinja2 y pytest
-  IA-->>Luis: plan.md comprobado contra la constitución
-  Luis->>IA: /speckit.tasks
-  IA-->>Luis: tasks.md: T013 a T024 para HU1, pruebas antes que código
-  Luis->>IA: /speckit.analyze
-  IA-->>Luis: Informe de coherencia: sin incidencias CRITICAL ni HIGH y cobertura del 100 %
-  Luis->>IA: /speckit.implement (fases 1 a 3, el producto mínimo)
-  IA-->>Luis: Código y pruebas de HU1: todas las pruebas automáticas pasan
-  Luis->>Ana: Demo: reservar Mediterráneo el jueves de 10:00 a 11:00
-  loop Cada vez que Ana pide un cambio
-    Ana->>Luis: Pide el cambio por escrito
-    Luis->>IA: Escribe el cambio en spec.md
-    Luis->>Ana: Le enseña el texto nuevo
-    Ana-->>Luis: Lo relee y lo aprueba
-    Luis->>IA: Actualiza plan.md y después /speckit.converge y /speckit.implement
+
+  rect rgb(244,241,255)
+    Luis->>IA: /speckit.clarify
+    loop Resolver dudas
+      IA-->>Luis: Pregunta
+      Luis->>Ana: ¿Qué decidimos?
+      Ana-->>Luis: Respuesta
+      Luis->>IA: Decisión
+    end
+    IA-->>Luis: spec.md actualizado
+  end
+
+  rect rgb(238,244,255)
+    Luis->>IA: /speckit.plan
+    IA-->>Luis: plan.md
+    Luis->>IA: /speckit.tasks
+    IA-->>Luis: tasks.md
+    Luis->>IA: /speckit.analyze
+    IA-->>Luis: Informe de coherencia
+  end
+
+  rect rgb(236,248,238)
+    Luis->>IA: /speckit.implement
+    IA-->>Luis: Código + pruebas
+    Luis->>Ana: Demo de HU1
+  end
+
+  loop Cuando cambia una necesidad
+    Ana->>Luis: Pide el cambio
+    Luis->>IA: Actualiza spec.md
+    Luis->>Ana: Revisión del texto
+    Ana-->>Luis: Aprobado
+    Luis->>IA: plan → converge → implement
   end
 ```
 

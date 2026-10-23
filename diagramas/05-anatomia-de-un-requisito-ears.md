@@ -22,23 +22,35 @@ El diagrama muestra las cinco piezas de ese requisito: la palabra clave, el disp
 
 ```mermaid
 flowchart LR
-  subgraph antes ["Antes de la coma: ¿en qué situación?"]
+  subgraph contexto["① CONTEXTO · ¿cuándo aplica?"]
     direction LR
-    clave["Palabra clave: CUANDO"] --> disparador["Disparador: una persona confirma una reserva"]
+    clave["🟧 <b>CUANDO</b>"]
+    disparador["una persona<br/>confirma una reserva"]
+    clave --> disparador
   end
-  subgraph despues ["Después de la coma: ¿qué tiene que pasar?"]
+
+  subgraph obligacion["② OBLIGACIÓN · ¿qué debe pasar?"]
     direction LR
-    sujeto["Sujeto: el sistema"] --> verbo["Obligación: deberá"] --> respuesta["Respuesta: guardarla y mostrar un mensaje de confirmación con sala, fecha y hora"]
+    sujeto["el sistema"]
+    verbo["🟦 <b>deberá</b>"]
+    respuesta["guardarla y mostrar<br/>confirmación con sala,<br/>fecha y hora"]
+    sujeto --> verbo --> respuesta
   end
+
   disparador --> sujeto
-  clave -.-> patron["Marca el patrón: por evento (algo ocurre en un momento concreto)"]
-  respuesta -.-> prueba["Es lo que se comprueba en la prueba: ¿se guardó? ¿aparece el mensaje con sala, fecha y hora?"]
-  classDef situacion fill:#FDF2E9,stroke:#B7791F;
-  classDef accion fill:#E8F0FE,stroke:#1A56DB;
-  classDef nota fill:#F3F4F6,stroke:#6B7280;
-  class clave,disparador situacion;
-  class sujeto,verbo,respuesta accion;
-  class patron,prueba nota;
+  clave -.-> patron["Patrón EARS<br/><b>por evento</b>"]
+  respuesta -.-> prueba["Se puede probar<br/>con un sí o un no"]
+
+  classDef context fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#4B3505;
+  classDef action fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef note fill:#F4F1FF,stroke:#8172C9,stroke-width:1.5px,color:#352D65;
+
+  class clave,disparador context;
+  class sujeto,verbo,respuesta action;
+  class patron,prueba note;
+
+  style contexto fill:#FFFDF8,stroke:#E9D8A6
+  style obligacion fill:#F8FBFF,stroke:#C8D8EC
 ```
 
 De izquierda a derecha: la palabra clave CUANDO avisa de que el requisito solo se aplica en una situación concreta, y el disparador dice cuál (alguien confirma una reserva). Después de la coma aparece siempre el mismo sujeto, «el sistema», seguido de «deberá» (es una obligación, no una sugerencia) y de la respuesta: qué hace exactamente.
@@ -72,24 +84,27 @@ El diagrama es un árbol de decisión: partes de una frase sobre lo que debe hac
 
 ```mermaid
 flowchart TD
-  frase["Tengo una frase: algo que ReservaSalas tiene que hacer"] --> q1["¿Es algo que no queremos que pase: un error, un intento no permitido, un límite que se incumple?"]
-  q1 -->|"sí"| noDeseado["Comportamiento no deseado: SI (condición), ENTONCES el sistema deberá (respuesta) · RF-005"]
-  q1 -->|"no"| q2["¿Ocurre en un momento concreto, porque alguien hace algo o llega una fecha? (confirma, cancela, consulta...)"]
-  q2 -->|"sí"| cuando["Por evento: CUANDO (disparador), el sistema deberá (respuesta) · RF-003"]
-  q2 -->|"no"| q3["¿Depende de un estado que dura un tiempo? (en mantenimiento, pendiente...)"]
-  q3 -->|"sí"| mientras["Por estado: MIENTRAS (estado), el sistema deberá (respuesta) · RF-007"]
-  q3 -->|"no"| q4["¿Se aplica solo a algunos perfiles, sedes o configuraciones?"]
-  q4 -->|"sí"| donde["Opcional: DONDE (característica o perfil), el sistema deberá (respuesta) · RF-009"]
-  q4 -->|"no"| ubicuo["Ubicuo: El sistema deberá (respuesta) · RF-001"]
-  mientras -.->|"¿y además hay un disparador?"| complejo["Complejo: MIENTRAS (estado), CUANDO (disparador), el sistema deberá (respuesta)"]
-  %% Enlaces invisibles: solo alinean los patrones en una columna
-  noDeseado ~~~ cuando ~~~ mientras ~~~ complejo
-  classDef pregunta fill:#FDF2E9,stroke:#B7791F;
-  classDef patronEars fill:#E8F0FE,stroke:#1A56DB;
-  classDef neutro fill:#F3F4F6,stroke:#6B7280;
-  class q1,q2,q3,q4 pregunta;
-  class cuando,mientras,noDeseado,donde,ubicuo,complejo patronEars;
-  class frase neutro;
+  inicio(["Tengo un requisito"]) --> q1{{"¿Describe un error,<br/>límite o intento no permitido?"}}
+  q1 -->|"sí"| error["🛑 <b>SI ... ENTONCES</b><br/>Comportamiento no deseado"]
+  q1 -->|"no"| q2{{"¿Lo dispara un evento<br/>concreto?"}}
+  q2 -->|"sí"| evento["⚡ <b>CUANDO</b><br/>Por evento"]
+  q2 -->|"no"| q3{{"¿Depende de un estado<br/>que dura en el tiempo?"}}
+  q3 -->|"sí"| estado["⏳ <b>MIENTRAS</b><br/>Por estado"]
+  q3 -->|"no"| q4{{"¿Solo aplica a cierto<br/>perfil o contexto?"}}
+  q4 -->|"sí"| opcional["🎯 <b>DONDE</b><br/>Opcional"]
+  q4 -->|"no"| ubicuo["📌 <b>El sistema deberá...</b><br/>Ubicuo"]
+
+  estado -.->|"si además hay evento"| complejo["🔀 <b>MIENTRAS + CUANDO</b><br/>Complejo"]
+
+  classDef start fill:#F7F7F5,stroke:#8A8A84,stroke-width:1.5px,color:#2D2D2D;
+  classDef question fill:#FFF4D8,stroke:#C88A1C,stroke-width:2px,color:#3D2A00;
+  classDef pattern fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef danger fill:#FFF0F0,stroke:#D95C5C,stroke-width:2px,color:#5A2020;
+
+  class inicio start;
+  class q1,q2,q3,q4 question;
+  class evento,estado,opcional,ubicuo,complejo pattern;
+  class error danger;
 ```
 
 De arriba abajo: la primera pregunta es si la frase describe algo que no queremos que pase; si es así, es un comportamiento no deseado (SI…, ENTONCES…). Si no, ¿ocurre en un momento concreto? Es por evento (CUANDO). Si no, ¿depende de un estado que dura un tiempo? Es por estado (MIENTRAS). Si no, ¿se aplica solo a algunos perfiles, sedes o configuraciones? Es opcional (DONDE). Y si no depende de nada, es ubicuo: «El sistema deberá…» a secas.

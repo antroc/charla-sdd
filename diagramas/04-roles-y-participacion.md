@@ -19,26 +19,33 @@ El diagrama muestra, para cada uno de los tres primeros pasos del flujo, quién 
 
 ```mermaid
 flowchart TD
-  subgraph p0 ["0 · Constitución"]
-    l0["👤 Lideran: Ana y Luis, juntos (el 🤖 asistente redacta)"]
-    r0["👩‍💻 Revisa: programador senior"]
+  subgraph negocio["FASE DE NEGOCIO · definir qué queremos"]
+    direction LR
+    p0["0 · Constitución<br/><b>Lideran:</b> Ana + Luis<br/><b>Revisa:</b> senior"]
+    p1["1 · Especificar<br/><b>Lidera:</b> Ana<br/><b>Revisan:</b> Luis + QA"]
+    p2["2 · Aclarar<br/><b>Decide:</b> Ana<br/><b>Facilita:</b> Luis + 🤖"]
+    p0 --> p1 --> p2
   end
-  subgraph p1 ["1 · Especificar"]
-    l1["👤 Lidera: Ana (el 🤖 asistente redacta el borrador)"]
-    r1["👩‍💻 Revisan: Luis y QA · se consulta a Marta y Jorge"]
+
+  subgraph tecnica["FASE TÉCNICA · decidir cómo"]
+    direction LR
+    p3["3 · Planificar<br/><b>Lidera:</b> Luis<br/><b>Revisa:</b> senior"]
+    p4["4 · Trocear<br/><b>Lidera:</b> Luis<br/><b>Revisan:</b> senior + QA"]
+    p5["5 · Analizar<br/><b>Lidera:</b> Luis + 🤖<br/><b>Deciden:</b> Ana + senior + QA"]
+    p6["6 · Implementar<br/><b>Ejecuta:</b> 🤖<br/><b>Revisan:</b> Luis + usuarios + QA"]
+    p3 --> p4 --> p5 --> p6
   end
-  subgraph p2 ["2 · Aclarar"]
-    l2["👤 Lidera: Ana, que responde (el 🤖 asistente pregunta)"]
-    r2["👩‍💻 Revisa: Luis, que lanza el paso en el asistente y comprueba que las respuestas quedan en la especificación"]
-  end
-  l0 ~~~ r0
-  l1 ~~~ r1
-  l2 ~~~ r2
-  p0 --> p1 --> p2
-  classDef negocio fill:#FDF2E9,stroke:#B7791F;
-  classDef dev fill:#E8F0FE,stroke:#1A56DB;
-  class l0,l1,l2 negocio;
-  class r0,r1,r2 dev;
+
+  p2 --> p3
+
+  classDef business fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#4B3505;
+  classDef tech fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+
+  class p0,p1,p2 business;
+  class p3,p4,p5,p6 tech;
+
+  style negocio fill:#FFFDF8,stroke:#E9D8A6
+  style tecnica fill:#F8FBFF,stroke:#C8D8EC
 ```
 
 De arriba abajo: la constitución (`constitution.md`) la fijan juntos quien encarga y quien construye, y la revisa alguien con experiencia técnica. La especificación (`spec.md`) la lidera Ana: ella dice qué quiere y por qué, el asistente de IA lo redacta con historias y requisitos, y Luis y QA revisan que no se haya colado tecnología ni frases vagas; a Marta y Jorge se les pregunta cómo usan hoy las salas.
@@ -50,32 +57,27 @@ En aclarar, el asistente hace las preguntas, Ana responde y Luis se ocupa de que
 El diagrama sigue con los cuatro pasos restantes, con el mismo esquema: una casilla «Lidera» y otra «Revisa» por paso, naranja cuando lidera o revisa negocio (aunque le acompañe alguien técnico) y azul cuando lo hace solo quien programa.
 
 ```mermaid
-flowchart TD
-  subgraph p3 ["3 · Planificar"]
-    l3["👩‍💻 Lidera: Luis (el 🤖 asistente redacta el plan)"]
-    r3["👩‍💻 Revisa: programador senior, contra la constitución"]
-  end
-  subgraph p4 ["4 · Trocear en tareas"]
-    l4["👩‍💻 Lidera: Luis (el 🤖 asistente genera la lista)"]
-    r4["👩‍💻 Revisan: senior y QA (tareas pequeñas, pruebas primero)"]
-  end
-  subgraph p5 ["5 · Analizar"]
-    l5["👩‍💻 Lidera: Luis (el 🤖 asistente informa de incoherencias)"]
-    r5["👤 Revisan: Ana (criterios de éxito), senior (informe) y QA (lista de verificación)"]
-  end
-  subgraph p6 ["6 · Implementar"]
-    l6["👩‍💻 Lidera: Luis (el 🤖 asistente ejecuta las tareas)"]
-    r6["👤 Revisa: Ana · prueban: Marta y Jorge · senior y QA revisan código y pruebas"]
-  end
-  l3 ~~~ r3
-  l4 ~~~ r4
-  l5 ~~~ r5
-  l6 ~~~ r6
-  p3 --> p4 --> p5 --> p6
-  classDef negocio fill:#FDF2E9,stroke:#B7791F;
-  classDef dev fill:#E8F0FE,stroke:#1A56DB;
-  class l3,l4,l5,l6,r3,r4 dev;
-  class r5,r6 negocio;
+flowchart LR
+  ana(["👤 Ana<br/>decide necesidad"]) --> spec["📄 Especificación"]
+  luis(["👩‍💻 Luis<br/>dirige construcción"]) --> plan["🧭 Plan + tareas"]
+  ia(["🤖 Asistente<br/>redacta y ejecuta"]) --> salida["⚙️ Artefactos + código"]
+  qa(["🔎 Senior / QA<br/>revisan"]) --> control["☑️ Calidad"]
+  usuarios(["👥 Marta / Jorge<br/>prueban"]) --> validacion["🎯 Validación real"]
+
+  spec --> plan --> salida --> validacion
+  control -.-> spec
+  control -.-> plan
+  control -.-> salida
+
+  classDef person fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#4B3505;
+  classDef artifact fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef review fill:#F4F1FF,stroke:#8172C9,stroke-width:1.7px,color:#352D65;
+  classDef success fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+
+  class ana,luis,ia,qa,usuarios person;
+  class spec,plan,salida artifact;
+  class control review;
+  class validacion success;
 ```
 
 De arriba abajo: a partir del plan técnico (`plan.md`) lidera Luis. El asistente de IA hace el trabajo pesado: redacta el plan, genera la lista de tareas (`tasks.md`), informa de incoherencias y, al final, ejecuta las tareas. La revisión técnica (plan, tareas, informe y código) la hace alguien con experiencia, y QA vigila las pruebas; en planificar se consulta a Ana y a QA si una decisión les afecta.
@@ -87,17 +89,22 @@ Negocio vuelve a aparecer en los dos últimos pasos: en analizar, Ana comprueba 
 Una lectura más ligera del mismo recorrido. El diagrama muestra lo cómodo que suele resultar cada paso para quien participa en él: cara contenta, paso cómodo y vistoso; cara seria, paso tedioso o de espera. Es una estimación hecha desde nuestra experiencia, no una medición.
 
 ```mermaid
-journey
-  title Comodidad de cada paso para quien participa (estimación)
-  section Pensar
-    Constitución: 4: Ana, Luis
-    Especificar: 5: Ana
-    Aclarar: 3: Ana, Luis
-  section Construir
-    Planificar: 4: Luis
-    Trocear en tareas: 4: Luis
-    Analizar: 3: Luis
-    Implementar: 5: Luis, Ana
+flowchart LR
+  c0["0 · Constitución<br/>●●●●○"]
+  c1["1 · Especificar<br/>●●●●●"]
+  c2["2 · Aclarar<br/>●●●○○"]
+  c3["3 · Planificar<br/>●●●●○"]
+  c4["4 · Tareas<br/>●●●●○"]
+  c5["5 · Analizar<br/>●●●○○"]
+  c6["6 · Implementar<br/>●●●●●"]
+
+  c0 --> c1 --> c2 --> c3 --> c4 --> c5 --> c6
+
+  classDef thinking fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#4B3505;
+  classDef building fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+
+  class c0,c1,c2 thinking;
+  class c3,c4,c5,c6 building;
 ```
 
 De izquierda a derecha: los pasos más agradecidos son especificar (Ana por fin dice lo que necesita, sin traducirlo a jerga) e implementar (la aplicación aparece y se puede tocar). Las caras más serias están en aclarar y analizar: son pasos de preguntas y comprobaciones en los que no se ve avanzar nada, y por eso son los que más tentación dan de saltarse. Precisamente ahí se evitan muchos de los disgustos de después.

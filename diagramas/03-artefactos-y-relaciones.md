@@ -16,34 +16,61 @@ El SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) produ
 El diagrama muestra los cinco artefactos de SDD (constitución, especificación, lista de verificación, plan técnico y lista de tareas) más el registro de aclaraciones, el informe de análisis (que no deja fichero) y el código que sale de todo ello, con las relaciones entre ellos: las flechas continuas significan «fija las reglas de», «se convierte en» o «produce»; las discontinuas, «comprueba» o «corrige».
 
 ```mermaid
-flowchart TD
-  C["Constitución · constitution.md"]
-  E["Especificación · spec.md"]
-  P["Plan técnico · plan.md"]
-  T["Lista de tareas · tasks.md"]
-  K["Código y pruebas"]
-  subgraph calidad ["Control de calidad: no producen código"]
-    A["Aclaraciones · preguntas y respuestas"]
-    L["Lista de verificación · checklist"]
-    N["Análisis · informe de coherencia"]
+flowchart LR
+  subgraph gobierno["REGLAS"]
+    C["📜 Constitución<br/><b>constitution.md</b>"]
   end
-  C -->|"fija las reglas de"| E & P & T
-  E -->|"se convierte en"| P
+
+  subgraph definicion["QUÉ Y POR QUÉ"]
+    E["📄 Especificación<br/><b>spec.md</b>"]
+  end
+
+  subgraph diseno["CÓMO"]
+    P["🧭 Plan técnico<br/><b>plan.md</b>"]
+    T["✅ Lista de tareas<br/><b>tasks.md</b>"]
+  end
+
+  subgraph entrega["RESULTADO"]
+    K["⚙️ Código + pruebas"]
+  end
+
+  subgraph calidad["CONTROL DE CALIDAD"]
+    direction TB
+    A["💬 Aclaraciones"]
+    L["☑️ Checklist"]
+    N["🔎 Análisis"]
+  end
+
+  C -->|"marca límites"| E
+  C -.-> P
+  C -.-> T
+  E -->|"guía"| P
   P -->|"se trocea en"| T
-  T -->|"se ejecuta y produce"| K
-  E -.->|"el asistente detecta huecos"| A
-  A -.->|"las respuestas vuelven a"| E
-  L -.->|"valida la calidad de"| E
-  N -.->|"cruza"| E & P & T
-  K -.->|"si algo no cuadra, se corrige aquí"| E
-  classDef principios fill:#FDF2E9,stroke:#B7791F;
-  classDef documento fill:#E8F0FE,stroke:#1A56DB;
-  classDef control fill:#E6F4EA,stroke:#1E7B34;
-  classDef codigo fill:#F3F4F6,stroke:#4B5563;
-  class C principios;
-  class E,P,T documento;
+  T -->|"se ejecuta"| K
+
+  E -.->|"dudas"| A
+  A -.->|"decisiones"| E
+  L -.->|"revisa"| E
+  N -.->|"cruza"| E
+  N -.-> P
+  N -.-> T
+  K -.->|"cambio funcional"| E
+
+  classDef rule fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#4B3505;
+  classDef doc fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef control fill:#F4F1FF,stroke:#8172C9,stroke-width:1.7px,color:#352D65;
+  classDef output fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+
+  class C rule;
+  class E,P,T doc;
   class A,L,N control;
-  class K codigo;
+  class K output;
+
+  style gobierno fill:#FFFDF8,stroke:#E9D8A6
+  style definicion fill:#F8FBFF,stroke:#C8D8EC
+  style diseno fill:#F8FBFF,stroke:#C8D8EC
+  style entrega fill:#F8FCF9,stroke:#BFDEC6
+  style calidad fill:#FCFAFF,stroke:#D1CBEA
 ```
 
 De arriba abajo: la constitución (`constitution.md`) está en lo más alto y marca los límites de todo lo demás; cada comando del asistente de IA la lee antes de trabajar. La especificación (`spec.md`) es el centro: de ella sale el plan técnico (`plan.md`), del plan la lista de tareas (`tasks.md`) y de las tareas el código con sus pruebas.
@@ -58,27 +85,45 @@ Las flechas del mapa anterior se entienden mejor siguiendo un requisito concreto
 
 ```mermaid
 flowchart LR
-  P3["Constitución · principio 3: pruebas antes de dar algo por hecho"]
-  RF["Especificación · RF-005: SI la franja se solapa con otra reserva de la misma sala, ENTONCES el sistema deberá rechazarla e indicar qué franja está ocupada"]
-  CE["Especificación · CE-002: cero reservas solapadas"]
-  CHK["Lista de verificación de la solución · CHK016: los requisitos no se contradicen entre sí"]
-  D["Plan técnico · decisión: comprobar el solapamiento y guardar en una sola operación (transacción)"]
-  T13["Tareas · T013: pruebas de solapamiento, se escriben primero y tienen que fallar"]
-  T20["Tareas · T020: crear la reserva comprobando el solapamiento"]
-  COD["Código · src/reservasalas/servicios/reservas.py y tests/unitarias/test_solapamiento.py"]
-  CHK -.->|"comprueba"| RF
-  RF & CE --> D
+  subgraph origen["LO QUE SE DECIDE"]
+    P3["📜 Principio 3<br/>Pruebas primero"]
+    RF["📄 RF-005<br/>No permitir solapamientos"]
+    CE["🎯 CE-002<br/>Cero reservas solapadas"]
+  end
+
+  subgraph control["LO QUE LO COMPRUEBA"]
+    CHK["☑️ CHK016<br/>Sin contradicciones"]
+    T13["🧪 T013<br/>Pruebas de solapamiento"]
+  end
+
+  subgraph construccion["LO QUE SE CONSTRUYE"]
+    D["🧭 Plan<br/>Comprobar + guardar<br/>en una operación"]
+    T20["✅ T020<br/>Crear reserva<br/>validando solapamiento"]
+    COD["⚙️ Código + pruebas<br/>reservas.py<br/>test_solapamiento.py"]
+  end
+
+  CHK -.-> RF
+  RF --> D
+  CE --> D
   P3 --> T13
-  D --> T13 & T20
-  T13 & T20 --> COD
-  classDef principios fill:#FDF2E9,stroke:#B7791F;
-  classDef documento fill:#E8F0FE,stroke:#1A56DB;
-  classDef control fill:#E6F4EA,stroke:#1E7B34;
-  classDef codigo fill:#F3F4F6,stroke:#4B5563;
-  class P3 principios;
-  class RF,CE,D,T13,T20 documento;
-  class CHK control;
-  class COD codigo;
+  D --> T13
+  D --> T20
+  T13 --> COD
+  T20 --> COD
+
+  classDef rule fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#4B3505;
+  classDef doc fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef check fill:#F4F1FF,stroke:#8172C9,stroke-width:1.7px,color:#352D65;
+  classDef output fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+
+  class P3 rule;
+  class RF,CE,D,T20 doc;
+  class CHK,T13 check;
+  class COD output;
+
+  style origen fill:#FFFDF8,stroke:#E9D8A6
+  style control fill:#FCFAFF,stroke:#D1CBEA
+  style construccion fill:#F8FBFF,stroke:#C8D8EC
 ```
 
 De izquierda a derecha: el requisito RF-005 y el criterio de éxito CE-002 («cero reservas solapadas») viven en la especificación, y la lista de verificación comprueba que no se contradicen con el resto (CHK016 es el número de esa comprobación en la lista de la solución; la [plantilla](../ejercicios/plantillas/lista-de-verificacion.md) numera sus preguntas de otra forma). El plan técnico los convierte en una decisión concreta: comprobar y guardar en una sola operación, para que dos personas no puedan colarse a la vez.
