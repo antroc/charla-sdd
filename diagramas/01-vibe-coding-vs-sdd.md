@@ -12,21 +12,31 @@ Este diagrama muestra el bucle en el que se entra cuando se pide el código dire
 
 ```mermaid
 flowchart LR
-  idea["💡 Idea: «hazme una app para reservar salas»"] --> prompt["Prompt suelto al asistente de IA"]
-  prompt --> codigo["Código generado (nadie lo lee entero)"]
-  codigo --> prueba["¿Funciona?"]
-  prueba -->|"parece que sí"| demo["Demo bonita"]
-  demo --> cambio["Alguien pide un cambio o aparece un fallo real"]
+  idea(["💡 Idea<br/>Reservar salas"]) --> prompt["💬 Prompt<br/>suelto"]
+  prompt --> codigo["⚙️ Código<br/>generado"]
+  codigo --> prueba{{"¿Funciona?"}}
+
+  prueba -->|"parece que sí"| demo(["✨ Demo"])
+  demo --> cambio["🔁 Cambio<br/>o fallo real"]
   cambio --> prompt
-  prueba -->|"no"| parche1["Parche 1: «arregla esto»"]
-  parche1 --> parche2["Parche 2: «ahora falla aquello»"]
-  parche2 --> parche3["Parche 3: «vuelve a fallar lo primero»"]
-  parche3 --> prueba
-  parche3 -.-> nadie["Nadie sabe ya qué debía hacer el sistema"]
-  classDef trampa fill:#FDE8E8,stroke:#C81E1E;
-  classDef neutro fill:#F3F4F6,stroke:#6B7280;
-  class parche1,parche2,parche3,nadie trampa;
-  class idea,prompt,codigo,prueba,demo,cambio neutro;
+
+  prueba -->|"no"| p1["🩹 Arregla esto"]
+  p1 --> p2["🩹 Ahora falla aquello"]
+  p2 --> p3["🩹 Vuelve a fallar lo primero"]
+  p3 --> prueba
+  p3 -.-> nadie["❓ Ya no está claro<br/>qué debía hacer"]
+
+  classDef start fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#2D2D2D;
+  classDef neutral fill:#F7F7F5,stroke:#8A8A84,stroke-width:1.5px,color:#2D2D2D;
+  classDef danger fill:#FFF0F0,stroke:#D95C5C,stroke-width:2px,color:#5A2020;
+  classDef decision fill:#FFF4D8,stroke:#C88A1C,stroke-width:2px,color:#3D2A00;
+
+  class idea,demo start;
+  class prompt,codigo,cambio neutral;
+  class prueba decision;
+  class p1,p2,p3,nadie danger;
+
+  linkStyle 5,6,7,8 stroke:#D95C5C,stroke-width:2px;
 ```
 
 De izquierda a derecha: la idea se convierte directamente en un *prompt* y el asistente devuelve código que nadie lee entero. Si parece funcionar, se enseña la demo; en cuanto alguien pide un cambio o aparece un fallo real, se escribe otro *prompt* y empieza otra vuelta. Si no funciona, se encadenan parches: cada uno arregla una cosa y rompe otra, hasta que nadie sabe ya qué debía hacer el sistema.
@@ -39,21 +49,33 @@ Este diagrama muestra el mismo punto de partida siguiendo SDD: la idea pasa prim
 
 ```mermaid
 flowchart LR
-  idea["💡 Idea: «hazme una app para reservar salas»"] --> spec["Especificación: qué y por qué (spec.md)"]
-  spec --> aclarar["Aclarar: el asistente pregunta, negocio responde"]
-  aclarar -->|"respuestas incorporadas"| spec
-  spec --> plan["Plan técnico: cómo (plan.md)"]
-  plan --> tareas["Lista de tareas (tasks.md)"]
-  tareas --> codigo["Código generado tarea a tarea"]
-  codigo --> revisar["Revisar contra la especificación"]
-  revisar -->|"cumple"| listo["Entregado, probado y entendido"]
-  revisar -->|"no cumple"| spec
-  classDef documento fill:#E8F0FE,stroke:#1A56DB;
-  classDef neutro fill:#F3F4F6,stroke:#6B7280;
-  classDef bien fill:#E8F5E9,stroke:#2E7D32;
-  class spec,plan,tareas documento;
-  class idea,aclarar,codigo,revisar neutro;
-  class listo bien;
+  idea(["💡 Idea<br/>Reservar salas"]) --> spec["📄 Especificación<br/><b>qué y por qué</b>"]
+  spec --> aclarar["💬 Aclarar<br/>preguntar y decidir"]
+  aclarar -->|"respuestas"| spec
+  spec --> plan["🧭 Plan técnico<br/><b>cómo</b>"]
+  plan --> tareas["✅ Tareas<br/>pequeñas y comprobables"]
+  tareas --> codigo["⚙️ Código + pruebas"]
+  codigo --> revisar{{"¿Cumple lo acordado?"}}
+  revisar -->|"sí"| listo(["🎯 Entregado<br/>y entendido"])
+  revisar -->|"cambió la necesidad"| spec
+  revisar -->|"es un bug"| codigo
+
+  classDef start fill:#FFF7E6,stroke:#D89B2B,stroke-width:2px,color:#2D2D2D;
+  classDef doc fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef action fill:#F4F1FF,stroke:#8172C9,stroke-width:1.5px,color:#352D65;
+  classDef code fill:#F5F5F3,stroke:#77776F,stroke-width:1.5px,color:#30302C;
+  classDef decision fill:#FFF4D8,stroke:#C88A1C,stroke-width:2px,color:#3D2A00;
+  classDef success fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+
+  class idea start;
+  class spec,plan,tareas doc;
+  class aclarar action;
+  class codigo code;
+  class revisar decision;
+  class listo success;
+
+  linkStyle 8 stroke:#5D83B3,stroke-width:2px;
+  linkStyle 9 stroke:#77776F,stroke-width:2px;
 ```
 
 De izquierda a derecha: la idea se escribe como una especificación (`spec.md`), en lenguaje natural y sin decidir tecnología. El asistente de IA detecta huecos y pregunta; negocio (quien pide el software y quien lo va a usar) responde, y las respuestas se incorporan a la especificación. Solo entonces se decide el cómo en el plan técnico (`plan.md`), que se trocea en una lista de tareas (`tasks.md`), y el asistente escribe el código tarea a tarea.

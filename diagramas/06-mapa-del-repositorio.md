@@ -15,53 +15,63 @@ Este repositorio es el material de formación interno sobre SDD (*Spec-Driven De
 El mapa mental muestra el repositorio entero: en el centro, su nombre; alrededor, cuatro partes (la raíz y las tres carpetas de contenido: `docs/`, `diagramas/` y `ejercicios/`), y dentro de cada parte sus ficheros con el nombre abreviado.
 
 ```mermaid
-mindmap
-  root((Charla SDD))
-    Raíz
-      README portada
-      CONTRIBUIR cómo proponer mejoras
-    docs
-      01 El problema del vibe coding
-      02 Qué es SDD
-      03 El flujo paso a paso
-      04 Los artefactos
-      05 Escribir requisitos claros EARS
-      06 Roles y quién hace qué
-      07 Herramientas
-      08 Buenas prácticas y errores comunes
-      09 Preguntas frecuentes
-      10 Glosario
-    diagramas
-      01 Vibe coding frente a SDD
-      02 Flujo completo de SDD
-      03 Artefactos y relaciones
-      04 Roles y participación
-      05 Anatomía de un requisito EARS
-      06 Mapa del repositorio
-      svg y png exportaciones automáticas
-    ejercicios
-      00 Preparación del entorno
-      01 Tu primera especificación sin código
-      02 Practicar requisitos EARS
-      03 ReservaSalas paso a paso
-      04 Dinámica de equipo de 20 minutos
-      05 Arreglar una especificación mala
-      06 Reto final con tu propio proyecto
-      plantillas
-        constitución
-        especificación
-        lista de aclaraciones
-        plan técnico
-        tareas
-        lista de verificación
-      soluciones
-        01 solicitud de vacaciones
-        02 requisitos EARS resueltos
-        03 ReservaSalas ejemplo completo
-        05 especificación arreglada
+flowchart LR
+  root(["📚 Charla SDD"])
+
+  subgraph teoria["📘 docs/ · Teoría"]
+    d1["01 · Vibe coding"]
+    d2["02 · Qué es SDD"]
+    d3["03 · Flujo"]
+    d4["04 · Artefactos"]
+    d5["05 · EARS"]
+    d6["06 · Roles"]
+    d7["07 · Herramientas"]
+    d8["08 · Buenas prácticas"]
+    d9["09 · FAQ"]
+    d10["10 · Glosario"]
+  end
+
+  subgraph visual["🖼️ diagramas/ · Visual"]
+    g1["01 · Vibe vs SDD"]
+    g2["02 · Flujo completo"]
+    g3["03 · Artefactos"]
+    g4["04 · Roles"]
+    g5["05 · EARS"]
+    g6["06 · Mapa"]
+  end
+
+  subgraph practica["🛠️ ejercicios/ · Práctica"]
+    e0["00 · Entorno"]
+    e1["01 · Primera spec"]
+    e2["02 · EARS"]
+    e3["03 · ReservaSalas"]
+    e4["04 · Dinámica equipo"]
+    e5["05 · Arreglar spec"]
+    e6["06 · Reto final"]
+    plant["📄 Plantillas"]
+    sol["✅ Soluciones"]
+  end
+
+  root --> teoria
+  root --> visual
+  root --> practica
+
+  classDef rootStyle fill:#FFF7E6,stroke:#D89B2B,stroke-width:2.5px,color:#4B3505;
+  classDef doc fill:#EEF4FF,stroke:#5D83B3,stroke-width:1.5px,color:#203A59;
+  classDef vis fill:#F4F1FF,stroke:#8172C9,stroke-width:1.5px,color:#352D65;
+  classDef prac fill:#ECF8EE,stroke:#55A868,stroke-width:1.5px,color:#214F2A;
+
+  class root rootStyle;
+  class d1,d2,d3,d4,d5,d6,d7,d8,d9,d10 doc;
+  class g1,g2,g3,g4,g5,g6 vis;
+  class e0,e1,e2,e3,e4,e5,e6,plant,sol prac;
+
+  style teoria fill:#F8FBFF,stroke:#C8D8EC
+  style visual fill:#FCFAFF,stroke:#D1CBEA
+  style practica fill:#F8FCF9,stroke:#BFDEC6
 ```
 
-De dentro hacia fuera: la raíz tiene la portada (`README.md`) y la guía para proponer mejoras (`CONTRIBUIR.md`). `docs/` es la teoría, en diez documentos numerados que se leen en orden (aunque, según tu itinerario, puedes saltarte algunos): van desde el problema del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) hasta el glosario. `diagramas/` cuenta lo mismo en dibujos; esta página es el último. `ejercicios/` es la práctica: siete ejercicios, las plantillas de los artefactos listas para copiar y las soluciones, entre ellas el ejemplo completo de ReservaSalas: los seis ficheros que produce el flujo y un README que explica cómo se generaron.
+El mapa agrupa el repositorio en tres zonas: teoría (`docs/`), apoyo visual (`diagramas/`) y práctica (`ejercicios/`). La portada (`README.md`) y la guía para contribuir (`CONTRIBUIR.md`) quedan en la raíz. `docs/` es la teoría, en diez documentos numerados que se leen en orden (aunque, según tu itinerario, puedes saltarte algunos): van desde el problema del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) hasta el glosario. `diagramas/` cuenta lo mismo en dibujos; esta página es el último. `ejercicios/` es la práctica: siete ejercicios, las plantillas de los artefactos listas para copiar y las soluciones, entre ellas el ejemplo completo de ReservaSalas: los seis ficheros que produce el flujo y un README que explica cómo se generaron.
 
 Para no recargar el mapa no aparecen los índices: cada carpeta (también `plantillas/`, `soluciones/` y `soluciones/03-reserva-salas/`) tiene su propio `README.md`, y los encontrarás todos en la tabla del final. `diagramas/svg/` y `diagramas/png/` guardan una exportación automática de cada diagrama (SVG para PowerPoint y documentos; PNG para Google Slides o el correo), útil para pegarlo en una presentación; no se editan a mano.
 
@@ -75,11 +85,18 @@ En unas 3 horas, este camino te da lo justo para decidir si tu equipo prueba SDD
 
 ```mermaid
 flowchart LR
-  a["docs 01 y 02: el problema del vibe coding y qué es SDD"] --> b["diagramas 01 y 02: los dos caminos y el flujo completo"]
-  b --> c["doc 06: roles, quién hace qué"]
-  c --> d["docs 08 y 09: buenas prácticas y preguntas frecuentes"]
-  d --> e["ejercicio 01: tu primera especificación sin código"]
-  e --> f["ejercicio 04: la dinámica de 20 minutos, con tu equipo"]
+  a["📘 Docs 01–02<br/>Problema + idea"] --> b["🖼️ Diagramas 01–02<br/>Comparación + flujo"]
+  b --> c["👥 Doc 06<br/>Roles"]
+  c --> d["📘 Docs 08–09<br/>Buenas prácticas + FAQ"]
+  d --> e["✍️ Ejercicio 01<br/>Primera especificación"]
+  e --> f(["🤝 Ejercicio 04<br/>Dinámica con el equipo"])
+
+  classDef read fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef visual fill:#F4F1FF,stroke:#8172C9,stroke-width:2px,color:#352D65;
+  classDef practice fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+  class b visual;
+  class a,c,d read;
+  class e,f practice;
 ```
 
 De izquierda a derecha: empiezas por [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md); los ves dibujados en [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) y [Flujo completo de SDD](02-flujo-completo-sdd.md); en [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) encuentras tu papel, y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) y [Preguntas frecuentes](../docs/09-preguntas-frecuentes.md) te preparan para las dudas del equipo. Escribes una especificación sin código en el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md), y terminas probándolo con tu equipo en la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md).
@@ -90,11 +107,18 @@ Si pides software o lo usas, este camino de unas 3 horas te enseña a escribir l
 
 ```mermaid
 flowchart LR
-  a["docs 01 y 02: el problema del vibe coding y qué es SDD"] --> b["diagrama 01: los dos caminos, uno al lado del otro"]
-  b --> c["doc 05: escribir requisitos claros con EARS"]
-  c --> d["doc 06: roles, quién hace qué"]
-  d --> e["ejercicios 01 y 02: una especificación sin código y práctica de EARS"]
-  e --> f["doc 10: glosario, para consultar cuando haga falta"]
+  a["📘 Docs 01–02<br/>Problema + idea"] --> b["🖼️ Diagrama 01<br/>Dos caminos"]
+  b --> c["✍️ Doc 05<br/>EARS"]
+  c --> d["👥 Doc 06<br/>Roles"]
+  d --> e["🛠️ Ejercicios 01–02<br/>Spec + requisitos"]
+  e --> f(["📖 Doc 10<br/>Glosario"])
+
+  classDef read fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef visual fill:#F4F1FF,stroke:#8172C9,stroke-width:2px,color:#352D65;
+  classDef practice fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+  class b visual;
+  class a,c,d,f read;
+  class e practice;
 ```
 
 De izquierda a derecha: [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) y [Qué es SDD](../docs/02-que-es-sdd.md) explican de qué va esto, y [Vibe coding frente a SDD](01-vibe-coding-vs-sdd.md) lo resume en dos dibujos. [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) es la pieza clave para ti: cómo pedir las cosas de forma comprobable; [Roles: quién hace qué](../docs/06-roles-quien-hace-que.md) te dice en qué pasos participas. Lo practicas con el [ejercicio 01](../ejercicios/01-tu-primera-especificacion-sin-codigo.md) y el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md), y el [glosario](../docs/10-glosario.md) queda a mano para cualquier término que se te resista.
@@ -105,12 +129,19 @@ Es el itinerario completo (10-12 horas, en varios días): toda la teoría, todos
 
 ```mermaid
 flowchart LR
-  a["docs 01 a 10, en orden"] --> b["diagramas 01 a 06"]
-  b --> c["ejercicio 00: preparación del entorno, vía B"]
-  c --> d["ejercicio 02: practicar requisitos EARS"]
-  d --> e["ejercicio 03: ReservaSalas paso a paso"]
-  e --> f["ejercicio 05: arreglar una especificación mala"]
-  f --> g["ejercicio 06: reto final, tu propio proyecto"]
+  a["📘 Docs 01–10<br/>Teoría completa"] --> b["🖼️ Diagramas 01–06<br/>Repaso visual"]
+  b --> c["⚙️ Ejercicio 00<br/>Preparar entorno"]
+  c --> d["✍️ Ejercicio 02<br/>Practicar EARS"]
+  d --> e["🛠️ Ejercicio 03<br/>Construir ReservaSalas"]
+  e --> f["🔎 Ejercicio 05<br/>Revisar una mala spec"]
+  f --> g(["🚀 Ejercicio 06<br/>Proyecto propio"])
+
+  classDef read fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef visual fill:#F4F1FF,stroke:#8172C9,stroke-width:2px,color:#352D65;
+  classDef practice fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+  class a read;
+  class b visual;
+  class c,d,e,f,g practice;
 ```
 
 De izquierda a derecha: lees los diez documentos de [`docs/`](../docs/README.md) en orden, desde [El problema del vibe coding](../docs/01-el-problema-del-vibe-coding.md) hasta el [glosario](../docs/10-glosario.md), y después los seis [diagramas](README.md). Luego la práctica: instalas lo necesario en el [ejercicio 00](../ejercicios/00-preparacion-del-entorno.md) (vía B), afinas los requisitos en el [ejercicio 02](../ejercicios/02-practicar-requisitos-ears.md), construyes ReservaSalas con Spec Kit en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), entrenas el ojo crítico en el [ejercicio 05](../ejercicios/05-arreglar-una-especificacion-mala.md) y cierras con un proyecto tuyo en el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md).
@@ -121,11 +152,18 @@ Si ya trabajas con un asistente de IA, este camino de 6-8 horas te permite salta
 
 ```mermaid
 flowchart LR
-  a["doc 02: qué es SDD"] --> b["docs 03 y 04: el flujo paso a paso y los artefactos"]
-  b --> c["diagramas 02 y 03: flujo completo y artefactos y relaciones"]
-  c --> d["docs 07 y 08: herramientas y buenas prácticas"]
-  d --> e["ejercicio 03: ReservaSalas paso a paso"]
-  e --> f["ejercicio 06: reto final, tu propio proyecto"]
+  a["📘 Doc 02<br/>Qué es SDD"] --> b["📘 Docs 03–04<br/>Flujo + artefactos"]
+  b --> c["🖼️ Diagramas 02–03<br/>Vista visual"]
+  c --> d["📘 Docs 07–08<br/>Herramientas + prácticas"]
+  d --> e["🛠️ Ejercicio 03<br/>ReservaSalas"]
+  e --> f(["🚀 Ejercicio 06<br/>Proyecto propio"])
+
+  classDef read fill:#EEF4FF,stroke:#5D83B3,stroke-width:2px,color:#203A59;
+  classDef visual fill:#F4F1FF,stroke:#8172C9,stroke-width:2px,color:#352D65;
+  classDef practice fill:#ECF8EE,stroke:#55A868,stroke-width:2px,color:#214F2A;
+  class a,b,d read;
+  class c visual;
+  class e,f practice;
 ```
 
 De izquierda a derecha: [Qué es SDD](../docs/02-que-es-sdd.md) fija el vocabulario; [El flujo paso a paso](../docs/03-el-flujo-paso-a-paso.md) y [Los artefactos](../docs/04-los-artefactos.md) son el núcleo, y [Flujo completo de SDD](02-flujo-completo-sdd.md) y [Artefactos y relaciones](03-artefactos-y-relaciones.md) los resumen en dos diagramas; [Herramientas](../docs/07-herramientas.md) y [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) te dicen qué instalar y qué evitar. Después construyes ReservaSalas en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md), comparas con la [solución canónica](../ejercicios/soluciones/03-reserva-salas/README.md) y aplicas el flujo a un problema real en el [ejercicio 06](../ejercicios/06-reto-final-tu-propio-proyecto.md).
