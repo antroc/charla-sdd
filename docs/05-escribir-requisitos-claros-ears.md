@@ -2,9 +2,9 @@
 
 > **Para quién:** cualquier persona que vaya a escribir o revisar requisitos, sepa programar o no · **Tiempo de lectura:** ~12 min · **Nivel:** 🟢 básico
 
-En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) la especificación (`spec.md`) es la fuente de verdad: el asistente de IA la lee y de ella salen el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y el código. Dentro de la especificación, la parte de la que más depende todo son los requisitos. Un requisito ambiguo puede convertirse en código ambiguo en cuestión de minutos.
+Un asistente de IA puede convertir una frase en código muy rápido. Precisamente por eso merece la pena cuidar la frase.
 
-Este documento enseña a escribir requisitos que no admiten dos lecturas con EARS (*Easy Approach to Requirements Syntax*), una forma sencilla y estructurada de redactar requisitos. No hace falta saber programar; de hecho, quien mejor escribe un requisito es quien conoce el problema. Qué es una especificación y en qué sección van los requisitos está en [Los artefactos](04-los-artefactos.md).
+Los requisitos son la parte de la especificación donde más fácil es esconder ambigüedad: «que sea rápido», «que avise cuando haga falta», «que no permita errores». EARS (*Easy Approach to Requirements Syntax*) nos da unas plantillas sencillas para obligarnos a concretar cuándo ocurre algo y qué respuesta esperamos. No hace falta saber programar; hace falta conocer bien el problema.
 
 **Qué vas a encontrar**
 
@@ -44,7 +44,7 @@ El coste de un requisito vago no se ve el primer día; se ve después:
 
 Con un asistente de IA el problema se multiplica. Antes, un programador con dudas preguntaba; el asistente, muchas veces, rellena el hueco con una suposición razonable y sigue adelante. La velocidad que da el asistente se vuelve en contra cuando lo que recibe es vago: es el mecanismo del *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA) que describe [El problema del vibe coding](01-el-problema-del-vibe-coding.md).
 
-La buena noticia es que escribir requisitos claros no exige un talento especial. Exige una plantilla.
+No hace falta convertir esto en literatura técnica. Una estructura sencilla suele ser suficiente para detectar lo que todavía no hemos decidido.
 
 ## Qué es EARS
 

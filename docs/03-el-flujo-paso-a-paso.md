@@ -2,9 +2,11 @@
 
 > **Para quién:** quien vaya a construir con SDD y cualquier persona que quiera saber qué pasa en cada paso · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
-SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es un flujo de siete pasos, numerados del 0 al 6. Cada paso deja algo escrito (un documento casi siempre; un informe, en el paso de analizar) que el siguiente necesita como entrada. Aquí recorremos los siete con el mismo ejemplo de siempre, ReservaSalas: qué es cada paso, quién participa, qué entra y qué sale, cuánto suele durar y qué puede salir mal.
+Hasta ahora hemos hablado de la idea. Aquí la bajamos a tierra.
 
-Si todavía no sabes qué es SDD, empieza por [Qué es SDD](02-que-es-sdd.md). Si lo que quieres es ver cada documento por dentro, eso está en [Los artefactos](04-los-artefactos.md). Cuando leas «en Spec Kit», hablamos de GitHub Spec Kit, la herramienta gratuita que añade este flujo a tu asistente de IA en forma de comandos (`/speckit.constitution`, `/speckit.specify`…); la vemos al final del documento y, con más detalle, en [Herramientas](07-herramientas.md).
+Para este curso usamos un flujo de siete pasos, del 0 al 6. No son siete reuniones ni siete documentos enormes: son siete momentos distintos en los que conviene parar, decidir algo y dejarlo escrito antes de seguir. ReservaSalas nos servirá otra vez de ejemplo.
+
+Si quieres abrir cada artefacto y ver qué contiene, ve a [Los artefactos](04-los-artefactos.md). Cuando aparezca Spec Kit, nos referimos a GitHub Spec Kit y a sus comandos `/speckit.*`; lo veremos con más detalle en [Herramientas](07-herramientas.md).
 
 **Qué vas a encontrar**
 
@@ -22,7 +24,7 @@ Si todavía no sabes qué es SDD, empieza por [Qué es SDD](02-que-es-sdd.md). S
 
 ## El flujo de un vistazo
 
-Los tiempos que verás en cada paso son orientativos: en nuestra experiencia, una funcionalidad pequeña como ReservaSalas recorre los siete pasos en uno o dos días de trabajo, y la mayor parte se va en el último. Lo importante no es cuánto dura cada paso, sino que no se salte ninguno por prisa.
+Los tiempos son orientativos. En una funcionalidad pequeña algunos pasos duran minutos y otros bastante más. Lo importante es entender qué decisión se toma en cada momento y no juntar todo en una única conversación con el asistente.
 
 El diagrama muestra los siete pasos en orden, el fichero que produce cada uno y los tres bucles de vuelta: aclarar cambia la especificación, analizar puede devolverte al plan, e implementar termina siempre con una pregunta: ¿hace lo que dice la especificación?
 

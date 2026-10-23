@@ -2,9 +2,9 @@
 
 > **Para quién:** quien vaya a construir con SDD y cualquier persona que vaya a escribir o revisar una especificación · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
-En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) cada paso del flujo deja un documento. A esos documentos los llamamos artefactos. Son cinco: la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y la lista de verificación (o *checklist*; en Spec Kit, `checklists/requirements.md`; en nuestra solución, `checklist.md`). A ellos se suma el registro de aclaraciones, que en Spec Kit no es un fichero aparte sino una sección dentro de la especificación.
+Durante el flujo van apareciendo varios documentos. Llamarlos «artefactos» suena más solemne de lo que son: simplemente son las piezas escritas que nos permiten pasar una decisión de una fase a la siguiente sin depender de lo que alguien recuerde del chat.
 
-Aquí vemos cada uno por dentro: para qué sirve, quién lo escribe y quién lo revisa, qué secciones tiene, un extracto real del ejemplo ReservaSalas y los errores más típicos. Si quieres saber en qué momento del flujo aparece cada uno, eso está en [El flujo paso a paso](03-el-flujo-paso-a-paso.md).
+En este curso trabajamos con la constitución (`constitution.md`), la especificación (`spec.md`), el plan técnico (`plan.md`), la lista de tareas (`tasks.md`) y las listas de verificación. Las aclaraciones se incorporan a la propia especificación en Spec Kit. Vamos a abrirlos uno por uno para ver qué aporta cada cual y, sobre todo, qué no debería contener.
 
 **Qué vas a encontrar**
 
