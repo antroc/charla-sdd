@@ -2,9 +2,9 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~3 min · **Nivel:** 🟢 básico
 
-Esta carpeta es la teoría del repositorio: diez documentos cortos, en lenguaje llano, que explican qué es SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), por qué lo necesitamos y cómo se trabaja con él. Todos usan el mismo ejemplo, ReservaSalas, la aplicación interna para reservar salas de reuniones, para que lo reconozcas de un documento a otro.
+Aquí está la parte teórica del curso. Son diez documentos que van desde el problema que intenta resolver SDD hasta el flujo de trabajo, los requisitos, los roles y las herramientas.
 
-No hace falta leerlos todos. Más abajo tienes la ruta que te corresponde según lo que quieras hacer.
+Todos usan el mismo ejemplo, ReservaSalas, para no cambiar de contexto cada vez que aparece un concepto nuevo. No hace falta leerlos de principio a fin: puedes seguir el recorrido completo o ir directamente a lo que necesites.
 
 **Qué vas a encontrar**
 

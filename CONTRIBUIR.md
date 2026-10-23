@@ -32,9 +32,11 @@ Si dudas de si algo encaja, abre una incidencia y lo hablamos antes de que te po
 
 ## Guía de estilo resumida
 
-Lo que más cuida este material es que lo entienda alguien que no ha programado nunca.
+La prioridad es que el material se entienda a la primera y suene a una persona explicándole algo a otra, no a un manual generado por plantilla.
 
-- **Tono.** Castellano de España, de tú, cercano y sin humo. Frases cortas y una idea por párrafo. Ejemplos concretos antes que definiciones abstractas.
+- **Tono.** Castellano de España, de tú y directo. No hace falta que todas las frases tengan la misma longitud ni que todos los apartados sigan la misma cadencia. Mejor un ejemplo concreto o una frase cotidiana que una definición solemne.
+- **Evita el tono de plantilla.** No repitas fórmulas como «este documento explica…», «qué vas a encontrar…» o la definición completa de SDD si el lector ya viene del documento anterior. Da por sabido lo que ya se ha contado y enlaza cuando haga falta.
+- **No sobreexplique.** Explica un término cuando sea nuevo o pueda bloquear la lectura. Si el contexto ya lo deja claro, sigue adelante.
 - **Palabras inglesas.** Solo las que son estándar en el sector (*prompt*, *commit*, *pull request*…). La primera vez, en cursiva y explicadas en la misma frase. Si hay palabra en castellano, se usa la de castellano.
 - **Sin promesas absolutas.** SDD reduce riesgos, no los elimina. Nada de cifras sin fuente.
 - **Terminología fija.** Escribe siempre:
@@ -50,7 +52,7 @@ Lo que más cuida este material es que lo entienda alguien que no ha programado 
 | EARS | «formato de requisitos» sin nombrarlo |
 | ReservaSalas, con Ana, Luis, Marta y Jorge | nombres de personas o salas reales |
 
-- **Formato de cada documento.** Un único título principal (`#`); debajo, la cabecera «Para quién · Tiempo de lectura · Nivel» (🟢 básico, 🟡 intermedio, 🔴 avanzado); si el documento es largo, el bloque «Qué vas a encontrar» con enlaces a sus secciones; y al final, «En tres frases», «Siguiente paso» y la línea de navegación (anterior · índice · siguiente). Copia la estructura de cualquier documento de [docs/](docs/README.md).
+- **Formato de cada documento.** Un único título principal (`#`) y una navegación clara. La cabecera «Para quién · Tiempo de lectura · Nivel» puede mantenerse cuando aporte información. El índice interno, «En tres frases» y «Siguiente paso» son opcionales: úsalos si ayudan, no porque toque rellenar una plantilla. La estructura debe servir al contenido, no al revés.
 - **Avisos.** Solo `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]` y `> [!WARNING]`, y pocos (cuatro o cinco por documento como mucho).
 - **Huecos para rellenar.** Entre corchetes: `[respuesta]`. Nunca con ángulos como `<respuesta>`, porque GitHub los borra al mostrar la página.
 - **Enlaces.** Siempre relativos al fichero en el que estás (`../docs/05-escribir-requisitos-claros-ears.md`), nunca la dirección completa de GitHub.

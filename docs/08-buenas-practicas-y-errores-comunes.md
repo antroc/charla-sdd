@@ -2,9 +2,9 @@
 
 > **Para quién:** toda la empresa; en especial quien vaya a encargar, liderar o revisar un proyecto con SDD · **Tiempo de lectura:** ~12 min · **Nivel:** 🟡 intermedio
 
-Este documento recoge lo que, en nuestra experiencia, hace que SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) funcione y lo que suele estropearlo. No añade pasos nuevos: son los mismos siete de [El flujo paso a paso](03-el-flujo-paso-a-paso.md), vistos desde los tropiezos. Los ejemplos son de ReservaSalas y, para un caso sin código, de la «Solicitud de vacaciones».
+Una vez entendido el flujo, lo útil es saber dónde suele torcerse. Esta página reúne hábitos que ayudan y errores que aparecen con facilidad, sobre todo cuando la velocidad del asistente nos anima a saltarnos revisiones.
 
-Léelo entero la primera vez. Después sirve como lista de repaso: antes de empezar un proyecto, las buenas prácticas; cuando algo chirría, la tabla de errores.
+No hace falta memorizar la lista. Úsala como referencia cuando vayas a empezar una funcionalidad o cuando notes que el proyecto está acumulando decisiones que nadie sabe ya dónde se tomaron.
 
 **Qué vas a encontrar**
 
@@ -59,7 +59,7 @@ Están agrupadas por el momento del flujo en que más importan. Las seis primera
 
 ### Al implementar y después (paso 6 y siguientes)
 
-**10. Si el código no hace lo que querías, corrige la especificación y regenera.** Es la regla central del método. Si tocas el código a mano para salir del paso, la especificación deja de contar la verdad y la próxima regeneración puede borrar tu parche. Reserva la edición a mano para detalles que no cambian el comportamiento.
+**10. Si cambia el comportamiento esperado, empieza por la especificación.** Si el problema es que el sistema debería hacer otra cosa, deja ese cambio escrito antes de modificar la implementación. Así el código no se convierte en el único lugar donde queda registrada una decisión. Si lo que tienes es un bug que contradice una especificación correcta, entonces se corrige el código y se añade una prueba que cubra el fallo.
 
 *En ReservaSalas:* cuando Ana quiso ampliar la antelación máxima de 30 a 60 días, lo pidió por escrito y Luis no buscó el número en el código: cambió RF-006 en la especificación y Ana aprobó el texto nuevo. Después Luis actualizó el plan y dejó que `/speckit.converge` añadiera a `tasks.md` las tareas que faltaban, que ejecutó con `/speckit.implement`. No relanzó `/speckit.tasks`, que rehace la lista entera.
 
@@ -126,12 +126,12 @@ flowchart TD
 
 De arriba abajo: primero se mira la especificación; si no dice lo que quieres, se corrige (quien encarga aprueba el texto nuevo), se actualiza el plan y `/speckit.converge` añade las tareas que faltan, como en el paso 9 del [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md). Si la especificación está bien, se mira si el plan y las tareas la cumplen; si no, se corrigen ellos y se vuelve a implementar esa parte. Si también están bien, se mira si el código hace lo que dicen las tareas: si no, es un fallo de implementación que el asistente corrige y una prueba nueva evita que vuelva. Y si todo cuadra y aun así falta algo, es que ese algo nunca se escribió: vuelve a la especificación.
 
-Fíjate en que el camino nunca termina en «edita el código a mano y sigue». Esa es la diferencia entre SDD y el parcheo a ciegas.
+La clave no es evitar editar código, sino saber qué estamos corrigiendo. Un bug de implementación se arregla en el código; un cambio de comportamiento empieza en la especificación. Lo que intentamos evitar es que una decisión funcional exista solo como parche.
 
 *En ReservaSalas:* Marta intenta reservar de 19:30 a 20:30 y la aplicación lo permite. ¿La especificación lo dice? Sí: RF-006 rechaza las franjas fuera de 08:00-20:00. ¿Las tareas lo cubren? Sí: T014 y T019. ¿El código lo hace? No: es un fallo de implementación. Luis se lo indica al asistente, este corrige `servicios/reservas.py` y añade a `test_limites.py` el caso que faltaba (una franja que empieza dentro del horario y termina fuera). Si en cambio Ana decidiera que el horario pasa a ser de 07:00 a 21:00, el camino sería el primero: cambiar RF-006 y regenerar.
 
 > [!IMPORTANT]
-> La especificación es la fuente de verdad; el código es su consecuencia. Cada vez que te sorprendas tocando el código para que haga algo que la especificación no dice, para y pregúntate cuál de los dos está equivocado. Si lo que quieres no está escrito en ella, lo que se cambia primero es la especificación.
+> Antes de cambiar nada, identifica dónde está el error. Si la necesidad ha cambiado, actualiza primero la especificación. Si la especificación sigue siendo correcta y el programa no la cumple, corrige la implementación y deja una prueba que evite repetir el fallo.
 
 ## Señales de que lo estás haciendo bien
 
