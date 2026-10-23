@@ -2,7 +2,9 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~4 min · **Nivel:** 🟢 básico
 
-Esta carpeta es la práctica del repositorio. Son siete ejercicios guiados paso a paso, desde escribir una especificación con papel y bolígrafo hasta construir una aplicación con un asistente de IA siguiendo SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). Cada ejercicio dice qué necesitas, qué tienes que hacer en cada paso y qué deberías ver. Incluye una casilla para marcar lo que vas terminando, una tabla de errores frecuentes, unas preguntas de autoevaluación y, casi siempre, una solución para comparar.
+Aquí es donde se deja de leer y se empieza a practicar. Hay siete ejercicios, desde redactar una primera especificación sin instalar nada hasta recorrer el flujo completo con Spec Kit y construir una aplicación pequeña.
+
+No hace falta hacerlos todos ni seguirlos como un examen. La idea es equivocarse aquí, comparar con los ejemplos y entender por qué una frase aparentemente inocente puede cambiar bastante lo que termina construyendo el asistente.
 
 **Qué vas a encontrar**
 

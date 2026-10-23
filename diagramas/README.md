@@ -2,7 +2,9 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~3 min · **Nivel:** 🟢 básico
 
-Esta carpeta cuenta con dibujos lo mismo que la [documentación](../docs/README.md): qué problema resuelve SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), cómo es el flujo, qué documentos produce, quién hace qué y cómo se escribe un buen requisito. Cada fichero explica sus diagramas con texto, para que se entiendan aunque no los veas.
+Si prefieres entender una idea viéndola antes que leyendo varias páginas, empieza aquí. Estos diagramas resumen el problema del *vibe coding*, el flujo de SDD, la relación entre los documentos, los roles y la estructura de un requisito EARS.
+
+Cada diagrama lleva una explicación en texto, así que también se puede seguir sin depender de la imagen.
 
 **Qué vas a encontrar**
 
