@@ -2,7 +2,9 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~8 min · **Nivel:** 🟢 básico
 
-Este es el primer documento del itinerario. Cuenta qué pasa cuando se construye software con un asistente de IA sin un texto claro que diga qué tiene que hacer, y por qué eso acaba costando tiempo y dinero a la empresa. No hace falta saber programar para seguirlo: basta con haber pedido alguna vez que te hicieran algo.
+Empecemos por una situación bastante habitual: pedimos algo a un asistente de IA, vemos una primera versión en pocos minutos y empezamos a corregirla sobre la marcha. Funciona sorprendentemente bien… hasta que el proyecto deja de ser una prueba rápida y empieza a crecer.
+
+No hace falta saber programar para entender el problema. Basta con haber vivido alguna vez un «esto era solo un cambio pequeño» que acabó afectando a otras tres cosas.
 
 **Qué vas a encontrar**
 
@@ -31,13 +33,13 @@ El nombre viene de *vibe*, «sensación»: programas guiándote por la sensació
 
 ## Por qué engancha
 
-Si solo tuviera inconvenientes, nadie lo haría. Engancha por tres motivos muy humanos.
+El *vibe coding* no se ha popularizado por casualidad. Tiene ventajas reales, sobre todo al principio.
 
 - **Es rápido.** En minutos hay algo en pantalla que se puede enseñar. Comparado con semanas de reuniones y documentos, parece un milagro.
 - **Es divertido.** Pides, aparece, pides otra cosa, aparece. Es la sensación de progreso continuo de un videojuego.
 - **Parece magia.** La primera vez que un asistente de IA genera en segundos una pantalla que funciona, cuesta no pensar que el trabajo ya está hecho.
 
-Y hay un cuarto motivo, más serio: por primera vez, alguien que no programa puede obtener software hablando. Esa puerta abierta es buena. Lo que falla no es la puerta, sino entrar sin saber qué se busca.
+Y hay algo todavía más interesante: personas que no programan pueden participar mucho más directamente en la creación de software. Eso es una ventaja enorme. El problema no es usar el asistente, sino dejar que las decisiones importantes queden repartidas entre prompts, conversaciones y suposiciones.
 
 ## Qué pasa después
 

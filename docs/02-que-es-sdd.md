@@ -2,7 +2,7 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~10 min · **Nivel:** 🟢 básico
 
-El [documento anterior](01-el-problema-del-vibe-coding.md) terminaba con un diagnóstico: cuando el software se hace a golpe de instrucciones sueltas, lo que falta es un contrato claro. Este documento explica qué es ese contrato, cómo se llama el método que lo pone en el centro y qué cambia cuando se trabaja así. Como en el anterior, no hace falta saber programar para seguirlo.
+En el documento anterior vimos el problema: cuando vamos construyendo a base de instrucciones sueltas, las decisiones terminan dispersas entre conversaciones, código y memoria. SDD propone algo bastante menos misterioso de lo que su nombre sugiere: escribir primero lo que queremos conseguir y usar ese texto para guiar el resto del trabajo.
 
 **Qué vas a encontrar**
 
@@ -18,11 +18,9 @@ El [documento anterior](01-el-problema-del-vibe-coding.md) terminaba con un diag
 
 ## SDD en una frase
 
-SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) es una forma de construir software en la que primero se escribe, en lenguaje natural, qué queremos y por qué, y a partir de ese texto el asistente de IA genera el plan técnico, la lista de tareas y el código, con una persona revisando cada paso.
+SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) consiste en poner la especificación antes que el código. Primero dejamos claro qué queremos, por qué lo queremos y qué tendría que ocurrir para considerarlo correcto. Después usamos esa información para preparar el plan técnico, dividir el trabajo y construir.
 
-«Lenguaje natural» quiere decir castellano corriente, el de un correo o una conversación: sin código y sin palabras técnicas.
-
-Eso es todo. El resto del repositorio son los detalles: cómo se escribe ese texto, qué pasos hay, quién hace qué y con qué herramientas. Pero si solo te quedas con una frase, que sea esa.
+La especificación se escribe para que la puedan discutir personas, no solo máquinas. Puede tener estructura y reglas de redacción, pero sigue siendo lenguaje normal. El asistente acelera el proceso; no sustituye la revisión ni las decisiones del equipo.
 
 ## La idea: primero el qué y el por qué
 
@@ -108,11 +106,11 @@ En el bloque de abajo, «Después: SDD», la idea se escribe primero, en la espe
 
 Fíjate en la diferencia entre las dos flechas de vuelta. En el primer bloque se vuelve a improvisar; en el segundo se vuelve a un documento que todo el mundo puede leer. Una versión más completa de esta comparación, con tabla incluida, está en el [diagrama 01](../diagramas/01-vibe-coding-vs-sdd.md).
 
-## Qué cambia: la especificación es el programa fuente
+## Qué cambia: la especificación deja de ser documentación decorativa
 
 En muchos proyectos ya existía un documento de requisitos. Se escribía al principio, se guardaba en una carpeta compartida y a las dos semanas estaba desactualizado. La frase habitual era: «no mires el documento, mira el código». El código era la verdad; el documento, un recuerdo.
 
-SDD le da la vuelta a eso. En programación, el *código fuente* es el texto a partir del cual se construye el programa; en SDD, la especificación pasa a jugar ese papel: es el «programa fuente», el texto del que todo lo demás se deriva. El asistente la lee y genera el plan, las tareas y el código. Si la especificación cambia, el código cambia. Si el código no hace lo que dice la especificación, el que está mal es el código.
+En el enfoque que seguimos en este curso, la especificación no se archiva después de arrancar el desarrollo. Sigue viva y se usa como referencia para el plan, las tareas, las pruebas y el comportamiento esperado. Si cambia lo que necesita el negocio, el primer sitio que revisamos es la especificación; si el código contradice un requisito que sigue siendo válido, el problema está en la implementación.
 
 Un ejemplo. Ana decide ampliar la antelación máxima de 30 a 60 días: a partir de ahora se podrá reservar una sala hasta dos meses antes.
 
@@ -121,7 +119,7 @@ Un ejemplo. Ana decide ampliar la antelación máxima de 30 a 60 días: a partir
 
 No es casualidad: la [constitución de ReservaSalas](../ejercicios/soluciones/03-reserva-salas/constitution.md) lo deja fijado como regla. Los límites de uso se fijan en la especificación, no en el código; cambiarlos es cambiar la especificación y regenerar.
 
-Es el mensaje central de todo el repositorio: **la especificación es la fuente de verdad; el código es su consecuencia.** Si algo está mal, se corrige la especificación y se regenera; no se parchea el código a ciegas.
+La idea que queremos practicar en todo el repositorio es esta: **los cambios de comportamiento deben quedar reflejados primero en la especificación**. A partir de ahí se actualizan el plan, las tareas, las pruebas o el código que corresponda. No se trata de prohibir tocar código, sino de evitar que el sistema termine haciendo cosas que no están descritas en ningún sitio.
 
 Para quien encarga el software, esto tiene una consecuencia práctica: lo que revisas y apruebas es un texto, no código. Ni siquiera hace falta saber editar ficheros: basta con pedir el cambio por escrito y revisar y aprobar el texto nuevo, en la vista de GitHub o en el documento que te pase quien construye. Y cuando algo falla, la primera pregunta deja de ser «¿quién tocó el código?» y pasa a ser «¿qué dice la especificación?». Quien vaya a usar Spec Kit lo vivirá en primera persona en el [ejercicio 03](../ejercicios/03-reserva-salas-paso-a-paso.md): su momento clave es pedir un cambio tocando la especificación y no el código.
 

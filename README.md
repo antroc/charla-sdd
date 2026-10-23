@@ -2,7 +2,9 @@
 
 > **Para quién:** toda la empresa, sepa programar o no · **Tiempo de lectura:** ~5 min · **Nivel:** 🟢 básico
 
-Este repositorio es el material complementario de la charla sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones), una forma de trabajar con asistentes de IA en la que primero se escribe qué queremos y por qué, en lenguaje natural, y después se construye. Aquí tienes, con calma, lo que se cuenta en la charla y ejercicios para practicarlo. Está pensado para que lo entienda cualquiera, sepa programar o no: trae documentación, diagramas y ejercicios guiados paso a paso.
+Este repositorio acompaña a una charla introductoria sobre SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones). La idea de fondo es sencilla: antes de pedir código a un asistente de IA, dejamos por escrito qué queremos construir, por qué y qué condiciones debe cumplir.
+
+No hace falta saber programar para seguir el material. Hay explicaciones cortas, diagramas y ejercicios para practicar el proceso desde una petición inicial hasta el plan, las tareas y el código.
 
 ```mermaid
 flowchart LR
@@ -33,11 +35,11 @@ De izquierda a derecha: una necesidad se convierte primero en una especificació
 
 ## SDD en un minuto
 
-Con un asistente de IA es muy fácil pedir «hazme una aplicación de reservas» e ir corrigiendo sobre la marcha. A eso se le llama *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA). El primer día parece magia. A las pocas semanas nadie sabe qué tenía que hacer exactamente el sistema, y cada arreglo rompe otra cosa.
+Con un asistente de IA podemos generar código muy deprisa. El problema aparece cuando empezamos a encadenar instrucciones sin haber dejado claro qué queríamos construir. Al principio funciona; unas cuantas iteraciones después cuesta recordar qué decisiones eran intencionadas y cuáles aparecieron por el camino.
 
-SDD cambia el orden. Primero se escribe una especificación: qué tiene que hacer el sistema, para quién y cómo sabremos que funciona, sin hablar de tecnología. Con ella, el asistente de IA propone el plan técnico, lo divide en tareas pequeñas y escribe el código, y una persona revisa cada paso. La especificación es la fuente de verdad: si hay que cambiar algo, se cambia ahí.
+SDD intenta evitar eso cambiando el orden. Primero escribimos la especificación: qué debe hacer el sistema, para quién y cómo sabremos que está bien. Después vienen el plan técnico, las tareas y el código. El asistente ayuda en todo el recorrido, pero las decisiones siguen siendo nuestras.
 
-Lo bueno es que la especificación se escribe en lenguaje natural. Por eso cualquier persona puede escribirla o revisarla sin saber programar. Lo cuenta con calma [Qué es SDD](docs/02-que-es-sdd.md).
+En este curso trabajamos con la especificación como referencia principal del comportamiento esperado. Si cambia una necesidad, el cambio empieza ahí y después se actualiza lo que dependa de ella. [Qué es SDD](docs/02-que-es-sdd.md) desarrolla esta idea con un ejemplo completo.
 
 ## Empieza por aquí
 
