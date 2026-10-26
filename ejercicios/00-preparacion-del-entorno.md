@@ -234,7 +234,7 @@ Dos hábitos más que conviene adquirir desde el primer día: usa siempre la cue
 
 ## Solución o ejemplo resuelto
 
-Este ejercicio no tiene fichero de solución: el resultado es tu entorno. Para comprobar que está bien, compara el árbol de carpetas del paso 8 con el tuyo y verifica que en el paso 9 aparecen los nueve comandos. Si quieres ver en qué orden se usan esos comandos en un proyecto real, el apartado «Cómo se generó» de la [solución del ejercicio 03](soluciones/03-reserva-salas/README.md) los enumera uno a uno.
+El resultado de este ejercicio es tu entorno, así que no hay nada que copiar, pero sí algo con lo que compararte: [Preparación del entorno resuelta](soluciones/00-preparacion-del-entorno-resuelta.md) reúne, para cada comprobación, lo que deberías ver (versiones, `specify check`, árbol de carpetas del proyecto de prueba y los nueve comandos en cada escritura) y una lista final de diez casillas. Si quieres ver en qué orden se usan esos comandos en un proyecto real, el apartado «Cómo se generó» de la [solución del ejercicio 03](soluciones/03-reserva-salas/README.md) los enumera uno a uno.
 
 ## En tres frases
 

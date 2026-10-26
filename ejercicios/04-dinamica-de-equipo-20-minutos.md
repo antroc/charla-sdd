@@ -290,7 +290,7 @@ Consejos de ritmo: el reloj manda, aunque un grupo esté a mitad de frase; el va
 
 ## Solución o ejemplo resuelto
 
-Esta dinámica no tiene fichero de solución: cada sala produce hojas distintas y todas valen si pasan la caza de vaguedades. Como referencia de lo que es una buena hoja, así podría quedar la tarjeta 1 en un grupo que la ha hecho bien:
+Cada sala produce hojas distintas y todas valen si pasan la caza de vaguedades. Las [seis tarjetas resueltas](soluciones/04-dinamica-de-equipo-resuelta.md), con las vaguedades más habituales de cada una, están en las soluciones: compáralas después de la dinámica, no antes. Como adelanto de lo que es una buena hoja, así podría quedar la tarjeta 1 en un grupo que la ha hecho bien:
 
 ```text
 P1: Como empleado que viene en coche, quiero ver qué plazas están libres un día y reservar
