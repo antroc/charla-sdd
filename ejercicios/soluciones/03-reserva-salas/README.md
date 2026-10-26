@@ -1,66 +1,109 @@
-# Solución del ejercicio 03: ReservaSalas con Spec Kit
+# Solución del ejercicio 03: ReservaSalas
 
-> **Para quién:** cualquier persona que quiera ver un ejemplo completo · **Tiempo de lectura:** ~25 min · **Nivel:** 🟡 intermedio
+> **Para quién:** quien haya recorrido el flujo completo del ejercicio 03 · **Tiempo de lectura:** ~10 min, más los artefactos · **Nivel:** 🟡 intermedio
 
-Esta carpeta contiene el **ejemplo canónico de ReservaSalas**: los artefactos que produce una sesión completa y bien hecha de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con GitHub Spec Kit (<https://github.com/github/spec-kit>), traducidos al castellano. Es el resultado de seguir el [ejercicio 03](../../03-reserva-salas-paso-a-paso.md) de principio a fin, y es el ejemplo que usan todos los documentos de este repositorio. Si en el paso 9 del ejercicio pides un cambio, tus ficheros irán un paso por delante de estos.
+Esta solución reúne los artefactos de referencia de [ReservaSalas paso a paso](../../03-reserva-salas-paso-a-paso.md). Se generaron siguiendo las acciones SDD en orden; no dependen de la sintaxis, las carpetas ni la configuración de un asistente concreto.
 
-> [!IMPORTANT]
-> Es **un** ejemplo, no «la única respuesta correcta». Si has hecho el ejercicio y tus ficheros no coinciden con estos, no pasa nada: cada asistente de IA redacta distinto y cada equipo toma decisiones distintas. Lo que importa es que tu especificación cumpla la lista de verificación y que el plan y las tareas sean coherentes con ella.
+## Mínimo esperado
 
-## Qué contiene
+El ejercicio está bien resuelto si incluye:
 
-| Fichero | Qué es | Paso del flujo | Comando de Spec Kit que lo produce |
-|---|---|---|---|
-| [constitution.md](constitution.md) | Constitución: los 5 principios innegociables del proyecto | 0. Constitución | `/speckit.constitution` |
-| [spec.md](spec.md) | Especificación: historias de usuario, requisitos en EARS (una forma sencilla y estructurada de redactar requisitos), criterios de éxito, casos límite y aclaraciones | 1. Especificar y 2. Aclarar | `/speckit.specify` y después `/speckit.clarify` |
-| [aclaraciones.md](aclaraciones.md) | Las 5 preguntas del asistente y las respuestas de Ana, con su impacto en la especificación | 2. Aclarar | `/speckit.clarify` (en Spec Kit queda dentro de `spec.md`) |
-| [checklist.md](checklist.md) | Lista de verificación de calidad de la especificación, con todo marcado | 1. Especificar y 5. Analizar | `/speckit.specify` la crea; `/speckit.clarify` la reevalúa; `/speckit.checklist` genera otras |
-| [plan.md](plan.md) | Plan técnico: tecnología, modelo de datos, contratos, estructura y arranque | 3. Planificar | `/speckit.plan` (con `research.md`, `data-model.md`, `contracts/` y `quickstart.md` resumidos dentro) |
-| [tasks.md](tasks.md) | Lista de tareas por fases e historias, con marcas `[P]` y `[HU1]`/`[HU2]`/`[HU3]` | 4. Trocear en tareas | `/speckit.tasks` |
+- una constitución con cinco principios aplicables;
+- una especificación sin tecnología, con P1-P3, requisitos, casos límite y criterios medibles;
+- las aclaraciones aplicadas a la spec;
+- una lista de verificación sin fallos bloqueantes;
+- un plan que cubra los requisitos y compruebe la constitución;
+- tareas pequeñas, trazables y con paralelismo justificado;
+- un análisis sin contradicciones bloqueantes;
+- una implementación con pruebas;
+- el cambio de antelación de 30 a 60 días iniciado en la spec;
+- una reflexión final.
 
-No incluimos el código: el paso 6 (implementar, `/speckit.implement`) lo genera tu asistente a partir de estos ficheros, y cada asistente lo escribe distinto. Tampoco hay fichero para lo que el ejercicio hace después: el informe de `/speckit.analyze` (paso 7), el cambio de antelación de 30 a 60 días (paso 9) y la reflexión (paso 10). Están contados, con ejemplos y comprobables contra estos ficheros, en [los pasos 7 a 10 de ReservaSalas](../03-reserva-salas-pasos-7-a-10.md).
+No se exige que el texto coincida literalmente con estos ficheros ni que se haya utilizado el mismo asistente.
 
-## Orden de lectura recomendado
+## Criterios de corrección
 
-1. **constitution.md** (5 min): las reglas del juego.
-2. **spec.md** (10 min): fíjate en las prioridades P1/P2/P3 (P1 es lo imprescindible), en los requisitos funcionales (RF) redactados en EARS (*Easy Approach to Requirements Syntax*) y en los criterios de éxito con cifra.
-3. **aclaraciones.md** y **checklist.md** (3 min): cómo se cerraron los huecos y cómo se comprobó la calidad.
-4. **plan.md** (5 min): mira sobre todo la tabla «Comprobación contra la constitución» y los contratos.
-5. **tasks.md** (3 min): comprueba que cada requisito funcional (RF) de la especificación aparece en alguna tarea y que las pruebas van antes que el código.
+| Artefacto | Debe demostrar | Bloquea si… |
+|---|---|---|
+| Constitución | Sus principios cambian decisiones del plan | Son frases genéricas sin efecto práctico |
+| Spec | Define comportamiento y alcance, sin tecnología | Mezcla frameworks, base de datos o diseño técnico |
+| Aclaraciones | Cierran decisiones y modifican la spec | Quedan solo en el chat o en una lista desconectada |
+| Checklist | Revisa contenido y completitud | Se marca todo sin evidencia o deja fallos bloqueantes |
+| Plan | Cubre cada requisito y respeta la constitución | Añade funciones o no explica las desviaciones |
+| Tareas | Tienen orden, prueba, resultado y dependencias | Hay requisitos sin tarea o paralelismo falso |
+| Implementación | Las pruebas cubren reglas y errores | Solo funciona el camino feliz |
+| Cambio | Sigue spec → plan/tareas → pruebas/código | Se edita primero el código |
 
-## Cómo se generó
+No se penaliza una arquitectura distinta si el plan la justifica y cumple la misma especificación. En este ejercicio concreto, la tecnología propuesta sirve para comparar resultados, no para configurar el asistente.
 
-Luis siguió el ejercicio 03 con un asistente de programación con IA compatible con Spec Kit, en este orden:
+## Solución razonada
 
-```text
-specify init reserva-salas --integration claude   # crea .specify/ y los comandos de Spec Kit en el asistente
-/speckit.constitution ...    # los 5 principios dictados por Ana   → .specify/memory/constitution.md
-/speckit.specify ...         # descripción de ReservaSalas, sin tecnología → specs/001-reserva-salas/spec.md
-                             #                                      y checklists/requirements.md
-/speckit.clarify             # 5 preguntas, respuestas de Ana       → spec.md (sección Aclaraciones)
-/speckit.plan ...            # Python 3.12 + FastAPI + SQLite + Jinja2, pytest → plan.md, research.md,
-                             #                                      data-model.md, contracts/, quickstart.md
-/speckit.tasks               # → tasks.md
-/speckit.analyze             # informe de coherencia (no crea ficheros): sin incidencias CRITICAL ni HIGH
-                             #   y con cobertura del 100 % (cada requisito tiene al menos una tarea)
-/speckit.implement           # genera el código y ejecuta las pruebas
-/speckit.converge            # comprueba que el código cubre spec, plan y tareas; añade tareas si falta algo
-```
+Lee los artefactos en este orden:
 
-Según el asistente, los comandos aparecen con punto (`/speckit.specify`) o con guion (`/speckit-specify`, como en Claude Code, la integración del ejemplo); hacen lo mismo. Si usas otro asistente, cambia `claude` por su clave (la lista está en [Herramientas](../../../docs/07-herramientas.md)). Los textos exactos de cada *prompt* (la instrucción que le escribes al asistente) están en los pasos del [ejercicio 03](../../03-reserva-salas-paso-a-paso.md).
+1. [constitution.md](constitution.md): reglas permanentes del proyecto.
+2. [spec.md](spec.md): historias, casos límite, requisitos y criterios de éxito.
+3. [aclaraciones.md](aclaraciones.md): preguntas que cerraron decisiones del negocio.
+4. [checklist.md](checklist.md): comprobación funcional antes del plan.
+5. [plan.md](plan.md): arquitectura, datos, pruebas y contraste con la constitución.
+6. [tasks.md](tasks.md): orden de implementación y dependencias.
+7. [Pasos 7 a 10](../03-reserva-salas-pasos-7-a-10.md): análisis, implementación, cambio de 30 a 60 días y reflexión.
 
-Lo que hemos cambiado respecto a la salida en bruto de Spec Kit: títulos de sección en castellano (con el original en inglés entre paréntesis), los ficheros de apoyo del plan resumidos dentro de `plan.md`, las aclaraciones también en un fichero aparte para que se vea el proceso, y la lista de verificación automática (`checklists/requirements.md`, que en Spec Kit tiene tres categorías y 16 comprobaciones sin numerar) ampliada con dos categorías y numerada al estilo de `/speckit.checklist`: 23 comprobaciones en cinco categorías, con una numeración propia que no coincide con la de la [plantilla](../../plantillas/lista-de-verificacion.md) (19 comprobaciones en tres categorías). Además, cada fichero empieza con un aviso que explica qué es y termina con una línea de navegación; no llevan la cabecera ni las secciones finales («En tres frases», «Siguiente paso») del resto del repositorio porque imitan los ficheros reales de un proyecto.
+### Correspondencia entre acciones y resultados
+
+| Acción SDD | Resultado de referencia |
+|---|---|
+| `constitution` | [constitution.md](constitution.md) |
+| `specify` | Primera versión de [spec.md](spec.md) |
+| `clarify` | [aclaraciones.md](aclaraciones.md) y cambios en la spec |
+| `checklist` | [checklist.md](checklist.md) |
+| `plan` | [plan.md](plan.md) |
+| `tasks` | [tasks.md](tasks.md) |
+| `analyze` | Informe descrito en [Pasos 7 a 10](../03-reserva-salas-pasos-7-a-10.md) |
+| `implement` | Código y pruebas generados en el proyecto de quien realiza el ejercicio |
+| `converge` | Detección de trabajo pendiente tras cambios o implementación |
+
+El código no se conserva como solución canónica porque distintos asistentes y decisiones técnicas pueden producir implementaciones correctas diferentes. Los documentos son la referencia común.
+
+### Decisiones importantes del ejemplo
+
+- Una reserva solapada se rechaza, no se limita a mostrar un aviso.
+- Una sala en mantenimiento no admite nuevas reservas.
+- Solo administración puede gestionar mantenimiento o reservas ajenas.
+- El horario es 08:00-20:00 y la duración máxima, 4 horas, sin excepciones.
+- El correo sirve como comprobante al confirmar, modificar o cancelar.
+- Toda reserva muestra su responsable.
+- El cambio posterior amplía la antelación máxima de 30 a 60 días.
+
+## Alternativas válidas
+
+- Separar un requisito compuesto en varios requisitos más atómicos.
+- Usar otra arquitectura, lenguaje o almacenamiento si el plan lo justifica y mantiene los criterios de éxito.
+- Organizar tareas por historia o por incrementos verticales, siempre que la trazabilidad sea visible.
+- Guardar las aclaraciones dentro de `spec.md` en vez de un fichero separado. Aquí se separan para enseñar el proceso.
+- Implementar tareas independientes con varios agentes o con uno solo en conversaciones distintas.
+- Usar una estrategia de correo simulada en local, siempre que el plan explique cómo se prueba el comportamiento observable.
+
+## Errores frecuentes
+
+| Error | Corrección |
+|---|---|
+| Copiar una clave de integración o una ruta del asistente | Selecciona tu herramienta localmente y mantén los artefactos neutrales |
+| Tratar estos ficheros como una salida literal obligatoria | Compara cobertura, coherencia y trazabilidad |
+| Leer las aclaraciones pero no comprobar la spec final | Verifica que cada respuesta cambió el requisito afectado |
+| Marcar tareas paralelas por estar en fases distintas | Comprueba dependencias y ficheros compartidos |
+| Reproducir la tecnología sin entenderla | Usa el plan del ejercicio o justifica una alternativa que conozcas |
+| Cambiar el límite directamente en una constante | Empieza por la spec y deja rastro en Git |
 
 ## En tres frases
 
-1. Esta carpeta es el ejemplo completo de ReservaSalas: constitución, especificación con aclaraciones, lista de verificación, plan técnico y tareas, tal y como los produciría una buena sesión de Spec Kit.
-2. Los ficheros son coherentes entre sí: cada requisito de la especificación lo cubre el plan y lo implementa alguna tarea, y las pruebas van siempre antes que el código.
-3. Úsalo para comparar con tu propio resultado, no para copiarlo: la especificación es tuya y de tu equipo.
+1. La solución de referencia son los artefactos coherentes entre sí, no una conversación ni una herramienta concreta.
+2. Cada documento recibe decisiones cerradas y entrega un contrato revisable para el siguiente paso.
+3. La implementación puede variar, pero debe cubrir la misma spec y demostrarlo con pruebas.
 
-## Siguiente paso
+## Volver al ejercicio
 
-Compara estos ficheros con los que hayas generado en el [ejercicio 03](../../03-reserva-salas-paso-a-paso.md) y continúa con [los pasos 7 a 10 por dentro](../03-reserva-salas-pasos-7-a-10.md), que cuentan lo que estos ficheros no guardan. Después, la solución de la [dinámica de equipo (ejercicio 04)](../04-dinamica-de-equipo-resuelta.md) o la de [una especificación arreglada (ejercicio 05)](../05-especificacion-arreglada.md).
+Vuelve a [ReservaSalas paso a paso](../../03-reserva-salas-paso-a-paso.md) o continúa con el [Reto final](../../06-reto-final-tu-propio-proyecto.md).
 
 ---
 
-⬅️ [Anterior: Requisitos EARS resueltos](../02-requisitos-ears-resueltos.md) · 🏠 [Índice de soluciones](../README.md) · ➡️ [Siguiente: Los pasos 7 a 10 por dentro](../03-reserva-salas-pasos-7-a-10.md)
+🏠 [Índice de soluciones](../README.md)

@@ -1,55 +1,66 @@
 # Soluciones
 
-> **Para quién:** cualquier persona que haya hecho un ejercicio y quiera comparar · **Tiempo de lectura:** ~2 min · **Nivel:** 🟢 básico
+> **Para quién:** quien haya terminado un ejercicio y quiera comparar su resultado · **Tiempo de lectura:** ~3 min · **Nivel:** 🟢 básico
 
-Aquí están las respuestas de los ejercicios y el ejemplo completo de ReservaSalas, la aplicación que sirve de hilo conductor a todo el material.
+Las soluciones de este repositorio no son una clave de respuestas. En SDD pueden existir varias especificaciones, planes o listas de tareas correctas si todas son claras, comprobables, coherentes y respetan el alcance.
 
-> [!NOTE]
-> Cada solución distingue entre el **mínimo esperado** y un ejemplo ampliado. Son ejemplos, no la única respuesta correcta. Si tu solución es distinta pero cumple lo que pedía el ejercicio (requisitos que solo se leen de una manera, criterios de éxito con cifra, nada de tecnología en la especificación…), también vale. Haz primero el ejercicio y compara después: así aprendes mucho más.
+Para facilitar la comparación, todas las soluciones tienen desde ahora la misma estructura.
 
-## Cómo leer una solución
+## Estructura común
 
-Mira primero el **mínimo esperado**: es el contrato del ejercicio y debería poder revisarse en pocos minutos. Abre después el ejemplo ampliado si quieres ver más casos o matices. Una respuesta distinta es válida si es clara, comprobable y coherente; una solución larga no es mejor por ser larga.
+1. **Mínimo esperado.** El resultado imprescindible para considerar el ejercicio bien resuelto.
+2. **Criterios de corrección.** Qué comprobar, qué bloquea el avance y qué diferencias son aceptables.
+3. **Solución razonada.** Un ejemplo completo o enlaces a los artefactos de referencia.
+4. **Alternativas válidas.** Decisiones distintas que también cumplen el ejercicio.
+5. **Errores frecuentes.** Señales de que todavía falta revisar algo.
+6. **En tres frases.** Las ideas que conviene recordar.
+7. **Volver al ejercicio.** Enlace para regresar al enunciado.
 
-## Qué hay en cada una
+Los artefactos finales —una especificación, un plan o una lista de tareas— mantienen su estructura natural. La portada de cada solución es la que aplica el esquema común y explica cómo leer esos artefactos.
 
-| Ejercicio | Solución | Qué contiene | Tiempo · nivel |
-|---|---|---|---|
-| [00 · Preparación del entorno](../00-preparacion-del-entorno.md) | [Entorno resuelto](00-preparacion-del-entorno-resuelta.md) | Cómo debería quedar tu entorno: lo que ves en cada comprobación, el árbol de carpetas del proyecto de prueba, los nueve comandos en cada escritura y una lista final de diez casillas | ~7 min · 🟡 |
-| [01 · Tu primera especificación sin código](../01-tu-primera-especificacion-sin-codigo.md) | [Especificación: Solicitud de vacaciones](01-solicitud-de-vacaciones/especificacion.md) | La especificación completa: tres historias priorizadas, casos límite, catorce requisitos en EARS, tres criterios de éxito y la sesión de aclaraciones | ~12 min · 🟢 |
-| [02 · Practicar requisitos EARS](../02-practicar-requisitos-ears.md) | [Requisitos EARS resueltos](02-requisitos-ears-resueltos.md) | Las doce frases vagas reescritas, con su patrón y su porqué; la clasificación de requisitos y el «caza el error» | ~10 min · 🟢 |
-| [03 · ReservaSalas paso a paso](../03-reserva-salas-paso-a-paso.md) | [Ejemplo completo de ReservaSalas](03-reserva-salas/README.md) y [los pasos 7 a 10 por dentro](03-reserva-salas-pasos-7-a-10.md) | Los ficheros que deja el flujo SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): constitución, especificación, aclaraciones, lista de verificación, plan técnico y lista de tareas; y, aparte, lo que esos ficheros no guardan: el informe de `/speckit.analyze`, el cambio de 30 a 60 días y la reflexión | ~25 min + ~15 min · 🟡 |
-| [04 · Dinámica de equipo de 20 minutos](../04-dinamica-de-equipo-20-minutos.md) | [Las seis tarjetas resueltas](04-dinamica-de-equipo-resuelta.md) | La hoja rellena de cada tarjeta (historias, cinco requisitos EARS, preguntas de aclaración y fuera de alcance) y las vaguedades más habituales de cada una | ~15 min · 🟢 |
-| [05 · Arreglar una especificación mala](../05-arreglar-una-especificacion-mala.md) | [La especificación arreglada](05-especificacion-arreglada.md) | Todos los problemas de la especificación mala, explicados uno a uno con su arreglo, y los requisitos y criterios de éxito reescritos | ~15 min · 🟡 |
-| [06 · Reto final: tu propio proyecto](../06-reto-final-tu-propio-proyecto.md) | [Ejemplo completo y punto de partida de cada idea](06-reto-final/README.md) | Un proyecto entero de principio a fin (el préstamo de portátiles: petición, constitución, especificación, plan, tareas y autoevaluación) y un esqueleto resuelto para cada una de las otras seis ideas | ~12 min + ~20 min · 🟡 |
+## Convención neutral
 
-El reto final es un proyecto tuyo, así que no tiene una solución única: lo que hay aquí son ejemplos para compararte cuando lo hayas hecho, no una clave de respuestas. Lo que lo evalúa es la lista de entrega y la rúbrica del propio ejercicio.
+Las soluciones no presuponen Codex, Claude Code, GitHub Copilot, Cursor ni ninguna otra herramienta concreta. Cuando se menciona una acción como `specify`, `plan` o `implement`, se refiere a la acción SDD equivalente en el asistente utilizado.
 
-## El ejemplo completo de ReservaSalas
+No se considera parte de la respuesta correcta:
 
-La carpeta [03-reserva-salas/](03-reserva-salas/README.md) es la referencia de todo el repositorio: los documentos, los diagramas y los ejercicios citan sus principios, sus requisitos (RF-001 a RF-012) y sus criterios de éxito (CE-001 a CE-004). Léela en este orden:
+- el prefijo exacto de un comando;
+- una clave de integración;
+- la carpeta interna de un asistente;
+- el nombre de un modelo;
+- una tecnología concreta, salvo que el propio ejercicio la fije en el plan.
 
-1. [README.md](03-reserva-salas/README.md): qué contiene y cómo se generó.
-2. [constitution.md](03-reserva-salas/constitution.md): las reglas del juego.
-3. [spec.md](03-reserva-salas/spec.md): qué tiene que hacer ReservaSalas y por qué.
-4. [aclaraciones.md](03-reserva-salas/aclaraciones.md) y [checklist.md](03-reserva-salas/checklist.md): cómo se cerraron los huecos y cómo se comprobó la calidad.
-5. [plan.md](03-reserva-salas/plan.md): cómo se va a construir.
-6. [tasks.md](03-reserva-salas/tasks.md): en qué orden y con qué pruebas.
-7. [Los pasos 7 a 10 por dentro](03-reserva-salas-pasos-7-a-10.md): lo que viene después de las tareas y no es un fichero del ejemplo: el informe de `/speckit.analyze`, el cambio de antelación de 30 a 60 días y la reflexión.
+Sí se evalúan el artefacto generado, las decisiones que contiene y su trazabilidad con los demás documentos.
 
-Si no vas a construirla, con los tres primeros (y las aclaraciones) tienes de sobra: son los que hablan del qué y del porqué.
+## Índice de soluciones
 
-## El ejemplo completo del reto final
+| Ejercicio | Solución | Contenido principal |
+|---|---|---|
+| [00 · Preparación del entorno](../00-preparacion-del-entorno.md) | [Solución del ejercicio 00](00-preparacion-del-entorno-resuelta.md) | Estados observables de las vías A y B, sin configuración específica de un asistente |
+| [01 · Primera especificación](../01-tu-primera-especificacion-sin-codigo.md) | [Solución del ejercicio 01](01-solicitud-de-vacaciones/README.md) | Mínimo esperado de la P1 y especificación ampliada de vacaciones |
+| [02 · Requisitos EARS](../02-practicar-requisitos-ears.md) | [Solución del ejercicio 02](02-requisitos-ears/README.md) | Criterios de corrección y respuestas razonadas F01-F12, R1-R4 y E1-E4 |
+| [03 · ReservaSalas](../03-reserva-salas-paso-a-paso.md) | [Solución del ejercicio 03](03-reserva-salas/README.md) | Constitución, spec, aclaraciones, checklist, plan, tareas y pasos finales |
+| [04 · Dinámica de equipo](../04-dinamica-de-equipo-20-minutos.md) | [Solución del ejercicio 04](04-dinamica-de-equipo/README.md) | Mínimos, criterios y seis tarjetas desarrolladas |
+| [05 · Reparar una mala spec](../05-arreglar-una-especificacion-mala.md) | [Solución del ejercicio 05](05-especificacion-arreglada/README.md) | Selección mínima de problemas y auditoría ampliada |
+| [06 · Reto final](../06-reto-final-tu-propio-proyecto.md) | [Solución del ejercicio 06](06-reto-final/README.md) | Proyecto completo de préstamo de portátiles y alternativas de alcance |
 
-La carpeta [06-reto-final/](06-reto-final/README.md) reúne los materiales para compararte cuando hayas hecho tu proyecto. Léela en este orden:
+## Cómo comparar tu trabajo
 
-1. [README.md](06-reto-final/README.md): qué hay, por qué el reto no tiene una solución única y cómo usar los materiales sin estropearte el ejercicio.
-2. [El préstamo de portátiles](06-reto-final/prestamo-de-portatiles/README.md): un proyecto de la idea 1 de principio a fin, con su [petición](06-reto-final/prestamo-de-portatiles/peticion.md), su [constitución](06-reto-final/prestamo-de-portatiles/constitution.md), su [especificación](06-reto-final/prestamo-de-portatiles/spec.md), su [plan](06-reto-final/prestamo-de-portatiles/plan.md), sus [tareas](06-reto-final/prestamo-de-portatiles/tasks.md) y su [autoevaluación](06-reto-final/prestamo-de-portatiles/autoevaluacion.md).
-3. [Otras ideas](06-reto-final/otras-ideas.md): un esqueleto resuelto para cada una de las otras seis ideas (la 4, vacaciones, es la especificación del [ejercicio 01](01-solicitud-de-vacaciones/especificacion.md)).
+Primero lee únicamente «Mínimo esperado» y «Criterios de corrección». Comprueba tu trabajo sin intentar hacerlo coincidir palabra por palabra con el ejemplo. Abre la solución razonada solo después.
+
+Una diferencia es aceptable cuando:
+
+- mantiene la intención del ejercicio;
+- no introduce contradicciones;
+- puede comprobarse con pruebas o criterios claros;
+- está justificada en el artefacto adecuado;
+- no añade alcance oculto.
+
+Una diferencia no es aceptable cuando depende de información que solo estaba en el chat, mezcla el qué con el cómo o deja decisiones importantes a quien implemente.
 
 ## Siguiente paso
 
-Vuelve al [índice de ejercicios](../README.md) para elegir el siguiente, o abre las [plantillas](../plantillas/README.md) para aplicar lo aprendido a un caso tuyo.
+Vuelve al [índice de ejercicios](../README.md) o abre las [plantillas](../plantillas/README.md) para aplicar el mismo formato a un caso propio.
 
 ---
 
