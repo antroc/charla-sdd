@@ -50,7 +50,7 @@ Puerta de entrada: se comprueba antes de investigar y se vuelve a comprobar al t
 |---|---|---|
 | 1. Sencillez primero | Un solo proceso web, una sola base de datos en fichero, sin frontend separado, sin API JSON y sin cola de mensajes. Tres pantallas y cuatro acciones. La única pieza que no pide la especificación como pantalla es el programa diario de avisos, que se justifica en el «Registro de complejidad». | Cumple (con una desviación justificada) |
 | 2. Datos mínimos | La tabla `persona` tiene solo nombre, correo y rol, y `prestamo` no guarda el motivo. No hay registro de actividad por persona ni campos «por si acaso». La primera versión de este plan proponía guardar el departamento de cada persona y se descartó (ver «Decisiones y alternativas»). | Cumple |
-| 3. Pruebas antes de dar algo por hecho | Cada historia tiene su prueba de integración escrita antes que el código, y las reglas de negocio (calendario, solapamiento, límites, prórroga y avisos) tienen pruebas unitarias. `pytest` en cada entrega. | Cumple |
+| 3. Pruebas antes de dar algo por hecho | Cada historia tiene su prueba de integración escrita antes que el código, y las reglas de negocio (calendario, solapamiento, límites, prórroga, permisos y avisos) tienen pruebas unitarias. `pytest` en cada entrega. | Cumple |
 | 4. Responsable visible y fecha de devolución | `prestamo.persona_id`, `prestamo.inicio` y `prestamo.devolucion` son obligatorios: sin una persona y una fecha no se guarda el préstamo. Un préstamo vencido no desaparece: sigue en «Hoy» con su responsable hasta que Oficina registra la devolución. La entrega y la devolución guardan quién las hizo (`entregado_por`, `cerrado_por`). | Cumple |
 
 ## Decisiones y alternativas (research.md)
@@ -59,8 +59,8 @@ Puerta de entrada: se comprueba antes de investigar y se vuelve a comprobar al t
 |---|---|---|
 | Páginas HTML generadas en el servidor (Jinja2), sin API JSON | Es lo más sencillo que cumple la especificación; funciona sin JavaScript y es fácil de hacer accesible. Las pruebas de integración usan el cliente de pruebas de FastAPI contra esas mismas páginas y comprueban el estado HTTP y el texto de la respuesta. | Una API JSON con pruebas de contrato aparte, como en otros proyectos: una capa más que nadie ha pedido. Una aplicación de página única en JavaScript: más piezas y más dependencias para una aplicación de formularios. |
 | SQLite en un fichero | Volumen pequeño (decenas de préstamos al mes). Sin servidor de base de datos que instalar ni mantener. Copia de seguridad = copiar un fichero. | PostgreSQL: más robusto para cargas grandes, pero añade un servicio que mantener. Se podrá migrar si crece el uso. |
-| Identificación por correo corporativo | El acceso único de la empresa añade a cada petición la cabecera `X-Usuario` con el correo de la persona; la aplicación lo lee y busca (o crea) la persona. En producción `PRESTAMO_USUARIO_DEV` está vacía y se rechazan las peticiones sin identidad; en desarrollo esa variable simula el acceso. Quién tiene rol de Oficina se fija en la variable `PRESTAMO_OFICINA` (lista de correos). | Gestionar usuarios y contraseñas propias: choca con la restricción de no gestionar contraseñas. Guardar el rol a mano en la base de datos: nadie sabría cómo dar de alta a la segunda persona de Oficina. |
-| Solapamiento comprobado en una sola transacción | La comprobación «¿hay otro préstamo sin cerrar de este equipo con inicio anterior o igual a mi devolución y devolución posterior o igual a mi inicio?» y la inserción se ejecutan dentro de una transacción abierta con `BEGIN IMMEDIATE` (el servicio controla las transacciones: conexión con `isolation_level=None` y `BEGIN IMMEDIATE` explícito antes de la consulta). Si dos personas confirman a la vez, la segunda espera, después ve el préstamo ya guardado y recibe el rechazo por solapamiento. Garantiza CE-002. | Transacción normal (`BEGIN DEFERRED`): las dos peticiones leerían «libre» a la vez y la segunda fallaría con un error de bloqueo en vez de con el rechazo limpio que pide RF-004. |
+| Identificación por correo corporativo | El acceso único de la empresa añade a cada petición la cabecera `X-Usuario` con el correo de la persona; la aplicación lo lee y busca (o crea) la persona. La aplicación solo escucha en la interfaz interna, detrás del acceso corporativo, que elimina cualquier `X-Usuario` que envíe el navegador y lo sustituye por la identidad autenticada. En producción `PRESTAMO_USUARIO_DEV` está vacía y se rechazan las peticiones sin identidad; en desarrollo esa variable simula el acceso. Quién tiene rol de Oficina se fija en la variable `PRESTAMO_OFICINA` (lista de correos). | Gestionar usuarios y contraseñas propias: choca con la restricción de no gestionar contraseñas. Guardar el rol a mano en la base de datos: nadie sabría cómo dar de alta a la segunda persona de Oficina. |
+| Solapamiento comprobado en una sola transacción | La comprobación «¿hay otro préstamo sin cerrar de este equipo con inicio anterior o igual a mi devolución y devolución posterior o igual a mi inicio?» y la inserción se ejecutan dentro de una transacción abierta con `BEGIN IMMEDIATE` (el servicio controla las transacciones: conexión con `isolation_level=None` y `BEGIN IMMEDIATE` explícito antes de la consulta). Si dos personas confirman a la vez, la segunda espera, después ve el préstamo ya guardado y recibe el rechazo por solapamiento. Es lo que permite cumplir CE-002. | Transacción normal (`BEGIN DEFERRED`): las dos peticiones leerían «libre» a la vez y la segunda fallaría con un error de bloqueo en vez de con el rechazo limpio que pide RF-004. |
 | Fechas como día (texto ISO 8601, `2026-11-18`) y días laborables calculados en el código | Los préstamos van de día a día, sin horas. Un día laborable es de lunes a viernes, como dice la especificación; el cálculo vive en un solo módulo (`calendario.py`) y es lo primero que se prueba. | Una tabla de festivos: está fuera de alcance de la primera versión y añadiría un dato que alguien tendría que mantener. |
 | Aviso con un programa diario que ejecuta el programador de tareas del servidor | RF-009 pide enviar un correo sin que nadie lo pida, y una aplicación web solo actúa cuando alguien hace una petición. El programa usa el mismo repositorio y el mismo envío de correo que la web, así que no duplica reglas. | Un planificador dentro de la propia aplicación (por ejemplo, una biblioteca de tareas programadas): una dependencia y un hilo más que mantener. Que cada persona mire su fecha en la aplicación: no cumple RF-009 (ver «Registro de complejidad»). |
 | No guardar el departamento de cada persona | El principio 2 lo prohíbe y ninguna historia ni requisito lo necesita. | Guardar el departamento para contar préstamos por departamento: lo propuso el asistente en la primera versión de este plan y la comprobación contra la constitución lo frenó, porque es un dato personal que nadie ha pedido y permite informes sobre personas concretas. |
@@ -128,7 +128,7 @@ Regla de integridad principal (CE-002): no pueden existir dos préstamos con `es
 ### Estados
 
 - **Préstamo:** `reservado` → `entregado` → `cerrado` (RF-006, RF-007). Si nadie recoge el equipo, `reservado` → `cerrado` con la misma acción de devolución. No se borran filas: así «Hoy» y el histórico siguen siendo coherentes y el principio 4 se cumple siempre.
-- **Vencido:** no se guarda. Es un préstamo que no está `cerrado` y cuya fecha de devolución es anterior a hoy; sigue ocupando solo sus fechas, así que no bloquea a quien pida el equipo para días posteriores.
+- **Vencido:** no se guarda. Es un préstamo que no está `cerrado` y cuya fecha de devolución es anterior a hoy, esté entregado o solo reservado; sigue ocupando solo sus fechas, así que no bloquea a quien pida el equipo para días posteriores.
 - **Prórroga:** alarga `devolucion`, pone `prorrogado` a 1 y `aviso_enviado` a 0 (RF-008, RF-009).
 - **Equipo:** no tiene estado propio: libre, prestado o vencido se deduce de sus préstamos y de la fecha de hoy.
 
@@ -146,7 +146,7 @@ La aplicación solo tiene pantallas. Las acciones son envíos de formularios HTM
 | `/prestamos/{id}/prorroga` | POST | HU2 | RF-004, RF-005, RF-008 |
 | `/hoy` | GET | HU3 | RF-001 |
 
-El correo de RF-009 no sale de una ruta, sino del programa `python -m prestamo.avisos` (sección 5).
+A la página `/prestamos/{id}` se llega desde el mensaje de confirmación (la persona se lo enseña a Oficina al recoger el equipo), desde «Hoy» y desde el enlace del correo de aviso. El correo de RF-009 no sale de una ruta, sino del programa `python -m prestamo.avisos` (sección 5).
 
 ### 1. Pedir un equipo: `GET /` y `POST /prestamos`
 
@@ -158,21 +158,21 @@ Rechazos: `409` si el equipo no está libre (RF-004), con «PORT-03 no está lib
 
 ### 2. Entregar: `POST /prestamos/{id}/entrega`
 
-Solo con rol de Oficina (RF-006). Pasa el préstamo de `reservado` a `entregado` y guarda en `entregado_por` quién lo hizo. Una persona sin ese rol no ve el botón en `/prestamos/{id}` y, si envía la petición a mano, recibe `403` con «Solo Oficina puede marcar un préstamo como entregado».
+Solo con rol de Oficina (RF-006). Pasa el préstamo de `reservado` a `entregado` y guarda en `entregado_por` quién lo hizo. Una persona sin ese rol no ve el botón en `/prestamos/{id}` y, si envía la petición a mano, recibe `403` con «Solo Oficina puede marcar un préstamo como entregado. Pídeselo a Oficina cuando vayas a recoger el equipo».
 
 ### 3. Devolver y prorrogar: `POST /prestamos/{id}/devolucion` y `POST /prestamos/{id}/prorroga`
 
-La devolución la registra solo Oficina (RF-007): cierra el préstamo, guarda `cerrado_por` y deja el equipo libre. Vale también para un préstamo que nadie recogió.
+La devolución la registra solo Oficina (RF-007): cierra el préstamo, guarda `cerrado_por` y deja el equipo libre. Vale también para un préstamo que nadie recogió. Quien no es de Oficina no ve el botón y, si envía la petición a mano, recibe `403` con «Solo Oficina puede registrar una devolución. Entrega el equipo en Oficina».
 
-La prórroga la pide solo la persona responsable, con la nueva fecha en `devolucion` (RF-008). Si se acepta, la fecha cambia y la página muestra la nueva. Rechazos (RF-004 y RF-005): `409` si otro préstamo ocupa el equipo, con «PORT-06 solo está libre hasta el viernes 20: Marta lo tiene desde el lunes 23. Pide una prórroga más corta»; `400` para la segunda prórroga («Un préstamo solo se puede prorrogar una vez»), para pasar del máximo y para un préstamo vencido («Este préstamo ya ha vencido: devuelve el equipo a Oficina»).
+La prórroga la pide solo la persona responsable, con la nueva fecha en `devolucion` (RF-008). Si se acepta, la fecha cambia y la página muestra la nueva. Rechazos (RF-004 y RF-005): `409` si otro préstamo ocupa el equipo, con «PORT-06 solo está libre hasta el jueves 19: Marta lo tiene desde el viernes 20. Pide una prórroga más corta»; `400` para la segunda prórroga («Un préstamo solo se puede prorrogar una vez. Devuelve el equipo en su fecha y pide otro si aún lo necesitas»), para pasar del máximo, para un préstamo que todavía no se ha entregado («Recoge el equipo en Oficina antes de prorrogarlo») y para uno vencido («Este préstamo ya ha vencido: devuelve el equipo a Oficina»); `403` si la pide quien no es la persona responsable («Solo Marta puede prorrogar este préstamo. Si necesitas el equipo, habla con ella»).
 
 ### 4. Ver qué hay hoy: `GET /hoy`
 
-Una fila por equipo (RF-001): código, tipo, estado de hoy (libre, prestado o vencido) y, si no está libre, la persona responsable y la fecha de devolución. En los préstamos de quien mira aparece el enlace para prorrogar.
+Una fila por equipo (RF-001): código, tipo, estado de hoy (libre, prestado o vencido) y, si no está libre, la persona responsable y la fecha de devolución. En los préstamos entregados de quien mira aparece el enlace para prorrogar. Si el mismo equipo tiene hoy un préstamo vencido y otro que empieza hoy, la fila muestra el vencido.
 
 ### 5. Avisos: `python -m prestamo.avisos`
 
-Se ejecuta de lunes a viernes a las 08:00 (RF-009). Busca los préstamos `reservado` o `entregado` con `aviso_enviado` a 0 cuya fecha de devolución es el siguiente día laborable (si cae en lunes, se avisa el viernes) o hoy mismo (porque un envío anterior falló o porque el préstamo se pidió después de las 08:00 del día anterior); envía un correo a la persona responsable y pone `aviso_enviado` a 1. El correo dice el equipo y la fecha, por ejemplo: «Hola, Marta: el jueves 19 de noviembre tienes que devolver PROY-02 en Oficina. Si necesitas más días, pídelos antes en la aplicación». Si el envío falla, el préstamo no se toca y el aviso se reintenta en la siguiente ejecución mientras no haya pasado la fecha de devolución.
+Se ejecuta de lunes a viernes a las 08:00 (RF-009). Busca los préstamos `reservado` o `entregado` con `aviso_enviado` a 0 cuya fecha de devolución es el siguiente día laborable (si cae en lunes, se avisa el viernes) o hoy mismo (porque un envío anterior falló o porque el préstamo se pidió después de las 08:00 del día anterior); envía un correo a la persona responsable y pone `aviso_enviado` a 1. El correo dice el equipo y la fecha, por ejemplo: «Hola, Marta: el jueves 19 de noviembre tienes que devolver PROY-02 en Oficina. Si necesitas más días, pídelos antes en la aplicación». Además lleva el enlace a la página del préstamo (`/prestamos/{id}`), desde la que se puede pedir la prórroga. Si el envío falla, el préstamo no se toca y el aviso se reintenta en la siguiente ejecución mientras no haya pasado la fecha de devolución.
 
 ## Estructura del proyecto (Project Structure)
 
@@ -209,11 +209,11 @@ prestamo-portatiles/
 
 ## Riesgos
 
-- **El servidor de correo falla:** el préstamo se guarda igual y el aviso se reintenta en la siguiente ejecución; el fallo queda en el registro del programa (RF-009 no bloquea RF-003). Durante las primeras semanas se revisa ese registro a diario.
-- **La tarea programada no se ejecuta** (servidor apagado a las 08:00): el aviso de ese día no sale a tiempo y CE-004 no se cumple. Al ejecutarse de nuevo, el programa envía los avisos pendientes; la comprobación semanal de CE-004 lo detecta.
+- **El servidor de correo falla:** el aviso no sale y se reintenta en la siguiente ejecución; los préstamos no se ven afectados y el fallo queda en el registro del programa. Durante las primeras semanas se revisa ese registro a diario.
+- **La tarea programada no se ejecuta** (servidor apagado a las 08:00): el aviso de ese día no sale a tiempo y CE-004 no se cumple. Al ejecutarse de nuevo, el programa envía los avisos pendientes; la revisión de los registros de envío del primer mes lo detecta.
 - **Festivos:** la primera versión no los conoce, así que una fecha de devolución puede caer en un festivo. Oficina lo resuelve a mano al entregar el equipo.
 - **Crece el volumen:** si SQLite se queda corto (muchas más de 200 personas o varias sedes), se migra a PostgreSQL. El SQL está concentrado en `repositorio.py` para que el cambio no toque los servicios.
-- **Identidad suplantada:** si la aplicación quedara accesible sin pasar por el acceso corporativo, cualquiera podría enviar la cabecera `X-Usuario` a mano. Por eso solo escucha en la red interna y, sin identidad, rechaza la petición.
+- **Identidad suplantada:** si la aplicación quedara accesible sin pasar por el acceso corporativo, cualquiera podría enviar la cabecera `X-Usuario` a mano. Por eso solo escucha en la interfaz interna, detrás del acceso corporativo, que elimina cualquier `X-Usuario` del navegador, y, sin identidad, rechaza la petición.
 
 ## Arranque rápido (quickstart.md)
 
@@ -249,10 +249,10 @@ Abre <http://localhost:8000>. Deberías ver el formulario para pedir un equipo.
 
 Escenario de validación de extremo a extremo (historia 1):
 
-1. Elige «Proyector», indica de mañana a pasado mañana (si es viernes, de lunes a martes) y pulsa «Ver equipos libres»: aparecen los cuatro proyectores.
+1. Elige «Proyector», indica el lunes y el martes de la semana que viene y pulsa «Ver equipos libres»: aparecen los cuatro proyectores.
 2. Elige PROY-02 y confirma: aparece «Préstamo confirmado: PROY-02, …» con la fecha máxima de devolución.
 3. Repite la misma consulta: PROY-02 ya no aparece entre los equipos libres; los otros tres proyectores, sí.
-4. Pide un portátil desde hoy hasta dentro de tres semanas: la aplicación rechaza la petición e indica el máximo de días laborables.
+4. Pide un portátil del lunes de la semana que viene al lunes tres semanas después: la aplicación rechaza la petición e indica el máximo de días laborables.
 
 Pruebas automáticas:
 

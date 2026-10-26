@@ -36,7 +36,7 @@
 **Objetivo:** que el proyecto arranque vacío y las pruebas se ejecuten.
 
 - [ ] T001 Crear la estructura de carpetas del plan (`src/prestamo/`, `servicios/`, `rutas/`, `plantillas/`, `estatico/`, `tests/unitarias/`, `tests/integracion/`, `datos/`, `docs/`) con sus `__init__.py`
-- [ ] T002 Crear `pyproject.toml` con Python 3.12 y las dependencias fastapi, uvicorn, jinja2 y python-multipart, y pytest y httpx como extra `dev` en `[project.optional-dependencies]`
+- [ ] T002 Crear `pyproject.toml` con Python 3.12 y las dependencias fastapi, uvicorn, jinja2 y python-multipart, y pytest y httpx como extra `dev` en `[project.optional-dependencies]`, y `.gitignore` con `.venv/` y `prestamo.db`
 - [ ] T003 [P] Crear `src/prestamo/config.py` con la ruta de la base de datos, los datos del servidor de correo, la variable `PRESTAMO_USUARIO_DEV` (vacía en producción) y la lista de correos con rol de Oficina `PRESTAMO_OFICINA`, todo leído del entorno
 - [ ] T004 [P] Crear `tests/conftest.py` con una base de datos SQLite temporal por prueba, un reloj simulado que fija «hoy» (las reglas dependen de la fecha) y un envío de correo simulado que guarda los mensajes en una lista; el cliente de pruebas de FastAPI se añade en T011, cuando exista la aplicación
 
@@ -63,15 +63,15 @@
 ### Pruebas de la historia 1 (se escriben primero y tienen que fallar)
 
 - [ ] T012 [P] [HU1] Pruebas unitarias del calendario en `tests/unitarias/test_calendario.py`: días laborables entre dos fechas (de lunes 16 a viernes 27 de noviembre, diez; hasta el lunes 30, once), fin de semana, siguiente día laborable y anterior (el de un lunes es el viernes) (RF-005)
-- [ ] T013 [P] [HU1] Pruebas unitarias de las reglas del préstamo en `tests/unitarias/test_reglas_prestamo.py`: solapamiento parcial, total y por un solo día; fechas consecutivas que no chocan; un préstamo cerrado que ya no ocupa el equipo; empezar antes de hoy, empezar o terminar en fin de semana y superar diez días laborables (RF-004, RF-005, CE-002)
-- [ ] T014 [P] [HU1] Prueba de integración en `tests/integracion/test_hu1_pedir_y_recoger.py`: pedir un tipo de equipo para unas fechas y ver los libres, confirmar y ver el préstamo con su responsable y su fecha de devolución, rechazo por equipo ocupado y por límite, entrega por Oficina, persona sin rol de Oficina sin la opción de entregar, y dos peticiones simultáneas al mismo equipo y las mismas fechas: solo una se guarda y la otra recibe el `409` por solapamiento, no un error de bloqueo de la base de datos (escenarios 1-7 de la historia, RF-002 a RF-006, CE-002)
+- [ ] T013 [P] [HU1] Pruebas unitarias de las reglas del préstamo en `tests/unitarias/test_reglas_prestamo.py`: solapamiento parcial, total y por un solo día; fechas consecutivas que no chocan; un préstamo cerrado que ya no ocupa el equipo; empezar antes de hoy, empezar o terminar en fin de semana y superar diez días laborables; y que solo Oficina puede entregar (RF-004, RF-005, RF-006, CE-002)
+- [ ] T014 [P] [HU1] Prueba de integración en `tests/integracion/test_hu1_pedir_y_recoger.py`: pedir un tipo de equipo para unas fechas y ver los libres, confirmar y ver el préstamo con su responsable y su fecha de devolución, rechazo por equipo ocupado y por límite, entrega por Oficina, persona sin rol de Oficina sin la opción de entregar y con `403` si envía la petición a mano, y dos peticiones simultáneas al mismo equipo y las mismas fechas: solo una se guarda y la otra recibe el `409` por solapamiento, no un error de bloqueo de la base de datos (escenarios 1-7 de la historia, RF-002 a RF-006, CE-002)
 
 ### Implementación de la historia 1
 
 - [ ] T015 [P] [HU1] Implementar `src/prestamo/servicios/calendario.py`: la fecha de hoy (que las pruebas pueden fijar), días laborables entre dos fechas, siguiente día laborable y anterior (RF-005)
 - [ ] T016 [P] [HU1] Implementar `src/prestamo/servicios/disponibilidad.py`: equipos libres de un tipo en un periodo (RF-002)
 - [ ] T017 [HU1] Implementar en `src/prestamo/servicios/prestamos.py` la validación de límites con los mensajes de `textos.py`, la creación del préstamo (comprobación de solapamiento e inserción dentro de una transacción abierta con `BEGIN IMMEDIATE` explícito, así la segunda petición simultánea espera y recibe el rechazo por solapamiento) y la entrega por Oficina (RF-003, RF-004, RF-005, RF-006, CE-002)
-- [ ] T018 [HU1] Crear las rutas `GET /`, `POST /prestamos` y `POST /prestamos/{id}/entrega` en `src/prestamo/rutas/paginas.py` con las plantillas `src/prestamo/plantillas/disponibilidad.html` (formulario de tipo y fechas, equipos libres y botón «Pedir») y `src/prestamo/plantillas/prestamo.html` (detalle con responsable y fechas, y botón «Marcar como entregado» visible solo para Oficina) (RF-002 a RF-006)
+- [ ] T018 [HU1] Crear las rutas `GET /`, `POST /prestamos`, `GET /prestamos/{id}` y `POST /prestamos/{id}/entrega` en `src/prestamo/rutas/paginas.py` con las plantillas `src/prestamo/plantillas/disponibilidad.html` (formulario de tipo y fechas, equipos libres y botón «Pedir») y `src/prestamo/plantillas/prestamo.html` (detalle con responsable y fechas, al que se llega desde el mensaje de confirmación, y botón «Marcar como entregado» visible solo para Oficina, con `403` para quien lo envíe a mano) (RF-002 a RF-006)
 
 **Punto de control:** `pytest` pasa con las pruebas T012-T014 y la historia 1 funciona de principio a fin: se puede enseñar a Ana. Es el producto mínimo viable.
 
@@ -83,16 +83,16 @@
 
 ### Pruebas de la historia 2 (se escriben primero y tienen que fallar)
 
-- [ ] T019 [P] [HU2] Pruebas unitarias de la prórroga en `tests/unitarias/test_prorroga.py`: la nueva fecha cuando se acepta; rechazada la segunda vez, al pasar del máximo de días laborables en total, si el préstamo está vencido o si otro préstamo ocupa el equipo justo después (el mensaje dice hasta cuándo está libre) (RF-004, RF-005, RF-008)
-- [ ] T020 [P] [HU2] Prueba de integración en `tests/integracion/test_hu2_devolver_prorrogar.py`: devolución por Oficina y equipo libre, cierre de un préstamo reservado que nadie recogió, segunda prórroga rechazada, prórroga de un préstamo vencido rechazada y persona sin rol de Oficina sin la opción de registrar la devolución (escenarios 1-4 de la historia, RF-005, RF-007)
-- [ ] T021 [P] [HU2] Pruebas unitarias de los avisos en `tests/unitarias/test_avisos.py`: se avisa el día laborable anterior a la devolución (si cae en lunes, el viernes) a los préstamos reservados y entregados, no a los cerrados, una sola vez por préstamo y de nuevo si se prorroga, se reintenta si el envío falló, y el correo lleva el equipo y la fecha (RF-009, CE-004)
+- [ ] T019 [P] [HU2] Pruebas unitarias de la prórroga en `tests/unitarias/test_prorroga.py`: la nueva fecha cuando se acepta; rechazada la segunda vez, al pasar del máximo de días laborables en total, si el préstamo no está entregado o está vencido, si la pide quien no es la persona responsable o si otro préstamo ocupa el equipo justo después (el mensaje dice hasta cuándo está libre) (RF-004, RF-005, RF-008)
+- [ ] T020 [P] [HU2] Prueba de integración en `tests/integracion/test_hu2_devolver_prorrogar.py`: devolución por Oficina y equipo libre, cierre de un préstamo reservado que nadie recogió, prórroga aceptada con su fecha nueva, prórroga rechazada por segunda vez, por choque con otro préstamo o por préstamo vencido, y persona sin rol de Oficina sin la opción de registrar la devolución y con `403` si la envía a mano, igual que quien prorroga un préstamo ajeno (escenarios 1-5 de la historia, RF-004, RF-005, RF-007, RF-008)
+- [ ] T021 [P] [HU2] Pruebas unitarias de los avisos en `tests/unitarias/test_avisos.py`: se avisa el día laborable anterior a la devolución (si cae en lunes, el viernes) a los préstamos reservados y entregados, no a los cerrados, una sola vez por préstamo y de nuevo si se prorroga, se reintenta si el envío falló, se avisa el mismo día de la devolución si el préstamo se pidió después de las 08:00 de la víspera, y el correo lleva el equipo, la fecha y el enlace a la página del préstamo (RF-009, CE-004)
 
 ### Implementación de la historia 2
 
-- [ ] T022 [HU2] Implementar en `src/prestamo/servicios/prestamos.py` la devolución (cierra el préstamo y deja el equipo libre, también si estaba solo reservado) y la prórroga (una sola vez, dentro de los límites y mientras el equipo esté libre; vuelve a activar el aviso), con los mensajes de `textos.py` (RF-004, RF-005, RF-007, RF-008)
-- [ ] T023 [HU2] Crear las rutas `POST /prestamos/{id}/devolucion` y `POST /prestamos/{id}/prorroga` en `src/prestamo/rutas/paginas.py` y completar `src/prestamo/plantillas/prestamo.html` con el botón «Registrar devolución» (solo Oficina) y el formulario de prórroga (solo la persona responsable) (RF-007, RF-008)
+- [ ] T022 [HU2] Implementar en `src/prestamo/servicios/prestamos.py` la devolución (cierra el préstamo y deja el equipo libre, también si estaba solo reservado) y la prórroga (solo en un préstamo entregado, una sola vez, dentro de los límites y mientras el equipo esté libre, comprobando el solapamiento sin contar el propio préstamo y dentro de una transacción abierta con `BEGIN IMMEDIATE`; vuelve a activar el aviso), con los permisos (la devolución, solo Oficina; la prórroga, solo la persona responsable) y los mensajes de `textos.py` (RF-004, RF-005, RF-007, RF-008)
+- [ ] T023 [HU2] Crear las rutas `POST /prestamos/{id}/devolucion` y `POST /prestamos/{id}/prorroga` en `src/prestamo/rutas/paginas.py` y completar `src/prestamo/plantillas/prestamo.html` con el botón «Registrar devolución» (solo Oficina) y el formulario de prórroga (solo la persona responsable), y devolver `403` a quien envíe esas peticiones sin tener permiso (RF-007, RF-008)
 - [ ] T024 [P] [HU2] Implementar `src/prestamo/servicios/correo.py`: envío por el servidor corporativo con asunto y cuerpo en castellano, y la versión simulada para pruebas (RF-009)
-- [ ] T025 [HU2] Implementar `src/prestamo/avisos.py`, el programa que se ejecuta con `python -m prestamo.avisos`: busca los préstamos reservados o entregados cuya devolución es el siguiente día laborable (o hoy, si todavía no se les ha avisado), envía el correo a la persona responsable y marca el aviso como enviado (depende de T024) (RF-009, CE-004)
+- [ ] T025 [HU2] Implementar `src/prestamo/avisos.py`, el programa que se ejecuta con `python -m prestamo.avisos`: busca los préstamos reservados o entregados cuya devolución es el siguiente día laborable (o hoy, si todavía no se les ha avisado), envía el correo a la persona responsable, con el equipo, la fecha y el enlace a la página del préstamo, y marca el aviso como enviado (depende de T024) (RF-009, CE-004)
 
 **Punto de control:** `pytest` pasa con las pruebas T019-T021 sin romper las de la historia 1; las historias 1 y 2 funcionan juntas y por separado.
 
@@ -104,11 +104,11 @@
 
 ### Pruebas de la historia 3 (se escriben primero y tienen que fallar)
 
-- [ ] T026 [P] [HU3] Prueba de integración en `tests/integracion/test_hu3_hoy.py`: los 14 equipos con su estado de hoy, los prestados con su responsable y su fecha de devolución, un préstamo vencido marcado como «vencido» y un equipo devuelto hoy, libre (escenarios 1-3 de la historia, RF-001)
+- [ ] T026 [P] [HU3] Prueba de integración en `tests/integracion/test_hu3_hoy.py`: los 14 equipos con su estado de hoy, los prestados con su responsable y su fecha de devolución, un préstamo vencido marcado como «vencido» (también si solo estaba reservado, y si el mismo equipo tiene otro préstamo que empieza hoy, la fila muestra el vencido) y un equipo devuelto hoy, libre (escenarios 1-3 de la historia, RF-001)
 
 ### Implementación de la historia 3
 
-- [ ] T027 [HU3] Añadir a `src/prestamo/servicios/disponibilidad.py` el estado de hoy de cada equipo (libre, prestado o vencido, con responsable y fecha de devolución) y crear la ruta `GET /hoy` en `src/prestamo/rutas/paginas.py` con la plantilla `src/prestamo/plantillas/hoy.html`: una fila por equipo y el enlace para prorrogar solo en los préstamos de quien mira (RF-001)
+- [ ] T027 [HU3] Añadir a `src/prestamo/servicios/disponibilidad.py` el estado de hoy de cada equipo (libre, prestado o vencido, con responsable y fecha de devolución) y crear la ruta `GET /hoy` en `src/prestamo/rutas/paginas.py` con la plantilla `src/prestamo/plantillas/hoy.html`: una fila por equipo y el enlace para prorrogar solo en los préstamos entregados de quien mira (RF-001)
 
 **Punto de control:** `pytest` pasa con la prueba T026 sin romper las anteriores y las tres historias funcionan de forma independiente.
 
@@ -119,7 +119,7 @@
 - [ ] T028 [P] Verificar CE-001 con una sesión de prueba con 5 personas de distintos equipos siguiendo `specs/001-prestamo-portatiles/quickstart.md`; anotar tiempos y resultado en `docs/prueba-con-usuarios.md` (tarea manual: la hace una persona; el asistente la deja sin marcar)
 - [ ] T029 [P] Revisar todas las plantillas de `src/prestamo/plantillas/` con teclado y lector de pantalla, como pide la restricción de accesibilidad de la constitución: etiquetas en todos los campos, botones con texto, mensajes de error junto al campo (tarea manual: la hace una persona; el asistente la deja sin marcar)
 - [ ] T030 Revisar el código contra los cuatro principios de `.specify/memory/constitution.md` y anotar el resultado en `docs/revision-constitucion.md`; comprobar que ningún préstamo puede quedar sin responsable o sin fecha (CE-003) y corregir cualquier desviación antes de entregar
-- [ ] T031 Completar `README.md` con la configuración del despliegue interno (servidor de correo, acceso corporativo, `PRESTAMO_USUARIO_DEV` vacía y la lista `PRESTAMO_OFICINA`) y con la programación del aviso: una entrada en el programador de tareas del servidor que ejecute `python -m prestamo.avisos` de lunes a viernes a las 08:00 (RF-009, CE-004)
+- [ ] T031 Crear `README.md` con qué es la aplicación, el arranque rápido del plan, dónde está la especificación, la configuración del despliegue interno (servidor de correo, acceso corporativo, `PRESTAMO_USUARIO_DEV` vacía y la lista `PRESTAMO_OFICINA`) y la programación del aviso: una entrada en el programador de tareas del servidor que ejecute `python -m prestamo.avisos` de lunes a viernes a las 08:00 (RF-009, CE-004)
 
 ## Dependencias y orden de ejecución
 

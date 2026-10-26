@@ -2,7 +2,7 @@
 
 > **Para quién:** cualquier persona que haya empezado el ejercicio 06 y quiera ver un ejemplo completo · **Tiempo de lectura:** ~12 min · **Nivel:** 🟡 intermedio
 
-Esta carpeta contiene el **ejemplo completo de la idea 1 del reto**: los artefactos que produce una sesión bien hecha de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con GitHub Spec Kit (<https://github.com/github/spec-kit>) para una aplicación pequeña, el préstamo de portátiles y proyectores de Oficina. Es el [ejemplo 1 del ejercicio 06](../../../06-reto-final-tu-propio-proyecto.md#solución-o-ejemplo-resuelto) con todos sus ficheros, en el estado en que los dejó Luis tras dos tardes de trabajo con Ana, justo antes del cambio que ella pidió al final. Ese cambio se cuenta con sus diferencias en el último apartado de «Lo que pasó por el camino», igual que los [pasos 7 a 10 de ReservaSalas](../../03-reserva-salas-pasos-7-a-10.md) cuentan el suyo.
+Esta carpeta contiene el **ejemplo completo de la idea 1 del reto**: los artefactos que produce una sesión bien hecha de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) con GitHub Spec Kit (<https://github.com/github/spec-kit>) para una aplicación pequeña, el préstamo de portátiles y proyectores de Oficina. Es el [ejemplo 1 del ejercicio 06](../../../06-reto-final-tu-propio-proyecto.md#solución-o-ejemplo-resuelto) con todos sus ficheros, tras dos tardes de trabajo de Luis con Ana. La constitución, la especificación, el plan y las tareas están como estaban justo antes del cambio que ella pidió al final (y las tareas, como las genera `/speckit.tasks`, sin marcar). Ese cambio se cuenta con sus diferencias en el último apartado de «Lo que pasó por el camino», igual que los [pasos 7 a 10 de ReservaSalas](../../03-reserva-salas-pasos-7-a-10.md) cuentan el suyo; la autoevaluación, que Luis escribió al final, ya lo incluye.
 
 > [!IMPORTANT]
 > Es **un** ejemplo, no «la única respuesta correcta», y tiene fallos que su autor reconoce en la [autoevaluación](autoevaluacion.md): saca 17 de 20. Si tu proyecto es el mismo y te sale distinto, no pasa nada: lo que se compara es el método, no la letra. Ábrelo después de haber escrito tu propia petición y tu primera especificación, no antes.
@@ -32,14 +32,14 @@ Esta carpeta contiene el **ejemplo completo de la idea 1 del reto**: los artefac
 | [tasks.md](tasks.md) | 31 tareas por fases e historias, con las pruebas antes que el código | 4. Trocear en tareas | `/speckit.tasks` |
 | [autoevaluacion.md](autoevaluacion.md) | La rúbrica puntuada (17 de 20), tres cosas que haría distinto y la lista de entrega | Paso 11 del ejercicio 06 | Ninguno: se escribe a mano |
 
-No incluimos el código: lo genera el asistente a partir de estos ficheros (`/speckit.implement`) y cada asistente lo escribe distinto. Tampoco la lista de verificación de la especificación (`checklists/requirements.md`): la de [ReservaSalas](../../03-reserva-salas/checklist.md) es un buen modelo de cómo queda.
+Cada fichero empieza con un aviso que explica qué es y termina con una línea de navegación; no llevan la cabecera ni las secciones finales («En tres frases», «Siguiente paso») del resto del repositorio porque imitan los ficheros reales de un proyecto. No incluimos el código: lo genera el asistente a partir de estos ficheros (`/speckit.implement`) y cada asistente lo escribe distinto. Tampoco la lista de verificación de la especificación (`checklists/requirements.md`): la de [ReservaSalas](../../03-reserva-salas/checklist.md) es un buen modelo de cómo queda.
 
 ## El recorrido de Luis, en dos tardes
 
 | Cuándo | Qué hizo | Ficheros |
 |---|---|---|
 | Martes 3 de noviembre de 2026, por la tarde | Escribió la petición con lo que le contó Ana (ella tardó diez minutos en leerla y cambió dos frases), dictó la constitución, especificó sin tecnología y aclaró con ella por escrito: cuatro preguntas | `peticion.md`, `constitution.md`, `spec.md` |
-| Jueves 5 de noviembre de 2026, por la tarde | Planificó con la tecnología del ejercicio 03, troceó en tareas, analizó (una incidencia HIGH, corregida antes de implementar), implementó en dos rondas, enseñó el producto mínimo a Ana ese mismo día y obtuvo «Converged» en la segunda pasada de `/speckit.converge`; después aplicó el cambio que Ana pidió, se autoevaluó y abrió la *pull request* | `plan.md`, `tasks.md`, `autoevaluacion.md` |
+| Jueves 5 de noviembre de 2026, por la tarde | Planificó con la tecnología del ejercicio 03, troceó en tareas, analizó (una incidencia HIGH, corregida antes de implementar), implementó en dos rondas, enseñó el producto mínimo a Ana ese mismo día y obtuvo «Converged» en la segunda pasada de `/speckit.converge`; después aplicó el cambio que Ana pidió, se autoevaluó y abrió la *pull request* (la propuesta de cambios que se revisa antes de incorporarla al repositorio) | `plan.md`, `tasks.md`, `autoevaluacion.md` |
 
 ## Lo que pasó por el camino
 
@@ -94,26 +94,26 @@ diff --git a/specs/001-prestamo-portatiles/spec.md b/specs/001-prestamo-portatil
 -4. **Dado** que Marta pide un portátil del lunes 16 al lunes 30 de noviembre (once días laborables), **cuando** intenta confirmar, **entonces** el sistema rechaza la petición e indica que el máximo son diez días laborables.
 +4. **Dado** que Marta pide un portátil del lunes 16 al lunes 23 de noviembre (seis días laborables), **cuando** intenta confirmar, **entonces** el sistema rechaza la petición e indica que el máximo son cinco días laborables.
  5. **Dado** que Marta pide un portátil que empieza el sábado 21 de noviembre, **cuando** intenta confirmar, **entonces** el sistema rechaza la petición e indica que los préstamos empiezan y terminan en día laborable, de lunes a viernes.
-@@ -80,3 +80,3 @@
+@@ -81,3 +81,3 @@
  - **Solapamiento por un solo día:** un préstamo de PORT-03 del lunes 16 al miércoles 18 choca con otro del miércoles 18 al viernes 20, aunque solo coincidan en un día. Dos préstamos consecutivos (hasta el miércoles 18 y desde el jueves 19) no chocan. Si dos personas confirman el mismo equipo y las mismas fechas en el mismo segundo, solo se guarda una petición; la otra recibe el rechazo por solapamiento.
 -- **Límite de días y fechas pasadas:** de lunes 16 a viernes 27 de noviembre (diez días laborables) se acepta; hasta el lunes 30 (once) se rechaza (máximo diez; ver Aclaraciones). Empezar hoy se permite; empezar antes de hoy, no.
 +- **Límite de días y fechas pasadas:** de lunes 16 a viernes 20 de noviembre (cinco días laborables) se acepta; hasta el lunes 23 (seis) se rechaza (máximo cinco; ver Aclaraciones). Empezar hoy se permite; empezar antes de hoy, no.
  - **Fin de semana:** una petición que empieza el sábado 21 o termina el domingo 29 se rechaza: la recogida y la devolución son siempre en día laborable.
-@@ -95,2 +95,6 @@
+@@ -96,2 +96,6 @@
 
 +### Sesión 2026-11-05
 +
 +- P: ¿Cuántos días puede durar un préstamo como máximo? → R: Cinco días laborables, para que los equipos no estén tanto tiempo fuera. Sustituye a la respuesta de la sesión 2026-11-03.
 +
  ## Requisitos (Requirements)
-@@ -105,3 +109,3 @@
+@@ -106,3 +110,3 @@
  - **RF-004**: SI el equipo pedido ya está prestado o reservado en alguna de las fechas pedidas, ENTONCES el sistema deberá rechazar la petición e indicar quién lo tiene y cuándo queda libre.
--- **RF-005**: SI una petición de préstamo o de prórroga incumple un límite (empezar antes de hoy, empezar o terminar en fin de semana, superar diez días laborables en total, pedir una segunda prórroga o prorrogar un préstamo vencido), ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
-+- **RF-005**: SI una petición de préstamo o de prórroga incumple un límite (empezar antes de hoy, empezar o terminar en fin de semana, superar cinco días laborables en total, pedir una segunda prórroga o prorrogar un préstamo vencido), ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
+-- **RF-005**: SI una petición de préstamo o de prórroga incumple un límite (empezar antes de hoy, empezar o terminar en fin de semana, superar diez días laborables en total, pedir una segunda prórroga o prorrogar un préstamo que no está entregado o que ya ha vencido), ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
++- **RF-005**: SI una petición de préstamo o de prórroga incumple un límite (empezar antes de hoy, empezar o terminar en fin de semana, superar cinco días laborables en total, pedir una segunda prórroga o prorrogar un préstamo que no está entregado o que ya ha vencido), ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
  - **RF-006**: DONDE la persona tenga rol de Oficina, el sistema deberá permitir marcar un préstamo reservado como entregado.
 ```
 
-Son cuatro bloques de cambio: el criterio 4 de la historia 1, el caso límite, una sesión nueva de aclaraciones con la fecha de hoy y RF-005. La sesión del 2026-11-03 no se borra: es el historial de la decisión, y por eso el «diez» solo sobrevive en ella. Luis hizo *commit* de este paso antes de tocar nada más, para que el historial muestre que el cambio empezó por la especificación.
+Son cuatro bloques de cambio: el criterio 4 de la historia 1, el caso límite, una sesión nueva de aclaraciones con la fecha de hoy y RF-005. La sesión del 2026-11-03 no se borra: es el historial de la decisión, y por eso el «diez» solo sobrevive en ella. Luis hizo *commit* (guardó una versión en Git) de este paso antes de tocar nada más, para que el historial muestre que el cambio empezó por la especificación.
 
 **2. El plan.** El modelo de datos y un mensaje de ejemplo también decían diez: son dos líneas de `plan.md` (la regla de `devolucion` y el texto del rechazo por límite), y `tasks.md` no se toca. Este es el recuento de las menciones al límite antiguo (`grep -ciE "diez días"`), antes y después:
 
@@ -151,7 +151,7 @@ Aquí está el fallo que él mismo reconoce: no repitió `/speckit.converge`. Se
 
 ## La entrega
 
-La *pull request* tenía 38 ficheros: la petición, la constitución, la carpeta de la especificación (con el plan, las tareas y las listas de verificación), el código y sus pruebas, los tres documentos de `docs/` y el `README.md`. Siguió el guion de cinco puntos del ejercicio como descripción, con enlaces directos a `spec.md`, `plan.md`, `tasks.md` y `docs/autoevaluacion.md`.
+La *pull request* tenía 38 ficheros: la petición, la constitución, la carpeta de la especificación (con el plan, las tareas y la lista de verificación), el código y sus pruebas, los documentos de `docs/` que ya existían y el `README.md`. Son algunos menos que los del árbol del plan: era una previsión, y la prueba con usuarios (T028) seguía pendiente. Siguió el guion de cinco puntos del ejercicio como descripción, con enlaces directos a `spec.md`, `plan.md`, `tasks.md` y `docs/autoevaluacion.md`.
 
 Hubo dos revisiones, como pide el ejercicio. Ana revisó la especificación en 20 minutos, contestó «¿es esto lo que pedí?» y pidió un cambio de texto. Un compañero con experiencia revisó la comprobación contra la constitución, el plan y las pruebas, y miró el historial para comprobar que el último cambio empezó por la especificación. Los comentarios de las dos revisiones son la primera lista de aclaraciones de la versión 2.
 

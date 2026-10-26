@@ -46,7 +46,7 @@ Marta necesita un proyector el miércoles 18 de noviembre para enseñar un infor
 
 El jueves 19, Marta devuelve el proyector en Oficina y Ana anota la devolución: el proyector vuelve a estar libre para los demás. Otro día, Jorge ve que no va a terminar su trabajo con el portátil y pide un día más: la aplicación le da la nueva fecha de devolución. La víspera de cada devolución, a la persona responsable le llega un correo que se lo recuerda.
 
-**Por qué esta prioridad:** sin ella, la aplicación solo sabe cuándo debería volver cada equipo, no si ha vuelto, y quien necesita más días tiene que pedírselos a Oficina de palabra. La aplicación funciona sin esta historia (cada préstamo termina en su fecha), pero el cuaderno seguiría haciendo falta para saber qué equipos han vuelto de verdad.
+**Por qué esta prioridad:** sin ella, la aplicación solo sabe cuándo debería volver cada equipo, no si ha vuelto, y quien necesita más días tiene que pedírselos a Oficina de palabra. La aplicación funciona sin esta historia: cada préstamo termina en su fecha.
 
 **Prueba independiente:** se puede probar con un préstamo entregado: registrar su devolución y comprobar que el equipo vuelve a estar libre, y pedir una prórroga y comprobar que la fecha de devolución cambia.
 
@@ -54,8 +54,9 @@ El jueves 19, Marta devuelve el proyector en Oficina y Ana anota la devolución:
 
 1. **Dado** que Marta tiene PROY-02 entregado hasta el jueves 19 de noviembre, **cuando** Ana registra la devolución ese jueves, **entonces** el préstamo se cierra y PROY-02 aparece libre.
 2. **Dado** que Jorge ya ha prorrogado una vez su préstamo de PORT-05, **cuando** pide prorrogarlo otra vez, **entonces** el sistema rechaza la prórroga e indica que un préstamo solo se puede prorrogar una vez.
-3. **Dado** que PORT-06 está reservado por Marta desde el lunes 23 de noviembre y Luis lo tiene hasta el miércoles 18, **cuando** Luis pide prorrogar su préstamo hasta el martes 24, **entonces** el sistema rechaza la prórroga e indica que PORT-06 solo está libre hasta el viernes 20.
+3. **Dado** que PORT-06 está reservado por Marta desde el viernes 20 de noviembre y Luis lo tiene del lunes 16 al miércoles 18, **cuando** Luis pide prorrogar su préstamo hasta el viernes 20, **entonces** el sistema rechaza la prórroga e indica que PORT-06 solo está libre hasta el jueves 19.
 4. **Dado** que el préstamo de Luis de PORT-04 venció el viernes 20 de noviembre y hoy es lunes 23 sin que se haya devuelto, **cuando** Luis pide prorrogarlo, **entonces** el sistema rechaza la prórroga e indica que tiene que devolver el equipo a Oficina.
+5. **Dado** que Marta no es de Oficina, **cuando** abre su préstamo entregado, **entonces** no ve la opción de registrar la devolución.
 
 ---
 
@@ -80,9 +81,9 @@ Jorge necesita un proyector para esta tarde y no quiere bajar a Oficina para ave
 - **Solapamiento por un solo día:** un préstamo de PORT-03 del lunes 16 al miércoles 18 choca con otro del miércoles 18 al viernes 20, aunque solo coincidan en un día. Dos préstamos consecutivos (hasta el miércoles 18 y desde el jueves 19) no chocan. Si dos personas confirman el mismo equipo y las mismas fechas en el mismo segundo, solo se guarda una petición; la otra recibe el rechazo por solapamiento.
 - **Límite de días y fechas pasadas:** de lunes 16 a viernes 27 de noviembre (diez días laborables) se acepta; hasta el lunes 30 (once) se rechaza (máximo diez; ver Aclaraciones). Empezar hoy se permite; empezar antes de hoy, no.
 - **Fin de semana:** una petición que empieza el sábado 21 o termina el domingo 29 se rechaza: la recogida y la devolución son siempre en día laborable.
-- **Prórroga rechazada:** se rechaza la segunda prórroga de un mismo préstamo, la de un préstamo que ya ha vencido y la que choca con el préstamo siguiente del mismo equipo; en este último caso, el mensaje dice hasta qué fecha está libre.
-- **Equipo vencido:** si un equipo no se devuelve en su fecha, sigue figurando a nombre de la misma persona, con la etiqueta «vencido», hasta que Oficina registra la devolución. No se envía ningún aviso de retraso: Oficina lo ve en «Hoy» y lo reclama. La aplicación no lo bloquea: otra persona puede pedirlo para fechas posteriores, y Oficina decide qué hacer al entregarlo.
-- **Nadie recoge el equipo:** si la persona no pasa por Oficina, el préstamo sigue reservado y el equipo ocupado hasta su fecha de devolución. Oficina puede cerrarlo con la opción de registrar la devolución, y el equipo vuelve a estar libre.
+- **Prórroga rechazada:** se rechaza la segunda prórroga de un mismo préstamo, la que haría pasar el préstamo del máximo de días laborables, la de un préstamo que todavía no se ha entregado o que ya ha vencido, la de quien no es la persona responsable y la que choca con el préstamo siguiente del mismo equipo; en este último caso, el mensaje dice hasta qué fecha está libre.
+- **Equipo vencido:** si un equipo no se devuelve en su fecha, sigue figurando a nombre de la misma persona, con la etiqueta «vencido», hasta que Oficina registra la devolución. No se envía ningún aviso de retraso: Oficina lo ve en «Hoy» y lo reclama. La aplicación no lo bloquea: otra persona puede pedirlo para fechas posteriores, y Oficina decide qué hacer cuando tenga que entregárselo a esa otra persona. Si el mismo equipo tiene hoy un préstamo vencido y otro que empieza hoy, «Hoy» muestra el vencido.
+- **Nadie recoge el equipo:** si la persona no pasa por Oficina, el préstamo sigue reservado y el equipo ocupado hasta su fecha de devolución. Si pasa esa fecha sin que Oficina lo cierre, figura en «Hoy» como «vencido», igual que uno entregado que no ha vuelto. Oficina puede cerrarlo en cualquier momento con la opción de registrar la devolución, y el equipo vuelve a estar libre.
 
 ## Aclaraciones (Clarifications)
 
@@ -103,10 +104,10 @@ Redactados en EARS (*Easy Approach to Requirements Syntax*), una forma sencilla 
 - **RF-002**: CUANDO una persona indica un tipo de equipo y unas fechas, el sistema deberá mostrar qué equipos de ese tipo están libres en ese periodo.
 - **RF-003**: CUANDO una persona confirma un préstamo, el sistema deberá guardarlo a su nombre y mostrar un mensaje de confirmación con el equipo, las fechas y la fecha de devolución.
 - **RF-004**: SI el equipo pedido ya está prestado o reservado en alguna de las fechas pedidas, ENTONCES el sistema deberá rechazar la petición e indicar quién lo tiene y cuándo queda libre.
-- **RF-005**: SI una petición de préstamo o de prórroga incumple un límite (empezar antes de hoy, empezar o terminar en fin de semana, superar diez días laborables en total, pedir una segunda prórroga o prorrogar un préstamo vencido), ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
+- **RF-005**: SI una petición de préstamo o de prórroga incumple un límite (empezar antes de hoy, empezar o terminar en fin de semana, superar diez días laborables en total, pedir una segunda prórroga o prorrogar un préstamo que no está entregado o que ya ha vencido), ENTONCES el sistema deberá rechazarla e indicar qué límite se incumple.
 - **RF-006**: DONDE la persona tenga rol de Oficina, el sistema deberá permitir marcar un préstamo reservado como entregado.
 - **RF-007**: CUANDO Oficina registra la devolución de un equipo, el sistema deberá dejarlo libre y cerrar el préstamo.
-- **RF-008**: CUANDO la persona responsable pide prorrogar su préstamo dentro de los límites, el sistema deberá alargar la fecha de devolución y mostrar la nueva fecha.
+- **RF-008**: CUANDO la persona responsable pide prorrogar su préstamo entregado dentro de los límites, el sistema deberá alargar la fecha de devolución y mostrar la nueva fecha.
 - **RF-009**: CUANDO llega el día laborable anterior a la fecha de devolución de un préstamo reservado o entregado, el sistema deberá enviar un correo a la persona responsable con el equipo y la fecha de devolución.
 
 Dos apuntes sobre la regla «un requisito, una sola cosa»: RF-005 agrupa cinco límites en un solo SI porque la respuesta del sistema es la misma para todos (rechazar e indicar el límite); cada límite se comprueba por separado en los casos límite y en las pruebas, y si la respuesta fuera distinta para alguno sería un requisito aparte. RF-001 reúne en una sola lista el estado de cada equipo y, si está fuera, quién lo tiene y cuándo vuelve, porque son la misma información vista en una pantalla.
@@ -162,7 +163,7 @@ Cómo se medirán: CE-001 con una prueba con 5 personas de distintos equipos ant
 
 ## Fuera de alcance (Out of Scope)
 
-- Cancelar o cambiar las fechas de un préstamo ya pedido: se cierra con la opción de registrar la devolución y se vuelve a pedir.
+- Cancelar o cambiar las fechas de un préstamo ya pedido: lo cierra Oficina con la opción de registrar la devolución y la persona vuelve a pedirlo.
 - Otros equipos (monitores, cámaras, cables sueltos) y accesorios: solo portátiles y proyectores.
 - Compra, reparación, altas y bajas de equipos, e inventario de la empresa.
 - Calendario de festivos.

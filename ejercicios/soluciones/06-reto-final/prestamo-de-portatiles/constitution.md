@@ -30,7 +30,7 @@ La aplicación guarda solo lo imprescindible: nombre, correo corporativo y los p
 Ninguna funcionalidad se considera terminada sin al menos una prueba automática que la demuestre.
 
 - Cada historia de usuario tiene pruebas que se escriben **antes** que la implementación y que fallan hasta que la funcionalidad existe.
-- Las reglas de negocio (solapamientos, días laborables, duración máxima, prórrogas, avisos) tienen pruebas automáticas propias, pequeñas y específicas (*pruebas unitarias*).
+- Las reglas de negocio (solapamientos, días laborables, duración máxima, prórrogas, permisos, avisos) tienen pruebas automáticas propias, pequeñas y específicas (*pruebas unitarias*).
 - La batería completa de pruebas se ejecuta antes de cada entrega y tiene que pasar al 100 %.
 
 **Por qué:** el asistente de IA genera código rápido, pero «parece que funciona» no es lo mismo que «funciona». Las pruebas son la forma de comprobarlo sin fiarse de la demo.

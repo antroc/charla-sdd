@@ -7,7 +7,7 @@ El [ejercicio 06](../../06-reto-final-tu-propio-proyecto.md#ocho-ideas-de-proyec
 Aquí están las otras seis, cada una con el esqueleto de una especificación de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): la petición tal como la diría quien la pide, el recorte que hace que la primera versión valga sola, las historias, un principio de constitución, cinco requisitos, las preguntas que hay que hacer y lo que se queda fuera.
 
 > [!NOTE]
-> Son esqueletos, no el proyecto entero: cada uno trae cinco de los entre 6 y 12 requisitos que pide el ejercicio, tres de las aclaraciones que saldrán al preguntar y un solo principio de constitución. Faltan a propósito los casos límite, los criterios de éxito con cifra, el plan y las tareas: son lo que escribes tú. Sirven para compararte, no para copiarlos: haz primero tu petición, tus historias y tus requisitos y mira después en qué te has desviado. Si tu P1 (la historia de prioridad 1) es distinta de la de aquí y vale sola, es igual de buena.
+> Son esqueletos, no el proyecto entero: cada uno trae cinco requisitos (el ejercicio pide entre 6 y 12), tres de las aclaraciones que saldrán al preguntar y un solo principio de constitución. Faltan a propósito los casos límite, los criterios de éxito con cifra, el plan y las tareas: son lo que escribes tú. Sirven para compararte, no para copiarlos: haz primero tu petición, tus historias y tus requisitos y mira después en qué te has desviado. Si tu P1 (la historia de prioridad 1) es distinta de la de aquí y vale sola, es igual de buena.
 
 **Qué vas a encontrar**
 
@@ -56,7 +56,7 @@ Tres convenciones:
 
 - Los requisitos van numerados desde RF-001 (requisito funcional) dentro de cada idea, porque cada una es una especificación aparte.
 - Cuando un requisito necesita una cifra que nadie ha dado, lleva el marcador `[NECESITA ACLARACIÓN: …]` en lugar de un número inventado. Si necesitas una cifra provisional para seguir, escríbela a la vista como supuesto y no des la especificación por aprobada hasta que quien encarga la confirme.
-- Ana, Marta y Jorge son los personajes ficticios de todo el repositorio.
+- Ana, Luis, Marta y Jorge son los personajes ficticios de todo el repositorio.
 
 ## Buzón de sugerencias con votos
 
@@ -103,7 +103,7 @@ Te faltan, entre otros, el requisito de proponer una sugerencia y el de qué ve 
    - No: la sugerencia queda sin autor, nadie puede retirar una sugerencia y Oficina solo puede responder en público; se anota como supuesto.
 2. **¿Se puede votar en contra o solo a favor?**
    - Solo a favor: el voto no lleva signo y RF-001 ordena contando votos, sin más.
-   - También en contra: el voto lleva signo, hay que decidir cómo se ordena (¿por saldo?) y si se puede cambiar de opinión, y cambian RF-001 y RF-003.
+   - También en contra: el voto lleva signo, hay que decidir cómo se ordena (¿por saldo?), y cambian RF-001 y RF-003.
 3. **¿Hay que contestar a todas las sugerencias o solo a las más votadas?**
    - A todas: aparece un requisito nuevo que avisa a Oficina cuando una sugerencia lleva más de `[NECESITA ACLARACIÓN: ¿cuántos días?]` días sin respuesta, y un criterio de éxito con ese plazo.
    - Solo a las más votadas: hace falta un umbral (`[NECESITA ACLARACIÓN: ¿cuántos votos?]`) y cambia RF-004: solo las que lo superen entran en la lista de pendientes.
@@ -231,7 +231,7 @@ Te faltan, entre otros, el requisito de mostrar a cada persona sus incidencias c
 ### Fuera de alcance
 
 - Prioridades, categorías y plazos de resolución: nadie las ha pedido y cada una trae reglas nuevas.
-- Estados intermedios (en curso, esperando una pieza): con abierta y cerrada la P1 ya funciona; los demás llegan con la P2.
+- Estados intermedios (en curso, esperando una pieza): con abierta y cerrada la P1 ya funciona; la P2 añade «asignada» y los demás quedan para la versión 2.
 - Incidencias de informática o de las instalaciones del edificio: la primera versión es solo para lo que atiende Oficina; ampliarlo sería una especificación nueva.
 
 ### El error típico
@@ -256,7 +256,7 @@ La lista de espera depende de las bajas, así que va detrás: la P2 es darse de 
 
 ### Las tres historias
 
-- **P1**: Como responsable de RRHH, quiero publicar un curso con sus plazas, que la gente se apunte hasta que se llene y ver quién se ha apuntado, para dejar de llevar las inscripciones en una hoja de cálculo.
+- **P1**: Como responsable de RRHH, quiero publicar un curso con sus plazas, dejar que la gente se apunte hasta que se llene y ver quién lo ha hecho, para dejar de llevar las inscripciones en una hoja de cálculo.
 - **P2**: Como empleado, quiero darme de baja de un curso, para dejar mi plaza a otra persona.
 - **P3**: Como empleado, quiero apuntarme a la lista de espera de un curso lleno y recibir la plaza si alguien se da de baja, para no perder la oportunidad.
 
@@ -314,7 +314,7 @@ La petición lo mezcla todo (rotación, intercambios, festivos, vacaciones y avi
 
 La P1 es publicar el calendario de guardias del mes a partir de una rotación fija, y vale sola: con ella desaparece lo que hoy se hace a mano, cada mes, en una hoja de cálculo. La P2 es el intercambio con aprobación y la P3, el aviso de los cambios.
 
-Como el equipo tiene dos niveles (el nivel 1 atiende primero y el nivel 2 recibe lo que el primero no resuelve), la rotación es una por nivel; la aclaración 1 lo confirma con quien decide.
+Como el equipo tiene dos niveles (el nivel 1 atiende primero y el nivel 2 recibe lo que el primero no resuelve), la rotación es una por nivel; la aclaración 1 lo confirma con quien decide. Una guardia es una semana, de lunes a domingo, y el calendario del mes es la lista de quién está de guardia cada semana.
 
 ### Las tres historias
 
@@ -331,8 +331,8 @@ Es el que propone el ejercicio en el paso 3: «nadie hace dos guardias seguidas;
 | N.º | Patrón | Requisito |
 |---|---|---|
 | RF-001 | CUANDO | CUANDO el responsable del equipo publica un mes, el sistema deberá asignar sus guardias siguiendo la rotación de cada nivel como continuación del mes anterior. |
-| RF-002 | MIENTRAS | MIENTRAS el calendario de un mes esté publicado, el sistema deberá mostrarlo a todo el equipo con quién está de guardia en cada fecha. |
-| RF-003 | SI…, ENTONCES | SI un intercambio dejaría a una de las dos personas con dos guardias seguidas, ENTONCES el sistema deberá rechazarlo e indicar qué guardias coinciden. |
+| RF-002 | MIENTRAS | MIENTRAS el calendario de un mes esté publicado, el sistema deberá mostrarlo a todo el equipo con quién está de guardia cada semana. |
+| RF-003 | SI…, ENTONCES | SI un intercambio dejaría a una de las dos personas con dos guardias seguidas, ENTONCES el sistema deberá rechazarlo e indicar qué guardias quedarían seguidas. |
 | RF-004 | Ubicuo | El sistema deberá exigir la aprobación del responsable del equipo para aplicar un intercambio de guardias. |
 | RF-005 | DONDE | DONDE la persona tenga rol de responsable del equipo, el sistema deberá permitir aprobar o rechazar un intercambio pendiente. |
 
@@ -341,7 +341,7 @@ Te faltan, entre otros, el requisito de proponer un intercambio y el del aviso d
 ### Tres aclaraciones para quien decide
 
 1. **¿Hay una sola rotación para todo el equipo o una por nivel?**
-   - Una sola: la persona no tiene nivel, la rotación es una lista y el calendario muestra una guardia por fecha; el cambio de más abajo ya no tendría sentido.
+   - Una sola: la persona no tiene nivel, la rotación es una lista y el calendario muestra una guardia por semana; el cambio de más abajo ya no tendría sentido.
    - Una por nivel: la persona lleva su nivel, hay una lista por nivel y el calendario muestra una guardia de cada nivel, como recoge RF-001. Hay que definir «nivel» en la especificación en lugar de dar por hecho que todo el mundo lo entiende.
 2. **¿Qué cuenta como «dos guardias seguidas»: dos consecutivas, o también dos con un hueco corto entre medias?**
    - Consecutivas: RF-003 se queda como está.
@@ -368,7 +368,7 @@ Antes:
 
 Después:
 - **RF-004**: El sistema deberá exigir la aprobación del responsable del equipo para aplicar un intercambio entre personas de niveles distintos.
-- **RF-006** (nuevo): CUANDO dos personas del mismo nivel acuerdan intercambiar una guardia, el sistema deberá aplicar el intercambio sin pedir aprobación.
+- **Nuevo requisito** (con el siguiente número libre): CUANDO dos personas del mismo nivel acuerdan intercambiar una guardia, el sistema deberá aplicar el intercambio sin pedir aprobación.
 ```
 
 RF-004 conserva su número y lo nuevo toma el siguiente libre. RF-003 no cambia y sigue mandando: un intercambio entre iguales que dejase a alguien con dos guardias seguidas también se rechaza, porque lo exige el principio.

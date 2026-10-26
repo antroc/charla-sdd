@@ -10,14 +10,14 @@
 | Claridad de la especificación | 4 | Ana leyó la especificación entera antes de planificar y corrigió algo en ella: quería que el rechazo por equipo ocupado dijera quién lo tiene, no solo que está ocupado (criterio 3 de la historia 1 y RF-004). Una compañera de RRHH la leyó y la entendió sin preguntar nada. |
 | Calidad de los requisitos EARS | 3 | Los nueve requisitos siguen un patrón y dicen una sola cosa, numerados sin huecos. Dos no tienen criterio de aceptación que los compruebe: RF-008 (la prórroga aceptada) y RF-009 (el aviso); solo los comprueban las pruebas automáticas y CE-004. Por eso no llega al 4. |
 | Coherencia especificación-plan-tareas | 3 | El primer `/speckit.analyze` encontró una incidencia HIGH (RF-009 no tenía ninguna tarea) y se corrigió `tasks.md` antes de implementar; el segundo salió limpio. Pero tras implementar el cambio de Ana, de diez a cinco días laborables, no repetí `/speckit.converge` para confirmar que todo convergía. |
-| Pruebas y verificación | 3 | Pruebas antes que implementación en cada historia, todas pasan y las reglas de negocio (calendario, solapamiento, límites, prórroga y avisos) tienen pruebas propias. Nadie más ha seguido todavía el `quickstart.md`: no llega al 4, y T028 y T029, las tareas manuales, siguen pendientes. |
+| Pruebas y verificación | 3 | Pruebas antes que implementación en cada historia, todas pasan y las reglas de negocio (calendario, solapamiento, límites, prórroga, permisos y avisos) tienen pruebas propias. Nadie más ha seguido todavía el `quickstart.md`: no llega al 4, y T028 y T029, las tareas manuales, siguen pendientes. |
 | Fidelidad a la constitución | 4 | La constitución frenó una propuesta: guardar el departamento de cada persona, que el asistente incluyó en la primera versión del plan. Está anotado en la tabla «Decisiones y alternativas» de `plan.md`, y la revisión de T030 no encontró nada en el código que la contradiga. |
 
 **Total:** 17 de 20
 
 **Tres cosas que haría distinto:**
 
-1. Escribir, antes de planificar, un criterio de aceptación para la prórroga y otro para el aviso. Dos requisitos sin criterio se ven a simple vista en la tabla de la especificación, y yo no los vi hasta puntuar la rúbrica.
+1. Escribir, antes de planificar, un criterio de aceptación para la prórroga y otro para el aviso. Dos requisitos sin criterio se ven al cruzar la tabla de requisitos por historia con los criterios de aceptación de cada una, y yo no lo hice hasta puntuar la rúbrica.
 2. Repetir `/speckit.converge` después de cada cambio, aunque `pytest` esté en verde. Tras el cambio de Ana me quedé con las pruebas y no con la comprobación que cubre también el plan y las tareas.
 3. Pedir a otra persona que siga el `quickstart.md` antes de enseñárselo a Ana, y hacer T028 y T029 antes de abrir la *pull request*, no después.
 
