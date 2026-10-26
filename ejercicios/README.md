@@ -24,7 +24,7 @@ No hace falta hacerlos todos ni seguirlos como un examen. La idea es equivocarse
 | 03 | [ReservaSalas paso a paso con Spec Kit](03-reserva-salas-paso-a-paso.md) | Construir ReservaSalas recorriendo los siete pasos del flujo con Spec Kit y un asistente de IA, y cambiarla tocando solo la especificación | 🟡 | 90-120 min | Sí (vía B) | [Ejemplo completo](soluciones/03-reserva-salas/README.md) y [pasos 7 a 10](soluciones/03-reserva-salas-pasos-7-a-10.md) |
 | 04 | [Dinámica de equipo de 20 minutos](04-dinamica-de-equipo-20-minutos.md) | Dinámica en grupo, sin ordenador: de una petición vaga a historias, requisitos y preguntas de aclaración | 🟢 | 20 min | No | [Las seis tarjetas resueltas](soluciones/04-dinamica-de-equipo-resuelta.md) |
 | 05 | [Arreglar una especificación mala](05-arreglar-una-especificacion-mala.md) | Encontrar los problemas de una especificación escrita con prisa y reescribir sus requisitos y criterios de éxito | 🟡 | 30-40 min | No | [Especificación arreglada](soluciones/05-especificacion-arreglada.md) |
-| 06 | [Reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md) | Llevar un problema real de tu día a día por todo el flujo, hasta una aplicación pequeña que funciona | 🔴 | 3-4 h, en dos o tres sesiones | Sí (vía B) | Sin solución: rúbrica de autoevaluación y ejemplos de buen resultado |
+| 06 | [Reto final: tu propio proyecto](06-reto-final-tu-propio-proyecto.md) | Llevar un problema real de tu día a día por todo el flujo, hasta una aplicación pequeña que funciona | 🔴 | 3-4 h, en dos o tres sesiones | Sí (vía B) | [Ejemplo completo y punto de partida de cada idea](soluciones/06-reto-final/README.md) |
 
 🟢 básico: no hace falta ningún conocimiento técnico. 🟡 intermedio: ayuda saber qué es un repositorio y haber visto código. 🔴 avanzado: hace falta soltura con la terminal y con el código.
 
@@ -82,7 +82,7 @@ Haz primero el ejercicio y compara después con la solución. Las soluciones son
 ## Plantillas y soluciones
 
 - [Plantillas](plantillas/README.md): la constitución, la especificación, la lista de aclaraciones, el plan técnico, la lista de tareas y la lista de verificación, en castellano y listas para copiar. Los ejercicios 01, 05 y 06 las usan.
-- [Soluciones](soluciones/README.md): las respuestas de los ejercicios 00, 01, 02, 04 y 05, y el ejemplo completo de ReservaSalas del ejercicio 03, con los seis ficheros que produce el flujo, un README que explica cómo se generaron y los pasos 7 a 10 por dentro.
+- [Soluciones](soluciones/README.md): las respuestas de todos los ejercicios (también la del entorno, las seis tarjetas de la dinámica y un ejemplo completo del reto final), y el ejemplo de ReservaSalas del ejercicio 03, con los seis ficheros que produce el flujo, un README que explica cómo se generaron y los pasos 7 a 10 por dentro.
 
 ## Siguiente paso
 

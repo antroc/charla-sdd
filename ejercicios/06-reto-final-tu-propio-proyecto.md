@@ -4,7 +4,7 @@
 
 Hasta aquí has trabajado con un caso preparado. Ahora toca elegir un problema pequeño de tu día a día y recorrer el flujo sin que el ejercicio tome las decisiones por ti.
 
-No hay una solución correcta con la que comparar al final. Hay una rúbrica, una lista de entrega y ejemplos de referencia. Lo importante es que puedas justificar qué decidiste, qué dejaste fuera y cómo comprobaste el resultado.
+No hay una solución correcta con la que comparar al final. Hay una rúbrica, una lista de entrega y ejemplos de referencia, entre ellos uno completo con todos sus ficheros y un punto de partida resuelto para cada idea. Lo importante es que puedas justificar qué decidiste, qué dejaste fuera y cómo comprobaste el resultado.
 
 **Qué vas a encontrar**
 
@@ -58,7 +58,7 @@ Elige un problema que sufras tú o alguien cercano, que se pueda explicar en cin
 | 7 | **Turnos de guardia del equipo de soporte.** Rotación mensual, intercambios entre compañeros con aprobación, nadie dos semanas seguidas | 🔴 avanzado | Reglas que se cruzan y una P1 difícil de acotar: el reto está en decidir qué queda fuera de la primera versión |
 | 8 | **Horas por proyecto con cierre mensual.** Cada persona imputa horas, el manager las valida y el mes se cierra | 🔴 avanzado | Varios roles, un cierre con fecha y la tentación de guardar datos de más: la constitución tendrá que decidir |
 
-Las seis tarjetas del [ejercicio 04](04-dinamica-de-equipo-20-minutos.md#tarjetas-de-peticiones-vagas) también valen, sobre todo si tu equipo ya las trabajó en grupo. Y si tienes un problema propio que cumpla las tres condiciones de arriba, es la mejor opción de todas.
+Las seis tarjetas del [ejercicio 04](04-dinamica-de-equipo-20-minutos.md#tarjetas-de-peticiones-vagas) también valen, sobre todo si tu equipo ya las trabajó en grupo. Y si tienes un problema propio que cumpla las tres condiciones de arriba, es la mejor opción de todas. Cada idea tiene un punto de partida resuelto en [las soluciones del reto](soluciones/06-reto-final/README.md); no lo abras hasta que hayas escrito tu propia petición y tu primera especificación.
 
 ## El recorrido con Spec Kit
 
@@ -342,7 +342,7 @@ En la reunión de equipo, con el guion de arriba y tres cosas abiertas: `spec.md
 
 ## Solución o ejemplo resuelto
 
-Este reto no tiene solución: cada proyecto es distinto y el tuyo lo juzgan la lista de entrega, la rúbrica y tu equipo. Lo que sí podemos enseñarte es cómo se ve un buen resultado. Dos ejemplos, uno de cada extremo de la tabla de ideas; los dos tienen fallos y los dos los dicen. Son ficticios, como todo en este repositorio: sirven para ver qué aspecto tiene un buen resultado, no como medida de lo que tienes que tardar.
+Este reto no tiene una solución única: cada proyecto es distinto y el tuyo lo juzgan la lista de entrega, la rúbrica y tu equipo. Lo que sí podemos enseñarte es cómo se ve un buen resultado, y está en [las soluciones del reto](soluciones/06-reto-final/README.md): el ejemplo 1 completo, con sus ficheros ([préstamo de portátiles](soluciones/06-reto-final/prestamo-de-portatiles/README.md)), y un [punto de partida resuelto para las otras ideas](soluciones/06-reto-final/otras-ideas.md) (la 4 es la especificación del [ejercicio 01](soluciones/01-solicitud-de-vacaciones/especificacion.md)). Aquí tienes el resumen de dos proyectos terminados, uno de cada extremo de la tabla de ideas; los dos tienen fallos y los dos los dicen. Son ficticios, como todo en este repositorio: sirven para ver qué aspecto tiene un buen resultado, no como medida de lo que tienes que tardar.
 
 ### Ejemplo 1: préstamo de portátiles (🟢), por Luis, en dos tardes
 
