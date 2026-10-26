@@ -1,6 +1,6 @@
 # Ejercicio 01: tu primera especificación sin código
 
-> **Para quién:** quien vaya a escribir o revisar una especificación (y cualquiera que empiece con SDD); no hace falta programar · **Tiempo de lectura:** ~10 min (hacerlo: 60-90 min, en una o dos sesiones) · **Nivel:** 🟢 básico
+> **Para quién:** quien vaya a escribir o revisar una especificación (y cualquiera que empiece con SDD); no hace falta programar · **Tiempo de lectura:** ~7 min (hacerlo: 30-45 min) · **Nivel:** 🟢 básico
 
 Vas a escribir tu primera especificación sin tocar una línea de código. Usaremos «Solicitud de vacaciones» porque el proceso es familiar y así podemos concentrarnos en lo importante: decidir qué debe ocurrir, qué casos pueden dar problemas y cómo sabremos que el resultado es correcto.
 
@@ -22,7 +22,7 @@ Al terminar sabrás rellenar las secciones de una especificación (historias de 
 
 ## Qué necesitas
 
-- **Tiempo:** entre 60 y 90 minutos la primera vez (algo más con la variante con asistente de IA). Puedes hacerlo en dos sesiones: los pasos 1 a 4 en la primera y los pasos 5 a 8 en la segunda.
+- **Tiempo:** entre 30 y 45 minutos. El objetivo es terminar una primera versión pequeña que otra persona pueda revisar, no describir todo el proceso de vacaciones.
 - **Requisitos previos:** ninguno. Ayuda haber leído [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), pero el ejercicio recuerda lo imprescindible.
 - **Materiales:** la plantilla [especificacion.md](plantillas/especificacion.md) y la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md), copiadas en un documento como se explica en la vía A del [ejercicio 00](00-preparacion-del-entorno.md). Si no has hecho el 00: abre cada plantilla en GitHub (la vista normal, sin pulsar «Raw»), selecciona desde el primer título hasta el final, copia y pégalo en tu documento (Word, Google Docs…): se pega con formato. Las ayudas de cada sección aparecen en cursiva bajo su título; bórralas cuando termines. Si prefieres trabajar en papel, imprime el documento.
 - **Opcional:** un chat de IA autorizado por tu empresa, para la variante con asistente.
@@ -95,7 +95,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    - [ ] Los tres perfiles tienen escrito qué quieren conseguir.
 
-3. **Escribe las tres historias de usuario, por prioridad.** Es la sección «Historias de usuario y escenarios». Cada historia lleva el título con su prioridad, un recorrido en lenguaje llano, «Por qué esta prioridad», «Prueba independiente» y, en «Criterios de aceptación», al menos dos criterios en formato Dado / Cuando / Entonces: uno que sale bien y otro que sale mal. «Prueba independiente» es cómo comprobarías esa historia ella sola, sin las otras dos (por ejemplo: «Luis pide tres días y Marta recibe el aviso»). Sustituye los ejemplos de ReservaSalas de cada apartado y mantén el formato de la plantilla, con **Dado**, **cuando** y **entonces** en negrita. Las prioridades ya están decididas:
+3. **Escribe la P1 completa y deja P2/P3 como siguientes iteraciones.** Es la sección «Historias de usuario y escenarios». Cada historia lleva el título con su prioridad, un recorrido en lenguaje llano, «Por qué esta prioridad», «Prueba independiente» y, en «Criterios de aceptación», al menos dos criterios en formato Dado / Cuando / Entonces: uno que sale bien y otro que sale mal. «Prueba independiente» es cómo comprobarías esa historia ella sola, sin las otras dos (por ejemplo: «Luis pide tres días y Marta recibe el aviso»). Sustituye los ejemplos de ReservaSalas de cada apartado y mantén el formato de la plantilla, con **Dado**, **cuando** y **entonces** en negrita. Las prioridades ya están decididas:
 
    - **Historia de usuario 1 - Pedir días de vacaciones (Prioridad: P1).** Luis elige las fechas, ve cuántos días consumen y cuántos le quedan, y envía la solicitud; Marta recibe un aviso.
    - **Historia de usuario 2 - Aprobar o rechazar una solicitud (Prioridad: P2).** Marta ve las solicitudes pendientes de su equipo, aprueba o rechaza, y si rechaza tiene que dar un motivo; Luis recibe la respuesta.
@@ -112,9 +112,9 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
    3. Dado [...], cuando [...], entonces [...].
    ```
 
-   Qué deberías tener: tres historias con todos sus apartados. Comprobación clave para la P1: si solo construyéramos «pedir días», ¿ya serviría para algo? Debería (se acaban los correos perdidos); si tu P1 no vale por sí sola, no es una P1.
+   Qué deberías tener: una P1 completa. Para P2 y P3 basta con el título y una frase que deje claro que vendrán después. Comprobación clave para la P1: si solo construyéramos «pedir días», ¿ya serviría para algo? Debería (se acaban los correos perdidos); si tu P1 no vale por sí sola, no es una P1.
 
-   - [ ] Las tres historias tienen prioridad, recorrido, por qué, prueba independiente y al menos dos criterios de aceptación cada una.
+   - [ ] La P1 tiene recorrido, por qué, prueba independiente y al menos dos criterios de aceptación; P2 y P3 quedan identificadas para después.
 
 4. **Piensa en lo que puede salir mal: casos límite.** Es la subsección «Casos límite», al final de las historias. Escríbelos como preguntas «¿Qué pasa si…?» y responde cada una en la misma línea. Tienes que incluir, como mínimo, estos tres, y añadir al menos dos más:
 
@@ -132,7 +132,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    - [ ] Hay al menos cinco casos límite y cada uno dice qué debe ocurrir (o está marcado como duda).
 
-5. **Convierte lo anterior en requisitos EARS (mínimo seis).** Es la sección «Requisitos», subsección «Requisitos funcionales». EARS (*Easy Approach to Requirements Syntax*) es una forma sencilla y estructurada de redactar requisitos: cinco plantillas de frase, siempre con el verbo «deberá» y la palabra clave en mayúsculas. Las tienes resumidas en la ayuda en cursiva de la sección «Requisitos» de la plantilla y, explicadas con calma, en [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) y en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
+5. **Convierte la P1 y sus límites en requisitos EARS (entre cuatro y seis).** Es la sección «Requisitos», subsección «Requisitos funcionales». EARS (*Easy Approach to Requirements Syntax*) es una forma sencilla y estructurada de redactar requisitos: cinco plantillas de frase, siempre con el verbo «deberá» y la palabra clave en mayúsculas. Las tienes resumidas en la ayuda en cursiva de la sección «Requisitos» de la plantilla y, explicadas con calma, en [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) y en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
 
    | Patrón | Plantilla | Para qué |
    |---|---|---|
@@ -157,11 +157,11 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    Rellena también «Entidades clave» con las «cosas» de las que habla el proceso y sus datos, sin decidir cómo se guardan: **Solicitud** (persona, fecha de inicio, fecha de fin, días que consume, estado, motivo de rechazo, quién decidió y cuándo), **Persona** (nombre, correo corporativo, equipo, manager, rol: empleado, manager o RRHH) y **Saldo** (persona, año, días totales, días consumidos, días pendientes de decidir).
 
-   Qué deberías tener: entre seis y diez requisitos numerados, cada uno con uno de los cinco patrones, y las tres entidades. Prueba rápida: lee cada requisito y pregúntate «¿cómo demostraría que se cumple?». Si no lo sabes, no es comprobable.
+   Qué deberías tener: entre cuatro y seis requisitos numerados, cada uno con uno de los cinco patrones, y las tres entidades. Prueba rápida: lee cada requisito y pregúntate «¿cómo demostraría que se cumple?». Si no lo sabes, no es comprobable.
 
-   - [ ] Hay al menos seis requisitos en EARS, numerados, y las entidades clave están descritas.
+   - [ ] Hay entre cuatro y seis requisitos en EARS, numerados, y solo las entidades necesarias para la P1.
 
-6. **Fija tres criterios de éxito medibles.** Es la sección «Criterios de éxito», subsección «Resultados medibles». Un criterio de éxito dice cómo sabremos, meses después, que el cambio ha merecido la pena. Lleva número (tiempo, porcentaje, cantidad) y no menciona tecnología. Numera CE-001, CE-002, CE-003:
+6. **Fija dos criterios de éxito medibles.** Es la sección «Criterios de éxito», subsección «Resultados medibles». Un criterio de éxito dice cómo sabremos, meses después, que el cambio ha merecido la pena. Lleva número (tiempo, porcentaje, cantidad) y no menciona tecnología. Numera CE-001, CE-002, CE-003:
 
    ```text
    - CE-001: Pedir vacaciones, desde que se abre la solicitud hasta que se envía, lleva menos de [2] minutos.
@@ -173,7 +173,7 @@ Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué d
 
    Qué deberías tener: tres criterios con cifra. «Que sea rápido», «que la gente esté contenta» o «que funcione bien» no valen; «menos de 2 minutos», «el 90 % de las personas» o «cero solicitudes con saldo negativo» sí.
 
-   - [ ] Hay tres criterios de éxito con un número cada uno y sin tecnología.
+   - [ ] Hay dos criterios de éxito con un número cada uno y sin tecnología.
 
 7. **Apunta las dudas que tendrías que preguntar.** Mientras escribías, seguro que te han surgido preguntas que no puedes responder tú. Van en la sección «Aclaraciones» (en la plantilla está entre «Casos límite» y «Requisitos»), subsección «Dudas pendientes»; borra los ejemplos de ReservaSalas que trae. Como máximo tres de ellas pueden marcarse además en el texto con `[NECESITA ACLARACIÓN: pregunta concreta]` junto al requisito o caso límite afectado. Preguntas típicas de este caso:
 

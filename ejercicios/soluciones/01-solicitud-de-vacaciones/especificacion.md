@@ -20,6 +20,12 @@ Esta es la especificación completa de «Solicitud de vacaciones» que pide el [
 
 **Carpeta/rama:** `001-solicitud-vacaciones` · **Creada:** 2026-10-20 · **Estado:** Borrador (aclaraciones resueltas y lista de verificación pasada el 2026-10-20) · **Petición original:** «Queremos dejar de pedir las vacaciones por correo y saber siempre cuántos días nos quedan.»
 
+## Mínimo esperado
+
+Para dar el ejercicio por bueno no necesitas reproducir todo este documento. Basta con una P1 completa, P2/P3 identificadas para después, 3-5 casos límite, 4-6 requisitos EARS, 2 criterios de éxito con cifra y las dudas reales escritas como aclaraciones.
+
+Lo que sigue es un **ejemplo ampliado** para comparar decisiones y redacción, no una plantilla que haya que copiar.
+
 ## Resumen
 
 Hoy, para pedir vacaciones, Luis escribe un correo a Marta, su manager; Marta contesta cuando puede, a veces por el pasillo, y Jorge, de RRHH, se entera por una copia del correo (o no se entera) y lleva el saldo de días de cada persona en una hoja de cálculo. Eso provoca peticiones que se pierden, personas que no saben cuántos días les quedan y semanas en las que medio equipo está fuera sin que Marta lo haya visto venir. Queremos que cualquier persona pida sus días en un par de minutos y sepa al momento cuántos le quedan, que su manager decida con un motivo cuando rechace y vea quién de su equipo está fuera, y que a Jorge le llegue cada solicitud aprobada sin que nadie la copie a mano.

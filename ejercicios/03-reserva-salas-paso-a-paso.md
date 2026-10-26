@@ -2,7 +2,7 @@
 
 > **Para quién:** quien vaya a usar Spec Kit y quiera ver el flujo completo con una herramienta real (hace falta saber usar una terminal) · **Tiempo de lectura:** ~20 min (hacerlo: 90-120 min) · **Nivel:** 🟡 intermedio
 
-Aquí recorres el flujo completo con una herramienta real. Construirás ReservaSalas con GitHub Spec Kit y un asistente de programación: tú decides y revisas; el asistente genera buena parte de los artefactos y del código.
+Aquí recorres el flujo completo con una herramienta real. Construirás ReservaSalas con GitHub Spec Kit y un asistente de programación: tú decides y revisas; uno o varios agentes pueden generar, revisar y ejecutar partes distintas porque los artefactos hacen de contrato entre ellos.
 
 El caso reproduce el trabajo de Luis a partir del encargo de Ana. En cada paso podrás comparar lo que obtengas con [la solución de referencia](soluciones/03-reserva-salas/README.md).
 
@@ -69,6 +69,24 @@ flowchart TB
 ```
 
 De arriba abajo: creas el proyecto y dictas la constitución; especificas, aclaras, planificas y troceas en tareas (los cuatro artefactos en azul); analizas, y si hay incidencias vuelves a la especificación. Cuando todo es coherente, implementas y pruebas la aplicación. En el paso 9 (en naranja) pides un cambio editando la especificación y dejas que el asistente regenere el código; terminas con una reflexión y la limpieza.
+
+## Una ejecución no tiene por qué ser una sola conversación
+
+El flujo es secuencial en sus **decisiones**, pero no obliga a que una misma persona o un mismo agente haga todo. Prueba el relevo: un agente redacta la spec, otro la revisa, otro genera el plan, otro comprueba que cubre la spec y varios implementadores pueden ejecutar tasks independientes en paralelo.
+
+| Rol | Recibe | Entrega |
+|---|---|---|
+| Especificador | Petición + constitución | Spec corta y sin tecnología |
+| Revisor funcional | Constitución + spec | Ambigüedades y preguntas |
+| Planificador | Spec aprobada | Plan técnico |
+| Revisor técnico | Spec + plan | Huecos entre qué y cómo |
+| Implementadores | Tasks independientes | Código y pruebas |
+| Validador | Artefactos + resultado | Comprobación contra la spec |
+
+La regla es sencilla: **se puede paralelizar la ejecución, no las decisiones que todavía no están cerradas**. Si dos tasks no dependen entre sí, pueden ir a agentes distintos. Si la spec sigue cambiando, todavía no es momento de repartir implementación.
+
+> [!TIP]
+> Con un único asistente puedes simular estos roles abriendo conversaciones nuevas y pasando a cada una solo los artefactos que necesita. Es una buena prueba de que la spec y el plan se entienden sin depender del contexto oculto del chat anterior.
 
 ## Pasos
 
