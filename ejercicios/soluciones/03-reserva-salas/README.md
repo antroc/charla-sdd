@@ -18,7 +18,7 @@ Esta carpeta contiene el **ejemplo canónico de ReservaSalas**: los artefactos q
 | [plan.md](plan.md) | Plan técnico: tecnología, modelo de datos, contratos, estructura y arranque | 3. Planificar | `/speckit.plan` (con `research.md`, `data-model.md`, `contracts/` y `quickstart.md` resumidos dentro) |
 | [tasks.md](tasks.md) | Lista de tareas por fases e historias, con marcas `[P]` y `[HU1]`/`[HU2]`/`[HU3]` | 4. Trocear en tareas | `/speckit.tasks` |
 
-No incluimos el código: el paso 6 (implementar, `/speckit.implement`) lo genera tu asistente a partir de estos ficheros, y cada asistente lo escribe distinto.
+No incluimos el código: el paso 6 (implementar, `/speckit.implement`) lo genera tu asistente a partir de estos ficheros, y cada asistente lo escribe distinto. Tampoco hay fichero para lo que el ejercicio hace después: el informe de `/speckit.analyze` (paso 7), el cambio de antelación de 30 a 60 días (paso 9) y la reflexión (paso 10). Están contados, con ejemplos y comprobables contra estos ficheros, en [los pasos 7 a 10 de ReservaSalas](../03-reserva-salas-pasos-7-a-10.md).
 
 ## Orden de lectura recomendado
 

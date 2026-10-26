@@ -2,9 +2,11 @@
 
 > **Para quién:** cualquier persona que haya hecho el ejercicio 03 · **Tiempo de lectura:** ~15 min · **Nivel:** 🟡 intermedio
 
-La [solución canónica del ejercicio 03](03-reserva-salas/README.md) guarda los seis ficheros que produce el flujo de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): constitución, especificación, aclaraciones, lista de verificación, plan técnico y lista de tareas. Pero el [ejercicio 03](../03-reserva-salas-paso-a-paso.md) describe tres salidas más que allí no tienen ejemplo: el informe de `/speckit.analyze` (paso 7), el cambio de antelación de 30 a 60 días (paso 9) y la reflexión (paso 10).
+La [solución canónica del ejercicio 03](03-reserva-salas/README.md) guarda los seis ficheros que produce el flujo de SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones): constitución, especificación, aclaraciones, lista de verificación, plan técnico y lista de tareas.
 
-Este fichero las cuenta desde fuera y no toca el ejemplo canónico: allí la antelación máxima sigue siendo de 30 días. Todo lo que verás está sacado de esos ficheros con `grep` y `git diff`, así que puedes comprobarlo. Los números de tarea (T001…) son los de [tasks.md](03-reserva-salas/tasks.md).
+Pero el [ejercicio 03](../03-reserva-salas-paso-a-paso.md) describe tres salidas más que allí no tienen ejemplo: el informe de `/speckit.analyze` (paso 7), el cambio de antelación de 30 a 60 días (paso 9) y la reflexión (paso 10). Este fichero las cuenta desde fuera y no toca el ejemplo canónico: allí la antelación máxima sigue siendo de 30 días.
+
+Las tablas, los recuentos y los diffs salen de esos ficheros con `grep` y `git diff`, así que puedes comprobarlos. Lo que depende del código (las pruebas, los mensajes de la aplicación) es ilustrativo, porque el ejemplo no incluye código. Los números de tarea (T001…) son los de [tasks.md](03-reserva-salas/tasks.md).
 
 > [!NOTE]
 > Es un ejemplo, no la única respuesta correcta. Cada asistente de IA redacta sus informes a su manera: fíjate en la estructura, no en la letra. Aquí los informes van en castellano, con los encabezados originales entre paréntesis; en tu pantalla pueden salir en inglés.
@@ -32,10 +34,10 @@ Luis lanza `/speckit.analyze` el 2026-10-09, justo después de generar las tarea
 ```markdown
 ## Informe de análisis de la especificación (Specification Analysis Report)
 
-| ID | Categoría (Category) | Gravedad (Severity) | Dónde (Location) | Resumen (Summary) | Recomendación (Recommendation) |
-|----|----------------------|---------------------|------------------|-------------------|--------------------------------|
-| U1 | Subespecificación (Underspecification) | MEDIUM | `spec.md`, «Casos límite»; `tasks.md`, Fase 3 (T014) | El caso límite «Para ya mismo» dice que una franja que ya ha empezado se acepta si termina en el futuro. T014 prueba el rechazo de «fin en el pasado», pero ninguna tarea prueba el caso que se acepta | Añadir esa prueba a T014 |
-| C1 | Cobertura (Coverage Gaps) | LOW | `tasks.md`, Fases 3 a 5 | T022, T030, T031 y T035 a T038 (implementación) no citan ningún requisito y T023 cita un rango. RF-012, por ejemplo, solo lo cita una tarea de pruebas (T033) | Citar en cada tarea el requisito que implementa |
+| ID | Categoría (Category) | Gravedad (Severity) | Dónde (Location(s)) | Resumen (Summary) | Recomendación (Recommendation) |
+|----|----------------------|---------------------|---------------------|-------------------|--------------------------------|
+| U1 | Subespecificación (Underspecification) | MEDIUM | `spec.md`, «Casos límite»; `tasks.md`, Fase 3 (T014) | El caso límite «Para ya mismo» acepta una franja que ya ha empezado si termina en el futuro; ninguna tarea lo prueba (T014 solo prueba «fin en el pasado») | Añadir esa prueba a T014 |
+| C1 | Cobertura (Coverage Gaps) | LOW | `tasks.md`, Fases 3 a 5 | T022, T030, T031 y T035 a T038 (implementación) no citan ningún requisito y T023 cita un rango; RF-012 solo lo cita una tarea de pruebas (T033) | Citar en cada tarea el requisito que implementa |
 | A1 | Ambigüedad (Ambiguity) | LOW | `plan.md`, «Arranque rápido» | `git clone <url-del-repositorio-interno> reserva-salas` deja un marcador sin resolver: la URL depende de cada equipo | Aceptable por ahora; poner la URL real al crear `README.md` (T005) |
 
 **Tabla de cobertura (Coverage Summary Table):**
@@ -65,7 +67,7 @@ Luis lanza `/speckit.analyze` el 2026-10-09, justo después de generar las tarea
 | 2. Accesible y en castellano | T009 y T024 (mensajes en `textos.py`), T012 (plantilla base accesible) y T045 (revisión con lector de pantalla, manual) | Cumple |
 | 3. Pruebas antes de dar algo por hecho | Pruebas antes que código en cada historia: T013-T017 antes de T018-T023, T025-T027 antes de T028-T031, T033-T034 antes de T035-T038, y T040 antes de T041 | Cumple |
 | 4. Datos mínimos | T006 crea `persona` con lo que dice el plan (nombre, correo y rol) y ninguna tarea guarda otros datos personales | Cumple |
-| 5. Transparencia | T026 y T029 guardan quién cancela y quién modifica; T016 y T038 muestran el responsable | Cumple |
+| 5. Transparencia | T026 y T029 cubren quién cancela y quién modifica (`cancelada_por`, `modificada_por`); T016 y T038 muestran el responsable | Cumple |
 
 **Tareas sin requisito (Unmapped Tasks):** 18 tareas no citan ningún RF ni llevan marca de historia: T001 a T012 (Fases 1 y 2, la infraestructura que sostiene a las tres historias) y T042 a T047 (Fase 6: verifican CE-001 a CE-004 y el principio 2, revisan la constitución y completan el `README.md`). Ninguna es una funcionalidad que nadie haya pedido.
 
@@ -87,10 +89,10 @@ Luis lanza `/speckit.analyze` el 2026-10-09, justo después de generar las tarea
 
 ### Cómo leerlo
 
-- **Primero, las métricas.** Las incidencias CRITICAL tienen que ser 0 y la cobertura, 100 %: es el umbral del paso 7. Si falla alguna, no pases a implementar.
+- **Primero, las métricas.** Sin incidencias CRITICAL ni HIGH y con cobertura del 100 %: es el umbral del paso 7. Si falla alguna de las dos cosas, no pases a implementar.
 - **Después, la tabla de incidencias, de arriba abajo.** Va por gravedad: CRITICAL y HIGH se corrigen antes de implementar; MEDIUM y LOW se anotan (Luis las recoge para el paso 10).
 - **Luego, la cobertura.** Busca un «No» en «¿Tiene tarea?» y comprueba que las pruebas van antes que el código de su historia.
-- **Una incidencia con la constitución sería siempre CRITICAL.** Y los números T0xx son los de `tasks.md`: ábrelo al lado, porque el informe los cita pero no los copia.
+- **Una incidencia con la constitución es CRITICAL de forma automática.** Y los números T0xx son los de `tasks.md`: ábrelo al lado, porque el informe los cita pero no los copia.
 
 ### Cómo comprobarlo
 
@@ -108,7 +110,9 @@ grep -E '^- \[.\] T[0-9]{3}' tasks.md | grep -vE 'RF-0|\[HU' | grep -oE '^- \[.\
 
 Es el lunes 2026-10-26. La primera versión quedó guardada el 2026-10-12 (las tareas se habían generado el 2026-10-09), así que han pasado dos semanas. Ana ha visto que los equipos quieren reservar con más de un mes de antelación las reuniones de planificación del trimestre y decide ampliar la antelación máxima de 30 a 60 días.
 
-Con *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), Luis buscaría «30» en el código y lo cambiaría a mano. Con SDD el cambio sigue otro orden: Ana lo pide, Luis lo escribe en la especificación y Ana relee el texto nuevo y lo aprueba; después vienen el plan, `/speckit.converge` e `/speckit.implement`. No se relanza `/speckit.tasks`, que rehace la lista entera.
+Con *vibe coding* (programar a golpe de instrucciones sueltas, improvisando con el asistente de IA), Luis buscaría «30» en el código y lo cambiaría a mano.
+
+Con SDD el cambio sigue otro orden: Ana lo pide, Luis lo escribe en la especificación y Ana relee el texto nuevo y lo aprueba; después vienen el plan, `/speckit.converge` e `/speckit.implement`. No se relanza `/speckit.tasks`, que rehace la lista entera.
 
 ### 1. La especificación cambia primero
 
@@ -120,7 +124,7 @@ $ git diff --stat
  1 file changed, 6 insertions(+), 2 deletions(-)
 ```
 
-Así son los cambios (`git diff -U1`). Los números tras `@@` son los del `spec.md` del ejemplo canónico; he quitado la línea `index` y el texto que Git añade tras cada `@@`:
+Así son los cambios (`git diff -U1`). Los números tras `@@` son los del `spec.md` del ejemplo canónico; hemos quitado la línea `index` y el texto que Git añade tras cada `@@`:
 
 ```diff
 diff --git a/specs/001-reserva-salas/spec.md b/specs/001-reserva-salas/spec.md
@@ -132,7 +136,7 @@ diff --git a/specs/001-reserva-salas/spec.md b/specs/001-reserva-salas/spec.md
 +- **Antelación excesiva:** una reserva para dentro de 75 días se rechaza (máximo 60 días; ver Aclaraciones).
  - **Fin anterior al inicio:** una franja de 11:00 a 10:00 se rechaza con un mensaje claro.
 @@ -101,2 +101,6 @@
- 
+
 +### Sesión 2026-10-26
 +
 +- P: ¿Con cuánta antelación máxima se puede reservar? → R: 60 días, para poder reservar con tiempo las reuniones de planificación del trimestre. Sustituye a la respuesta de la sesión 2026-10-07.
@@ -145,7 +149,9 @@ diff --git a/specs/001-reserva-salas/spec.md b/specs/001-reserva-salas/spec.md
  - **RF-007**: MIENTRAS una sala esté marcada en mantenimiento, el sistema deberá impedir nuevas reservas en ella.
 ```
 
-Son tres bloques de cambio: el caso límite pasa a 75 días (sigue siendo un rechazo), nace una sesión de aclaraciones con la fecha de hoy y RF-006 dice 60. La sesión del 2026-10-07 no se borra: es el historial de la decisión, y por eso el «30» solo sobrevive en ella. Ana relee estas líneas en la vista de GitHub, las aprueba y Luis guarda el paso con un *commit* (una versión guardada en Git):
+Son tres bloques de cambio: el caso límite pasa a 75 días (sigue siendo un rechazo), nace una sesión de aclaraciones con la fecha de hoy y RF-006 dice 60. La sesión del 2026-10-07 no se borra: es el historial de la decisión, y por eso el «30» solo sobrevive en ella.
+
+Ana relee estas líneas en la vista de GitHub y las aprueba. Luis guarda el paso con un *commit* (una versión guardada en Git):
 
 ```bash
 git add -A
@@ -154,7 +160,9 @@ git commit -m "Antelación máxima de 60 días: especificación"
 
 ### 2. El plan y la lista de verificación
 
-El segundo *prompt* del ejercicio pide actualizar el plan y «cualquier otro fichero» de la carpeta que mencione el límite, salvo `tasks.md`. Un `grep -rc "30 días" specs/001-reserva-salas/` dice cuáles son. Uso las rutas de un proyecto real: en el ejemplo canónico la lista de verificación se llama `checklist.md` y el modelo de datos (`data-model.md` en tu proyecto) está dentro de `plan.md`.
+El segundo *prompt* del ejercicio pide actualizar el plan y «cualquier otro fichero» de la carpeta que mencione el límite, salvo `tasks.md`. Un `grep -rc "30 días" specs/001-reserva-salas/` dice cuáles son.
+
+Aquí usamos las rutas de un proyecto real: en el ejemplo canónico la lista de verificación se llama `checklist.md` y el modelo de datos (`data-model.md` en tu proyecto) está dentro de `plan.md`.
 
 | Fichero | Al empezar | Al terminar | Qué se hace con él |
 |---|---|---|---|
@@ -201,7 +209,7 @@ Ahora, `/speckit.converge`. Compara el código con la especificación, el plan y
 
 **Métricas (Summary metrics):**
 
-- Requisitos y criterios de aceptación revisados: 28 (12 RF y 16 criterios de aceptación)
+- Requisitos y criterios revisados: 30 (12 RF, 2 criterios de éxito con trabajo que construir y 16 criterios de aceptación)
 - Decisiones del plan revisadas: 6
 - Principios de la constitución revisados: 5
 - Hallazgos por tipo: missing 0 · partial 1 · contradicts 1 · unrequested 0
@@ -210,7 +218,9 @@ Ahora, `/speckit.converge`. Compara el código con la especificación, el plan y
 **Siguientes acciones (Next Actions):** he añadido 2 tareas en la fase `## Phase 7: Convergence` de `tasks.md` (T048 y T049). Ejecuta `/speckit.implement` para completarlas; un nuevo `/speckit.converge` encontrará menos hallazgos o ninguno.
 ```
 
-F2 es el que anuncia el ejercicio: el código sigue rechazando lo que va de 31 a 60 días (`contradicts`). F1 es más discreto: las pruebas existen, pero miran el valor antiguo (`partial`). Ninguno es CRITICAL: no viola un principio de la constitución ni impide reservar una sala. En este ejemplo, las tareas manuales T044 y T045 ya las hicieron personas y están marcadas `[X]`; si no, `converge` las volvería a señalar y habría que recordarle que son manuales.
+F2 es el que anuncia el ejercicio: el código sigue rechazando lo que va de 31 a 60 días (`contradicts`). F1 es más discreto: las pruebas existen, pero miran el valor antiguo (`partial`). Ninguno es CRITICAL: no viola un principio de la constitución ni impide reservar una sala.
+
+En este ejemplo, las tareas manuales T044 y T045 ya las hicieron personas y están marcadas `[X]`. Si no fuera así, `converge` las volvería a señalar y habría que recordarle que son manuales.
 
 ### 4. Las tareas nuevas
 
@@ -223,7 +233,9 @@ F2 es el que anuncia el ejercicio: el código sigue rechazando lo que va de 31 a
 - [ ] T049 Cambiar a 60 días el límite de antelación de la validación en `src/reservasalas/servicios/reservas.py` y de su mensaje de rechazo en `src/reservasalas/textos.py`, según RF-006 (contradicts)
 ```
 
-Cada tarea lleva su ruta de fichero, su requisito de origen y el tipo de desviación entre paréntesis, y las pruebas (T048) van antes que el código (T049), como pide el principio 3. Spec Kit escribe el encabezado tal cual (`## Phase 7: Convergence`); en el `tasks.md` canónico los demás están traducidos, y tu asistente puede traducir también este. T001 a T047 no se tocan, y T014 y T019 siguen diciendo 30 días porque son lo que se hizo.
+Cada tarea lleva su ruta de fichero, su requisito de origen y el tipo de desviación entre paréntesis, y las pruebas (T048) van antes que el código (T049), como pide el principio 3. T001 a T047 no se tocan, y T014 y T019 siguen diciendo 30 días porque son lo que se hizo.
+
+Spec Kit escribe el encabezado tal cual (`## Phase 7: Convergence`). En el `tasks.md` canónico los demás encabezados están traducidos, y tu asistente puede traducir también este.
 
 ### 5. Implementar la convergencia
 
@@ -243,7 +255,7 @@ Primero rojo, después verde: es el principio 3 en pequeño. Un segundo `/specki
 
 ```text
 ✅ Converged: la implementación cumple la especificación, el plan y las tareas.
-Revisado: 12 requisitos, 16 criterios de aceptación, 6 decisiones del plan y 5 principios. Hallazgos: 0.
+Revisado: 12 requisitos, 2 criterios de éxito, 16 criterios de aceptación, 6 decisiones del plan y 5 principios. Hallazgos: 0.
 Siguiente paso: pasar a revisión.
 ```
 
@@ -259,7 +271,7 @@ Si la aplicación está arrancada con `--reload`, se recarga sola. Luis comprueb
 3. Mediterráneo para dentro de 75 días (9 de enero de 2027, de 10:00 a 11:00) → rechazada: «La antelación máxima es de 60 días. Elige una fecha más cercana.»
 ```
 
-El orden es siempre especificación, plan, `converge` e `implement` porque lo escrito manda y el código solo se mueve cuando una tarea lo pide: si empiezas por el código, no queda nada contra lo que compararlo.
+El orden es especificación → plan → `converge` → `implement` porque lo escrito manda y el código solo se mueve cuando una tarea lo pide: si empiezas por el código, no queda nada contra lo que compararlo.
 
 ## Paso 10: una reflexión de ejemplo
 
@@ -276,7 +288,7 @@ He leído sobre todo pruebas, plan y especificación; del código, solo lo justo
 
 **2. ¿Qué artefacto te costó más revisar? ¿En cuál detectaste un error antes de que llegara al código?**
 El plan técnico: es largo, mezcla decisiones, modelo de datos y contratos, y comprobarlo contra los cinco principios me costó más que leer la especificación.
-Los huecos aparecieron antes del código: la lista de verificación marcó tres pendientes (alcance, antelación y quién cancela una reserva ajena) y el análisis avisó de que ninguna prueba cubría una franja que ya ha empezado; esto último lo dejé anotado.
+Detecté huecos antes de que llegaran al código: en la especificación, donde la lista de verificación marcó pendientes (el alcance, la antelación y quién cancela una reserva ajena), y en las tareas, donde el análisis avisó de que ninguna prueba cubría una franja que ya ha empezado (lo dejé anotado).
 
 **3. Si mañana Ana pide que administración pueda cancelar cualquier reserva con un motivo obligatorio, ¿qué fichero abres primero?**
 `spec.md`: ahí hablan de administración RF-010 y el criterio 5 de la historia 2, y ahí escribo el motivo obligatorio y una sesión nueva de aclaraciones; Ana lo aprueba antes de seguir.
@@ -295,7 +307,9 @@ No sé cuánto habría tardado, quizá hasta que alguien chocara con el límite.
 
 ## Siguiente paso
 
-Vuelve al [ejercicio 03](../03-reserva-salas-paso-a-paso.md) y cierra el paso 10 con tu propia reflexión; tus ficheros irán un cambio por delante de [los del ejemplo canónico](03-reserva-salas/README.md). Después continúa con el [ejercicio 04: dinámica de equipo de 20 minutos](../04-dinamica-de-equipo-20-minutos.md) o, para seguir con las herramientas, con el [ejercicio 05](../05-arreglar-una-especificacion-mala.md).
+Vuelve al [ejercicio 03](../03-reserva-salas-paso-a-paso.md) y cierra el paso 10 con tu propia reflexión; tus ficheros irán un cambio por delante de [los del ejemplo canónico](03-reserva-salas/README.md).
+
+Después continúa con el [ejercicio 04: dinámica de equipo de 20 minutos](../04-dinamica-de-equipo-20-minutos.md) o, para seguir con las herramientas, con el [ejercicio 05](../05-arreglar-una-especificacion-mala.md).
 
 ---
 
