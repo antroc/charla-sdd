@@ -7,6 +7,12 @@ El [ejercicio 06](../../06-reto-final-tu-propio-proyecto.md#solución-o-ejemplo-
 > [!NOTE]
 > Son ejemplos, no la única respuesta correcta. Un proyecto tuyo que pase la lista de entrega y puntúe bien en la rúbrica es igual de válido aunque recorte, decida y redacte de otra forma.
 
+
+## Mínimo esperado
+
+Un reto final válido puede ser pequeño: 1 P1 útil, 4-6 requisitos trazables, 2-3 criterios medibles, 3-5 aclaraciones, un plan breve, tasks pequeñas con dependencias visibles, código y pruebas para la P1 y un cambio funcional que empiece en la spec. Marca qué tasks pueden ejecutarse en paralelo cuando no dependan entre sí.
+
+El préstamo de portátiles de esta carpeta es un **ejemplo ampliado**, no el tamaño objetivo del ejercicio.
 ## Qué hay en esta carpeta
 
 | Material | Qué contiene | Idea |

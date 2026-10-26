@@ -1,6 +1,6 @@
 # Ejercicio 05: arreglar una especificación mala
 
-> **Para quién:** cualquier persona que vaya a revisar especificaciones y haya hecho el ejercicio 02 · **Tiempo de lectura:** ~8 min (hacerlo: 30-40 min) · **Nivel:** 🟡 intermedio
+> **Para quién:** cualquier persona que vaya a revisar especificaciones y haya hecho el ejercicio 02 · **Tiempo de lectura:** ~8 min (hacerlo: 25-30 min) · **Nivel:** 🟡 intermedio
 
 Luis dejó una especificación de ReservaSalas hecha con prisas y marcada como lista para implementar. Tu trabajo es revisarla antes de que llegue al plan: encontrar qué no cuadra, explicar por qué y reescribir lo que haga falta.
 
@@ -33,6 +33,9 @@ Al terminar deberías detectar tecnología donde no toca, requisitos vagos o dob
 
 > [!IMPORTANT]
 > No abras todavía [soluciones/03-reserva-salas/spec.md](soluciones/03-reserva-salas/spec.md): es la versión buena de esta misma especificación y te chafaría el ejercicio. Úsala solo en el paso 7. La constitución sí puedes (y debes) tenerla abierta.
+
+> [!IMPORTANT]
+> No intentes encontrar todos los defectos. Da el ejercicio por conseguido cuando hayas encontrado **12 problemas relevantes**: al menos dos de alcance, dos de requisitos, dos de criterios de éxito, dos choques con la constitución y cuatro de cualquier otro tipo. La solución ampliada conserva más casos para quien quiera practicar una auditoría exhaustiva.
 
 ## Pasos
 

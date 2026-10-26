@@ -1,6 +1,6 @@
 # Ejercicio 06: reto final, tu propio proyecto
 
-> **Para quién:** quien vaya a usar Spec Kit y haya terminado el ejercicio 03; si te han pedido hacer de «Ana», lee en [Qué necesitas](#qué-necesitas) el aviso para quien encarga el proyecto · **Tiempo de lectura:** ~15 min (hacerlo: 3-4 h, en dos o tres sesiones) · **Nivel:** 🔴 avanzado
+> **Para quién:** quien vaya a usar Spec Kit y haya terminado el ejercicio 03; si te han pedido hacer de «Ana», lee en [Qué necesitas](#qué-necesitas) el aviso para quien encarga el proyecto · **Tiempo de lectura:** ~10 min (hacerlo: 60-90 min) · **Nivel:** 🔴 avanzado
 
 Hasta aquí has trabajado con un caso preparado. Ahora toca elegir un problema pequeño de tu día a día y recorrer el flujo sin que el ejercicio tome las decisiones por ti.
 
@@ -28,7 +28,7 @@ Al terminar habrás llevado un problema real desde la petición inicial hasta un
 
 ## Qué necesitas
 
-- **Tiempo:** entre 3 y 4 horas, mejor en dos o tres sesiones: elegir y especificar (pasos 1-5, algo más de una hora), planificar e implementar (pasos 6-9, entre una hora y hora y media) y cambiar y entregar (pasos 10-11, unos 50 minutos). Cada paso lleva su estimación.
+- **Tiempo:** entre 60 y 90 minutos. Elige una sola P1 pequeña, limita la spec a lo necesario para esa historia y recorre el flujo completo antes de añadir alcance.
 - **Requisitos previos:** la vía B del [ejercicio 00](00-preparacion-del-entorno.md) (Spec Kit y un asistente compatible) y el [ejercicio 03](03-reserva-salas-paso-a-paso.md) terminado: aquí no repetimos qué deberías ver tras cada comando, lo enlazamos. Git instalado, porque la entrega recomendada es una *pull request* (la propuesta de cambios que se revisa antes de incorporarla al repositorio).
 - **Una persona que haga de «Ana»:** alguien que conozca el problema y pueda responder a las aclaraciones por escrito (un compañero, tu responsable, la persona de Oficina o de RRHH que sufre el problema). Si no encuentras a nadie, harás los dos papeles con la regla del paso 1.
 - **Materiales:** las [plantillas](plantillas/README.md) para revisar lo que genere el asistente, [Buenas prácticas y errores comunes](../docs/08-buenas-practicas-y-errores-comunes.md) como lista de repaso y la [solución canónica de ReservaSalas](soluciones/03-reserva-salas/README.md) como referencia de cómo se ve cada artefacto bien hecho.
@@ -43,9 +43,12 @@ Al terminar habrás llevado un problema real desde la petición inicial hasta un
 > [!TIP]
 > **Si alguien de tu equipo te pide hacer de «Ana», es decir, encargar el proyecto**, esto es lo que te va a pedir, en ratos cortos a lo largo de dos o tres sesiones: leer y corregir su petición (10 min); escuchar sus principios y decirle si los entiendes (5 min); responder a sus preguntas de aclaración, como mucho ocho y casi siempre con opciones para elegir (20 min); ver funcionar la primera historia y pedirle un cambio (15 min) y, al final, leer la especificación y contestar «¿es esto lo que pedí?» (20 min). En total, algo más de una hora. Lo que decidas tiene que quedar por escrito, porque es lo que el asistente de IA va a construir; en ningún momento hace falta abrir el código.
 
+> [!IMPORTANT]
+> En este reto gana quien **termina el ciclo**, no quien escribe más. Como referencia: 1 P1 completa, 4-6 requisitos, 2-3 criterios de éxito, 3-5 aclaraciones, un plan corto y tasks que quepan en una línea. Si un artefacto deja de poder revisarse en pocos minutos, recorta alcance.
+
 ## Ocho ideas de proyecto
 
-Elige un problema que sufras tú o alguien cercano, que se pueda explicar en cinco frases y cuya historia P1 (la de prioridad 1, la que por sí sola ya resuelve algo) quepa en uno o dos días de trabajo con sus pruebas (la primera de las [buenas prácticas](../docs/08-buenas-practicas-y-errores-comunes.md#doce-buenas-prácticas)). El nivel indica cuántas reglas, roles y estados tendrás que especificar, no cuánto código saldrá.
+Elige un problema que sufras tú o alguien cercano, que se pueda explicar en cinco frases y cuya historia P1 (la de prioridad 1, la que por sí sola ya resuelve algo) sea lo bastante pequeña para construirla durante el ejercicio (la primera de las [buenas prácticas](../docs/08-buenas-practicas-y-errores-comunes.md#doce-buenas-prácticas)). El nivel indica cuántas reglas, roles y estados tendrás que especificar, no cuánto código saldrá.
 
 | # | Idea | Nivel | Por qué encaja |
 |---|---|---|---|

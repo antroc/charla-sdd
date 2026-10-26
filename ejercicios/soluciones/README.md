@@ -5,7 +5,11 @@
 Aquí están las respuestas de los ejercicios y el ejemplo completo de ReservaSalas, la aplicación que sirve de hilo conductor a todo el material.
 
 > [!NOTE]
-> Son ejemplos, no la única respuesta correcta. Si tu solución es distinta pero cumple lo que pedía el ejercicio (requisitos que solo se leen de una manera, criterios de éxito con cifra, nada de tecnología en la especificación…), también vale. Haz primero el ejercicio y compara después: así aprendes mucho más.
+> Cada solución distingue entre el **mínimo esperado** y un ejemplo ampliado. Son ejemplos, no la única respuesta correcta. Si tu solución es distinta pero cumple lo que pedía el ejercicio (requisitos que solo se leen de una manera, criterios de éxito con cifra, nada de tecnología en la especificación…), también vale. Haz primero el ejercicio y compara después: así aprendes mucho más.
+
+## Cómo leer una solución
+
+Mira primero el **mínimo esperado**: es el contrato del ejercicio y debería poder revisarse en pocos minutos. Abre después el ejemplo ampliado si quieres ver más casos o matices. Una respuesta distinta es válida si es clara, comprobable y coherente; una solución larga no es mejor por ser larga.
 
 ## Qué hay en cada una
 

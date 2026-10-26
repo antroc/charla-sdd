@@ -22,6 +22,12 @@ En SDD (*Spec-Driven Development*, desarrollo guiado por especificaciones) esta 
 - [En tres frases](#en-tres-frases)
 - [Siguiente paso](#siguiente-paso)
 
+
+## Mínimo esperado
+
+No hace falta encontrar todos los defectos de esta auditoría. El ejercicio se considera conseguido con **12 problemas relevantes**: 2 de alcance, 2 de requisitos, 2 de criterios de éxito, 2 choques con la constitución y 4 adicionales que puedan cambiar lo construido. Corrige las secciones afectadas y explica por qué.
+
+Lo que sigue es una **auditoría ampliada** para practicar una revisión mucho más fina.
 ## Cómo usar esta solución
 
 - Los números de línea son los del bloque numerado del paso 1 del ejercicio.
