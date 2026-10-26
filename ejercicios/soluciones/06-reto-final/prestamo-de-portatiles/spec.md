@@ -44,7 +44,7 @@ Marta necesita un proyector el miércoles 18 de noviembre para enseñar un infor
 
 ### Historia de usuario 2 — Devolver o prorrogar (Prioridad: P2)
 
-El jueves 19, Marta devuelve el proyector en Oficina y Ana anota la devolución: el proyector vuelve a estar libre para los demás. Otro día, Jorge ve que no va a terminar su trabajo con el portátil y pide un día más: la aplicación le da la nueva fecha de devolución. La víspera de cada devolución, a quien tiene el equipo le llega un correo que se lo recuerda.
+El jueves 19, Marta devuelve el proyector en Oficina y Ana anota la devolución: el proyector vuelve a estar libre para los demás. Otro día, Jorge ve que no va a terminar su trabajo con el portátil y pide un día más: la aplicación le da la nueva fecha de devolución. La víspera de cada devolución, a la persona responsable le llega un correo que se lo recuerda.
 
 **Por qué esta prioridad:** sin ella, la aplicación solo sabe cuándo debería volver cada equipo, no si ha vuelto, y quien necesita más días tiene que pedírselos a Oficina de palabra. La aplicación funciona sin esta historia (cada préstamo termina en su fecha), pero el cuaderno seguiría haciendo falta para saber qué equipos han vuelto de verdad.
 
@@ -107,7 +107,7 @@ Redactados en EARS (*Easy Approach to Requirements Syntax*), una forma sencilla 
 - **RF-006**: DONDE la persona tenga rol de Oficina, el sistema deberá permitir marcar un préstamo reservado como entregado.
 - **RF-007**: CUANDO Oficina registra la devolución de un equipo, el sistema deberá dejarlo libre y cerrar el préstamo.
 - **RF-008**: CUANDO la persona responsable pide prorrogar su préstamo dentro de los límites, el sistema deberá alargar la fecha de devolución y mostrar la nueva fecha.
-- **RF-009**: CUANDO llega el día laborable anterior a la fecha de devolución de un préstamo entregado, el sistema deberá enviar un correo a la persona responsable con el equipo y la fecha de devolución.
+- **RF-009**: CUANDO llega el día laborable anterior a la fecha de devolución de un préstamo reservado o entregado, el sistema deberá enviar un correo a la persona responsable con el equipo y la fecha de devolución.
 
 Dos apuntes sobre la regla «un requisito, una sola cosa»: RF-005 agrupa cinco límites en un solo SI porque la respuesta del sistema es la misma para todos (rechazar e indicar el límite); cada límite se comprueba por separado en los casos límite y en las pruebas, y si la respuesta fuera distinta para alguno sería un requisito aparte. RF-001 reúne en una sola lista el estado de cada equipo y, si está fuera, quién lo tiene y cuándo vuelve, porque son la misma información vista en una pantalla.
 
@@ -143,18 +143,18 @@ Las «cosas» de las que la aplicación guarda información y qué datos tiene c
 ### Resultados medibles (Measurable Outcomes)
 
 - **CE-001**: Pedir un equipo, desde que se abre la aplicación hasta que aparece la confirmación, lleva menos de 2 minutos.
-- **CE-002**: Cero préstamos solapados: en ningún momento existen dos préstamos abiertos del mismo equipo con fechas que se crucen.
-- **CE-003**: Cero préstamos abiertos sin persona responsable o sin fecha de devolución.
-- **CE-004**: El aviso llega al 100 % de los préstamos entregados, antes de las 09:00 del día laborable anterior a su fecha de devolución.
+- **CE-002**: Cero préstamos solapados: en ningún momento existen dos préstamos sin cerrar del mismo equipo con fechas que se crucen.
+- **CE-003**: Cero préstamos sin persona responsable o sin fecha de devolución.
+- **CE-004**: El aviso llega, antes de las 09:00 del día laborable anterior a la fecha de devolución, al 100 % de los préstamos reservados o entregados que ya existen a las 08:00 de ese día.
 
-Cómo se medirán: CE-001 con una prueba con 5 personas de distintos equipos antes de la puesta en marcha; CE-002 con pruebas automáticas y una comprobación semanal de los datos; CE-003 con una consulta semanal que cuenta los préstamos abiertos sin una de las dos cosas (tiene que dar 0); CE-004 con los registros de envío del servidor de correo durante el primer mes.
+Cómo se medirán: CE-001 con una prueba con 5 personas de distintos equipos antes de la puesta en marcha; CE-002 con pruebas automáticas y una comprobación semanal de los datos; CE-003 con una consulta semanal que cuenta los préstamos sin una de las dos cosas (tiene que dar 0); CE-004 con los registros de envío del servidor de correo durante el primer mes.
 
 ## Supuestos (Assumptions)
 
 - Todas las personas usuarias tienen correo corporativo y entran con el acceso corporativo existente; la aplicación no gestiona contraseñas.
 - Hay 14 equipos: 10 portátiles de 14 pulgadas con cargador (PORT-01 a PORT-10) y 4 proyectores con cable HDMI (PROY-01 a PROY-04). Los datos los proporciona Oficina y cambian muy pocas veces al año.
 - Un día laborable es de lunes a viernes. La primera versión no conoce los festivos: Oficina los gestiona a mano.
-- Un préstamo ocupa el equipo desde su fecha de inicio hasta su fecha de devolución, ambas incluidas. Oficina entrega y recoge de lunes a viernes.
+- Un préstamo ocupa el equipo desde su fecha de inicio hasta su fecha de devolución, ambas incluidas, mientras no esté cerrado. Oficina entrega y recoge de lunes a viernes.
 - Oficina es el único rol con permisos especiales (entregar equipos y registrar devoluciones); Ana fija qué personas lo tienen.
 - No hay límite de antelación para pedir un equipo ni de equipos por persona. Si Ana quiere alguno, es un requisito nuevo.
 - Hay un servidor de correo corporativo disponible para enviar los avisos.
