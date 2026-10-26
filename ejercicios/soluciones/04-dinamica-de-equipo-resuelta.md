@@ -135,14 +135,14 @@ Grupo ___: «______________________________» → tipo: __________________
 Grupo ___: «______________________________» → tipo: __________________
 
 FUERA DE ALCANCE (lo que decidís NO hacer en la primera versión):
-nóminas concretas; reclamaciones; historial de conversaciones.
+mostrar nóminas concretas; reclamaciones; historial de conversaciones.
 ```
 
 **Vaguedades que suelen aparecer**
 
 | Frase vaga típica | Tipo | Cómo queda bien |
 |---|---|---|
-| «El bot consultará la base de conocimiento de RRHH» | tecnología | RF-1: «El sistema deberá dar solo respuestas aprobadas por RRHH». Se dice qué se garantiza, no dónde se guardan las respuestas. |
+| «El bot consultará la base de conocimiento de RRHH» | tecnología colada | RF-1: «El sistema deberá dar solo respuestas aprobadas por RRHH». Se dice qué se garantiza, no dónde se guardan las respuestas. |
 | «RRHH deberá mantener las respuestas al día» | el sujeto es la persona | Lo que hace el sistema para que RRHH lo consiga: RF-5, «DONDE la persona tenga permisos de RRHH, el sistema deberá permitir marcar una respuesta como retirada». |
 | «El bot deberá responder bien y rápido» | adjetivo sin cifra | «Bien» se comprueba con RF-1 y RF-2 (la respuesta está aprobada); «rápido» pasa a un criterio de éxito con cifra: `[NECESITA ACLARACIÓN: ¿en cuántos segundos?]`. |
 
@@ -204,7 +204,7 @@ histórico de semanas anteriores; avisos automáticos a dirección.
 |---|---|---|
 | «El panel deberá mostrar el estado actualizado de los proyectos» | adjetivo sin cifra | «Actualizado» se mide en días: RF-4, «MIENTRAS un proyecto lleve `[NECESITA ACLARACIÓN: ¿cuántos días?]` sin actualizarse…». |
 | «El sistema deberá mostrar el estado y avisar a dirección de los retrasos» | dos cosas en una | Mostrar es RF-1; avisar es otro requisito que espera a A1, porque «retraso» no significa nada hasta saber qué estados hay. |
-| «Un cuadro de mando conectado a la herramienta de gestión, con gráficos de colores» | tecnología | RF-1: «El sistema deberá mostrar en una sola vista el estado de cada proyecto…». La conexión con otras herramientas y los gráficos son decisiones del plan técnico. |
+| «Un cuadro de mando conectado a la herramienta de gestión, con gráficos de colores» | tecnología colada | RF-1: «El sistema deberá mostrar en una sola vista el estado de cada proyecto…». La conexión con otras herramientas y los gráficos son decisiones del plan técnico. |
 
 ## Tarjeta 4: material de oficina
 
@@ -324,14 +324,14 @@ evaluación de los cursos; certificados; visto bueno del manager.
 | Frase vaga típica | Tipo | Cómo queda bien |
 |---|---|---|
 | «Que no haya cursos vacíos» | adjetivo sin cifra | «Vacío» necesita un número: RF-4, con el mínimo que dé RRHH (A2). Y el sistema solo lo muestra; llenar los cursos sigue siendo cosa de personas. |
-| «El sistema deberá guardar las inscripciones en una hoja de cálculo compartida» | tecnología | RF-2: «CUANDO una persona se apunta…, el sistema deberá inscribirla…». Dónde se guardan las inscripciones es una decisión del plan técnico. |
+| «El sistema deberá guardar las inscripciones en una hoja de cálculo compartida» | tecnología colada | RF-2: «CUANDO una persona se apunta…, el sistema deberá inscribirla…». Dónde se guardan las inscripciones es una decisión del plan técnico. |
 | «El sistema deberá controlar las plazas» | sin disparador | «Controlar» no dice cuándo ni qué pasa. RF-3: «SI un curso no tiene plazas libres, ENTONCES el sistema deberá rechazar la inscripción…». |
 
 ## Tarjeta 6: visitas en recepción
 
 - **La petición:** «Un registro de visitas para recepción, que ahora es un cuaderno.»
 - **El problema real:** el cuaderno no avisa a la persona visitada y no dice quién está en el edificio; son dos problemas, y la P1 resuelve primero el aviso.
-- **Lo delicado:** una visita deja datos personales. RF-1 limita lo que se pide, RF-3 pone un tope a cuánto se guarda (la cifra la decide quien manda: A1) y A2 pregunta si hace falta algo más.
+- **Lo delicado:** una visita deja datos personales. RF-1 limita lo que se pide, RF-3 pone un tope a cuánto se guarda (la cifra la da quien decide: A1) y A2 pregunta si hace falta algo más.
 
 **La hoja resuelta**
 ```text
@@ -345,7 +345,7 @@ P1 (imprescindible): Como persona de recepción, quiero registrar la
                      llegada de una visita y que se avise a quien la
                      espera, para que nadie espere sin que lo sepan.
 P2: Como persona de recepción, quiero registrar la salida de cada
-    visita, para que la lista de quién está dentro sea cierta.
+    visita, para que la lista de quién está dentro sea correcta.
 P3: Como persona de seguridad, quiero ver quién hay ahora en el
     edificio, para saber a quién localizar si hace falta.
 
@@ -353,8 +353,8 @@ P3: Como persona de seguridad, quiero ver quién hay ahora en el
    Plantillas: «El sistema deberá…» · «CUANDO…, el sistema deberá…» ·
    «SI…, ENTONCES el sistema deberá…» ·
    «MIENTRAS…, el sistema deberá…» · «DONDE…, el sistema deberá…»
-RF-1 El sistema deberá registrar de cada visita solo su nombre, la
-     persona visitada y la hora de llegada.
+RF-1 El sistema deberá pedir de cada visita solo su nombre y la
+     persona a la que visita.
 RF-2 CUANDO recepción registra la llegada de una visita, el sistema
      deberá avisar a la persona visitada con el nombre de la visita.
 RF-3 SI el registro de una visita lleva guardado más de
@@ -386,13 +386,13 @@ citas previas; escanear documentos; control de acceso al edificio.
 | Frase vaga típica | Tipo | Cómo queda bien |
 |---|---|---|
 | «El sistema deberá avisar a la persona visitada» | sin disparador | Falta el cuándo: RF-2, «CUANDO recepción registra la llegada de una visita…». Por qué medio se avisa es otra pregunta (A3). |
-| «Recepción deberá apuntar los datos de la visita» | el sujeto es la persona | Lo que hace el sistema: RF-1, «El sistema deberá registrar de cada visita solo su nombre, la persona visitada y la hora de llegada». Si hace falta algo más, se pregunta (A2). |
+| «Recepción deberá apuntar los datos de la visita» | el sujeto es la persona | Lo que hace el sistema: RF-1, «El sistema deberá pedir de cada visita solo su nombre y la persona a la que visita». Si hace falta algo más, se pregunta (A2). |
 | «Los datos se guardarán el tiempo necesario» | adjetivo sin cifra | «Necesario» no se puede comprobar. RF-3 lleva la cifra que dé quien decide; mientras tanto queda `[NECESITA ACLARACIÓN: ¿cuánto tiempo?]` (A1). |
 
 ## Qué tienen en común las seis hojas
 
 - **La P1 vale sola.** Si solo se construyera la P1 (aunque al principio alguien cargara a mano las plazas, las respuestas o los cursos), el problema de la tarjeta ya mejoraría de verdad.
-- **Quien pide no es quien usa.** Ana, Jorge y Marta piden, pero las historias se escriben desde quien usa el sistema: quien viene en coche, quien tiene una duda, quien apunta el estado de su proyecto, recepción.
+- **Quien pide no es quien usa.** Ana, Jorge y Marta piden, pero la P1 de cada hoja se escribe desde quien usa el sistema (quien viene en coche, el empleado con una duda o un pedido, quien se apunta a un curso, el responsable de un proyecto, recepción).
 - **Las preguntas tienen efecto.** Cada A dice a qué historia o requisito afecta y se responde con un dato o con un sí o un no; ninguna es «¿qué queréis exactamente?».
 - **Lo que no se hace, por escrito.** Cada hoja deja al menos dos cosas fuera de alcance, y lo que nadie sabía queda como pregunta o como `[NECESITA ACLARACIÓN: …]`, no como una cifra inventada.
 - **Las mismas cinco plantillas.** Cada hoja usa las cinco plantillas EARS, una vez cada una: de una tarjeta a otra cambia el tema, no la forma.
