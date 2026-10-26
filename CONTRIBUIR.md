@@ -16,7 +16,7 @@ Este repositorio es material vivo: lo usamos para formar a gente de toda la empr
 
 ## Tres formas de proponer un cambio
 
-1. **Contándolo, sin tocar nada.** Abre una incidencia (*issue*, una petición o aviso que queda registrado en el repositorio) en la pestaña «Issues» de GitHub. Di qué fichero es, qué parte, qué falla y cómo lo dejarías. Si no tienes cuenta de GitHub, escribe al contacto que figura en la [portada](README.md#sobre-este-material).
+1. **Contándolo, sin tocar nada.** Abre una incidencia (*issue*, una petición o aviso que queda registrado en el repositorio) en la pestaña «Issues» de GitHub. Di qué fichero es, qué parte, qué falla y cómo lo dejarías. Si no tienes cuenta de GitHub, escribe a quien mantiene el material.
 2. **Editando en la web de GitHub.** Abre el fichero, pulsa el icono del lápiz y haz el cambio. Al guardar, GitHub te ofrece proponerlo («Propose changes») y crea una *pull request* (una propuesta de cambio que otra persona revisa antes de incorporarla). Es la forma más rápida para erratas y frases que se pueden decir mejor.
 3. **Con Git, para cambios grandes.** Crea una rama (una copia de trabajo con nombre propio), haz los cambios en tu ordenador, revisa cómo se ven y abre una *pull request* explicando qué cambia y por qué. Ningún cambio entra sin que lo revise otra persona.
 

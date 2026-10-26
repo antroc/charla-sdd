@@ -239,7 +239,7 @@ Antes de empezar, pregunta a IT qué asistente está autorizado y pide un reposi
 
 Para que un equipo lo pruebe sin ordenadores, la [dinámica de 20 minutos](../ejercicios/04-dinamica-de-equipo-20-minutos.md), que puede dirigir cualquiera con su guion minuto a minuto, también en línea. Para que cada persona siga a su ritmo, comparte la [portada](../README.md): tiene una ruta de lectura para cada necesidad.
 
-*Para saber más:* [variantes de la dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes) · [rutas de lectura](../README.md#rutas-de-lectura-por-perfil)
+*Para saber más:* [variantes de la dinámica](../ejercicios/04-dinamica-de-equipo-20-minutos.md#variantes) · [por dónde empezar](../README.md#empieza-por-aquí)
 
 ## En tres frases
 
