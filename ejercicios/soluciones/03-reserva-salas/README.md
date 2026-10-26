@@ -59,8 +59,8 @@ Lo que hemos cambiado respecto a la salida en bruto de Spec Kit: títulos de sec
 
 ## Siguiente paso
 
-Compara estos ficheros con los que hayas generado en el [ejercicio 03](../../03-reserva-salas-paso-a-paso.md) y continúa con [la solución del ejercicio 05: una especificación arreglada](../05-especificacion-arreglada.md).
+Compara estos ficheros con los que hayas generado en el [ejercicio 03](../../03-reserva-salas-paso-a-paso.md) y continúa con [los pasos 7 a 10 por dentro](../03-reserva-salas-pasos-7-a-10.md), que cuentan lo que estos ficheros no guardan. Después, la solución de la [dinámica de equipo (ejercicio 04)](../04-dinamica-de-equipo-resuelta.md) o la de [una especificación arreglada (ejercicio 05)](../05-especificacion-arreglada.md).
 
 ---
 
-⬅️ [Anterior: Requisitos EARS resueltos](../02-requisitos-ears-resueltos.md) · 🏠 [Índice de soluciones](../README.md) · ➡️ [Siguiente: Especificación arreglada](../05-especificacion-arreglada.md)
+⬅️ [Anterior: Requisitos EARS resueltos](../02-requisitos-ears-resueltos.md) · 🏠 [Índice de soluciones](../README.md) · ➡️ [Siguiente: Los pasos 7 a 10 por dentro](../03-reserva-salas-pasos-7-a-10.md)
