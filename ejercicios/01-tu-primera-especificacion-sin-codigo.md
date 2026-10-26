@@ -1,14 +1,14 @@
 # Ejercicio 01: tu primera especificación sin código
 
-> **Para quién:** quien vaya a escribir o revisar una especificación (y cualquiera que empiece con SDD); no hace falta programar · **Tiempo de lectura:** ~7 min (hacerlo: 30-45 min) · **Nivel:** 🟢 básico
+> **Para quién:** quien vaya a escribir o revisar una especificación · **Tiempo de lectura:** ~7 min · **Tiempo para hacerlo:** 30-45 min · **Nivel:** 🟢 básico
 
-Vas a escribir tu primera especificación sin tocar una línea de código. Usaremos «Solicitud de vacaciones» porque el proceso es familiar y así podemos concentrarnos en lo importante: decidir qué debe ocurrir, qué casos pueden dar problemas y cómo sabremos que el resultado es correcto.
+Vas a escribir una especificación pequeña sin programar. El objetivo no es describir todo el proceso de vacaciones, sino dejar una primera historia suficientemente clara para que otra persona pueda revisarla y construirla sin adivinar decisiones.
 
 **Qué vas a encontrar**
 
 - [Objetivo](#objetivo)
 - [Qué necesitas](#qué-necesitas)
-- [El caso: Solicitud de vacaciones](#el-caso-solicitud-de-vacaciones)
+- [El caso](#el-caso)
 - [Pasos](#pasos)
 - [Errores frecuentes](#errores-frecuentes)
 - [Comprueba lo que has aprendido](#comprueba-lo-que-has-aprendido)
@@ -18,273 +18,217 @@ Vas a escribir tu primera especificación sin tocar una línea de código. Usare
 
 ## Objetivo
 
-Al terminar sabrás rellenar las secciones de una especificación (historias de usuario priorizadas, casos límite, requisitos, criterios de éxito y aclaraciones) y distinguir lo que va en ella de lo que no. También sabrás pasarle una lista de verificación y, si quieres, usar un asistente de IA para que te haga preguntas de aclaración sobre tu borrador.
+Al terminar tendrás una especificación breve con:
+
+- un problema y tres perfiles;
+- una historia P1 que aporte valor por sí sola;
+- entre tres y cinco casos límite;
+- entre cuatro y seis requisitos EARS;
+- dos criterios de éxito medibles;
+- aclaraciones, supuestos y fuera de alcance.
 
 ## Qué necesitas
 
-- **Tiempo:** entre 30 y 45 minutos. El objetivo es terminar una primera versión pequeña que otra persona pueda revisar, no describir todo el proceso de vacaciones.
-- **Requisitos previos:** ninguno. Ayuda haber leído [Qué es SDD](../docs/02-que-es-sdd.md) y [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md), pero el ejercicio recuerda lo imprescindible.
-- **Materiales:** la plantilla [especificacion.md](plantillas/especificacion.md) y la plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md), copiadas en un documento como se explica en la vía A del [ejercicio 00](00-preparacion-del-entorno.md). Si no has hecho el 00: abre cada plantilla en GitHub (la vista normal, sin pulsar «Raw»), selecciona desde el primer título hasta el final, copia y pégalo en tu documento (Word, Google Docs…): se pega con formato. Las ayudas de cada sección aparecen en cursiva bajo su título; bórralas cuando termines. Si prefieres trabajar en papel, imprime el documento.
-- **Opcional:** un chat de IA autorizado por tu empresa, para la variante con asistente.
+- La plantilla [especificacion.md](plantillas/especificacion.md).
+- La plantilla [lista-de-verificacion.md](plantillas/lista-de-verificacion.md).
+- Un documento o editor de texto.
+- Opcionalmente, cualquier chat de IA autorizado. No necesitas Spec Kit ni un asistente concreto.
 
-> [!NOTE]
-> La plantilla trae ejemplos de ReservaSalas entre corchetes `[…]`: son una guía de cómo suena cada sección. Sustitúyelos por lo tuyo y borra los que no apliquen. Las ayudas en cursiva que hay bajo cada título explican qué va en cada sitio; bórralas cuando el documento esté listo.
+## El caso
 
-## El caso: Solicitud de vacaciones
+Hoy las vacaciones se piden por correo. Luis escribe a Marta, su manager; Marta responde cuando puede; Jorge, de RRHH, actualiza el saldo en una hoja de cálculo. Algunas solicitudes se pierden y las personas no saben con seguridad cuántos días les quedan.
 
-Hoy, en la empresa, pedir vacaciones funciona así: Luis escribe un correo a su manager, Marta; Marta contesta cuando puede, a veces por el pasillo; Jorge, de RRHH, se entera por una copia del correo (o no se entera) y lleva el saldo de días de cada persona en una hoja de cálculo. Nadie sabe con seguridad cuántos días le quedan, y hay semanas en las que medio equipo está fuera sin que Marta se haya dado cuenta.
-
-Lo que queremos es un proceso con tres pasos claros: una persona pide días; su manager aprueba o rechaza con un motivo; RRHH lo registra y el saldo de días se actualiza solo. Las personas ficticias son las mismas de todo el repositorio: **Luis** (empleado que pide), **Marta** (manager que decide) y **Jorge** (RRHH que registra).
-
-El diagrama muestra el orden de los ocho pasos del ejercicio y a qué sección de la plantilla alimenta cada uno.
-
-```mermaid
-flowchart TB
-  subgraph definir["Definir"]
-    direction LR
-    p1["1 · Problema"] --> p2["2 · Usuarios"] --> p3["3 · Historias"] --> p4["4 · Casos límite"]
-  end
-
-  subgraph concretar["Concretar"]
-    direction LR
-    p5["5 · Requisitos EARS"] --> p6["6 · Criterios de éxito"] --> p7["7 · Aclaraciones"] --> p8["8 · Checklist"]
-  end
-
-  p4 --> p5
-  p8 -.->|"si algo no pasa"| p3
-
-  classDef step fill:#F6F8FA,stroke:#57606A,stroke-width:1.5px,color:#24292F;
-  class p1,p2,p3,p4,p5,p6,p7,p8 step;
-```
-
-De izquierda a derecha: empiezas por el problema y las personas, sigues con las historias, los casos límite, los requisitos y los criterios de éxito, apuntas las dudas y terminas pasando la lista de verificación. Cada «no» de la lista te devuelve a la sección que hay que arreglar, normalmente a las historias o a los requisitos.
+La primera versión solo resolverá una cosa: **registrar una solicitud y dejarla pendiente para que no se pierda**. Aprobarla dentro del sistema y consultar informes completos serán iteraciones posteriores.
 
 ## Pasos
 
-Cada paso te dice qué sección de la plantilla rellenar, qué escribir y qué deberías tener al acabar. Trabaja directamente sobre tu copia de la plantilla.
+1. **Prepara la cabecera y el resumen.**
 
-1. **Describe el problema de hoy en tres frases.** Antes, prepara el principio de tu copia de la plantilla:
-
-   - Cambia el título «Plantilla: especificación» por «Especificación: Solicitud de vacaciones».
-   - Borra el aviso marcado como «Tip» que hay bajo el título (habla de Spec Kit y aquí no hace falta). La ayuda en cursiva déjala hasta el final, como las demás.
-   - Busca la cabecera, la línea que empieza por «Carpeta/rama» (un simple identificador), y cambia `[001-reserva-salas]` por `001-solicitud-vacaciones`.
-   - En «Creada», pon la fecha de hoy. Deja «Estado: Borrador» como está.
-   - En «Petición original», escribe la frase con la que alguien te encargaría esto: «Queremos dejar de pedir las vacaciones por correo y saber siempre cuántos días nos quedan».
-
-   Después, en la sección «Resumen», escribe tres frases (hasta cinco si lo necesitas), sin tecnología, con esta estructura:
+   Usa este título y esta petición original:
 
    ```text
-   Hoy, para pedir vacaciones, [qué hace cada persona y por dónde].
-   Eso provoca [dos o tres problemas concretos].
-   Queremos que [qué debe poder hacer cada persona al final del proceso].
+   Especificación: Solicitud de vacaciones
+   Petición original: «Queremos dejar de pedir las vacaciones por correo y saber que cada solicitud queda registrada».
    ```
 
-   Qué deberías tener: un resumen que una persona recién llegada a la empresa entiende sin preguntar. Prueba del algodón: si el resumen contiene «aplicación», «base de datos» o «sistema», reescríbelo hablando de personas y de días. (En los requisitos del paso 5, en cambio, el sujeto siempre es «el sistema».)
+   Escribe un resumen de tres a cinco frases que explique la situación actual, el problema y el resultado esperado. No menciones tecnología.
 
-   - [ ] La cabecera está rellena y el resumen tiene entre tres y cinco frases sin tecnología.
+   - [ ] La cabecera y el resumen se entienden sin contexto adicional.
 
-2. **Di quién la va a usar.** La plantilla no tiene una sección de «usuarios»: las personas aparecen en las historias y en «Entidades clave». Antes de escribir las historias, añade debajo del resumen una lista corta con los tres perfiles y qué quiere cada uno; te servirá de guía para todo lo demás:
+2. **Identifica los perfiles.**
 
    ```text
-   - Empleado (Luis): quiere [pedir días sin perseguir a nadie y saber cuántos le quedan].
-   - Manager (Marta): quiere [decidir rápido, con un motivo si rechaza, y ver quién de su equipo está fuera].
-   - RRHH (Jorge): quiere [...].
+   - Empleado: quiere pedir días y saber que la solicitud no se ha perdido.
+   - Manager: quiere recibir las solicitudes de su equipo.
+   - RRHH: quiere disponer de un registro fiable para las siguientes iteraciones.
    ```
 
-   Qué deberías tener: tres líneas, una por perfil, con un verbo de deseo en cada una («quiere ver», «quiere decidir»). Si a un perfil no se te ocurre qué quiere, pregúntate qué hace hoy a mano.
+   Puedes cambiar la redacción, pero no añadas funciones todavía.
 
-   - [ ] Los tres perfiles tienen escrito qué quieren conseguir.
+   - [ ] Cada perfil tiene una necesidad concreta.
 
-3. **Escribe la P1 completa y deja P2/P3 como siguientes iteraciones.** Es la sección «Historias de usuario y escenarios». Cada historia lleva el título con su prioridad, un recorrido en lenguaje llano, «Por qué esta prioridad», «Prueba independiente» y, en «Criterios de aceptación», al menos dos criterios en formato Dado / Cuando / Entonces: uno que sale bien y otro que sale mal. «Prueba independiente» es cómo comprobarías esa historia ella sola, sin las otras dos (por ejemplo: «Luis pide tres días y Marta recibe el aviso»). Sustituye los ejemplos de ReservaSalas de cada apartado y mantén el formato de la plantilla, con **Dado**, **cuando** y **entonces** en negrita. Las prioridades ya están decididas:
+3. **Escribe la historia P1.**
 
-   - **Historia de usuario 1 - Pedir días de vacaciones (Prioridad: P1).** Luis elige las fechas, ve cuántos días consumen y cuántos le quedan, y envía la solicitud; Marta recibe un aviso.
-   - **Historia de usuario 2 - Aprobar o rechazar una solicitud (Prioridad: P2).** Marta ve las solicitudes pendientes de su equipo, aprueba o rechaza, y si rechaza tiene que dar un motivo; Luis recibe la respuesta.
-   - **Historia de usuario 3 - Ver el saldo y las solicitudes (Prioridad: P3).** Luis ve su saldo y el estado de sus solicitudes; Jorge ve las solicitudes aprobadas de toda la empresa y el saldo de cada persona.
+   La historia es «Pedir días de vacaciones». Debe incluir:
 
-   Para la historia 1, los criterios podrían empezar así (rellena los corchetes y añade los que falten):
+   - recorrido en lenguaje natural;
+   - por qué es P1;
+   - una prueba independiente;
+   - al menos dos criterios Dado / Cuando / Entonces: uno correcto y uno de rechazo.
+
+   Ejemplo de arranque:
 
    ```text
-   1. Dado que Luis tiene 12 días disponibles, cuando pide del lunes 9 al viernes 13 de noviembre
-      (5 días laborables), entonces la solicitud queda en estado «pendiente», Luis ve que le
-      quedarían 7 días y Marta recibe un aviso.
-   2. Dado que Luis tiene [2] días disponibles, cuando pide [5], entonces el sistema rechaza la
-      solicitud e indica [cuántos días le quedan].
-   3. Dado [...], cuando [...], entonces [...].
+   Como empleado quiero solicitar unos días de vacaciones para que mi petición quede registrada y mi manager la reciba.
+
+   Dado que Luis tiene 12 días disponibles,
+   cuando pide 5 días laborables,
+   entonces la solicitud queda pendiente y Marta recibe un aviso.
    ```
 
-   Qué deberías tener: una P1 completa. Para P2 y P3 basta con el título y una frase que deje claro que vendrán después. Comprobación clave para la P1: si solo construyéramos «pedir días», ¿ya serviría para algo? Debería (se acaban los correos perdidos); si tu P1 no vale por sí sola, no es una P1.
+   Deja P2 «Aprobar o rechazar» y P3 «Consultar saldos e informes» como siguientes iteraciones, con una sola frase cada una.
 
-   - [ ] La P1 tiene recorrido, por qué, prueba independiente y al menos dos criterios de aceptación; P2 y P3 quedan identificadas para después.
+   - [ ] La P1 funciona de forma independiente y P2/P3 quedan fuera de esta primera entrega.
 
-4. **Piensa en lo que puede salir mal: casos límite.** Es la subsección «Casos límite», al final de las historias. Escríbelos como preguntas «¿Qué pasa si…?» y responde cada una en la misma línea. Tienes que incluir, como mínimo, estos tres, y añadir al menos dos más:
+4. **Añade entre tres y cinco casos límite.**
+
+   Incluye, como mínimo:
+
+   - más días de los disponibles;
+   - fecha de inicio pasada;
+   - fechas no válidas o invertidas.
+
+   Añade uno o dos casos más, por ejemplo fines de semana, festivos o una persona sin manager asignado. Si no sabes qué debe ocurrir, márcalo como aclaración.
+
+   - [ ] Cada caso límite dice qué ocurre o qué decisión falta.
+
+5. **Escribe entre cuatro y seis requisitos EARS.**
+
+   Cubre solo la P1. Una posible distribución es:
 
    ```text
-   - ¿Qué pasa si Luis pide más días de los que tiene? → [...]
-   - ¿Qué pasa si las fechas se solapan con vacaciones ya aprobadas de otra persona del mismo equipo? → [...]
-   - ¿Qué pasa si la fecha de inicio ya ha pasado? → [...]
-   - ¿Qué pasa si [...]? → [...]
-   - ¿Qué pasa si [...]? → [...]
+   RF-001: El sistema deberá mostrar a cada persona sus días disponibles del año en curso.
+
+   RF-002: CUANDO una persona envía una solicitud con fechas válidas,
+   el sistema deberá registrarla en estado «pendiente» y avisar a su manager.
+
+   RF-003: SI una persona solicita más días de los que tiene disponibles,
+   ENTONCES el sistema deberá rechazar la solicitud e indicar su saldo disponible.
+
+   RF-004: SI la fecha de inicio es anterior a la fecha actual,
+   ENTONCES el sistema deberá rechazar la solicitud e indicar que no se admiten fechas pasadas.
+
+   RF-005: MIENTRAS una solicitud esté pendiente,
+   el sistema deberá mostrarla con ese estado a la persona solicitante.
    ```
 
-   Pistas para los que faltan: fechas que incluyen un festivo o un fin de semana; la manager está de vacaciones y no puede aprobar; una solicitud que cruza el cambio de año; cancelar una solicitud ya aprobada; una persona sin manager asignado.
+   Puedes separar el registro y el aviso en dos requisitos si prefieres que cada uno tenga una única responsabilidad. No incluyas todavía aprobar, rechazar por parte del manager ni vistas de RRHH.
 
-   Qué deberías tener: cinco o más casos, cada uno con una respuesta. Si para alguno no sabes qué debería pasar, no lo inventes: apúntalo también en el paso 7 como duda.
+   Entidades mínimas:
 
-   - [ ] Hay al menos cinco casos límite y cada uno dice qué debe ocurrir (o está marcado como duda).
+   - **Persona:** nombre, correo corporativo, manager y saldo disponible.
+   - **Solicitud:** persona, fechas, días consumidos, estado y fecha de creación.
 
-5. **Convierte la P1 y sus límites en requisitos EARS (entre cuatro y seis).** Es la sección «Requisitos», subsección «Requisitos funcionales». EARS (*Easy Approach to Requirements Syntax*) es una forma sencilla y estructurada de redactar requisitos: cinco plantillas de frase, siempre con el verbo «deberá» y la palabra clave en mayúsculas. Las tienes resumidas en la ayuda en cursiva de la sección «Requisitos» de la plantilla y, explicadas con calma, en [Escribir requisitos claros (EARS)](../docs/05-escribir-requisitos-claros-ears.md) y en el [diagrama 05](../diagramas/05-anatomia-de-un-requisito-ears.md).
+   - [ ] Hay entre cuatro y seis requisitos comprobables, sin tecnología y dentro de la P1.
 
-   | Patrón | Plantilla | Para qué |
-   |---|---|---|
-   | Ubicuo | «El sistema deberá [respuesta].» | Algo que se cumple siempre |
-   | Por evento | «CUANDO [disparador], el sistema deberá [respuesta].» | Algo que ocurre en un momento |
-   | Por estado | «MIENTRAS [estado], el sistema deberá [respuesta].» | Algo que dura un tiempo |
-   | Comportamiento no deseado | «SI [condición], ENTONCES el sistema deberá [respuesta].» | Errores y situaciones a evitar |
-   | Opcional | «DONDE [característica o perfil], el sistema deberá [respuesta].» | Solo para algunos perfiles |
+6. **Define dos criterios de éxito.**
 
-   Numera RF-001, RF-002… con el formato de la plantilla (**RF-001**: …). Cada requisito: una frase, una sola cosa comprobable, sin tecnología y sin adjetivos vagos. Intenta usar los cinco patrones al menos una vez. Para empezar:
+   Deben contener una cifra y poder medirse sin conocer la tecnología.
 
    ```text
-   - RF-001: El sistema deberá mostrar a cada persona su saldo de días de vacaciones del año en curso.
-   - RF-002: CUANDO una persona envía una solicitud, el sistema deberá [...].
-   - RF-003: SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá
-     rechazar la solicitud e indicar cuántos días le quedan.
-   - RF-004: SI [la fecha de inicio es anterior a hoy], ENTONCES el sistema deberá [...].
-   - RF-005: CUANDO la manager aprueba o rechaza una solicitud, el sistema deberá [...].
-   - RF-006: MIENTRAS [una solicitud esté pendiente], el sistema deberá [...].
-   - RF-007: DONDE [la persona tenga rol de RRHH], el sistema deberá [...].
+   CE-001: Crear y enviar una solicitud válida lleva menos de 2 minutos.
+   CE-002: El 100 % de las solicitudes enviadas correctamente quedan visibles para la persona solicitante y su manager.
    ```
 
-   Rellena también «Entidades clave» con las «cosas» de las que habla el proceso y sus datos, sin decidir cómo se guardan: **Solicitud** (persona, fecha de inicio, fecha de fin, días que consume, estado, motivo de rechazo, quién decidió y cuándo), **Persona** (nombre, correo corporativo, equipo, manager, rol: empleado, manager o RRHH) y **Saldo** (persona, año, días totales, días consumidos, días pendientes de decidir).
+   Puedes proponer otras cifras, siempre que expliques cómo se medirán.
 
-   Qué deberías tener: entre cuatro y seis requisitos numerados, cada uno con uno de los cinco patrones, y las tres entidades. Prueba rápida: lee cada requisito y pregúntate «¿cómo demostraría que se cumple?». Si no lo sabes, no es comprobable.
+   - [ ] Hay exactamente dos criterios medibles y relacionados con la P1.
 
-   - [ ] Hay entre cuatro y seis requisitos en EARS, numerados, y solo las entidades necesarias para la P1.
+7. **Aclara lo que no puedes decidir.**
 
-6. **Fija dos criterios de éxito medibles.** Es la sección «Criterios de éxito», subsección «Resultados medibles». Un criterio de éxito dice cómo sabremos, meses después, que el cambio ha merecido la pena. Lleva número (tiempo, porcentaje, cantidad) y no menciona tecnología. Numera CE-001, CE-002, CE-003:
+   Escribe entre tres y cinco preguntas. Por ejemplo:
+
+   - ¿Los días se cuentan en laborables o naturales?
+   - ¿Cuál es la antelación mínima?
+   - ¿Qué ocurre si una persona no tiene manager asignado?
+   - ¿Los días pendientes se descuentan del saldo visible?
+
+   Responde solo si estás haciendo también el papel de quien encarga. En ese caso, escribe la respuesta antes de aplicarla:
 
    ```text
-   - CE-001: Pedir vacaciones, desde que se abre la solicitud hasta que se envía, lleva menos de [2] minutos.
-   - CE-002: El [100] % de las solicitudes aprobadas quedan registradas para RRHH sin que nadie las copie a mano.
-   - CE-003: [...]
+   P: ¿Los días se cuentan en laborables o naturales?
+   R: En laborables.
    ```
 
-   Pistas: cero solicitudes aprobadas con saldo negativo; al cerrar el año, el saldo que ve cada persona coincide con el de RRHH; el porcentaje de solicitudes que reciben respuesta en menos de tres días laborables.
+   Después modifica los requisitos y criterios afectados. Una aclaración que no cambia el documento no ha cerrado ninguna decisión.
 
-   Qué deberías tener: tres criterios con cifra. «Que sea rápido», «que la gente esté contenta» o «que funcione bien» no valen; «menos de 2 minutos», «el 90 % de las personas» o «cero solicitudes con saldo negativo» sí.
+   Añade también:
 
-   - [ ] Hay dos criterios de éxito con un número cada uno y sin tecnología.
+   - **Supuestos:** por ejemplo, todas las personas tienen saldo cargado para el año.
+   - **Fuera de alcance:** aprobación dentro del sistema, cancelaciones, nómina, bajas médicas e informes globales.
 
-7. **Apunta las dudas que tendrías que preguntar.** Mientras escribías, seguro que te han surgido preguntas que no puedes responder tú. Van en la sección «Aclaraciones» (en la plantilla está entre «Casos límite» y «Requisitos»), subsección «Dudas pendientes»; borra los ejemplos de ReservaSalas que trae. Como máximo tres de ellas pueden marcarse además en el texto con `[NECESITA ACLARACIÓN: pregunta concreta]` junto al requisito o caso límite afectado. Preguntas típicas de este caso:
+   - [ ] Las respuestas están reflejadas en la especificación y el alcance está acotado.
 
-   ```text
-   - ¿Los días se cuentan en laborables o en naturales? → afecta a [RF-003 y al criterio 1 de la historia 1].
-   - ¿Quién aprueba si la manager está de vacaciones? → afecta a [...].
-   - ¿Se puede cancelar una solicitud ya aprobada y se devuelven los días? → afecta a [...].
-   - ¿Hay una antelación mínima para pedir? → afecta a [...].
-   - ¿Los días que no se gastan pasan al año siguiente? → afecta a [...].
-   ```
+8. **Pasa la lista de verificación.**
 
-   Ahora haz de Jorge (RRHH) y responde tú a las dudas, con decisiones cortas. Mueve cada pregunta respondida a la subsección «Sesión [AAAA-MM-DD]» (pon la fecha de hoy) con el formato `P: … → R: …` y, lo más importante, cambia la sección afectada: una respuesta que no cambia nada en la especificación no era una duda. Aprovecha para rellenar «Supuestos» (lo que das por hecho: todas las personas tienen manager asignado, RRHH carga el saldo inicial cada año) y «Fuera de alcance» (lo que no vas a hacer: bajas médicas y otros permisos, nómina, festivos distintos por sede).
+   Usa [lista-de-verificacion.md](plantillas/lista-de-verificacion.md). Corrige cada «no» que afecte a la P1. No marques como fallo que P2 y P3 estén incompletas: están fuera de esta entrega y deben aparecer así.
 
-   Qué deberías tener: al menos cinco preguntas, la mayoría respondidas y reflejadas en el texto, y las secciones «Supuestos» y «Fuera de alcance» con dos o tres líneas cada una.
+   - [ ] La P1 pasa la lista o cada pendiente tiene una explicación.
 
-   - [ ] Hay una lista de dudas; las respondidas han cambiado la sección afectada y las demás están marcadas como pendientes.
+### Revisión opcional con cualquier asistente
 
-8. **Revisa con la lista de verificación.** Abre tu copia de [lista-de-verificacion.md](plantillas/lista-de-verificacion.md) y sigue este orden:
-
-   - En la cabecera, pon el propósito, la funcionalidad (tu especificación) y quién hace la revisión (puedes ser tú).
-   - En CHK010, cambia los ejemplos de ReservaSalas que van entre paréntesis por los de vacaciones: más días de los que hay, fechas pasadas, solapamiento con el equipo.
-   - En CHK012, cambia los ejemplos entre paréntesis por tus supuestos (por ejemplo, todas las personas tienen manager asignado).
-   - Borra la categoría propia (CHK020 a CHK022) o cámbiala por preguntas tuyas sobre vacaciones.
-   - Responde cada pregunta de CHK001 a CHK019 mirando tu texto y marca `[x]` solo las que cumplan.
-
-   CHK019 habla de la constitución, que aquí no existe. Úsala para comprobar que tus requisitos no se contradicen entre sí, que solo se guardan los datos imprescindibles de cada persona y que las ausencias ajenas solo las ve quien las necesita (su manager y RRHH). Si dudas, consulta con quien se ocupe de la protección de datos en la empresa.
-
-   Cada «no» te manda a una sección concreta: arréglala y vuelve a comprobar. Si puedes, pídele a otra persona que pase la lista por ti: quien escribe casi nunca ve sus propios huecos.
-
-   Qué deberías tener: la lista con todo marcado o, si queda algo sin marcar, una nota en «Notas» que diga por qué y qué falta.
-
-   - [ ] He pasado la lista de verificación y he corregido cada «no».
-
-### Variante con asistente de IA (opcional, entre los pasos 7 y 8)
-
-Si tienes un chat de IA autorizado por la empresa, puedes usarlo para el paso de aclarar: que sea él quien te haga las preguntas. Es lo que hace el comando `/speckit.clarify` de Spec Kit, pero aquí sin herramientas. Pega este *prompt* (la instrucción que le escribes al asistente) seguido de tu borrador:
+Pega tu borrador junto con este *prompt*:
 
 ```text
-Actúa como una persona que revisa una especificación de software escrita en lenguaje natural. Te paso mi borrador de la especificación «Solicitud de vacaciones». No propongas tecnología ni reescribas el documento. Hazme, de una en una, como máximo cinco preguntas de aclaración sobre lo que sea ambiguo, falte o se contradiga, en este orden de importancia: alcance, roles y permisos, datos, casos límite. En cada pregunta ofrece dos o tres opciones de respuesta y di cuál recomiendas. Espera mi respuesta antes de pasar a la siguiente. Al terminar, resume las respuestas en una lista con el formato «P: … → R: …».
+Revisa esta especificación como revisor funcional. No propongas tecnología ni reescribas todo el documento. Hazme, de una en una, un máximo de cinco preguntas sobre alcance, reglas, permisos, datos o casos límite. En cada pregunta explica qué parte del documento cambiaría. Espera mi respuesta antes de continuar.
 
-[PEGA AQUÍ TU BORRADOR COMPLETO]
+[PEGA AQUÍ LA ESPECIFICACIÓN]
 ```
 
-Qué deberías ver: una primera pregunta con opciones (por ejemplo, «¿Los días se cuentan en laborables o naturales? A) Laborables, recomendado. B) Naturales. C) Depende del tipo de contrato»). Responde con la letra o con tu propia decisión y sigue hasta la quinta. Al final te dará la lista `P: … → R: …`, lista para pegar en «Sesión [AAAA-MM-DD]». Después, como en el paso 7, cambia tú las secciones afectadas o pídeselo con un segundo *prompt*:
-
-```text
-Con las respuestas anteriores, dime qué requisitos, historias o casos límite de mi borrador hay que modificar y cómo quedaría cada uno. Mantén el formato EARS en los requisitos («El sistema deberá…», «CUANDO…», «MIENTRAS…», «SI…, ENTONCES…», «DONDE…»). No cambies nada que no esté afectado por una respuesta.
-```
-
-Si el asistente se desvía (propone bases de datos, reescribe todo, inventa requisitos), recuérdale con una frase que solo quieres preguntas, y en última instancia ignora esa parte. Cada asistente responde distinto; lo que importa es que las decisiones las tomes tú y queden escritas en la especificación.
-
-- [ ] (Opcional) El asistente me ha hecho hasta cinco preguntas y las respuestas están reflejadas en la especificación.
+El resultado depende del modelo, pero el criterio es común: las preguntas deben cerrar decisiones, no añadir funciones nuevas.
 
 ## Errores frecuentes
 
-| Síntoma | Causa | Cómo arreglarlo |
+| Síntoma | Qué ocurre | Cómo corregirlo |
 |---|---|---|
-| El resumen o los requisitos hablan de «la base de datos», «la app móvil» o «el formulario web» | Has mezclado el **qué** con el **cómo** | Quita la tecnología; describe lo que la persona consigue. Lo que has quitado puede valer para el plan técnico, no para la especificación |
-| Un requisito dice «el sistema deberá ser fácil de usar» | Adjetivo vago sin cifra | Conviértelo en algo comprobable: «CE-001: pedir vacaciones lleva menos de 2 minutos» (criterio de éxito) o quítalo |
-| Un requisito dice «avisar a la manager y descontar los días y registrar la fecha» | Tres cosas en una frase | Divídelo en tres requisitos, cada uno con su número |
-| La P1 es «ver el saldo» | La historia P1 no resuelve el problema principal | La P1 es lo imprescindible: pedir días. Pregúntate: si solo hiciéramos esto, ¿ya serviría? |
-| Las historias describen pantallas y botones («pulsa el botón verde») | Confundir la historia con el diseño | Cuenta el recorrido como se lo contarías a alguien por teléfono: quién, qué hace, qué consigue |
-| Los criterios de éxito no tienen números | Son deseos, no criterios | Añade tiempo, porcentaje o cantidad a cada uno, y di cómo se medirá |
-| La sección «Casos límite» está vacía o tiene un solo caso | Pensar solo en el camino feliz | Recorre los extremos: cero, demasiado, al mismo tiempo, fuera de plazo, sin permisos, cambio de año |
-| Una duda está respondida en «Aclaraciones» pero el requisito sigue igual | La respuesta no se ha trasladado al texto | Cada respuesta cambia una historia, un requisito o un caso límite; si no cambia nada, no era una duda |
-| El asistente de IA reescribe toda la especificación o propone tecnología | El *prompt* no ha acotado su papel | Usa el *prompt* de la variante tal cual; si insiste, dile en una frase «solo preguntas, sin tecnología» |
+| La P1 incluye pedir, aprobar, cancelar e informar a RRHH | El alcance vuelve a ser todo el proceso | Quédate con registrar la solicitud pendiente |
+| El ejemplo tiene siete requisitos aunque el ejercicio pide seis como máximo | Se han arrastrado requisitos de P2/P3 | Elimina aprobación, informes y permisos avanzados |
+| Los criterios dicen «rápido» o «fácil» | No se pueden medir | Añade tiempo, porcentaje o cantidad |
+| Una aclaración está respondida, pero el requisito no cambia | La decisión no se ha propagado | Modifica el texto afectado y vuelve a revisar |
+| El asistente diseña pantallas o elige base de datos | Se ha mezclado el qué con el cómo | Devuelve la conversación a comportamiento y reglas |
 
 ## Comprueba lo que has aprendido
 
-1. ¿Qué dos preguntas responde una especificación y cuál deja para el plan técnico?
-2. Luis pide 5 días y solo tiene 2. ¿Con qué patrón EARS escribirías el requisito y cómo quedaría?
-3. ¿Por qué «aprobar o rechazar» es P2 y no P1, si sin aprobación no hay vacaciones?
-4. «CE-002: que RRHH tenga menos trabajo». ¿Qué le falta a este criterio de éxito?
-5. Has respondido en «Aclaraciones» que los días se cuentan en laborables. ¿Qué más tienes que hacer?
+1. ¿Por qué la P1 no incluye la aprobación del manager?
+2. ¿Cuántos requisitos y criterios de éxito pide este ejercicio?
+3. ¿Dónde va la decisión de usar una base de datos concreta?
+4. ¿Qué haces con una duda que no puedes resolver?
+5. ¿Una solución con más historias es necesariamente mejor?
 
 <details><summary>Ver respuestas</summary>
 
-1. Responde **qué** queremos y **por qué**. El **cómo** (tecnología, arquitectura, de qué manera se guarda la información) va al plan técnico.
-2. Es un comportamiento no deseado, así que patrón «SI…, ENTONCES…»: «SI una persona pide más días de los que tiene disponibles, ENTONCES el sistema deberá rechazar la solicitud e indicar cuántos días le quedan.»
-3. Porque la P1 tiene que valer por sí sola y resolver el problema principal: que las peticiones se pierdan por correo. Con solo «pedir días», las solicitudes ya quedan registradas y Marta puede decidir fuera del sistema; la aprobación dentro del sistema es la siguiente mejora, no la primera.
-4. Un número y una forma de medirlo. Por ejemplo: «El 100 % de las solicitudes aprobadas quedan registradas para RRHH sin copiarlas a mano», o «RRHH dedica menos de 1 hora al mes a cuadrar el saldo de vacaciones».
-5. Trasladar la respuesta a las secciones afectadas: el requisito RF-003 (o el que hable de días disponibles) y los criterios de aceptación de la historia 1 tienen que decir «días laborables». Una aclaración que no cambia la especificación no sirve de nada.
+1. Porque la primera entrega ya aporta valor si evita que las solicitudes se pierdan; la aprobación es la siguiente iteración.
+2. Entre cuatro y seis requisitos, y dos criterios de éxito.
+3. En el plan técnico, no en la especificación.
+4. La escribes como aclaración pendiente y no inventas la respuesta.
+5. No. Puede estar añadiendo alcance y haciendo más difícil la revisión.
 
 </details>
 
 ## Solución o ejemplo resuelto
 
-La especificación completa está en [soluciones/01-solicitud-de-vacaciones/especificacion.md](soluciones/01-solicitud-de-vacaciones/especificacion.md). Es un ejemplo, no la única respuesta correcta: si la tuya toma otras decisiones (por ejemplo, que la manager pueda delegar la aprobación), es igual de válida mientras pase la lista de verificación.
-
-Para que puedas compararla paso a paso, la solución sigue la misma plantilla y el mismo orden que este ejercicio. Fíjate en:
-
-- La cabecera con la carpeta `001-solicitud-vacaciones`, el estado y la petición original; el «Resumen» sin tecnología (paso 1) y la lista de los tres perfiles (paso 2).
-- Las tres historias de «Historias de usuario y escenarios»: pedir días (P1), aprobar o rechazar con motivo (P2) y ver el saldo y las solicitudes (P3), cada una con recorrido, por qué, prueba independiente y criterios Dado / Cuando / Entonces, incluido alguno de error (paso 3).
-- «Casos límite» con los tres obligatorios (más días de los disponibles, solapamiento con el equipo, fecha pasada) y varios más (paso 4).
-- «Requisitos funcionales» numerados RF-001, RF-002… con los cinco patrones EARS representados, y «Entidades clave» con Solicitud, Persona y Saldo (paso 5).
-- «Resultados medibles» CE-001 a CE-003, cada uno con cifra y sin tecnología (paso 6).
-- «Aclaraciones» con una «Sesión» de preguntas respondidas en formato `P: … → R: …` y sus cambios aplicados en el texto, más «Supuestos» y «Fuera de alcance» (paso 7).
-- Pásale también tu lista de verificación: debería cumplir de CHK001 a CHK019 (paso 8).
-
-Si quieres ver una especificación con código detrás, la de ReservaSalas está en [soluciones/03-reserva-salas/spec.md](soluciones/03-reserva-salas/spec.md): mismas secciones, otro problema.
+La [solución del ejercicio 01](soluciones/01-solicitud-de-vacaciones/README.md) distingue entre el mínimo esperado de esta versión y una especificación ampliada del proceso completo.
 
 ## En tres frases
 
-1. Una especificación dice **qué** queremos y **por qué**, en lenguaje natural y sin tecnología; cualquiera puede escribirla, y en este ejercicio lo has hecho con «Solicitud de vacaciones».
-2. Sus piezas son historias priorizadas con criterios Dado / Cuando / Entonces, casos límite, requisitos EARS numerados, criterios de éxito con cifra y aclaraciones que cambian el texto.
-3. La lista de verificación (y, si quieres, un asistente de IA que solo haga preguntas) sirve para encontrar los huecos antes de que alguien construya nada.
+1. Una primera especificación útil puede cubrir una sola historia y dejar el resto fuera de alcance.
+2. Los requisitos describen comportamiento comprobable; los criterios de éxito miden el resultado.
+3. Las aclaraciones se escriben y se propagan al documento antes de continuar.
 
 ## Siguiente paso
 
-Continúa con [Ejercicio 02: practicar requisitos EARS](02-practicar-requisitos-ears.md), donde vas a convertir doce frases vagas en requisitos comprobables.
+Continúa con [Practicar requisitos EARS](02-practicar-requisitos-ears.md).
 
 ---
 
-⬅️ [Anterior: Preparación del entorno](00-preparacion-del-entorno.md) · 🏠 [Índice de ejercicios](README.md) · ➡️ [Siguiente: Practicar requisitos EARS](02-practicar-requisitos-ears.md)
+⬅️ [Anterior: Preparación del entorno](00-preparacion-del-entorno.md) · 🏠 [Índice](README.md) · ➡️ [Siguiente: Requisitos EARS](02-practicar-requisitos-ears.md)
