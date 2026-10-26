@@ -2,7 +2,7 @@
 
 > **Para quién:** quien haya terminado el ejercicio 02 · **Tiempo de lectura:** ~5 min, más las respuestas comentadas · **Nivel:** 🟢 básico
 
-Esta portada aplica la estructura común a la solución del [ejercicio 02](../../02-practicar-requisitos-ears.md). El desarrollo frase por frase se conserva en [Requisitos EARS resueltos](../02-requisitos-ears-resueltos.md).
+Esta carpeta reúne la solución del [ejercicio 02](../../02-practicar-requisitos-ears.md). El desarrollo frase por frase está en [respuestas-comentadas.md](respuestas-comentadas.md).
 
 ## Mínimo esperado
 
@@ -59,12 +59,12 @@ Dos respuestas distintas pueden ser correctas si expresan la misma regla de nego
 
 ### Diagnóstico E1-E4
 
-- **E1:** mezcla comportamiento con PostgreSQL. Se elimina la tecnología y se conserva «guardar la reserva y mostrar la confirmación» o se separan ambos efectos si deben probarse de forma independiente.
+- **E1:** mezcla comportamiento con PostgreSQL. Se elimina la tecnología y se conserva el comportamiento.
 - **E2:** reúne reservar y marcar mantenimiento. Se divide en dos requisitos y se aclaran los permisos.
 - **E3:** «rápido y fácil» no es comprobable. Se convierte en uno o varios criterios de éxito con cifra.
 - **E4:** no dice cuándo se rechaza. Se añade la condición, por ejemplo saldo insuficiente o fechas inválidas.
 
-La redacción completa, las explicaciones y las alternativas de cada frase están en [el desarrollo ampliado](../02-requisitos-ears-resueltos.md).
+La redacción completa, las explicaciones y las alternativas de cada frase están en [respuestas-comentadas.md](respuestas-comentadas.md).
 
 ## Alternativas válidas
 

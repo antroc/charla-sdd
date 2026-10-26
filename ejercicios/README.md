@@ -22,7 +22,7 @@ Si tu asistente no ofrece una acción equivalente, usa las [plantillas](plantill
 
 | Nº | Ejercicio | Qué vas a hacer | Nivel | Tiempo | ¿Hay que instalar algo? | Solución |
 |---|---|---|---|---|---|---|
-| 00 | [Preparación del entorno](00-preparacion-del-entorno.md) | Elegir la vía con plantillas o preparar Spec Kit con cualquier asistente compatible, sin configuración específica de una marca | 🟡 | 10-40 min | Solo en la vía B | [Entorno resuelto](soluciones/00-preparacion-del-entorno-resuelta.md) |
+| 00 | [Preparación del entorno](00-preparacion-del-entorno.md) | Elegir la vía con plantillas o preparar Spec Kit con cualquier asistente compatible, sin configuración específica de una marca | 🟡 | 10-40 min | Solo en la vía B | [Solución del ejercicio 00](soluciones/00-preparacion-del-entorno/README.md) |
 | 01 | [Tu primera especificación sin código](01-tu-primera-especificacion-sin-codigo.md) | Escribir una especificación pequeña de «Solicitud de vacaciones»: una P1, casos límite, requisitos y criterios de éxito | 🟢 | 30-45 min | No | [Solución del ejercicio 01](soluciones/01-solicitud-de-vacaciones/README.md) |
 | 02 | [Practicar requisitos EARS](02-practicar-requisitos-ears.md) | Convertir frases vagas en requisitos comprobables, reconocer patrones y detectar errores | 🟢 | 30 min | No | [Solución del ejercicio 02](soluciones/02-requisitos-ears/README.md) |
 | 03 | [ReservaSalas paso a paso](03-reserva-salas-paso-a-paso.md) | Recorrer el flujo completo con Spec Kit y cualquier asistente compatible, incluida una revisión multiagente y un cambio desde la spec | 🟡 | 90-120 min | Sí (vía B) | [Solución del ejercicio 03](soluciones/03-reserva-salas/README.md) |
@@ -53,7 +53,7 @@ La mayoría de los ejercicios se hacen sin instalar nada. Solo el 03 y el 06 nec
 
 ## Cómo usarlos
 
-Haz primero el ejercicio y abre después la solución. Todas las soluciones siguen la misma estructura:
+Haz primero el ejercicio y abre después la carpeta de su solución. Todas las soluciones siguen la misma estructura:
 
 1. **Mínimo esperado.** Lo necesario para considerar el ejercicio bien resuelto.
 2. **Criterios de corrección.** Qué comprobar y qué no penalizar.
@@ -66,7 +66,7 @@ Una solución diferente también es válida si es clara, comprobable, coherente 
 ## Plantillas y soluciones
 
 - [Plantillas](plantillas/README.md): constitución, especificación, aclaraciones, plan técnico, tareas y lista de verificación.
-- [Soluciones](soluciones/README.md): portada común de todas las respuestas, ejemplos ampliados y artefactos de ReservaSalas.
+- [Soluciones](soluciones/README.md): una carpeta por ejercicio, con su portada, criterios de corrección y materiales resueltos.
 
 ## Siguiente paso
 

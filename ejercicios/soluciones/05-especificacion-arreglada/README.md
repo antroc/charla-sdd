@@ -1,117 +1,81 @@
-# Solución del ejercicio 05: reparar una especificación
+# Solución del ejercicio 05: arreglar una especificación mala
 
-> **Para quién:** quien haya terminado la revisión del ejercicio 05 · **Tiempo de lectura:** ~5 min, más la auditoría ampliada · **Nivel:** 🟡 intermedio
+> **Para quién:** quien haya terminado el ejercicio 05 · **Tiempo de lectura:** ~6 min, más la revisión comentada · **Nivel:** 🟡 intermedio
 
-Esta portada explica cómo corregir el [ejercicio 05](../../05-arreglar-una-especificacion-mala.md). La [auditoría ampliada](../05-especificacion-arreglada.md) conserva todos los problemas encontrados y una versión corregida de las secciones principales.
+Esta carpeta reúne la solución del [ejercicio 05](../../05-arreglar-una-especificacion-mala.md). La auditoría desarrollada está en [revision-comentada.md](revision-comentada.md).
 
 ## Mínimo esperado
 
-El ejercicio está conseguido cuando has identificado y explicado **12 problemas relevantes**:
+El ejercicio se considera resuelto cuando se identifican y corrigen **12 problemas relevantes**:
 
-- al menos 2 de alcance o priorización;
-- al menos 2 en requisitos;
-- al menos 2 en criterios de éxito;
-- al menos 2 contradicciones con la constitución;
-- 4 adicionales que puedan cambiar lo que se construye.
+- dos de alcance o prioridad;
+- dos de requisitos funcionales;
+- dos de criterios de éxito;
+- dos contradicciones con la constitución;
+- cuatro problemas adicionales que puedan cambiar el producto construido.
 
-Además debes:
-
-- reescribir los requisitos afectados;
-- reescribir los criterios de éxito afectados;
-- anotar qué decisiones necesitan una aclaración de Ana;
-- pasar la lista de verificación sobre lo corregido;
-- explicar qué partes seguirían pendientes antes de planificar.
-
-No es necesario encontrar los 46 matices de la auditoría ampliada.
+No hace falta localizar todas las erratas ni reproducir la auditoría completa.
 
 ## Criterios de corrección
 
-| Tipo de problema | Ejemplo válido | No basta con… |
+| Área | Correcto | Bloquea si… |
 |---|---|---|
-| Alcance | Estadísticas y catering aparecen antes que reservar | Decir «es demasiado grande» sin localizarlo |
-| Prioridad | La primera historia no resuelve el problema principal | Cambiar números sin justificar el valor independiente |
-| Requisito | Mezcla tecnología, es vago, doble o no tiene condición | Corregir solo la gramática |
-| Criterio de éxito | No tiene cifra o mide un detalle técnico | Sustituir «rápido» por «muy rápido» |
-| Constitución | Guarda datos de más o elimina pruebas obligatorias | Citar el principio sin explicar el choque |
-| Aclaración | Falta decidir permisos, límites o excepciones | Inventar la respuesta |
-| Coherencia | Dos secciones usan reglas o términos distintos | Señalar únicamente una errata |
+| Alcance | La primera versión queda acotada | Se añaden funciones no solicitadas o «todo entra» |
+| Historias | La P1 resuelve el problema principal | La prioridad se basa en lo vistoso o lo fácil de programar |
+| Requisitos | Son comprobables, atómicos y sin tecnología | Usan adjetivos vagos, mezclan capacidades o contradicen la constitución |
+| Criterios de éxito | Incluyen cifra y forma de medida | Se limitan a «rápido», «fácil» o «la gente estará contenta» |
+| Aclaraciones | Cierran decisiones y actualizan la spec | Quedan como preguntas sueltas o respuestas solo en el chat |
+| Checklist | Señala lo que todavía falta | Se marca todo como correcto sin evidencia |
 
-Un mismo fragmento puede contener varios problemas, pero conviene contar como hallazgo cada decisión independiente que deba corregirse.
+Una clasificación distinta es válida si identifica el mismo riesgo y propone una corrección coherente.
 
 ## Solución razonada
 
-Una selección mínima de 12 problemas podría ser:
+La [revisión comentada](revision-comentada.md) contiene:
 
-1. La spec está marcada «lista para implementar» aunque contiene aclaraciones pendientes.
-2. El resumen fija React, Node.js, PostgreSQL y nube: tecnología dentro de la spec.
-3. Parking y catering amplían el alcance sin necesidad.
-4. «Ver estadísticas» aparece antes que la historia de reservar.
-5. Las historias no tienen prioridad, motivo ni prueba independiente.
-6. Los criterios «funciona bien» no son comprobables.
-7. No hay casos límite relevantes.
-8. Un requisito mezcla rapidez, intuición y facilidad de uso.
-9. Otro requisito permite reservas anónimas, contra la trazabilidad de la constitución.
-10. Un requisito se contradice al limitar a 4 horas y permitir reuniones de todo el día.
-11. Los criterios de éxito «más contenta» y «menos choques» no contienen cifras.
-12. La sección de datos personales guarda información innecesaria, contra «Datos mínimos».
+- una selección de doce problemas suficientes para resolver el ejercicio;
+- una posible reescritura de los requisitos funcionales;
+- criterios de éxito medibles;
+- preguntas de aclaración pendientes;
+- cambios necesarios en historias, casos límite, entidades, supuestos y alcance;
+- la forma correcta de usar la lista de verificación.
 
-### Requisitos corregidos: muestra mínima
+Los defectos más importantes no son las erratas. Son los que pueden provocar que se construya otra cosa:
 
-```text
-RF-001: El sistema deberá mostrar la lista de salas con su planta y aforo.
+1. tecnología dentro de la especificación;
+2. prioridades que no responden al problema principal;
+3. funciones añadidas sin petición;
+4. requisitos con varias interpretaciones;
+5. permisos y límites sin decidir;
+6. contradicciones con los principios del proyecto;
+7. criterios imposibles de medir;
+8. casos límite aplazados hasta la programación.
 
-RF-002: CUANDO una persona indica una fecha y una franja horaria,
-el sistema deberá mostrar qué salas están libres en esa franja.
-
-RF-003: CUANDO una persona confirma una reserva válida,
-el sistema deberá registrarla y mostrar una confirmación con sala, fecha y hora.
-
-RF-004: SI la franja solicitada se solapa con otra reserva de la misma sala,
-ENTONCES el sistema deberá rechazarla e indicar qué franja está ocupada.
-
-RF-005: MIENTRAS una sala esté marcada en mantenimiento,
-el sistema deberá impedir nuevas reservas en ella.
-
-RF-006: DONDE la persona tenga permisos de administración,
-el sistema deberá permitir marcar una sala en mantenimiento.
-```
-
-La corrección completa necesita también límites, cancelación o modificación, permisos sobre reservas ajenas, correo y responsable visible.
-
-### Criterios de éxito corregidos
-
-```text
-CE-001: Reservar una sala lleva menos de 1 minuto.
-CE-002: Existen cero reservas activas solapadas para una misma sala.
-CE-003: El 90 % de las personas completa una reserva sin ayuda en su primer intento.
-CE-004: La disponibilidad se muestra en menos de 2 segundos bajo la carga de prueba acordada.
-```
-
-La [auditoría ampliada](../05-especificacion-arreglada.md) explica el resto de problemas línea por línea y presenta una especificación corregida más completa.
+La especificación canónica de ReservaSalas está en [../03-reserva-salas/spec.md](../03-reserva-salas/spec.md), pero conviene abrirla después de terminar tu propia revisión.
 
 ## Alternativas válidas
 
-- Elegir otros 12 problemas, siempre que cubran las categorías exigidas y afecten al resultado.
-- Separar los límites de horario, duración y antelación en requisitos distintos.
-- Usar cifras diferentes en los criterios de éxito si quien encarga las aprueba.
-- Mantener alguna aclaración abierta y declarar que la spec todavía no está lista para planificar.
-- Corregir primero solo las secciones que pide el ejercicio y dejar las historias completas como trabajo posterior, indicándolo en la checklist.
+- Agrupar varios síntomas bajo una causa común, siempre que expliques su impacto.
+- Separar un requisito compuesto en varios requisitos más pequeños.
+- Utilizar otra numeración para RF y CE si no hay duplicados ni huecos confusos.
+- Proponer cifras distintas para los criterios de éxito si están señaladas como provisionales o confirmadas por quien encarga.
+- Detectar más de doce problemas, siempre que la revisión siga siendo útil y no se convierta en una búsqueda de estilo.
 
 ## Errores frecuentes
 
 | Error | Corrección |
 |---|---|
-| Intentar encontrar todos los problemas del ejemplo ampliado | Detente al cubrir 12 hallazgos relevantes y reescribir lo esencial |
-| Contar erratas como problemas funcionales | Prioriza decisiones que cambian alcance, reglas, datos o pruebas |
-| Copiar la especificación canónica sin explicar el fallo | Relaciona cada corrección con el fragmento original |
-| Dar por respondida una aclaración porque la solución la conoce | En una revisión real, la decisión corresponde a quien encarga |
-| Marcar la checklist completa aunque las historias sigan mal | Deja los ítems pendientes con una nota honesta |
+| Buscar solo erratas y gramática | Prioriza ambigüedades, contradicciones, alcance y trazabilidad |
+| Comparar desde el principio con la solución canónica | Revisa primero con la constitución y la checklist |
+| Reescribir todo sin explicar los fallos | Conserva una lista que relacione problema, impacto y arreglo |
+| Inventar las respuestas de negocio | Registra aclaraciones y deja que quien encarga decida |
+| Marcar la spec como lista porque los requisitos ya están corregidos | Revisa también historias, casos límite, supuestos y alcance |
 
 ## En tres frases
 
-1. Una buena revisión busca decisiones abiertas y contradicciones, no solo mala redacción.
-2. Doce problemas relevantes enseñan más que una lista exhaustiva sin correcciones.
-3. La spec solo está lista para el plan cuando los fallos bloqueantes y las aclaraciones importantes están cerrados.
+1. Revisar una spec consiste en detectar decisiones abiertas o contradictorias antes de que lleguen al plan y al código.
+2. Los requisitos se corrigen con condiciones, respuestas observables y una sola regla; los criterios, con cifras.
+3. Doce problemas que cambian el producto enseñan más que cuarenta correcciones de estilo.
 
 ## Volver al ejercicio
 

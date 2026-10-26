@@ -2,7 +2,7 @@
 
 > **Para quién:** participantes y facilitadores de la dinámica · **Tiempo de lectura:** ~5 min, más las tarjetas resueltas · **Nivel:** 🟢 básico
 
-Esta portada explica cómo evaluar el [ejercicio 04](../../04-dinamica-de-equipo-20-minutos.md). El desarrollo completo de las seis tarjetas está en [Dinámica de equipo resuelta](../04-dinamica-de-equipo-resuelta.md).
+Esta carpeta reúne la solución del [ejercicio 04](../../04-dinamica-de-equipo-20-minutos.md). El desarrollo de las seis tarjetas está en [tarjetas-resueltas.md](tarjetas-resueltas.md).
 
 ## Mínimo esperado
 
@@ -31,7 +31,7 @@ No penalices que dos grupos tomen decisiones distintas: en la dinámica muchas p
 
 ## Solución razonada
 
-Las [seis tarjetas resueltas](../04-dinamica-de-equipo-resuelta.md) muestran una posible salida para:
+[tarjetas-resueltas.md](tarjetas-resueltas.md) muestra una posible salida para:
 
 1. plazas de parking;
 2. dudas de nóminas;
@@ -63,8 +63,6 @@ RF-005: CUANDO una persona cancela su plaza, el sistema deberá liberarla para o
 Aclaraciones: prioridad de asignación, hora límite y tratamiento de plazas accesibles.
 Fuera de alcance: abonos mensuales, visitas y control de acceso físico.
 ```
-
-El resto de respuestas se desarrolla en el fichero ampliado.
 
 ## Alternativas válidas
 
