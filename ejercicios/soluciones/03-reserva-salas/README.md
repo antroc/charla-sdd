@@ -2,7 +2,7 @@
 
 > **Para quién:** quien haya recorrido el flujo completo del ejercicio 03 · **Tiempo de lectura:** ~10 min, más los artefactos · **Nivel:** 🟡 intermedio
 
-Esta solución reúne los artefactos de referencia de [ReservaSalas paso a paso](../../03-reserva-salas-paso-a-paso.md). Se generaron siguiendo las acciones SDD en orden; no dependen de la sintaxis, las carpetas ni la configuración de un asistente concreto.
+Esta carpeta reúne los artefactos de referencia de [ReservaSalas paso a paso](../../03-reserva-salas-paso-a-paso.md). Se generaron siguiendo las acciones SDD en orden; no dependen de la sintaxis, las carpetas ni la configuración de un asistente concreto.
 
 ## Mínimo esperado
 
@@ -46,7 +46,7 @@ Lee los artefactos en este orden:
 4. [checklist.md](checklist.md): comprobación funcional antes del plan.
 5. [plan.md](plan.md): arquitectura, datos, pruebas y contraste con la constitución.
 6. [tasks.md](tasks.md): orden de implementación y dependencias.
-7. [Pasos 7 a 10](../03-reserva-salas-pasos-7-a-10.md): análisis, implementación, cambio de 30 a 60 días y reflexión.
+7. [pasos-7-a-10.md](pasos-7-a-10.md): análisis, implementación, cambio de 30 a 60 días y reflexión.
 
 ### Correspondencia entre acciones y resultados
 
@@ -58,7 +58,7 @@ Lee los artefactos en este orden:
 | `checklist` | [checklist.md](checklist.md) |
 | `plan` | [plan.md](plan.md) |
 | `tasks` | [tasks.md](tasks.md) |
-| `analyze` | Informe descrito en [Pasos 7 a 10](../03-reserva-salas-pasos-7-a-10.md) |
+| `analyze` | Informe descrito en [pasos-7-a-10.md](pasos-7-a-10.md) |
 | `implement` | Código y pruebas generados en el proyecto de quien realiza el ejercicio |
 | `converge` | Detección de trabajo pendiente tras cambios o implementación |
 
